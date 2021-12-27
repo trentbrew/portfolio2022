@@ -22,7 +22,7 @@
     @drag:end="eHandler"
   >
     <div class="block">
-      <div class="drag-container-1">drag_1</div>
+      <div class="window-header">new window</div>
       <div class="table-container">
         <table>
           <tr>
@@ -35,7 +35,6 @@
           </tr>
         </table>
       </div>
-      <div class="drag-container-2">drag_2</div>
     </div>
   </vue-resizable>
 </template>
@@ -57,17 +56,20 @@ export default {
       top: `calc(50% - ${tH / 2}px)`,
       height: tH,
       width: tW,
-      maxW: 250,
-      maxH: 250,
       minW: 100,
       minH: 100,
+      //maxW: 400,
+      //maxH: 400,
       fit: true,
       event: "",
-      dragSelector: ".drag-container-1, .drag-container-2",
+      dragSelector: ".window-header",
     };
   },
   props: {},
-  computed: {},
+  computed: {
+    maxW: () => window.innerWidth - 72,
+    maxH: () => window.innerHeight - 96,
+  },
   mounted() {
     console.clear();
     console.log("Window.vue mounted");
@@ -92,25 +94,26 @@ export default {
 <style lang="scss" scoped>
 .resizable {
   background-position: top left;
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   padding: 0;
-  border: 1px solid #003eff;
-  background: #007fff;
+  background: white;
   font-weight: normal;
-  color: #ffffff;
+  color: black;
   position: relative;
+  border-radius: $rad;
 }
 
-.drag-container-1,
-.drag-container-2 {
+.window-header {
   width: 100%;
-  height: 20px;
+  height: $top_height;
   background: red;
   color: white;
   text-align: center;
+  border-radius: $rad $rad 0px 0px;
   cursor: pointer;
 }
+
 #block1 {
   border: solid black 1px;
   height: 300px;
