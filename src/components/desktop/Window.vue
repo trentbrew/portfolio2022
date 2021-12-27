@@ -21,17 +21,17 @@
     @drag:start="eHandler"
     @drag:end="eHandler"
   >
-    <div class="block">
-      <div class="window-header">new window</div>
+    <div class="window-container">
+      <div class="window-header">{{ title }}</div>
       <div class="table-container">
         <table>
           <tr>
-            <td>w:{{ width }}</td>
-            <td>h:{{ height }}</td>
+            <td>W:{{ width }}</td>
+            <td>H:{{ height }}</td>
           </tr>
           <tr>
-            <td>l:{{ left }}</td>
-            <td>t:{{ top }}</td>
+            <td>L:{{ left }}</td>
+            <td>T:{{ top }}</td>
           </tr>
         </table>
       </div>
@@ -48,27 +48,26 @@ export default {
     VueResizable,
   },
   data() {
-    const tW = 150;
-    const tH = 150;
     return {
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
-      left: `calc( 50% - ${tW / 2}px)`,
-      top: `calc(50% - ${tH / 2}px)`,
-      height: tH,
-      width: tW,
-      minW: 100,
-      minH: 100,
-      //maxW: 400,
-      //maxH: 400,
+      left: 36,
+      top: 60,
+      height: 400,
+      width: 600,
+      minW: 300,
+      minH: 300,
       fit: true,
       event: "",
       dragSelector: ".window-header",
     };
   },
-  props: {},
+  props: {
+    index: Number,
+    title: String,
+  },
   computed: {
-    maxW: () => window.innerWidth - 72,
-    maxH: () => window.innerHeight - 96,
+    maxW: () => window.innerWidth,
+    maxH: () => window.innerHeight,
   },
   mounted() {
     console.clear();
@@ -77,8 +76,8 @@ export default {
   methods: {
     eHandler(data) {
       this.width = data.width;
-      this.height = data.height;
       this.left = data.left;
+      this.height = data.height;
       this.top = data.top;
       this.event = data.eventName;
     },
@@ -94,14 +93,15 @@ export default {
 <style lang="scss" scoped>
 .resizable {
   background-position: top left;
-  width: 300px;
-  height: 300px;
   padding: 0;
   background: white;
   font-weight: normal;
   color: black;
-  position: relative;
+  position: absolute !important;
   border-radius: $rad;
+  box-sizing: border-box;
+  margin-top: $bezel_width + $top_height;
+  margin-left: $bezel_width;
 }
 
 .window-header {
@@ -111,14 +111,5 @@ export default {
   color: white;
   text-align: center;
   border-radius: $rad $rad 0px 0px;
-  cursor: pointer;
-}
-
-#block1 {
-  border: solid black 1px;
-  height: 300px;
-  width: 300px;
-  display: inline-block;
-  float: left;
 }
 </style>

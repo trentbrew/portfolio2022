@@ -1,8 +1,9 @@
 <template>
   <div class="desktop-container">
-    <div class="desktop">
+    <div ref="desktop" class="desktop">
       <!-- append windows here -->
-      <Window />
+      <Window :id="0" :title="'window 1'" />
+      <Window :id="1" :title="'window 2'" />
     </div>
   </div>
 </template>
@@ -16,7 +17,15 @@ export default {
     Window,
   },
   props: {},
-  computed: {},
+  mounted() {
+    console.log("Desktop.vue mounted");
+    console.log("window count: ", this.getWindowCount());
+  },
+  methods: {
+    getWindowCount() {
+      return this.$refs.desktop.children.length;
+    },
+  },
 };
 </script>
 
