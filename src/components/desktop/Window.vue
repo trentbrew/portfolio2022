@@ -21,20 +21,18 @@
     @drag:start="eHandler"
     @drag:end="eHandler"
   >
-    <div class="window-container">
+    <div
+      class="window-container"
+      @click="windowClicked"
+    >
       <div class="window-header">{{ title }}</div>
-      <div class="table-container">
-        <table>
-          <tr>
-            <td>W:{{ width }}</td>
-            <td>H:{{ height }}</td>
-          </tr>
-          <tr>
-            <td>L:{{ left }}</td>
-            <td>T:{{ top }}</td>
-          </tr>
-        </table>
-      </div>
+      <div class="window-body">
+          <p>W:{{ width }}</p>
+          <p>H:{{ height }}</p>
+          <p>L:{{ left }}</p>
+          <p>T:{{ top }}</p>
+        </div>
+      </table>
     </div>
   </vue-resizable>
 </template>
@@ -62,7 +60,7 @@ export default {
     };
   },
   props: {
-    index: Number,
+    id: Number,
     title: String,
   },
   computed: {
@@ -80,6 +78,9 @@ export default {
       this.height = data.height;
       this.top = data.top;
       this.event = data.eventName;
+    },
+    windowClicked() {
+      console.log("active window: ", this.id);
     },
   },
   filters: {
@@ -111,5 +112,13 @@ export default {
   color: white;
   text-align: center;
   border-radius: $rad $rad 0px 0px;
+}
+
+.window-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background: orange;
 }
 </style>

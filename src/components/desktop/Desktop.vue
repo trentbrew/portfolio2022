@@ -16,6 +16,10 @@ export default {
   components: {
     Window,
   },
+  data() {
+    return {};
+  },
+  computed: {},
   props: {},
   mounted() {
     console.log("Desktop.vue mounted");
@@ -34,17 +38,10 @@ export default {
   background: #8ac6d1;
   height: $ui_height;
   width: 100%;
-  border-radius: 0px 0px $rad $rad;
+  border-radius: $rad;
 }
 
-.container {
-  width: 300px;
-  height: 300px;
-  display: inline-block;
-  border: 1px solid #dddddd;
-  background: #ffffff;
-  color: #333333;
-  float: left;
-  margin: 10px;
+.desktop-container {
+  background: linear-gradient(black, $japanese_indigo);
 }
 </style>
