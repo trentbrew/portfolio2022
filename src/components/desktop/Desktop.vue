@@ -2,7 +2,7 @@
   <div class="desktop-container">
     <div ref="desktop" class="desktop">
       <!-- append windows here -->
-      <Window :index="0" :title="'Window 1'" />
+      <Window :test="true" :index="0" :title="'test window'" />
       <Window :index="1" :title="'Window 2'" />
     </div>
   </div>

@@ -26,14 +26,20 @@
       class="window-container"
       @mousedown="windowSelected"
     >
-      <div class="window-header">{{ title }} ({{ index }})</div>
-      <div class="window-body" :style="`height:${height - 24}px;`">
+      <div class="window-header">{{ title }}</div>
+
+        <div v-if="test" class="window-body" :style="`height:${height - 24}px;`">
           <span>W: <b>{{ width }}</b></span><br>
           <span>H: <b>{{ height }}</b></span><br>
           <span>X: <b>{{ left }}</b></span><br>
           <span>Y: <b>{{ top }}</b></span>
         </div>
-      </table>
+
+        <div v-if="!test" class="window-body" :style="`height:${height - 24}px;`">
+          hi
+        </div>
+
+      </div>
     </div>
   </vue-resizable>
 </template>
@@ -62,6 +68,7 @@ export default {
     };
   },
   props: {
+    test: Boolean,
     index: Number,
     title: String,
   },
@@ -110,6 +117,7 @@ export default {
   box-sizing: border-box;
   margin-top: $bezel_width + $top_height;
   margin-left: $bezel_width;
+  transition: opacity 200ms;
 }
 
 .window-header {
@@ -118,7 +126,7 @@ export default {
   justify-content: center;
   width: 100%;
   height: $top_height;
-  background: red;
+  background: $primary;
   color: white;
   text-align: center;
   border-radius: $rad $rad 0px 0px;
@@ -131,19 +139,21 @@ export default {
   align-items: center;
   height: 100%;
   background: white;
-  border-radius: 0px 0px $rad $rad;
+  border-radius: $rad;
 }
 
 .active {
   z-index: 9999 !important;
+  background: $primary;
 }
 
 .inactive {
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: 0 !important;
+  background: $japanese_indigo;
 
   .window-header {
-    background: gray !important;
+    background: $japanese_indigo !important;
   }
 }
 </style>
