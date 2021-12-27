@@ -36,7 +36,7 @@
         </div>
 
         <div v-if="!test" class="window-body" :style="`height:${height - 24}px;`">
-          hi
+          hello from gitpod (:
         </div>
 
       </div>
