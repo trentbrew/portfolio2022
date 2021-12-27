@@ -2,8 +2,8 @@
   <div class="desktop-container">
     <div ref="desktop" class="desktop">
       <!-- append windows here -->
-      <Window :id="0" :title="'window 1'" />
-      <Window :id="1" :title="'window 2'" />
+      <Window :index="0" :title="'Window 1'" />
+      <Window :index="1" :title="'Window 2'" />
     </div>
   </div>
 </template>

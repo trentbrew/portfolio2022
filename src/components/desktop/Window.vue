@@ -1,6 +1,7 @@
 <template>
   <vue-resizable
     class="resizable"
+    :class="selectedWindow != index ? 'inactive' : 'active'"
     ref="resizableComponent"
     :dragSelector="dragSelector"
     :active="handlers"
@@ -23,14 +24,14 @@
   >
     <div
       class="window-container"
-      @click="windowClicked"
+      @mousedown="windowSelected"
     >
-      <div class="window-header">{{ title }}</div>
-      <div class="window-body">
-          <p>W:{{ width }}</p>
-          <p>H:{{ height }}</p>
-          <p>L:{{ left }}</p>
-          <p>T:{{ top }}</p>
+      <div class="window-header">{{ title }} ({{ index }})</div>
+      <div class="window-body" :style="`height:${height - 24}px;`">
+          <span>W: <b>{{ width }}</b></span><br>
+          <span>H: <b>{{ height }}</b></span><br>
+          <span>X: <b>{{ left }}</b></span><br>
+          <span>Y: <b>{{ top }}</b></span>
         </div>
       </table>
     </div>
@@ -48,8 +49,8 @@ export default {
   data() {
     return {
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
-      left: 36,
-      top: 60,
+      left: 0,
+      top: 0,
       height: 400,
       width: 600,
       minW: 300,
@@ -57,10 +58,11 @@ export default {
       fit: true,
       event: "",
       dragSelector: ".window-header",
+      selectedWindow: 0
     };
   },
   props: {
-    id: Number,
+    index: Number,
     title: String,
   },
   computed: {
@@ -70,6 +72,11 @@ export default {
   mounted() {
     console.clear();
     console.log("Window.vue mounted");
+    this.left = 120 + (this.index * 120);
+    this.top = 120 + (this.index * 120);
+    this.$root.$on('windowSelected', id => {
+        this.selectedWindow = id;
+    });
   },
   methods: {
     eHandler(data) {
@@ -79,8 +86,8 @@ export default {
       this.top = data.top;
       this.event = data.eventName;
     },
-    windowClicked() {
-      console.log("active window: ", this.id);
+    windowSelected() {
+      this.$root.$emit('windowSelected', this.index);
     },
   },
   filters: {
@@ -106,6 +113,9 @@ export default {
 }
 
 .window-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: $top_height;
   background: red;
@@ -116,9 +126,24 @@ export default {
 
 .window-body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  background: orange;
+  height: 100%;
+  background: white;
+  border-radius: 0px 0px $rad $rad;
+}
+
+.active {
+  z-index: 9999 !important;
+}
+
+.inactive {
+  opacity: 0.8;
+  z-index: 0 !important;
+
+  .window-header {
+    background: gray !important;
+  }
 }
 </style>
