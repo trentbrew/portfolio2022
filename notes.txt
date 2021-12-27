@@ -1,0 +1,37 @@
+based on gnome40
+*best viewed in fullscreen* (autofullscreen? prompt?)
+
+topbar items:
+    - chrome
+
+desktop items:
+    📁 client_work {
+        // opens up as web broswer window + text window w description
+        - nihal.tv
+        - ericzzli.com
+        - HGC
+        - kia portfolio
+        - leadershipwise
+        - HBRC
+        - Decker? }
+    - resume
+    - blog
+    - art
+    - 
+
+dock items:
+- All apps btn
+- terminal (about me)
+- email (send me a message) ~ open working email client in a subwindow
+- sonic gx2
+- doodle app (leave me a drawing / message <3)
+- social media (my socials)
+    - twitter
+    - instagram
+    - linkedin
+
+
+------------------------
+
+
+
