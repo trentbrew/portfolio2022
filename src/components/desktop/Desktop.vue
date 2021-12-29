@@ -2,7 +2,7 @@
   <div class="desktop-container">
     <div ref="desktop" class="desktop">
       <!-- append windows here -->
-      <Window :test="true" :index="0" :title="'test window'" />
+      <Window :index="0" :title="'Test Window'" :test="true" />
       <Window :index="1" :title="'Window 2'" />
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .desktop {
-  background: #8ac6d1;
+  background: #dbdfe5;
   height: $ui_height;
   width: 100%;
   border-radius: $rad;

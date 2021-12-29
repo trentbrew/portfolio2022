@@ -26,7 +26,9 @@
       class="window-container"
       @mousedown="windowSelected"
     >
-      <div class="window-header">{{ title }}</div>
+      <div class="window-header">
+        <div class="window-title">{{ title }}</div>
+      </div>
 
         <div v-if="test" class="window-body" :style="`height:${height - 24}px;`">
           <span>W: <b>{{ width }}</b></span><br>
@@ -132,6 +134,14 @@ export default {
   border-radius: $rad $rad 0px 0px;
 }
 
+.window-title {
+  cursor: default;
+}
+
+.window-controls {
+  
+}
+
 .window-body {
   display: flex;
   flex-direction: column;
@@ -150,10 +160,11 @@ export default {
 .inactive {
   opacity: 0.7;
   z-index: 0 !important;
-  background: $japanese_indigo;
+  background: $gray;
 
   .window-header {
-    background: $japanese_indigo !important;
+    background: $gray !important;
+    color: black;
   }
 }
 </style>
