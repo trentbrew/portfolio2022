@@ -1,13 +1,8 @@
-$window_back: #cccccc;
-$window_light: #dddddd;
-$window_border: #f4efd3;
-
-$hover: #bbbbbb;
-$hover_border: #cccccc;
-
 $white: #fff;
 $black: #000;
 $gray: #ccc;
+$light_gray: #e0e0e0;
+$lighter_gray: #f6f6f6;
 
 $primary: blue;
 $green: #a8e6cf;
@@ -19,6 +14,57 @@ $blue: #8ac6d1;
 $japanese_indigo: #3b454e;
 
 $top_height: 24px;
+$dock_height: 48px;
 $bezel_width: 36px;
 $ui_height: calc(100vh - 72px - 2em);
 $rad: 24px;
+
+$quick: 200ms;
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.flex {
+    display: flex;
+}
+
+.fill-screen {
+    width: 100%;
+    height: 100vh;
+}

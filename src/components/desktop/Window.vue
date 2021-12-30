@@ -30,17 +30,15 @@
         <div class="window-title">{{ title }}</div>
       </div>
 
-        <div v-if="test" class="window-body" :style="`height:${height - 24}px;`">
-          <span>W: <b>{{ width }}</b></span><br>
-          <span>H: <b>{{ height }}</b></span><br>
-          <span>X: <b>{{ left }}</b></span><br>
-          <span>Y: <b>{{ top }}</b></span>
-        </div>
+      <div v-if="test" class="window-body" :style="`height:${height - 24}px;`">
+        <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
+        <span>H: <b>{{ height.toFixed(0) }}</b></span><br>
+        <span>X: <b>{{ left.toFixed(0) }}</b></span><br>
+        <span>Y: <b>{{ top.toFixed(0) }}</b></span>
+      </div>
 
-        <div v-if="!test" class="window-body" :style="`height:${height - 24}px;`">
-          hello from gitpod (:
-        </div>
-
+      <div v-if="!test" class="window-body" :style="`height:${height - 24}px;`">
+        hello from gitpod (:
       </div>
     </div>
   </vue-resizable>
@@ -119,7 +117,7 @@ export default {
   box-sizing: border-box;
   margin-top: $bezel_width + $top_height;
   margin-left: $bezel_width;
-  transition: opacity 200ms;
+  transition: opacity $quick;
 }
 
 .window-header {
