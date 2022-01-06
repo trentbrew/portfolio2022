@@ -1,13 +1,13 @@
 <template>
-  <div class="intro-container flex-center fill-screen" :style="hovering ? 'background: #333438;' : ''">
+  <div class="intro-container flex-center fill-screen" :style="hovering ? 'background: #1B1C1F' : ''">
     <div v-if="!unveil" class="veil absolute flex-center fill-screen">
       <svg height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#6C819C" stroke-width="200"/>
-        <path class="path2" d="M560 300H193.5" stroke="#6C819C" stroke-width="200"/>
-        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#6C819C" stroke-width="200"/>
+        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="white" stroke-width="200"/>
+        <path class="path2" d="M560 300H193.5" stroke="white" stroke-width="200"/>
+        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="white" stroke-width="200"/>
       </svg>
     </div>
-    <div class="window flex-center" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="handleClick">
+    <div class="window flex-center" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" @click="handleClick">
       <div class="laptop-aura"></div>
       <div class="laptop">
         <div class="base">
@@ -49,7 +49,8 @@ export default {
     return {
       unveil: false,
       clicked: false,
-      hovering: false
+      hovering: false,
+      allowClick: false
     };
   },
   mounted() {
@@ -58,9 +59,24 @@ export default {
     }, 7500);
   },
   methods: {
+    handleMouseEnter() {
+      this.hovering = true;
+      setTimeout(() => {
+        this.allowClick = true;
+      }, 1200);
+      console.log('mouseenter');
+    },
+    handleMouseLeave() {
+      this.hovering = false;
+      this.allowClick = false;
+      console.log('mouseleave');
+    },
     handleClick() {
-      console.log('clicked laptop');
-      this.clicked = true;
+      console.log(this.allowClick);
+      if (this.allowClick) {
+        this.clicked = true;
+        console.log('valid click ✅');
+      }
     },
   },
 };
@@ -68,13 +84,15 @@ export default {
 
 <style lang="scss" scoped>
 $hover-transition: 1s;
-$base-timing: 1200ms;
+$base-timing: 1s;
 $base-ease: ease;
-$base-delay: 0ms;
+$base-delay: 0s;
 
-$lid-timing: 1200ms;
-$lid-ease: ease-out;
-$lid-delay: 0s;
+$lid-timing-in: 1s;
+$lid-timing-out: 400ms;
+$lid-ease: ease;
+$lid-delay-out: 0ms;
+$lid-delay-in: 600ms;
 
 $keyboard_color: $dark;
 $trackpad_color: $dark;
@@ -126,14 +144,14 @@ $laptop_width: 15em;
 }
 
 .intro-container {
-  transition: 1.5s;
+  transition: 1s;
   background: $dark;
 }
 
 .veil {
-  background: $dark2;
+  background: $dark;
   z-index: 999;
-  animation: unveil 3s ease forwards 6.3s;
+  animation: unveil 4s ease forwards 6.3s;
 }
 
 svg {
@@ -168,7 +186,7 @@ svg {
   font-size: 15px;
   transform: scale(2);
   cursor: pointer;
-  animation: pulse 2s ease infinite 6.3s;
+  animation: pulse 2s ease infinite 7s;
 }
 
 .laptop-aura {
@@ -176,10 +194,12 @@ svg {
   margin: auto;
   left: 0; right: 0;
   top: 0; bottom: 0;
-  height: $laptop_height * 0.3;
-  width: $laptop_width * 0.3;
-  box-shadow: 0 0 0 0 rgba($primary, 0.2);
-  animation: pulse 2s ease infinite 6.3s;
+  opacity: 1;
+  height: $laptop_height * 0.15;
+  width: $laptop_width * 0.25;
+  box-shadow: 0 0 0 0 rgba($primary, 0.1);
+  animation: pulse 2s ease infinite 7s;
+  transition: 500ms;
 }
 
 .laptop {
@@ -189,13 +209,12 @@ svg {
   left: 2.5em;
   top: 4.5em;
   transform: rotateZ(180deg);
-  //box-shadow: $light_shadow;
   transform-style: preserve-3d;
-  transition: all $base-timing $base-ease;
+  transition: all $base-timing;
+  //box-shadow: $light_shadow;
 }
 
 .window:hover {
-  //background: red;
   animation-play-state: paused;
 }
 
@@ -206,15 +225,17 @@ svg {
 }
 
 .window:hover .laptop-aura {
-  animation-delay: 600ms;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
   animation-play-state: paused;
-  box-shadow: 0 0 0 0 rgba($laptop_color, 0);
+  //transition-delay: 2s;
 }
 
 .window:hover .laptop .base:after {
-  bottom: 100%;
+  /*bottom: 100%;
   filter: blur(1em);
-  background: #0000;
+  background: #0000;*/
 }
 
 .laptop .base {
@@ -225,13 +246,13 @@ svg {
 }
 
 .laptop .base:after {
-  content: '';
+ /* content: '';
   position: absolute;
   bottom: .2em; top: .2em;
   left: .2em; right: .2em;
   background: #00000022; // screen glow
   transition: all 2000ms;
-  filter: blur(.1em);
+  filter: blur(.1em);*/
 }
 
 .laptop .base .side {
@@ -270,7 +291,7 @@ svg {
   background: $laptop_color;
   top: 0; bottom: 0;
   left: 0; right: 0;
-  transform: translateZ(-.3em) rotateX(-180deg);
+  transform: translateZ(-0.3em) rotateX(-180deg);
 }
 
 .laptop .base .side.right {
@@ -323,13 +344,15 @@ svg {
   position: absolute;
   left: 0; right: 0;
   top: 0; bottom: 0;
-  transition: $lid-timing $lid-ease $lid-delay;
+  transition: $lid-timing-out $lid-ease $lid-delay-out;
   transform-origin: top;
   transform-style: preserve-3d;
 }
 
 .window:hover .laptop .lid { // open lid
   transform: rotateX(115deg);
+  transition-delay: $lid-delay-in;
+  transition-duration: $lid-timing-in; 
 }
 
 .laptop .side {
