@@ -1,13 +1,14 @@
 <template>
-  <div class="intro-container flex-center fill-screen">
+  <div class="intro-container flex-center fill-screen" :style="hovering ? 'background: #333438;' : ''">
     <div v-if="!unveil" class="veil absolute flex-center fill-screen">
       <svg height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200"/>
-        <path class="path2" d="M560 300H193.5" stroke="#3B454E" stroke-width="200"/>
-        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#3B454E" stroke-width="200"/>
+        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#6C819C" stroke-width="200"/>
+        <path class="path2" d="M560 300H193.5" stroke="#6C819C" stroke-width="200"/>
+        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#6C819C" stroke-width="200"/>
       </svg>
     </div>
-    <div class="window">
+    <div class="window flex-center" @mouseenter="hovering = true" @mouseleave="hovering = false" @click="handleClick">
+      <div class="laptop-aura"></div>
       <div class="laptop">
         <div class="base">
           <div class="side top"></div>
@@ -20,7 +21,11 @@
         <div class="lid">
           <div class="side top"></div>
           <div class="side bottom">
-            <div class="screen"><img src="https://c.neevacdn.net/image/fetch/s--cAHCxm0M--/https%3A//thesweetbits.com/wp-content/uploads/2021/04/iMac-hello-wallpaper.jpeg?savepath=iMac-hello-wallpaper.jpeg" width="100%" height="100%" alt=""></div>
+            <div class="screen">
+              <!--img src="https://c.neevacdn.net/image/fetch/s--cAHCxm0M--/https%3A//thesweetbits.com/wp-content/uploads/2021/04/iMac-hello-wallpaper.jpeg?savepath=iMac-hello-wallpaper.jpeg" width="100%" height="100%" alt=""-->
+              <!--Desktop class="mini-desktop" /-->
+              <!-- TODO : Add screenshot of desktop -->
+            </div>
           </div>
           <div class="side right"></div>
           <div class="side left"></div>
@@ -33,12 +38,18 @@
 </template>
 
 <script>
+import Desktop from '@/components/desktop/Desktop.vue';
+
 export default {
   name: "Intro",
-  components: {},
+  components: {
+    Desktop
+  },
   data() {
     return {
-      unveil: false
+      unveil: false,
+      clicked: false,
+      hovering: false
     };
   },
   mounted() {
@@ -46,32 +57,87 @@ export default {
       this.unveil = true;
     }, 7500);
   },
-  methods: {},
+  methods: {
+    handleClick() {
+      console.log('clicked laptop');
+      this.clicked = true;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-$base-timing: 1500ms;
+$hover-transition: 1s;
+$base-timing: 1200ms;
 $base-ease: ease;
 $base-delay: 0ms;
 
-$lid-timing: 1500ms;
+$lid-timing: 1200ms;
 $lid-ease: ease-out;
-$lid-delay: 0ms;
+$lid-delay: 0s;
 
-$keyboard_color: #3B454E;
-$trackpad_color: #CFD5DB;
+$keyboard_color: $dark;
+$trackpad_color: $dark;
 
-$laptop_color: #EDEDF1;
+$laptop_color: $dark2;
+$laptop_height: 11em;
+$laptop_width: 15em;
+
+@keyframes settle {
+  to {
+    transform: scale(2.4);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(2);
+  }
+  70% {
+    transform: scale(2.3);
+    box-shadow: 0 0 0 50px rgba($keyboard_color, 0);
+  }
+  100% {
+    transform: scale(2);
+    box-shadow: 0 0 0 0 rgba($keyboard_color, 0);
+  }
+}
+
+@keyframes unveil {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes logo-shrink {
+  to {
+    height: 36px;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.mini-desktop {
+   zoom: 0.154;
+}
+
+.intro-container {
+  transition: 1.5s;
+  background: $dark;
+}
 
 .veil {
-  background: $lighter_gray;
+  background: $dark2;
   z-index: 999;
-  animation: unveil 1s ease forwards 6s;
+  animation: unveil 3s ease forwards 6.3s;
 }
 
 svg {
-  transform: translate(0px, 1px);
+  transform: translate(1px, 1px);
   animation: logo-shrink 3.5s cubic-bezier(0.87, 0, 0.13, 1) forwards 3s;
 }
 
@@ -93,66 +159,62 @@ svg {
   animation: draw 2.78s cubic-bezier(0, 0.55, 0.45, 1) forwards 3.66s;
 }
 
-@keyframes unveil {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes logo-shrink {
-  to {
-    height: 24px;
-  }
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes enter-laptop {
-  to {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-}
-
-.intro-container {
-  background: $white;
-}
-
 .window {
   height: 20em;
   width: 20em;
   position: relative;
   perspective: 90em;
   opacity: 1;
-  transform: scale(1.4);
   font-size: 15px;
+  transform: scale(2);
   cursor: pointer;
-  transition: 800ms;
-  //animation: enter-laptop 5s ease forwards 5s;
+  animation: pulse 2s ease infinite 6.3s;
+}
 
-  &:hover {
-    transform: scale(1.6);
-  }
+.laptop-aura {
+  position: absolute;
+  margin: auto;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  height: $laptop_height * 0.3;
+  width: $laptop_width * 0.3;
+  box-shadow: 0 0 0 0 rgba($primary, 0.2);
+  animation: pulse 2s ease infinite 6.3s;
 }
 
 .laptop {
-  height: 11em;
-  width: 15em;
+  height: $laptop_height;
+  width: $laptop_width;
   position: absolute;
   left: 2.5em;
   top: 4.5em;
   transform: rotateZ(180deg);
+  //box-shadow: $light_shadow;
   transform-style: preserve-3d;
   transition: all $base-timing $base-ease;
 }
 
+.window:hover {
+  //background: red;
+  animation-play-state: paused;
+}
+
 .window:hover .laptop {
+  box-shadow: none;
   transform: rotateZ(0deg) rotateY(0deg) rotateX(65deg);
   top: 9em;
+}
+
+.window:hover .laptop-aura {
+  animation-delay: 600ms;
+  animation-play-state: paused;
+  box-shadow: 0 0 0 0 rgba($laptop_color, 0);
+}
+
+.window:hover .laptop .base:after {
+  bottom: 100%;
+  filter: blur(1em);
+  background: #0000;
 }
 
 .laptop .base {
@@ -170,12 +232,6 @@ svg {
   background: #00000022; // screen glow
   transition: all 2000ms;
   filter: blur(.1em);
-}
-
-.window:hover .laptop .base:after {
-  bottom: 100%;
-  filter: blur(1em);
-  background: #0000;
 }
 
 .laptop .base .side {
@@ -196,7 +252,7 @@ svg {
   top: .5em; bottom: 5.5em;
   border-radius: .5em;
   background-color: $keyboard_color;
-  background-image: repeating-linear-gradient(0deg, transparent 0, transparent .8em, $trackpad_color .9em, $trackpad_color 1em), repeating-linear-gradient(90deg, transparent 0, transparent 0.9em, $trackpad_color 0.9em, $trackpad_color 1.1em);
+  background-image: repeating-linear-gradient(0deg, transparent 0, transparent .8em, $laptop_color .9em, $laptop_color 1em), repeating-linear-gradient(90deg, transparent 0, transparent 0.9em, $laptop_color 0.9em, $laptop_color 1.1em);
 }
 
 .laptop .base .side.top:after { // trackpad
@@ -214,7 +270,7 @@ svg {
   background: $laptop_color;
   top: 0; bottom: 0;
   left: 0; right: 0;
-  transform: translateZ(-.3em) rotateX(180deg);
+  transform: translateZ(-.3em) rotateX(-180deg);
 }
 
 .laptop .base .side.right {
@@ -322,7 +378,7 @@ svg {
   content: '';
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;
-  background-image: linear-gradient(25deg, transparent 25%, #fff1 27%, #fff4 40%, transparent 45%);
+  //background-image: linear-gradient(25deg, transparent 25%, #fff1 27%, #fff4 40%, transparent 45%);
   background-position: 0% 300%;
   background-size: 40em 40em;
   transition: all 800ms;
@@ -370,4 +426,5 @@ svg {
   overflow: hidden;
   //border-top: .3em solid rgba(0,0,0,0.2);
 }
+
 </style>

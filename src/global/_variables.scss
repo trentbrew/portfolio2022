@@ -4,7 +4,7 @@ $gray: #ccc;
 $light_gray: #e0e0e0;
 $lighter_gray: #f6f6f6;
 
-$primary: blue;
+$primary: #6C819C;
 $green: #a8e6cf;
 $yellow: #dcedc1;
 $orange: #ffd3b6;
@@ -12,12 +12,16 @@ $red: #ffaaa5;
 $purple: #c2b0c9;
 $blue: #8ac6d1;
 $japanese_indigo: #3b454e;
+$dark: #212225;
+$dark2: #2A2B2E;
 
 $top_height: 24px;
 $dock_height: 48px;
 $bezel_width: 36px;
 $ui_height: calc(100vh - 72px - 2em);
 $rad: 24px;
+
+$light_shadow: 0px -6px 32px 6px rgba(0,0,0,0.1);
 
 $quick: 200ms;
 
