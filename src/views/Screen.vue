@@ -30,7 +30,8 @@ export default {
 <style lang="scss" scoped>
 .ui {
   width: 100%;
+  height: 100vh;
   box-sizing: border-box;
-  border: solid $bezel_width $japanese_indigo;
+  border: solid $bezel_width $dark;
 }
 </style>

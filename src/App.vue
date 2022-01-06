@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Intro />
+    <Screen />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 body {
-  background: $japanese_indigo;
+  background: $dark;
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;

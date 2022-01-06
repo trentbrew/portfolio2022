@@ -42,6 +42,6 @@ export default {
 }
 
 .desktop-container {
-  background: linear-gradient(black, $japanese_indigo);
+  background: linear-gradient(black, $dark);
 }
 </style>
