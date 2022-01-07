@@ -1,40 +1,47 @@
 <template>
-  <div class="intro-container flex-center fill-screen" :style="hovering ? 'background: #1B1C1F' : ''">
+<div class="root">
+  <div class="intro-container flex-center fill-screen" :style="hovering ? ( clicked ? 'background: #CFD5DB' : 'background: #BCC3C9' ) : ''">
     <div v-if="!unveil" class="veil absolute flex-center fill-screen">
-      <svg height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="white" stroke-width="200"/>
-        <path class="path2" d="M560 300H193.5" stroke="white" stroke-width="200"/>
-        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="white" stroke-width="200"/>
+      <svg :class="clicked ? 'disappear' : '' " height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200"/>
+        <path class="path2" d="M560 300H193.5" stroke="#3B454E" stroke-width="200"/>
+        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#3B454E" stroke-width="200"/>
       </svg>
     </div>
-    <div class="window flex-center" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" @click="handleClick">
-      <div class="laptop-aura"></div>
-      <div class="laptop">
-        <div class="base">
-          <div class="side top"></div>
-          <div class="side bottom"></div>
-          <div class="side right"></div>
-          <div class="side left"></div>
-          <div class="side front"></div>
-          <div class="side back"></div>
-        </div>
-        <div class="lid">
-          <div class="side top"></div>
-          <div class="side bottom">
-            <div class="screen">
-              <!--img src="https://c.neevacdn.net/image/fetch/s--cAHCxm0M--/https%3A//thesweetbits.com/wp-content/uploads/2021/04/iMac-hello-wallpaper.jpeg?savepath=iMac-hello-wallpaper.jpeg" width="100%" height="100%" alt=""-->
-              <!--Desktop class="mini-desktop" /-->
-              <!-- TODO : Add screenshot of desktop -->
-            </div>
+    <div class="zoomable" :class="clicked ? 'zoomed' : ''">
+      <div :class="clicked ? 'next window flex-center' : 'window flex-center' " @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" @click="handleClick">
+        <div class="laptop-aura"></div>
+        <div class="laptop">
+          <div :class="clicked ? 'blackout disappear' : ''" class="base">
+            <div :class="clicked ? 'blackout' : ''" class="side top"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side bottom"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side right"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side left"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side front"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side back"></div>
           </div>
-          <div class="side right"></div>
-          <div class="side left"></div>
-          <div class="side front"></div>
-          <div class="side back"></div>
+          <div :class="clicked ? 'blackout' : ''" class="lid">
+            <div :class="clicked ? 'blackout' : ''" class="side top"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side bottom">
+              <div class="screen">
+                <!--img src="https://media.giphy.com/media/Lny6Rw04nsOOc/giphy.gif" width="100%" height="100%" alt=""-->
+                <!--Desktop class="mini-desktop" /-->
+                <!-- TODO : Add screenshot of desktop -->
+              </div>
+            </div>
+            <div :class="clicked ? 'blackout' : ''" class="side right"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side left"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side front"></div>
+            <div :class="clicked ? 'blackout' : ''" class="side back"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <!--div class="desktop-modal absolute">
+    
+  </div-->
+</div>
 </template>
 
 <script>
@@ -56,7 +63,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.unveil = true;
-    }, 7500);
+    }, 8000);
   },
   methods: {
     handleMouseEnter() {
@@ -72,11 +79,14 @@ export default {
       console.log('mouseleave');
     },
     handleClick() {
-      console.log(this.allowClick);
+      /*console.log(this.allowClick);
       if (this.allowClick) {
         this.clicked = true;
         console.log('valid click ✅');
-      }
+        setTimeout(() => {
+          console.log('routing to desktop...');
+        }, 3000);
+      }*/
     },
   },
 };
@@ -88,18 +98,23 @@ $base-timing: 1s;
 $base-ease: ease;
 $base-delay: 0s;
 
-$lid-timing-in: 1s;
+$lid-timing-in: 2s;
 $lid-timing-out: 400ms;
 $lid-ease: ease;
 $lid-delay-out: 0ms;
 $lid-delay-in: 600ms;
 
-$keyboard_color: $dark;
-$trackpad_color: $dark;
+$trackpad_color: #CFD5DB;
+$keyboard_color: #3B454E;
+$keyboard_frame_color: #48545E;
 
-$laptop_color: $dark2;
+$laptop_color: #EDEDF1;
 $laptop_height: 11em;
 $laptop_width: 15em;
+
+$pulse_delay: 7.6s;
+
+$background: $trackpad_color;
 
 @keyframes settle {
   to {
@@ -129,7 +144,7 @@ $laptop_width: 15em;
 
 @keyframes logo-shrink {
   to {
-    height: 36px;
+    height: 35px;
   }
 }
 
@@ -139,23 +154,64 @@ $laptop_width: 15em;
   }
 }
 
+.desktop-modal {
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(blue, 0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  pointer-events: none;
+}
+
+.zoomed {
+  //opacity: 0;
+  transform: scale(3.8) translateY(120px);
+  transition-timing-function: cubic-bezier(0.36, 0, 0.66, -0.66);
+  transition-delay: 600ms;
+}
+
+.zoomable {
+  transition: 3s;
+}
+
+.disappear {
+  opacity: 0;
+  transition: 3s ease;
+}
+
+.blackout {
+  background: #00000000 !important;
+  transition: 3s ease;
+}
+
+.next {
+  transition: 3s cubic-bezier(0.36, 0, 0.66, -0.56);
+  transition-delay: 0s !important;
+  transform: translateZ(300px);
+}
+
 .mini-desktop {
    zoom: 0.154;
 }
 
 .intro-container {
   transition: 1s;
-  background: $dark;
+  background: $background;
 }
 
 .veil {
-  background: $dark;
+  background: $background;
   z-index: 999;
   animation: unveil 4s ease forwards 6.3s;
 }
 
 svg {
-  transform: translate(1px, 1px);
+  transform: translate(0px, 0px);
   animation: logo-shrink 3.5s cubic-bezier(0.87, 0, 0.13, 1) forwards 3s;
 }
 
@@ -186,7 +242,7 @@ svg {
   font-size: 15px;
   transform: scale(2);
   cursor: pointer;
-  animation: pulse 2s ease infinite 7s;
+  animation: pulse 2s ease infinite $pulse_delay;
 }
 
 .laptop-aura {
@@ -197,8 +253,8 @@ svg {
   opacity: 1;
   height: $laptop_height * 0.15;
   width: $laptop_width * 0.25;
-  box-shadow: 0 0 0 0 rgba($primary, 0.1);
-  animation: pulse 2s ease infinite 7s;
+  box-shadow: 0 0 0 0 rgba($laptop_color, 1);
+  animation: pulse 2s ease infinite $pulse_delay;
   transition: 500ms;
 }
 
@@ -210,7 +266,7 @@ svg {
   top: 4.5em;
   transform: rotateZ(180deg);
   transform-style: preserve-3d;
-  transition: all $base-timing;
+  transition: all $base-timing ease
   //box-shadow: $light_shadow;
 }
 
@@ -242,6 +298,7 @@ svg {
   position: absolute;
   left: 0; right: 0;
   top: 0; bottom: 0;
+  transition: 3s;
   transform-style: preserve-3d;
 }
 
@@ -273,7 +330,7 @@ svg {
   top: .5em; bottom: 5.5em;
   border-radius: .5em;
   background-color: $keyboard_color;
-  background-image: repeating-linear-gradient(0deg, transparent 0, transparent .8em, $laptop_color .9em, $laptop_color 1em), repeating-linear-gradient(90deg, transparent 0, transparent 0.9em, $laptop_color 0.9em, $laptop_color 1.1em);
+  background-image: repeating-linear-gradient(0deg, transparent 0, transparent .8em, $keyboard_frame_color .9em, $keyboard_frame_color 1em), repeating-linear-gradient(90deg, transparent 0, transparent 0.9em, $keyboard_frame_color 0.9em, $keyboard_frame_color 1.1em);
 }
 
 .laptop .base .side.top:after { // trackpad
@@ -445,7 +502,7 @@ svg {
   left: .2em; right: .2em;
   border-radius: .1em;
   //background: linear-gradient(to bottom right, #FFF152, #FFA84A);
-  background: $blue;
+  background: $trackpad_color;
   overflow: hidden;
   //border-top: .3em solid rgba(0,0,0,0.2);
 }
