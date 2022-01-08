@@ -94,23 +94,25 @@ export default {
 
 <style lang="scss" scoped>
 $hover-transition: 1s;
+
 $base-timing: 1s;
 $base-ease: ease;
 $base-delay: 0s;
 
-$lid-timing-in: 2s;
+$lid-timing-in: 1s;
 $lid-timing-out: 400ms;
-$lid-ease: ease;
+$lid-ease-in: ease;
+$lid-ease-out: ease;
 $lid-delay-out: 0ms;
-$lid-delay-in: 600ms;
-
-$trackpad_color: #CFD5DB;
-$keyboard_color: #3B454E;
-$keyboard_frame_color: #48545E;
+$lid-delay-in: 800ms;
 
 $laptop_color: #EDEDF1;
 $laptop_height: 11em;
 $laptop_width: 15em;
+
+$trackpad_color: #CFD5DB;
+$keyboard_color: #3B454E;
+$keyboard_frame_color: $trackpad_color;
 
 $pulse_delay: 7.6s;
 
@@ -328,7 +330,7 @@ svg {
   position: absolute;
   left: 1em; right: 1em;
   top: .5em; bottom: 5.5em;
-  border-radius: .5em;
+  border-radius: .1em;
   background-color: $keyboard_color;
   background-image: repeating-linear-gradient(0deg, transparent 0, transparent .8em, $keyboard_frame_color .9em, $keyboard_frame_color 1em), repeating-linear-gradient(90deg, transparent 0, transparent 0.9em, $keyboard_frame_color 0.9em, $keyboard_frame_color 1.1em);
 }
@@ -337,9 +339,9 @@ svg {
   content: '';
   position: absolute;
   left: 4.5em; right: 4.5em;
-  top: 6em; bottom: 1em;
+  top: 6.5em; bottom: 1em;
   background: $trackpad_color;
-  border-radius: .5em;
+  border-radius: .1em;
   //border: .05em solid #0003;
 }
 
@@ -401,13 +403,14 @@ svg {
   position: absolute;
   left: 0; right: 0;
   top: 0; bottom: 0;
-  transition: $lid-timing-out $lid-ease $lid-delay-out;
+  transition: $lid-timing-out $lid-ease-out $lid-delay-out;
   transform-origin: top;
   transform-style: preserve-3d;
 }
 
 .window:hover .laptop .lid { // open lid
   transform: rotateX(115deg);
+  transition-timing-function: $lid-ease-in;
   transition-delay: $lid-delay-in;
   transition-duration: $lid-timing-in; 
 }
