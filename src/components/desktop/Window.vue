@@ -116,8 +116,7 @@ export default {
   border-radius: $rad;
   box-sizing: border-box;
   margin-top: $bezel_width + $top_height;
-  margin-left: $bezel_width;
-  //transition: opacity $quick;
+  margin-left: 12px;
 }
 
 .window-header {
