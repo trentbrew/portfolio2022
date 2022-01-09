@@ -4,14 +4,16 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  /*{
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    // component: () => import('../views/About.vue')
-  }*/
+  {
+    path: '/',
+    name: 'Intro',
+    component: () => import('@/views/Intro.vue')
+  },
+  {
+    path: '/desktop',
+    name: 'Desktop',
+    component: () => import('@/views/Screen.vue')
+  }
 ];
 
 const router = new VueRouter({

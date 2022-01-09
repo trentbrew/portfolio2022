@@ -1,24 +1,12 @@
 <template>
   <div id="app">
-    <Intro />
+    <router-view />
   </div>
 </template>
 
-<script>
-import Intro from "@/views/Intro.vue";
-import Screen from "@/views/Screen.vue";
-
-export default {
-  components: {
-    Intro,
-    Screen,
-  },
-};
-</script>
-
 <style lang="scss">
 body {
-  background: $dark;
+  background: $bezel_color;
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;

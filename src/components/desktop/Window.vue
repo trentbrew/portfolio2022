@@ -117,7 +117,7 @@ export default {
   box-sizing: border-box;
   margin-top: $bezel_width + $top_height;
   margin-left: $bezel_width;
-  transition: opacity $quick;
+  //transition: opacity $quick;
 }
 
 .window-header {

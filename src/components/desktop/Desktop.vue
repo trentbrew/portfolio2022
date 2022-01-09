@@ -42,6 +42,6 @@ export default {
 }
 
 .desktop-container {
-  background: linear-gradient(black, $dark);
+  background: linear-gradient(black, $bezel_color);
 }
 </style>
