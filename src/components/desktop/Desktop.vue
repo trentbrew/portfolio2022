@@ -2,8 +2,9 @@
   <div class="desktop-container">
     <div ref="desktop" class="desktop">
       <!-- append windows here -->
-      <Window :index="0" :title="'Test Window'" :test="true" />
-      <Window :index="1" :title="'Window 2'" />
+      <Window :index="0" :title="'<0> Test Window'" :test="true" />
+      <Window :index="1" :title="'<1> Window 2'" />
+      <Window :index="2" :title="'<2> Slotted'"><h1>slotted content</h1></Window>
     </div>
   </div>
 </template>
