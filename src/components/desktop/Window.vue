@@ -28,7 +28,7 @@
     >
       <div class="window-border">
         <div class="window-header">
-          <div class="window-title">{{ title }}</div>
+          <div class="window-title"><span>{{ title }}</span></div>
         </div>
 
         <div class="window-body" :style="`height:${height - 24}px;`">
@@ -124,6 +124,7 @@ export default {
   padding: 6px;
   border-radius: $rad;
   box-sizing: content-box;
+  backdrop-filter: blur(36px);
 }
 
 .window-header {
@@ -139,6 +140,7 @@ export default {
 
 .window-title {
   cursor: default;
+  transform: translateY(-3px);
 }
 
 .window-controls {
@@ -151,24 +153,33 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: white;
+  background: rgba(black, 0.2);
   border-radius: 12px;
 }
 
 .active {
   z-index: 9999 !important;
+
+  .window-title {
+    color: black !important;
+    font-weight: bold;
+    opacity: 0.8;
+  }
 }
 
 .inactive {
   z-index: 0 !important;
 
   .window-header {
-    background: $gray !important;
-    color: black;
+    color: white;
+  }
+
+  .window-title {
+    opacity: 0.5;
   }
 
   .window-border {
-    background: $gray;
+    background: $inactive_window;
   }
 }
 </style>

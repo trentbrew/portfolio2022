@@ -14,9 +14,10 @@ $blue: #8ac6d1;
 $japanese_indigo: #3b454e;
 $dark: #212225;
 $dark2: #2A2B2E;
-$bezel_color: $japanese_indigo;
+$bezel_color: black;
 
-$active_window: rgba(blue, 0.3);
+$active_window: rgba(white, 0.5);
+$inactive_window: rgba(gray, 0.5);
 
 $top_height: 24px;
 $dock_height: 48px;

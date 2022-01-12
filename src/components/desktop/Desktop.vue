@@ -36,7 +36,8 @@ export default {
 
 <style lang="scss" scoped>
 .desktop {
-  background: #dfe7ef;
+  //background: #dfe7ef;
+  background: black;
   height: $ui_height;
   width: 100%;
   border-radius: $rad;
