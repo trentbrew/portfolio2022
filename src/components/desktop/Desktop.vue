@@ -2,9 +2,9 @@
   <div class="desktop-container">
     <div ref="desktop" class="desktop">
       <!-- append windows here -->
-      <Window :index="0" :title="'<0> Test Window'" :test="true" />
-      <Window :index="1" :title="'<1> Window 2'" />
-      <Window :index="2" :title="'<2> Slotted'"><h1>slotted content</h1></Window>
+      <Window :index="0" :title="'< 0 > Test Window'" :test="true" />
+      <Window :index="1" :title="'< 1 > Window 2'" />
+      <Window :index="2" :title="'< 2 > Slotted'"><p>slotted content</p></Window>
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .desktop {
-  background: #dbdfe5;
+  background: #dfe7ef;
   height: $ui_height;
   width: 100%;
   border-radius: $rad;

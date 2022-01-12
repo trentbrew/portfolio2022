@@ -16,13 +16,15 @@ $dark: #212225;
 $dark2: #2A2B2E;
 $bezel_color: $japanese_indigo;
 
+$active_window: rgba(blue, 0.3);
+
 $top_height: 24px;
 $dock_height: 48px;
 $bezel_width: 32px;
 $ui_height: calc(100vh - 88px);
-$rad: 12px;
+$rad: 18px;
 
-$light_shadow: 0px -6px 32px 6px rgba(0,0,0,0.1);
+$light_shadow: 0px -12px 32px 6px rgba(0,0,0,0.04);
 
 $quick: 200ms;
 

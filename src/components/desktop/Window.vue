@@ -26,17 +26,19 @@
       class="window-container"
       @mousedown="windowSelected"
     >
-      <div class="window-header">
-        <div class="window-title">{{ title }}</div>
-      </div>
+      <div class="window-border">
+        <div class="window-header">
+          <div class="window-title">{{ title }}</div>
+        </div>
 
-      <div class="window-body" :style="`height:${height - 24}px;`">
-        <slot>
-          <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
-          <span>H: <b>{{ height.toFixed(0) }}</b></span><br>
-          <span>X: <b>{{ left.toFixed(0) }}</b></span><br>
-          <span>Y: <b>{{ top.toFixed(0) }}</b></span>
-        </slot>
+        <div class="window-body" :style="`height:${height - 24}px;`">
+          <slot>
+            <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
+            <span>H: <b>{{ height.toFixed(0) }}</b></span><br>
+            <span>X: <b>{{ left.toFixed(0) }}</b></span><br>
+            <span>Y: <b>{{ top.toFixed(0) }}</b></span>
+          </slot>
+        </div>
       </div>
     </div>
   </vue-resizable>
@@ -107,14 +109,21 @@ export default {
 .resizable {
   background-position: top left;
   padding: 0;
-  background: white;
   font-weight: normal;
   color: black;
   position: absolute !important;
   border-radius: $rad;
-  box-sizing: border-box;
+  box-sizing: content-box;
   margin-top: $bezel_width + $top_height;
+  margin-bottom: 16px;
   margin-left: 12px;
+}
+
+.window-border {
+  background: $active_window;
+  padding: 6px;
+  border-radius: $rad;
+  box-sizing: content-box;
 }
 
 .window-header {
@@ -123,10 +132,9 @@ export default {
   justify-content: center;
   width: 100%;
   height: $top_height;
-  background: $primary;
   color: white;
   text-align: center;
-  border-radius: $rad $rad 0px 0px;
+  border-radius: 12px 12px 0px 0px;
 }
 
 .window-title {
@@ -144,22 +152,23 @@ export default {
   align-items: center;
   height: 100%;
   background: white;
-  border-radius: $rad;
+  border-radius: 12px;
 }
 
 .active {
   z-index: 9999 !important;
-  background: $primary;
 }
 
 .inactive {
-  opacity: 0.7;
   z-index: 0 !important;
-  background: $gray;
 
   .window-header {
     background: $gray !important;
     color: black;
+  }
+
+  .window-border {
+    background: $gray;
   }
 }
 </style>
