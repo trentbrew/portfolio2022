@@ -27,6 +27,7 @@
                 <!--img src="https://media.giphy.com/media/Lny6Rw04nsOOc/giphy.gif" width="100%" height="100%" alt=""-->
                 <!--Desktop class="mini-desktop" /-->
                 <!-- TODO : Add screenshot of desktop -->
+                <video type="video/mp4" muted autoplay loop src="../assets/big_sur_animated.mp4" width="100%" height="100%"></video>
               </div>
             </div>
             <div :class="clicked ? 'blackout' : ''" class="side right"></div>
@@ -154,6 +155,10 @@ $background: $trackpad_color;
   to {
     stroke-dashoffset: 0;
   }
+}
+
+video {
+  object-fit: cover;
 }
 
 .desktop-modal {

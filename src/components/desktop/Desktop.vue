@@ -36,8 +36,10 @@ export default {
 
 <style lang="scss" scoped>
 .desktop {
-  //background: #dfe7ef;
-  background: black;
+  background-image: url('../../assets/macos_wallpaper.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   height: $ui_height;
   width: 100%;
   border-radius: $rad;

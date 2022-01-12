@@ -16,8 +16,8 @@ $dark: #212225;
 $dark2: #2A2B2E;
 $bezel_color: black;
 
-$active_window: rgba(white, 0.5);
-$inactive_window: rgba(gray, 0.5);
+$active_window: rgba(white, 0.4);
+$inactive_window: rgba(black, 0.1);
 
 $top_height: 24px;
 $dock_height: 48px;
@@ -25,7 +25,8 @@ $bezel_width: 32px;
 $ui_height: calc(100vh - 88px);
 $rad: 18px;
 
-$light_shadow: 0px -12px 32px 6px rgba(0,0,0,0.04);
+$light_shadow: 0px 6px 24px 6px rgba(0,0,0,0.15);
+$tight_shadow: 0px 6px 12px 6px rgba(0,0,0,0.05);
 
 $quick: 200ms;
 

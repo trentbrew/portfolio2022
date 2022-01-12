@@ -79,8 +79,8 @@ export default {
   mounted() {
     console.clear();
     console.log("Window.vue mounted");
-    this.left = 120 + (this.index * 120);
-    this.top = 120 + (this.index * 120);
+    this.left = 60 + (this.index * 120);
+    this.top = 60 + (this.index * 120);
     this.$root.$on('windowSelected', id => {
         this.selectedWindow = id;
     });
@@ -117,11 +117,12 @@ export default {
   margin-top: $bezel_width + $top_height;
   margin-bottom: 16px;
   margin-left: 12px;
+  box-shadow: $light_shadow;
 }
 
 .window-border {
   background: $active_window;
-  padding: 6px;
+  padding: 12px;
   border-radius: $rad;
   box-sizing: content-box;
   backdrop-filter: blur(36px);
@@ -133,7 +134,6 @@ export default {
   justify-content: center;
   width: 100%;
   height: $top_height;
-  color: white;
   text-align: center;
   border-radius: 12px 12px 0px 0px;
 }
@@ -153,15 +153,16 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: rgba(black, 0.2);
+  background: white;
   border-radius: 12px;
+  box-shadow: $light_shadow;
 }
 
 .active {
   z-index: 9999 !important;
 
   .window-title {
-    color: black !important;
+    color: rgba(black, 0.6);
     font-weight: bold;
     opacity: 0.8;
   }
@@ -170,12 +171,9 @@ export default {
 .inactive {
   z-index: 0 !important;
 
-  .window-header {
-    color: white;
-  }
-
   .window-title {
-    opacity: 0.5;
+    color: rgba(black, 0.4);
+    font-weight: bold;
   }
 
   .window-border {
