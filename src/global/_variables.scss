@@ -14,19 +14,20 @@ $blue: #8ac6d1;
 $japanese_indigo: #3b454e;
 $dark: #212225;
 $dark2: #2A2B2E;
-$bezel_color: black;
 
 $active_window: rgba(white, 0.4);
-$inactive_window: rgba(black, 0.1);
+$inactive_window: rgba(black, 0.2);
 
 $top_height: 24px;
 $dock_height: 48px;
-$bezel_width: 32px;
 $ui_height: calc(100vh - 88px);
 $rad: 18px;
 
-$light_shadow: 0px 6px 24px 6px rgba(0,0,0,0.15);
-$tight_shadow: 0px 6px 12px 6px rgba(0,0,0,0.05);
+$bezel_color: #22272D;
+$bezel_width: 32px;
+
+$light_shadow: 0px 6px 36px 12px rgba(0,0,0,0.1);
+$tight_shadow: 0px 0px 12px 6px rgba(0,0,0,0.05);
 
 $quick: 200ms;
 
@@ -80,4 +81,10 @@ $quick: 200ms;
 
 .absolute {
     position: absolute;
+}
+
+iframe {
+    border-radius: 12px;
+    height: 100%;
+    width: 100%;
 }

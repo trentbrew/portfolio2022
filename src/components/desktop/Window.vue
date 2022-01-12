@@ -24,15 +24,20 @@
   >
     <div
       class="window-container"
-      @mousedown="windowSelected"
+      @mousedown.prevent="windowSelected"
     >
       <div class="window-border">
         <div class="window-header">
           <div class="window-title"><span>{{ title }}</span></div>
+          <div class="window-controls">
+            <button class="immersive"></button>
+            <button class="expand"></button>
+            <button class="exit"></button>
+          </div>
         </div>
 
         <div class="window-body" :style="`height:${height - 24}px;`">
-          <slot>
+          <slot id="slot">
             <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
             <span>H: <b>{{ height.toFixed(0) }}</b></span><br>
             <span>X: <b>{{ left.toFixed(0) }}</b></span><br>
@@ -106,6 +111,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#slot {
+  border-radius: $rad;
+}
+
 .resizable {
   background-position: top left;
   padding: 0;
@@ -131,20 +140,46 @@ export default {
 .window-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   height: $top_height;
   text-align: center;
   border-radius: 12px 12px 0px 0px;
-}
+  transform: translateY(-6px);
+  .window-title {
+    cursor: default;
+    margin-left: 8px;
+  }
 
-.window-title {
-  cursor: default;
-  transform: translateY(-3px);
-}
+  .immersive {
+    background-image: url('../../assets/black_immersive.svg');
+    background-size: 50%;
+  }
 
-.window-controls {
-  
+  .expand {
+    background-image: url('../../assets/black_expand.svg');
+    background-size: 60%;
+  }
+
+  .exit {
+    background-image: url('../../assets/black_exit.svg');
+    background-size: 50%;
+  }
+
+  .window-controls button {
+    height: 24px;
+    width: 24px;
+    border-radius: 100%;
+    border: none;
+    margin-left: 6px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-color: rgba(white, 0.3);
+    }
+  }
 }
 
 .window-body {
@@ -155,14 +190,14 @@ export default {
   height: 100%;
   background: white;
   border-radius: 12px;
-  box-shadow: $light_shadow;
+  box-shadow: $tight_shadow;
 }
 
 .active {
   z-index: 9999 !important;
 
   .window-title {
-    color: rgba(black, 0.6);
+    color: rgba(black, 0.8);
     font-weight: bold;
     opacity: 0.8;
   }
@@ -172,8 +207,12 @@ export default {
   z-index: 0 !important;
 
   .window-title {
-    color: rgba(black, 0.4);
+    color: rgba(white, 0.8);
     font-weight: bold;
+  }
+
+  .window-controls {
+    filter: invert(1);
   }
 
   .window-border {
