@@ -7,7 +7,7 @@
       padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; 
       z-index: ${getElevation()};
       display: ${exit ? 'none' : 'block'};
-      transition: ${preventTransitionParent ? '0ms' : '600ms' };
+      transition: ${preventTransitionParent ? '0ms' : '600ms'};
     `"
     :dragSelector="dragSelector"
     :active="handlers"
