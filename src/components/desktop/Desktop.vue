@@ -57,13 +57,13 @@ export default {
 }
 
 .desktop {
-  height: $ui_height;
+  height: calc(100vh - 88px);
   width: 100%;
   border-radius: $rad;
 }
 
 .desktop-container {
-  background: linear-gradient(black, $bezel_color);
+  background: linear-gradient($bezel_color, $bezel_color);
 }
 
 video {

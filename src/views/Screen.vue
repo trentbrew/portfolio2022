@@ -1,6 +1,5 @@
 <template>
   <div class="ui">
-    <Topbar />
     <Desktop />
     <Dock />
   </div>

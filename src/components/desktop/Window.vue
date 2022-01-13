@@ -89,8 +89,8 @@ export default {
   mounted() {
     console.clear();
     console.log("Window.vue mounted");
-    this.left = 60 + (this.index * 120);
-    this.top = 60 + (this.index * 120);
+    this.left = 60 + (this.index * 60);
+    this.top = 60 + (this.index * 60);
     this.$root.$on('windowSelected', id => {
         this.selectedWindow = id;
     });
@@ -138,7 +138,6 @@ export default {
   position: absolute !important;
   margin-top: $bezel_width;
   margin-left: 12px;
-  box-shadow: $light_shadow;
 }
 
 .window-border {
@@ -147,6 +146,7 @@ export default {
   border-radius: $rad;
   box-sizing: content-box;
   backdrop-filter: blur(36px);
+  box-shadow: $light_shadow;
 }
 
 .window-header {
