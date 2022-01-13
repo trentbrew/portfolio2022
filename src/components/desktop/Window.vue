@@ -246,17 +246,17 @@ export default {
 
   .immersive {
     background-image: url('../../assets/black_immersive.svg');
-    background-size: 45%;
+    background-size: 50%;
   }
 
   .expand {
     background-image: url('../../assets/black_expand.svg');
-    background-size: 55%;
+    background-size: 60%;
   }
 
   .close {
     background-image: url('../../assets/black_exit.svg');
-    background-size: 45%;
+    background-size: 50%;
   }
 
   .window-controls {
