@@ -43,12 +43,23 @@
           @mouseenter="togglePeek"
           @mouseleave="togglePeek"
           class="peek-trigger" 
-          :class="!windowState.immersive && 'not-peekable'"
-          :style="`${(windowState.peek ? 'height: 36px;' : (windowState.immersive && 'height: 12px;' ))} ${this.hang ? 'pointer-events: none;' : 'pointer-events: all;' }`"
+          :class="!windowState.immersive ? 'not-peekable' : 'hide'"
+          :style="`
+            ${
+              windowState.peek ? 
+              'height: 36px;' : 
+              windowState.immersive && 'height: 12px;'
+            } 
+            ${
+              this.hang ? 
+              'pointer-events: none;' : 
+              'pointer-events: all;' 
+            }
+            `"
           >
             <div class="window-title">
               <span>
-                {{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}
+                {{ title ? title : `Window ${id.substring(0,6)} (${index})` }}
               </span>
             </div>
             <div class="window-controls">
@@ -59,7 +70,7 @@
           </div>
           <div class="window-title">
             <span>
-              {{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}
+              {{ title ? title : `Window ${id.substring(0,6)} (${index})`  }}
             </span>
           </div>
           <div class="window-controls">
@@ -185,6 +196,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hide {
+  .window-title {
+    opacity: 0 !important;
+  }
+}
 .not-peekable {
   height: 36px;
   pointer-events: none !important;
