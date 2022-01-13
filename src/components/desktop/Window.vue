@@ -2,8 +2,11 @@
   <vue-resizable
     ref="resizableComponent"
     class="resizable"
-    :class="selectedWindow != index ? 'inactive' : 'active'"
-    :style="`padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; z-index: ${getElevation()}`"
+    :class="selectedWindow != id ? 'inactive' : 'active'"
+    :style="`
+      padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; 
+      z-index: ${getElevation()};
+    `"
     :dragSelector="dragSelector"
     :active="handlers"
     :fit-parent="fit"
@@ -166,6 +169,9 @@ export default {
   .window-title {
     cursor: default;
     margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .immersive {
@@ -181,6 +187,10 @@ export default {
   .exit {
     background-image: url('../../assets/black_exit.svg');
     background-size: 45%;
+  }
+
+  .window-controls {
+    min-width: 90px; 
   }
 
   .window-controls button {

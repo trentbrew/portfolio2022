@@ -43,8 +43,9 @@ export default {
     });
 
     this.$root.$on('windowSelected', id => {
-      console.log('window selected');
-      this.zBufferUpdate(id);
+      if (id != this.zBuffer[0]) {
+        this.zBufferUpdate(id);
+      }
     });
 
     this.pushWindow({
@@ -64,13 +65,7 @@ export default {
       this.zBufferUpdate(latest.id);
     },
     zBufferUpdate(id) {
-      this.zBuffer.push(id);
-      if (this.zBuffer.length > this.windows.length) {
-        this.zBuffer.splice(0,1);
-      }
-      console.clear();
-      console.log('zBuffer updated ✓', this.zBuffer.toString());
-      console.log('');
+      this.zBuffer = [id, ...this.zBuffer];
     },
     path(path) {
       if (path.substring(0,4) == 'http') { // embed from web

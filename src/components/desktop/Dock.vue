@@ -27,6 +27,6 @@ export default {
   width: 700px; // TODO: Set dock width to fit children
   height: $dock_height;
   border-radius: $rad * 2;
-  z-index: 9999;
+  z-index: 99999;
 }
 </style>
