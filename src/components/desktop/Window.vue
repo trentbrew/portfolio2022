@@ -65,7 +65,7 @@
             </div>
             <div class="window-controls">
               <button @click="deactivateImmersive" class="immersive immersive-active"></button>
-              <button @click="triggerExpand" class="expand"></button>
+              <button @click="toggleExpand" :class="windowState.expanded ? 'minimize' : 'expand'"></button>
               <button @click="triggerClose" class="close"></button>
             </div>
           </div>
@@ -76,7 +76,7 @@
           </div>
           <div class="window-controls">
             <button @click="triggerImmersive" class="immersive"></button>
-            <button @click="triggerExpand" class="expand"></button>
+            <button @click="toggleExpand" :class="windowState.expanded ? 'minimize' : 'expand'"></button>
             <button @click="triggerClose" class="close"></button>
           </div>
         </div>
@@ -114,8 +114,8 @@ export default {
       top: 0,
       width: 0,
       height: 0,
-      minW: 200,
-      minH: 200,
+      minW: 250,
+      minH: 250,
       fit: true,
       exit: false,
       hang: false,
@@ -186,8 +186,9 @@ export default {
         this.preventTransition = true;
       }, 200);
     },
-    triggerExpand() {
-      this.windowState.expanded = true;
+    toggleExpand() {
+      this.windowState.expanded = !this.windowState.expanded;
+      console.log('expanded? ', this.windowState.expanded);
     },
     triggerClose() {
       this.exit = true;
@@ -284,6 +285,11 @@ export default {
   .immersive {
     background-image: url('../../assets/black_immersive.svg');
     background-size: 50%;
+  }
+
+  .minimize {
+    background-image: url('../../assets/black_minimize.svg');
+    background-size: 60%;
   }
 
   .expand {
