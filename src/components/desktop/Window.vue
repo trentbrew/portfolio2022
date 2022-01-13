@@ -7,7 +7,7 @@
       padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; 
       z-index: ${getElevation()};
       display: ${exit ? 'none' : 'block'};
-      ${windowState.immersive && 'margin-top: 32px'}
+      transition: ${preventTransitionParent ? '0ms' : '600ms' };
     `"
     :dragSelector="dragSelector"
     :active="handlers"
@@ -85,7 +85,7 @@
         class="window-body" 
         :style="`
           height: ${( windowState.peek ? height - 48 : height - 24)}px; 
-          transition: ${preventTransition ? 0 : 100}ms;
+          transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
         `">
           <slot id="slot">
             <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
@@ -110,6 +110,7 @@ export default {
   data() {
     return {
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
+      prev: [],
       left: 0,
       top: 0,
       width: 0,
@@ -120,6 +121,7 @@ export default {
       exit: false,
       hang: false,
       preventTransition: true,
+      preventTransitionParent: true,
       event: "",
       dragSelector: ".window-header",
       selectedWindow: 0,
@@ -187,8 +189,23 @@ export default {
       }, 200);
     },
     toggleExpand() {
+      this.preventTransitionParent = false;
       this.windowState.expanded = !this.windowState.expanded;
-      console.log('expanded? ', this.windowState.expanded);
+      if (this.windowState.expanded) {
+        this.prev = [this.width, this.height, this.top, this.left];
+        this.width = this.maxW - 24;
+        this.height = this.maxH - 88;
+        this.top = 0;
+        this.left = 0;
+      } else {
+        this.width = this.prev[0];
+        this.height = this.prev[1];
+        this.top = this.prev[2];
+        this.left = this.prev[3];
+      }
+      setTimeout(() => {
+        this.preventTransitionParent = true;
+      }, 600);
     },
     triggerClose() {
       this.exit = true;
@@ -200,6 +217,10 @@ export default {
       this.top = data.top;
       this.event = data.eventName;
       this.windowSelected();
+      this.preventTransition = true;
+      setTimeout(() => {
+        this.preventTransition = false;
+      }, 2000);
     },
     windowSelected() {
       this.$root.$emit('windowSelected', this.id);
@@ -335,8 +356,8 @@ export default {
 .active {
   .window-title {
     color: rgba(white, 0.8);
-    //font-weight: bold;
-    opacity: 0.8;
+    font-weight: 400;
+    opacity: 1;
   }
 
   .window-controls {
@@ -346,7 +367,7 @@ export default {
 
 .inactive {
   .window-title {
-    color: rgba(black, 0.8);
+    color: rgba(black, 0.6);
     //font-weight: bold;
   }
 
