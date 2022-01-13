@@ -155,7 +155,7 @@ export default {
     this.width = this.initialWidth;
     this.height = this.initialHeight;
     const index = this.index;
-    this.left = 60 + (index * 60);
+    this.left = 60 + (index * 60); // TODO : set in random location
     this.top = 60 + (index * 60);
     this.$root.$on('windowSelected', id => {
       this.selectedWindow = id;
@@ -221,6 +221,10 @@ export default {
       this.event = data.eventName;
       this.windowSelected();
       this.preventTransition = true;
+      if (data.eventName == 'resize:move') {
+        this.windowState.expanded = false;
+        this.$parent.fullscreen = false;
+      }
       setTimeout(() => {
         this.preventTransition = false;
       }, 2000);
