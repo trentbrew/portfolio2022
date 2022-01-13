@@ -42,7 +42,7 @@ export default {
       e.key == 'w' && this.pushWindow({});
     });
 
-    this.$root.$on('windowSelected', id => {
+    this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
         this.zBufferUpdate(id);
       }
@@ -53,7 +53,7 @@ export default {
     });
   },
   destroyed() {
-    window.removeEventListener('keyup');
+    window.removeEventListener('keyup', (e) => {});
   },
   methods: {
     pushWindow(data) {

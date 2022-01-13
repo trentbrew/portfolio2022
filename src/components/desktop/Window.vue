@@ -32,7 +32,31 @@
       @mouseup.prevent="windowSelected"
     >
       <div class="window-border">
-        <div v-if="!windowState.immersive" class="window-header">
+        <div 
+        class="window-header"
+        :style="
+          !windowState.immersive || windowState.peek ? 
+          'height: 24px; opacity: 1;' : 
+          'height: 0px; opacity: 0;'
+        ">
+          <div 
+          @mouseenter="togglePeek"
+          @mouseleave="togglePeek"
+          class="peek-trigger" 
+          :class="!windowState.immersive && 'not-peekable'"
+          :style="`${(windowState.peek ? 'height: 36px;' : (windowState.immersive && 'height: 12px;' ))} ${this.hang ? 'pointer-events: none;' : 'pointer-events: all;' }`"
+          >
+            <div class="window-title">
+              <span>
+                {{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}
+              </span>
+            </div>
+            <div class="window-controls">
+              <button @click="triggerImmersive" class="immersive immersive-active"></button>
+              <button @click="triggerExpand" class="expand"></button>
+              <button @click="triggerClose" class="close"></button>
+            </div>
+          </div>
           <div class="window-title">
             <span>
               {{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}
@@ -77,10 +101,12 @@ export default {
       minH: 200,
       fit: true,
       exit: false,
+      hang: false,
       event: "",
       dragSelector: ".window-header",
       selectedWindow: 0,
       windowState: {
+        peek: false,
         immersive: false,
         expanded: false
       }
@@ -115,18 +141,20 @@ export default {
     });
   },
   methods: {
+    togglePeek() {
+      this.windowState.peek = !this.windowState.peek;
+    },
     triggerImmersive() {
-      console.log('immersive mode...');
+      this.hang = true;
+      setTimeout(() => {
+        this.hang = false;
+      }, 200);
       this.windowState.immersive = true;
     },
     triggerExpand() {
-      console.log('expanding window...');
       this.windowState.expanded = true;
     },
     triggerClose() {
-      /*this.$parent.windows = this.$parent.windows.filter(window => {
-        return window.id != this.id;
-      });*/
       this.exit = true;
     },
     eHandler(data) {
@@ -154,6 +182,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.not-peekable {
+  height: 36px;
+  pointer-events: none !important;
+  opacity: 0.2 !important;
+}
+
+.peek-trigger {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  pointer-events: all;
+  height: 36px;
+  width: 100%;
+  z-index: 9999;
+  opacity: 0.5;
+}
 
 .resizable {
   padding: 0;
@@ -182,6 +228,7 @@ export default {
   text-align: center;
   border-radius: 12px 12px 0px 0px;
   transform: translateY(-6px);
+  transition: 100ms;
   .window-title {
     cursor: default;
     margin-left: 8px;
