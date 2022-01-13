@@ -3,7 +3,7 @@
     ref="resizableComponent"
     class="resizable"
     :class="selectedWindow != index ? 'inactive' : 'active'"
-    :style="!windowState.immersive ? 'padding: 0px 0px 24px 0px' : 'padding: 0px 0px 0px 0px'"
+    :style="`padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; z-index: ${getElevation()}`"
     :dragSelector="dragSelector"
     :active="handlers"
     :fit-parent="fit"
@@ -29,11 +29,11 @@
     >
       <div class="window-border">
         <div v-if="!windowState.immersive" class="window-header">
-          <div class="window-title"><span>{{ title ? title : 'Window ' + (index + 1) }}</span></div>
+          <div class="window-title"><span>{{ title ? title : `Window ${index + 1} (${id})`  }}</span></div>
           <div class="window-controls">
-            <button @click="windowImmersive" class="immersive"></button>
-            <button @click="windowExpand" class="expand"></button>
-            <button @click="windowExit" class="exit"></button>
+            <button @click="triggerImmersive" class="immersive"></button>
+            <button @click="triggerExpand" class="expand"></button>
+            <button @click="triggerExit" class="exit"></button>
           </div>
         </div>
 
@@ -79,14 +79,14 @@ export default {
   },
   props: {
     index: Number,
+    id: String,
     title: String
   },
   computed: {
     maxW: () => window.innerWidth,
-    maxH: () => window.innerHeight,
+    maxH: () => window.innerHeight
   },
   mounted() {
-    console.log("Window.vue mounted");
     this.left = 60 + (this.index * 60);
     this.top = 60 + (this.index * 60);
     this.$root.$on('windowSelected', id => {
@@ -94,16 +94,19 @@ export default {
     });
   },
   methods: {
-    windowImmersive() {
+    triggerImmersive() {
       console.log('immersive mode...');
       this.windowState.immersive = true;
     },
-    windowExpand() {
+    triggerExpand() {
       console.log('expanding window...');
       this.windowState.expanded = true;
     },
-    windowExit() {
-      console.log('exiting window...');
+    triggerExit() {
+      console.log('exiting window ' + this.id);
+      this.$parent.windows.filter(window => {
+        return window.id == this.id;
+      });
     },
     eHandler(data) {
       this.width = data.width;
@@ -113,8 +116,12 @@ export default {
       this.event = data.eventName;
     },
     windowSelected() {
-      this.$root.$emit('windowSelected', this.index);
+      this.$root.$emit('windowSelected', this.id);
     },
+    getElevation() {
+      var buffer = this.$parent.zBuffer;
+      return 9999 + (buffer.length - buffer.indexOf(this.id));
+    }
   },
   filters: {
     checkEmpty(value) {
@@ -204,8 +211,6 @@ export default {
 }
 
 .active {
-  z-index: 9999 !important;
-
   .window-title {
     color: rgba(white, 0.8);
     //font-weight: bold;
@@ -218,8 +223,6 @@ export default {
 }
 
 .inactive {
-  z-index: 0 !important;
-
   .window-title {
     color: rgba(black, 0.8);
     //font-weight: bold;

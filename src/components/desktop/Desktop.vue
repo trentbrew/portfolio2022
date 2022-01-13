@@ -7,7 +7,9 @@
       <Window 
       v-for="(window, index) in windows" 
       :index="index"
+      :id="window.id"
       :title="window.title"
+      :windows="windows"
       >{{ window.content }}
       </Window>
     </div>
@@ -19,6 +21,7 @@
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
 import FileBrowser from "vuetify-file-browser";
+import { uid } from 'uid';
 
 export default {
   name: "Desktop",
@@ -29,18 +32,46 @@ export default {
   },
   data() {
     return {
-      windows: []
+      windows: [],
+      zBuffer: []
     };
   },
   mounted() {
-    this.windows.push({
-      title: 'Embed test',
-      content: 'o hai'
+    window.addEventListener('keyup', (e) => {
+      e.key == 'w' && this.pushWindow({});
+      console.log(this.windows);
+    });
+
+    this.$root.$on('windowSelected', id => {
+      console.log('window selected');
+      this.zBufferUpdate(id);
+    });
+
+    this.pushWindow({
+      content: '👋🏾'
     });
 
     console.log('windows ', this.windows);
   },
+  destroyed() {
+    window.removeEventListener('keyup');
+  },
   methods: {
+    pushWindow(data) {
+      this.windows.push(data);
+      var latest = this.windows[this.windows.length - 1];
+      latest.id = uid();
+      this.zBufferUpdate(latest.id);
+    },
+    zBufferUpdate(id) {
+      this.zBuffer.push(id);
+      if (this.zBuffer.length > this.windows.length) {
+        this.zBuffer.splice(0,1);
+      }
+      console.clear();
+      console.log('zBuffer updated ✓', this.zBuffer.toString());
+      console.log('');
+    },
     path(path) {
       if (path.substring(0,4) == 'http') { // embed from web
         var embed = document.createElement('iframe');
