@@ -34,6 +34,7 @@
     >
       <div class="window-border">
         <div 
+        @dblclick="toggleExpand"
         class="window-header"
         :style="
           !windowState.immersive || windowState.peek ? 
