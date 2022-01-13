@@ -70,10 +70,10 @@ export default {
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
       left: 0,
       top: 0,
-      height: 400,
+      minW: 200,
+      minH: 200,
       width: 600,
-      minW: 300,
-      minH: 300,
+      height: 400,
       fit: true,
       event: "",
       dragSelector: ".window-header",
@@ -87,13 +87,25 @@ export default {
   props: {
     index: Number,
     id: String,
-    title: String
+    title: String,
+    initialWidth: {
+      type: Number,
+      default: 600
+    },
+    initialHeight: {
+      type: Number,
+      default: 400
+    }
   },
   computed: {
     maxW: () => window.innerWidth,
-    maxH: () => window.innerHeight
+    maxH: () => window.innerHeight,
   },
   mounted() {
+    this.width = this.initialWidth;
+    this.height = this.initialHeight;
+    console.log('this.width: ', this.width);
+    console.log('this.height ', this.height);
     const index = this.index;
     this.left = 60 + (index * 60);
     this.top = 60 + (index * 60);
@@ -140,13 +152,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-@keyframes enter {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
 .resizable {
   padding: 0;

@@ -9,6 +9,8 @@
       :index="index"
       :id="window.id"
       :title="window.title"
+      :initialWidth="window.width"
+      :initialHeight="window.height"
       >{{ window.content }}
       </Window>
     </div>
@@ -47,10 +49,10 @@ export default {
     });
 
     this.pushWindow({
-      content: '👋🏾'
+      content: '👋🏾',
+      width: 300,
+      height: 400
     });
-
-    console.log('windows ', this.windows);
   },
   destroyed() {
     window.removeEventListener('keyup');
@@ -59,7 +61,7 @@ export default {
     pushWindow(data) {
       this.windows.push(data);
       var latest = this.windows[this.windows.length - 1];
-      latest.id = uid();
+      latest.id = uid(16);
       this.zBufferUpdate(latest.id);
     },
     zBufferUpdate(id) {
