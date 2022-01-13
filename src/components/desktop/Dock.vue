@@ -1,5 +1,5 @@
 <template>
-  <div class="dock-container"></div>
+  <div class="dock-container" :class="hide && 'hidden'"></div>
 </template>
 
 <script>
@@ -9,7 +9,9 @@ export default {
   data() {
     return {};
   },
-  props: {},
+  props: {
+    hide: Boolean
+  },
   computed: {},
   methods: {},
 };
@@ -27,6 +29,13 @@ export default {
   width: 700px; // TODO: Set dock width to fit children
   height: $dock_height;
   border-radius: $rad * 2;
+  transition: 600ms ease 100ms;
   z-index: 99999;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: 300ms;
 }
 </style>

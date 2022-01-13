@@ -192,6 +192,7 @@ export default {
     toggleExpand() {
       this.preventTransitionParent = false;
       this.windowState.expanded = !this.windowState.expanded;
+      this.$parent.fullscreen = this.windowState.expanded;
       if (this.windowState.expanded) {
         this.prev = [this.width, this.height, this.top, this.left];
         this.width = this.maxW - 24;
@@ -210,6 +211,7 @@ export default {
     },
     triggerClose() {
       this.exit = true;
+      this.$parent.fullscreen = false;
     },
     eHandler(data) {
       this.width = data.width;

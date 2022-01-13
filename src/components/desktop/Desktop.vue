@@ -1,5 +1,8 @@
 <template>
-  <div class="desktop-container" :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 88px);'">
+  <div 
+  class="desktop-container" 
+  :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 88px);'
+  ">
     <div class="backdrop">
       <video autoplay loop muted src="../../assets/big_sur_animated.mp4"></video>
     </div>
@@ -14,7 +17,7 @@
       >{{ window.content }}
       </Window>
     </div>
-    <!--Dock/-->
+    <Dock :hide="fullscreen"/>
   </div>
 </template>
 
@@ -35,7 +38,8 @@ export default {
     return {
       windows: [],
       zBuffer: [],
-      stretch: false
+      stretch: false,
+      fullscreen: false,
     };
   },
   mounted() {
