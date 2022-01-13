@@ -22,11 +22,11 @@ export default {
   bottom: $bezel_width / 2;
   left: 0px;
   right: 0px;
-  background: black;
+  background: $active_window;
+  backdrop-filter: $blur;
   width: 700px; // TODO: Set dock width to fit children
   height: $dock_height;
   border-radius: $rad * 2;
   z-index: 9999;
-  display: none;
 }
 </style>

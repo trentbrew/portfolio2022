@@ -29,7 +29,7 @@
     >
       <div class="window-border">
         <div v-if="!windowState.immersive" class="window-header">
-          <div class="window-title"><span>{{ title }}</span></div>
+          <div class="window-title"><span>{{ title ? title : 'Window ' + (index + 1) }}</span></div>
           <div class="window-controls">
             <button @click="windowImmersive" class="immersive"></button>
             <button @click="windowExpand" class="expand"></button>
@@ -78,16 +78,14 @@ export default {
     };
   },
   props: {
-    test: Boolean,
     index: Number,
-    title: String,
+    title: String
   },
   computed: {
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
   },
   mounted() {
-    console.clear();
     console.log("Window.vue mounted");
     this.left = 60 + (this.index * 60);
     this.top = 60 + (this.index * 60);
@@ -145,7 +143,7 @@ export default {
   padding: 12px;
   border-radius: $rad;
   box-sizing: content-box;
-  backdrop-filter: blur(36px);
+  backdrop-filter: $blur;
   box-shadow: $light_shadow;
 }
 
