@@ -14,7 +14,11 @@
       :title="window.title"
       :initialWidth="window.width"
       :initialHeight="window.height"
-      >{{ window.content }}
+      >
+        <template v-if="window.content && (window.content.substring(0,4) === 'http')">
+          <iframe :src="window.content" frameborder="0"></iframe>
+        </template>
+        <template v-else>o hey</template>
       </Window>
     </div>
     <Dock :hide="fullscreen"/>
@@ -43,6 +47,7 @@ export default {
     };
   },
   mounted() {
+
     window.addEventListener('keyup', (e) => {
       e.key == 'w' && this.pushWindow({});
     });
@@ -54,8 +59,12 @@ export default {
     });
 
     this.pushWindow({
-      content: '👋🏾'
+      content: 'https://ericzzli.com',
+      title: 'Eric Li Portfolio',
+      width: 700,
+      height: 400
     });
+
   },
   destroyed() {
     window.removeEventListener('keyup', (e) => {});
