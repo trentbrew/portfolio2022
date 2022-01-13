@@ -195,7 +195,7 @@ export default {
       if (this.windowState.expanded) {
         this.prev = [this.width, this.height, this.top, this.left];
         this.width = this.maxW - 24;
-        this.height = this.maxH - 88;
+        this.height = this.maxH - (this.windowState.immersive ? 64 : 88);
         this.top = 0;
         this.left = 0;
       } else {
