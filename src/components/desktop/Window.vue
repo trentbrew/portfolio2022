@@ -324,7 +324,7 @@ export default {
   }
 
   .window-controls {
-    min-width: 90px; 
+    min-width: 100px; 
   }
 
   .window-controls button {
@@ -332,7 +332,7 @@ export default {
     width: 24px;
     border-radius: 100%;
     border: none;
-    margin-left: 6px;
+    margin-left: 8px;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
