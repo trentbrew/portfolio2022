@@ -6,12 +6,12 @@
     <div ref="desktop" class="desktop">
       <!-- append windows here -->
       <Window :index="0" :title="'Window 1'" />
-      <Window :index="1" :title="'Files'">
-        <file-browser />
+      <!--Window :index="1" :title="'Files'">
+        <file-browser :axiosConfig="{baseURL: 'http://localhost:8081'}" />
       </Window>
-      <Window :index="2" :title="'Spotify'">
-        <iframe src="https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      </Window>>
+      <Window :index="2" :title="'Resume'">
+        <embed src="../../assets/resume.pdf" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></embed>
+      </Window-->
     </div>
   </div>
 </template>

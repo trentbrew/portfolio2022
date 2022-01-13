@@ -1,8 +1,9 @@
 <template>
   <vue-resizable
+    ref="resizableComponent"
     class="resizable"
     :class="selectedWindow != index ? 'inactive' : 'active'"
-    ref="resizableComponent"
+    :style="!windowState.immersive ? 'padding: 0px 0px 24px 0px' : 'padding: 0px 0px 0px 0px'"
     :dragSelector="dragSelector"
     :active="handlers"
     :fit-parent="fit"
@@ -27,12 +28,12 @@
       @mousedown.prevent="windowSelected"
     >
       <div class="window-border">
-        <div class="window-header">
+        <div v-if="!windowState.immersive" class="window-header">
           <div class="window-title"><span>{{ title }}</span></div>
           <div class="window-controls">
-            <button class="immersive"></button>
-            <button class="expand"></button>
-            <button class="exit"></button>
+            <button @click="windowImmersive" class="immersive"></button>
+            <button @click="windowExpand" class="expand"></button>
+            <button @click="windowExit" class="exit"></button>
           </div>
         </div>
 
@@ -69,7 +70,11 @@ export default {
       fit: true,
       event: "",
       dragSelector: ".window-header",
-      selectedWindow: 0
+      selectedWindow: 0,
+      windowState: {
+        immersive: false,
+        expanded: false
+      }
     };
   },
   props: {
@@ -91,6 +96,17 @@ export default {
     });
   },
   methods: {
+    windowImmersive() {
+      console.log('immersive mode...');
+      this.windowState.immersive = true;
+    },
+    windowExpand() {
+      console.log('expanding window...');
+      this.windowState.expanded = true;
+    },
+    windowExit() {
+      console.log('exiting window...');
+    },
     eHandler(data) {
       this.width = data.width;
       this.left = data.left;
@@ -116,15 +132,11 @@ export default {
 }
 
 .resizable {
-  background-position: top left;
   padding: 0;
   font-weight: normal;
   color: black;
   position: absolute !important;
-  border-radius: $rad;
-  box-sizing: content-box;
-  margin-top: $bezel_width + $top_height;
-  margin-bottom: 16px;
+  margin-top: $bezel_width;
   margin-left: 12px;
   box-shadow: $light_shadow;
 }
@@ -153,17 +165,17 @@ export default {
 
   .immersive {
     background-image: url('../../assets/black_immersive.svg');
-    background-size: 50%;
+    background-size: 45%;
   }
 
   .expand {
     background-image: url('../../assets/black_expand.svg');
-    background-size: 60%;
+    background-size: 55%;
   }
 
   .exit {
     background-image: url('../../assets/black_exit.svg');
-    background-size: 50%;
+    background-size: 45%;
   }
 
   .window-controls button {
@@ -177,7 +189,7 @@ export default {
     background-position: center;
 
     &:hover {
-      background-color: rgba(white, 0.3);
+      background-color: rgba(black, 0.36);
     }
   }
 }
@@ -197,9 +209,13 @@ export default {
   z-index: 9999 !important;
 
   .window-title {
-    color: rgba(black, 0.8);
-    font-weight: bold;
+    color: rgba(white, 0.8);
+    //font-weight: bold;
     opacity: 0.8;
+  }
+
+  .window-controls {
+    filter: invert(1);
   }
 }
 
@@ -207,12 +223,8 @@ export default {
   z-index: 0 !important;
 
   .window-title {
-    color: rgba(white, 0.8);
-    font-weight: bold;
-  }
-
-  .window-controls {
-    filter: invert(1);
+    color: rgba(black, 0.8);
+    //font-weight: bold;
   }
 
   .window-border {
