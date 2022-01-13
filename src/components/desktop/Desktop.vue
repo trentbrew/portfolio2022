@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop-container">
+  <div class="desktop-container" :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 88px);'">
     <div class="backdrop">
       <video autoplay loop muted src="../../assets/big_sur_animated.mp4"></video>
     </div>
@@ -34,7 +34,8 @@ export default {
   data() {
     return {
       windows: [],
-      zBuffer: []
+      zBuffer: [],
+      stretch: false
     };
   },
   mounted() {
@@ -92,8 +93,8 @@ export default {
 }
 
 .desktop {
-  height: calc(100vh - 88px);
   width: 100%;
+  height: 100%;
   border-radius: $rad;
 }
 

@@ -7,6 +7,7 @@
       padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; 
       z-index: ${getElevation()};
       display: ${exit ? 'none' : 'block'};
+      ${windowState.immersive && 'margin-top: 32px'}
     `"
     :dragSelector="dragSelector"
     :active="handlers"
@@ -166,6 +167,7 @@ export default {
       }, 200);
     },
     deactivateImmersive() {
+      this.$parent.stretch = false;
       this.preventTransition = false;
       this.windowState.immersive = false;
       this.height = this.height - 24;
@@ -174,6 +176,7 @@ export default {
       }, 200);
     },
     triggerImmersive() {
+      this.$parent.stretch = true;
       this.hang = true;
       this.preventTransition = false;
       this.windowState.immersive = true;
