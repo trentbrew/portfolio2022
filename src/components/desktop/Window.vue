@@ -32,7 +32,11 @@
     >
       <div class="window-border">
         <div v-if="!windowState.immersive" class="window-header">
-          <div class="window-title"><span>{{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}</span></div>
+          <div class="window-title">
+            <span>
+              {{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}
+            </span>
+          </div>
           <div class="window-controls">
             <button @click="triggerImmersive" class="immersive"></button>
             <button @click="triggerExpand" class="expand"></button>
@@ -136,8 +140,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#slot {
-  border-radius: $rad;
+
+@keyframes enter {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .resizable {
