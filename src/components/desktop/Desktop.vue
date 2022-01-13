@@ -14,7 +14,7 @@
       >{{ window.content }}
       </Window>
     </div>
-    <Dock/>
+    <!--Dock/-->
   </div>
 </template>
 

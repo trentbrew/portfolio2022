@@ -80,7 +80,12 @@
           </div>
         </div>
 
-        <div class="window-body" :style="`height:${height - 24}px;`">
+        <div 
+        class="window-body" 
+        :style="`
+          height: ${( windowState.peek ? height - 48 : height - 24)}px; 
+          transition: ${preventTransition ? 0 : 100}ms;
+        `">
           <slot id="slot">
             <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
             <span>H: <b>{{ height.toFixed(0) }}</b></span><br>
@@ -113,6 +118,7 @@ export default {
       fit: true,
       exit: false,
       hang: false,
+      preventTransition: true,
       event: "",
       dragSelector: ".window-header",
       selectedWindow: 0,
@@ -154,16 +160,28 @@ export default {
   methods: {
     togglePeek() {
       this.windowState.peek = !this.windowState.peek;
+      this.preventTransition = false;
+      setTimeout(() => {
+        this.preventTransition = true;
+      }, 200);
     },
     deactivateImmersive() {
+      this.preventTransition = false;
       this.windowState.immersive = false;
+      this.height = this.height - 24;
+      setTimeout(() => {
+        this.preventTransition = true;
+      }, 200);
     },
     triggerImmersive() {
       this.hang = true;
+      this.preventTransition = false;
+      this.windowState.immersive = true;
+      this.height = this.height + 24;
       setTimeout(() => {
         this.hang = false;
+        this.preventTransition = true;
       }, 200);
-      this.windowState.immersive = true;
     },
     triggerExpand() {
       this.windowState.expanded = true;
@@ -300,7 +318,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   background: white;
   border-radius: 12px;
   box-shadow: $tight_shadow;
