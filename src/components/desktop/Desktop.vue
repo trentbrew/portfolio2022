@@ -9,7 +9,6 @@
       :index="index"
       :id="window.id"
       :title="window.title"
-      :windows="windows"
       >{{ window.content }}
       </Window>
     </div>
@@ -39,7 +38,6 @@ export default {
   mounted() {
     window.addEventListener('keyup', (e) => {
       e.key == 'w' && this.pushWindow({});
-      console.log(this.windows);
     });
 
     this.$root.$on('windowSelected', id => {

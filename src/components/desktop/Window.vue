@@ -32,7 +32,7 @@
     >
       <div class="window-border">
         <div v-if="!windowState.immersive" class="window-header">
-          <div class="window-title"><span>{{ title ? title : `Window ${index + 1} (${id})`  }}</span></div>
+          <div class="window-title"><span>{{ title ? title : `Window ${id.substring(0,3)} < ${index} >`  }}</span></div>
           <div class="window-controls">
             <button @click="triggerImmersive" class="immersive"></button>
             <button @click="triggerExpand" class="expand"></button>
@@ -90,8 +90,9 @@ export default {
     maxH: () => window.innerHeight
   },
   mounted() {
-    this.left = 60 + (this.index * 60);
-    this.top = 60 + (this.index * 60);
+    const index = this.index;
+    this.left = 60 + (index * 60);
+    this.top = 60 + (index * 60);
     this.$root.$on('windowSelected', id => {
         this.selectedWindow = id;
     });
@@ -106,9 +107,8 @@ export default {
       this.windowState.expanded = true;
     },
     triggerExit() {
-      console.log('exiting window ' + this.id);
-      this.$parent.windows.filter(window => {
-        return window.id == this.id;
+      this.$parent.windows = this.$parent.windows.filter(window => {
+        return window.id != this.id;
       });
     },
     eHandler(data) {
@@ -117,6 +117,7 @@ export default {
       this.height = data.height;
       this.top = data.top;
       this.event = data.eventName;
+      this.windowSelected();
     },
     windowSelected() {
       this.$root.$emit('windowSelected', this.id);
