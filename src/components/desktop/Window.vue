@@ -52,7 +52,7 @@
               </span>
             </div>
             <div class="window-controls">
-              <button @click="triggerImmersive" class="immersive immersive-active"></button>
+              <button @click="deactivateImmersive" class="immersive immersive-active"></button>
               <button @click="triggerExpand" class="expand"></button>
               <button @click="triggerClose" class="close"></button>
             </div>
@@ -144,6 +144,9 @@ export default {
     togglePeek() {
       this.windowState.peek = !this.windowState.peek;
     },
+    deactivateImmersive() {
+      this.windowState.immersive = false;
+    },
     triggerImmersive() {
       this.hang = true;
       setTimeout(() => {
@@ -185,9 +188,8 @@ export default {
 .not-peekable {
   height: 36px;
   pointer-events: none !important;
-  opacity: 0.2 !important;
+  opacity: 0 !important;
 }
-
 .peek-trigger {
   position: absolute;
   display: flex;
@@ -198,9 +200,8 @@ export default {
   height: 36px;
   width: 100%;
   z-index: 9999;
-  opacity: 0.5;
+  opacity: 1;
 }
-
 .resizable {
   padding: 0;
   font-weight: normal;
@@ -235,6 +236,12 @@ export default {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .immersive-active {
+    filter: invert(1) !important;
+    background-color: white !important;
+    opacity: 1 !important;
   }
 
   .immersive {
