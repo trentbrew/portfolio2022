@@ -49,9 +49,7 @@ export default {
     });
 
     this.pushWindow({
-      content: '👋🏾',
-      width: 300,
-      height: 400
+      content: '👋🏾'
     });
   },
   destroyed() {

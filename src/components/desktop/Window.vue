@@ -6,6 +6,7 @@
     :style="`
       padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; 
       z-index: ${getElevation()};
+      display: ${exit ? 'none' : 'block'};
     `"
     :dragSelector="dragSelector"
     :active="handlers"
@@ -28,7 +29,7 @@
   >
     <div
       class="window-container"
-      @mousedown.prevent="windowSelected"
+      @mouseup.prevent="windowSelected"
     >
       <div class="window-border">
         <div v-if="!windowState.immersive" class="window-header">
@@ -40,7 +41,7 @@
           <div class="window-controls">
             <button @click="triggerImmersive" class="immersive"></button>
             <button @click="triggerExpand" class="expand"></button>
-            <button @click="triggerExit" class="exit"></button>
+            <button @click="triggerClose" class="close"></button>
           </div>
         </div>
 
@@ -70,11 +71,12 @@ export default {
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
       left: 0,
       top: 0,
+      width: 0,
+      height: 0,
       minW: 200,
       minH: 200,
-      width: 600,
-      height: 400,
       fit: true,
+      exit: false,
       event: "",
       dragSelector: ".window-header",
       selectedWindow: 0,
@@ -90,11 +92,11 @@ export default {
     title: String,
     initialWidth: {
       type: Number,
-      default: 600
+      default: 400
     },
     initialHeight: {
       type: Number,
-      default: 400
+      default: 300
     }
   },
   computed: {
@@ -102,15 +104,14 @@ export default {
     maxH: () => window.innerHeight,
   },
   mounted() {
+    this.exit = false;
     this.width = this.initialWidth;
     this.height = this.initialHeight;
-    console.log('this.width: ', this.width);
-    console.log('this.height ', this.height);
     const index = this.index;
     this.left = 60 + (index * 60);
     this.top = 60 + (index * 60);
     this.$root.$on('windowSelected', id => {
-        this.selectedWindow = id;
+      this.selectedWindow = id;
     });
   },
   methods: {
@@ -122,10 +123,11 @@ export default {
       console.log('expanding window...');
       this.windowState.expanded = true;
     },
-    triggerExit() {
-      this.$parent.windows = this.$parent.windows.filter(window => {
+    triggerClose() {
+      /*this.$parent.windows = this.$parent.windows.filter(window => {
         return window.id != this.id;
-      });
+      });*/
+      this.exit = true;
     },
     eHandler(data) {
       this.width = data.width;
@@ -198,7 +200,7 @@ export default {
     background-size: 55%;
   }
 
-  .exit {
+  .close {
     background-image: url('../../assets/black_exit.svg');
     background-size: 45%;
   }
