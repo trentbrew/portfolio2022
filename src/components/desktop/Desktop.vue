@@ -59,8 +59,8 @@ export default {
     });
 
     this.pushWindow({
-      content: 'https://ericzzli.com',
-      title: 'Eric Li Portfolio',
+      content: 'http://localhost:8081/',
+      title: 'Welcome!',
       width: 700,
       height: 400
     });

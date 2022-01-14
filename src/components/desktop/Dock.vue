@@ -20,6 +20,7 @@ export default {
 <style lang="scss" scoped>
 .dock-container {
   position: absolute;
+  display: flex;
   margin: 0px auto $bezel_width auto;
   bottom: $bezel_width / 2;
   left: 0px;
