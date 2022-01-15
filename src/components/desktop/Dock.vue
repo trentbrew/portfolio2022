@@ -21,10 +21,10 @@ export default {
 
 <style lang="scss" scoped>
 .dock-container {
-  position: absolute;
+  position: fixed;
   display: flex;
-  margin: 0px auto $bezel_width auto;
-  bottom: 12px;
+  transform: translateY(-36px);
+  margin: auto;
   left: 0px;
   right: 0px;
   background: $active_window;
