@@ -1,7 +1,7 @@
 <template>
   <div 
   class="desktop-container" 
-  :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 88px);'
+  :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 50px);'
   ">
     <div class="backdrop">
       <video autoplay loop muted>
@@ -18,10 +18,12 @@
       :initialWidth="window.width"
       :initialHeight="window.height"
       >
-        <template v-if="window.content && (window.content.substring(0,4) === 'http')">
-          <iframe :src="window.content" frameborder="0"></iframe>
+        <template v-if="window.contentPath && (window.contentPath.substring(0,4) === 'http')">
+          <iframe :src="window.contentPath" frameborder="0"></iframe>
         </template>
-        <template v-else>o hey</template>
+        <template v-if="window.contentPath && (window.contentPath.substring(0,1) === '@')">
+          <component :is="() => import(window.contentPath)"></component>
+        </template>
       </Window>
     </div>
     <Dock :hide="fullscreen"/>
@@ -50,24 +52,22 @@ export default {
     };
   },
   mounted() {
-
-    window.addEventListener('keyup', (e) => {
-      e.key == 'w' && this.pushWindow({});
-    });
-
     this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
         this.zBufferUpdate(id);
       }
     });
 
+    window.addEventListener('keyup', (e) => {
+      e.key == 'w' && this.pushWindow({});
+    });
+
     this.pushWindow({
-      content: 'http://localhost:8081/',
-      title: 'Welcome!',
+      contentPath: '@/views/Intro.vue',
+      title: 'Intro',
       width: 700,
       height: 400
     });
-
   },
   destroyed() {
     window.removeEventListener('keyup', (e) => {});
@@ -82,21 +82,11 @@ export default {
     zBufferUpdate(id) {
       this.zBuffer = [id, ...this.zBuffer];
     },
-    path(path) {
-      if (path.substring(0,4) == 'http') { // embed from web
-        var embed = document.createElement('iframe');
-        embed.src = path;
-        return embed;
-      } else { // import component
-        return () => import(path);
-      }
-    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .backdrop {
   /*background-image: url('../../assets/macos_wallpaper.jpeg');
   background-size: cover;
@@ -104,8 +94,11 @@ export default {
   background-position: center;*/
   position: absolute;
   height: $ui_height;
-  width: 100%;
   border-radius: $rad;
+}
+
+.desktop-container {
+  background: linear-gradient($bezel_color, $bezel_color);
 }
 
 .desktop {
@@ -114,14 +107,10 @@ export default {
   border-radius: $rad;
 }
 
-.desktop-container {
-  background: linear-gradient($bezel_color, $bezel_color);
-}
-
 video {
   object-fit: cover;
   border-radius: $rad;
-  width: calc(100% - 24px);
+  width: calc(100vw - $bezel_width * 2);
   height: 100%;
 }
 </style>

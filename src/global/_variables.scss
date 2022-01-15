@@ -20,12 +20,12 @@ $inactive_window: rgba(#bdbdbd, 0.3);
 
 $top_height: 24px;
 $dock_height: 48px;
-$ui_height: calc(100vh - 64px);
+$ui_height: calc(100vh - 24px);
 $rad: 18px;
 $blur: blur(36px);
 
 $bezel_color: black;
-$bezel_width: 32px;
+$bezel_width: 12px;
 
 $light_shadow: 0px -6px 36px 12px rgba(0,0,0,0.1);
 $tight_shadow: 0px 0px 12px 6px rgba(0,0,0,0.05);

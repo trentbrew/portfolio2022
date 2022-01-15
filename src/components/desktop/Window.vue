@@ -196,7 +196,7 @@ export default {
       if (this.windowState.expanded) {
         this.prev = [this.width, this.height, this.top, this.left];
         this.width = this.maxW - 24;
-        this.height = this.maxH - (this.windowState.immersive ? 64 : 88);
+        this.height = this.maxH - (this.windowState.immersive ? 64 : 50);
         this.top = 0;
         this.left = 0;
       } else {
@@ -274,7 +274,13 @@ export default {
   color: black;
   position: absolute !important;
   margin-top: $bezel_width;
-  margin-left: 12px;
+  margin-left: $bezel_width;
+  user-select: none; /* Non-prefixed version, currently */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -webkit-user-select: none; /* Safari */
+  -webkit-touch-callout: none; /* iOS Safari */
 }
 
 .window-border {

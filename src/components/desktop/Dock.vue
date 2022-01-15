@@ -24,7 +24,7 @@ export default {
   position: absolute;
   display: flex;
   margin: 0px auto $bezel_width auto;
-  bottom: $bezel_width / 2;
+  bottom: 12px;
   left: 0px;
   right: 0px;
   background: $active_window;
