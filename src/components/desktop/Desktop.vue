@@ -1,7 +1,7 @@
 <template>
   <div 
   class="desktop-container" 
-  :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 50px);'
+  :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'
   ">
     <div class="backdrop">
       <video autoplay loop muted>

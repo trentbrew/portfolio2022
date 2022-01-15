@@ -27,6 +27,7 @@ export default {
   margin: auto;
   left: 0px;
   right: 0px;
+  bottom: 0px;
   background: $active_window;
   backdrop-filter: $blur;
   width: 700px; // TODO: Set dock width to fit children
