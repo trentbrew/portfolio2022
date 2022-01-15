@@ -18,15 +18,23 @@
       :initialWidth="window.width"
       :initialHeight="window.height"
       >
-        <template v-if="window.contentPath && (window.contentPath.substring(0,4) === 'http')">
-          <iframe :src="window.contentPath" frameborder="0"></iframe>
+        <template v-if="window.path">
+          <iframe 
+          :src="window.path" 
+          frameborder="0"
+          >
+          </iframe>
         </template>
-        <template v-if="window.contentPath && (window.contentPath.substring(0,1) === '@')">
-          <component :is="() => import(window.contentPath)"></component>
+        <template v-if="window.component">
+          <component :is="window.component"></component>
         </template>
       </Window>
     </div>
-    <Dock :hide="fullscreen"/>
+    <Dock :hide="fullscreen">
+      <!--div v-for="(item, index) in items" class="icon">
+        TODO : grab dynamic dock items + their data and slot them
+      </div-->
+    </Dock>
   </div>
 </template>
 
@@ -41,7 +49,12 @@ export default {
   components: {
     Dock,
     Window,
-    FileBrowser
+    FileBrowser // images + videos
+    // Terminal
+    // Resume
+    // Settings
+    // Notes
+    // --- projects will be iframes + Notes ---
   },
   data() {
     return {
@@ -63,10 +76,18 @@ export default {
     });
 
     this.pushWindow({
-      contentPath: '@/views/Intro.vue',
-      title: 'Intro',
-      width: 700,
-      height: 400
+      //component: FileBrowser,
+      path: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
+      title: 'Spotify',
+      width: 800,
+      height: 500
+    });
+
+    this.pushWindow({
+      path: 'https://www.instagram.com/trent.brew/?utm_source=ig_embed&amp;utm_campaign=loading',
+      title: 'Instagram',
+      width: 500,
+      height: 800
     });
   },
   destroyed() {

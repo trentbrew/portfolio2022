@@ -159,6 +159,9 @@ export default {
     this.top = 60 + (index * 60);
     this.$root.$on('windowSelected', id => {
       this.selectedWindow = id;
+      setTimeout(() => {
+        this.$forceUpdate();
+      }, 400);
     });
   },
   methods: {
