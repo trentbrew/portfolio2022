@@ -378,6 +378,10 @@ export default {
     //font-weight: bold;
   }
 
+  .window-body {
+    pointer-events: none;
+  }
+
   .window-border {
     background: $inactive_window;
   }

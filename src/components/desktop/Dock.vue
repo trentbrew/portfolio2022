@@ -29,7 +29,7 @@ export default {
   right: 0px;
   background: $active_window;
   backdrop-filter: $blur;
-  //width: 700px; // TODO: Set dock width to fit children
+  width: 700px; // TODO: Set dock width to fit children
   height: $dock_height;
   border-radius: $rad * 2;
   transition: 600ms ease 100ms;

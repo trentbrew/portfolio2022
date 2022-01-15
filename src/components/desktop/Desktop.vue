@@ -4,7 +4,10 @@
   :style="stretch ? 'height: calc(100vh - 64px);' : 'height: calc(100vh - 88px);'
   ">
     <div class="backdrop">
-      <video autoplay loop muted src="../../assets/big_sur_animated.mp4"></video>
+      <video autoplay loop muted>
+        <source src="../../assets/big_sur_animated.mp4" type="video/mp4"/>
+        <source src="../../assets/big_sur_animated.webm" type="video/webm"/>
+      </video>
     </div>
     <div ref="desktop" class="desktop">
       <Window 
