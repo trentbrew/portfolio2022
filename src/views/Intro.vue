@@ -1,6 +1,9 @@
 <template>
 <div class="root">
-  <div class="intro-container flex-center fill-screen" :style="hovering ? ( clicked ? 'background: #CFD5DB' : 'background: #BCC3C9' ) : ''">
+  <div 
+  class="intro-container flex-center fill-screen" 
+  :style="clicked2 ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )"
+  >
     <div v-if="!unveil" class="veil absolute flex-center fill-screen">
       <svg :class="clicked ? 'disappear' : '' " height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200"/>
@@ -9,8 +12,13 @@
       </svg>
     </div>
     <div class="zoomable" :class="clicked ? 'zoomed' : ''">
-      <div :class="clicked ? 'next window flex-center' : 'window flex-center' " @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" @click="handleClick">
-        <div class="laptop-aura"></div>
+      <div 
+      :class="clicked ? 'next window flex-center' : 'window flex-center'" 
+      @mouseenter="handleMouseEnter" 
+      @mouseleave="handleMouseLeave" 
+      @click="handleClick"
+      >
+        <div class="laptop-aura" :style="clicked2 && 'transition-delay: 20s !important'"></div>
         <div class="laptop">
           <div :class="clicked ? 'blackout disappear' : ''" class="base">
             <div :class="clicked ? 'blackout' : ''" class="side top"></div>
@@ -27,7 +35,14 @@
                 <!--img src="https://media.giphy.com/media/Lny6Rw04nsOOc/giphy.gif" width="100%" height="100%" alt=""-->
                 <!--Desktop class="mini-desktop" /-->
                 <!-- TODO : Add screenshot of desktop -->
-                <video type="video/mp4" muted autoplay loop src="../assets/videos/big_sur_animated.mp4" width="100%" height="100%"></video>
+                <video 
+                type="video/mp4" 
+                muted autoplay loop 
+                width="100%" height="100%"
+                >
+                  <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
+                  <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
+                </video>
               </div>
             </div>
             <div :class="clicked ? 'blackout' : ''" class="side right"></div>
@@ -44,6 +59,14 @@
   :class="clicked2 ? 'desktop-modal-transition' : 'desktop-modal'"
   :style="hovering && 'animation-play-state: paused'"
   >
+    <video 
+    type="video/mp4" 
+    muted autoplay loop 
+    width="100%" height="100%"
+    >
+      <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
+      <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
+    </video>
   </div>
 </div>
 </template>
@@ -169,40 +192,43 @@ video {
 .desktop-modal {
   position: absolute;
   margin: auto;
+  opacity: 0;
   top: -212px;
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background: rgba(yellow, 0.4);
   width: 18vh;
   height: 12vh;
-  z-index: 999999;
   pointer-events: none;
-  transition: 3s;
+  transition: 3s cubic-bezier(0.85, 0, 0.15, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
+  z-index: 999999;
 }
 
 .desktop-modal-transition {
   position: absolute;
   margin: auto;
+  opacity: 1;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background: rgba(blue, 1);
-  transform: scale(2);
-  width: 50vw;
-  height: 50vh;
-  z-index: 999999;
-  transition: 3s;
+  background: rgba(brown, 1);
+  transform: scale(2.25);
+  width: 43.444vw;
+  height: 43.444vh;
+  border-radius: 12px;
+  pointer-events: none;
+  transition: 3s cubic-bezier(0.85, 0, 0.15, 1), opacity 0s;
   animation-play-state: paused !important;
+  z-index: 999999;
 }
 
 .zoomed {
   //opacity: 0;
-  transform: scale(3.8) translateY(120px);
-  transition-timing-function: cubic-bezier(0.36, 0, 0.66, -0.66);
-  transition-delay: 600ms;
+  //transform: scale(3.5) translateY(100px);
+  //transition-timing-function: cubic-bezier(0.36, 0, 0.66, -0.66);
+  //transition-delay: 600ms;
 }
 
 .zoomable {
@@ -210,7 +236,7 @@ video {
 }
 
 .disappear {
-  opacity: 0;
+  //opacity: 0;
   transition: 3s ease;
 }
 
@@ -219,11 +245,11 @@ video {
   transition: 3s ease;
 }
 
-.next {
+/*.next {
   transition: 3s cubic-bezier(0.36, 0, 0.66, -0.56);
   transition-delay: 0s !important;
   transform: translateZ(300px);
-}
+}*/
 
 .mini-desktop {
    zoom: 0.154;
@@ -232,6 +258,7 @@ video {
 .intro-container {
   transition: 1s;
   background: $background;
+  overflow: hidden;
 }
 
 .veil {
