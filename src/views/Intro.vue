@@ -178,21 +178,23 @@ video {
   height: 12vh;
   z-index: 999999;
   pointer-events: none;
+  transition: 3s;
   animation: pulse 2s ease infinite $pulse_delay;
 }
 
 .desktop-modal-transition {
   position: absolute;
   margin: auto;
-  top: -212px;
+  top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background: rgba(blue, 0.5);
-  width: 100vw;
-  height: 100vh;
+  background: rgba(blue, 1);
+  transform: scale(2);
+  width: 50vw;
+  height: 50vh;
   z-index: 999999;
-  pointer-events: none;
+  transition: 3s;
   animation-play-state: paused !important;
 }
 
