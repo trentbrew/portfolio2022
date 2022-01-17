@@ -1,42 +1,34 @@
 <template>
-  <div class="dock-container" :class="hide && 'hidden'">
-    <div class="dock-icon"></div>
+  <div class="dock-container flex-center" :class="hide && 'hidden'">
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Dock",
-  components: {},
-  data() {
-    return {};
-  },
   props: {
     hide: Boolean
-  },
-  computed: {},
-  methods: {},
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .dock-container {
   position: fixed;
-  display: flex;
   transform: translateY(-36px);
   margin: auto;
   left: 0px;
   right: 0px;
   bottom: 0px;
+  padding: 0px 12px;
   background: $active_window;
   backdrop-filter: $blur;
-  width: 700px; // TODO: Set dock width to fit children
+  max-width: fit-content;
   height: $dock_height;
   border-radius: $rad * 2;
   transition: 600ms ease 100ms;
   z-index: 99999;
 }
-
 .hidden {
   opacity: 0;
   transform: translateY(32px);

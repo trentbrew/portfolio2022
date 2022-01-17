@@ -27,7 +27,7 @@
                 <!--img src="https://media.giphy.com/media/Lny6Rw04nsOOc/giphy.gif" width="100%" height="100%" alt=""-->
                 <!--Desktop class="mini-desktop" /-->
                 <!-- TODO : Add screenshot of desktop -->
-                <video type="video/mp4" muted autoplay loop src="../assets/big_sur_animated.mp4" width="100%" height="100%"></video>
+                <video type="video/mp4" muted autoplay loop src="../assets/videos/big_sur_animated.mp4" width="100%" height="100%"></video>
               </div>
             </div>
             <div :class="clicked ? 'blackout' : ''" class="side right"></div>
@@ -39,9 +39,12 @@
       </div>
     </div>
   </div>
-  <!--div class="desktop-modal absolute">
-    
-  </div-->
+  <div 
+  class="absolute" 
+  :class="clicked2 ? 'desktop-modal-transition' : 'desktop-modal'"
+  :style="hovering && 'animation-play-state: paused'"
+  >
+  </div>
 </div>
 </template>
 
@@ -57,6 +60,7 @@ export default {
     return {
       unveil: false,
       clicked: false,
+      clicked2: false,
       hovering: false,
       allowClick: false
     };
@@ -80,14 +84,15 @@ export default {
       console.log('mouseleave');
     },
     handleClick() {
-      /*console.log(this.allowClick);
+      console.log(this.allowClick);
       if (this.allowClick) {
-        this.clicked = true;
+        //this.clicked = true;
+        this.clicked2 = true;
         console.log('valid click ✅');
         setTimeout(() => {
           console.log('routing to desktop...');
         }, 3000);
-      }*/
+      }
     },
   },
 };
@@ -108,8 +113,8 @@ $lid-delay-out: 0ms;
 $lid-delay-in: 800ms;
 
 $laptop_color: #EDEDF1;
-$laptop_height: 11em;
-$laptop_width: 15em;
+$laptop_height: 11em; // 161px
+$laptop_width: 15em; // 225px
 
 $trackpad_color: #CFD5DB;
 $keyboard_color: #3B454E;
@@ -164,7 +169,22 @@ video {
 .desktop-modal {
   position: absolute;
   margin: auto;
-  top: 0px;
+  top: -212px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(yellow, 0.4);
+  width: 18vh;
+  height: 12vh;
+  z-index: 999999;
+  pointer-events: none;
+  animation: pulse 2s ease infinite $pulse_delay;
+}
+
+.desktop-modal-transition {
+  position: absolute;
+  margin: auto;
+  top: -212px;
   right: 0px;
   bottom: 0px;
   left: 0px;
@@ -173,6 +193,7 @@ video {
   height: 100vh;
   z-index: 999999;
   pointer-events: none;
+  animation-play-state: paused !important;
 }
 
 .zoomed {

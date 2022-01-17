@@ -5,8 +5,8 @@
   ">
     <div class="backdrop">
       <video autoplay loop muted>
-        <source src="../../assets/big_sur_animated.mp4" type="video/mp4"/>
-        <source src="../../assets/big_sur_animated.webm" type="video/webm"/>
+        <source src="../../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
+        <source src="../../assets/videos/big_sur_animated.webm" type="video/webm"/>
       </video>
     </div>
     <div ref="desktop" class="desktop">
@@ -18,9 +18,9 @@
       :initialWidth="window.width"
       :initialHeight="window.height"
       >
-        <template v-if="window.path">
+        <template v-if="window.embed">
           <iframe 
-          :src="window.path" 
+          :src="window.embed" 
           frameborder="0"
           >
           </iframe>
@@ -31,9 +31,26 @@
       </Window>
     </div>
     <Dock :hide="fullscreen">
-      <!--div v-for="(item, index) in items" class="icon">
-        TODO : grab dynamic dock items + their data and slot them
-      </div-->
+      <div 
+      v-for="(item, index) in dockItems" 
+      class="dock-item flex-center"
+      @click="item.link ? window.open(item.link, '_blank') : pushWindow({
+        title: item.label || 'Title',
+        link: item.link || null,
+        embed: item.embed || null, // String
+        component: item.component || null, // Component
+        width: item.windowWidth || 600, // Number
+        height: item.windowHeight || 400, // Nmuber
+        positionX: item.windowPositionX || getRandomX(), // Number
+        positionY: item.windowPositionY || getRandomY(), // Number
+      })"
+      >
+        <div 
+        class="dock-icon"
+        :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"
+        >
+        </div>
+      </div>
     </Dock>
   </div>
 </template>
@@ -62,7 +79,29 @@ export default {
       zBuffer: [],
       stretch: false,
       fullscreen: false,
+      dockItems: [
+        {
+          icon: 'spotify.png',
+          label: 'Spotify',
+          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
+        },
+        {
+          icon: 't.png',
+          label: 'Twitter',
+          link: 'https://twitter.com/trentbrew_',
+        },
+        {
+          icon: 'folder.png',
+          label: 'Projects',
+          component: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
+        },
+      ]
     };
+  },
+  computed: {
+    window: () => window,
+    maxW: () => window.innerWidth,
+    maxH: () => window.innerHeight,
   },
   mounted() {
     this.$root.$on('windowSelected', (id) => {
@@ -70,24 +109,8 @@ export default {
         this.zBufferUpdate(id);
       }
     });
-
-    window.addEventListener('keyup', (e) => {
+    window.addEventListener('keyup', (e) => { // for debugging
       e.key == 'w' && this.pushWindow({});
-    });
-
-    this.pushWindow({
-      //component: FileBrowser,
-      path: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
-      title: 'Spotify',
-      width: 800,
-      height: 500
-    });
-
-    this.pushWindow({
-      path: 'https://www.instagram.com/trent.brew/?utm_source=ig_embed&amp;utm_campaign=loading',
-      title: 'Instagram',
-      width: 500,
-      height: 800
     });
   },
   destroyed() {
@@ -103,35 +126,55 @@ export default {
     zBufferUpdate(id) {
       this.zBuffer = [id, ...this.zBuffer];
     },
+    random(min, max) {
+      Math.random() * (max - min) + min
+    },
+    getRandomX() {
+      return this.random(0, this.maxW - 24);
+    },
+    getRandomY() {
+      return this.random(0, this.maxH - 24);
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .backdrop {
-  /*background-image: url('../../assets/macos_wallpaper.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;*/
   position: absolute;
   height: $ui_height;
   border-radius: $rad;
 }
-
 .desktop-container {
   background: linear-gradient($bezel_color, $bezel_color);
 }
-
 .desktop {
   width: 100%;
   height: 100%;
   border-radius: $rad;
 }
-
 video {
   object-fit: cover;
   border-radius: $rad;
   width: calc(100vw - $bezel_width * 2);
   height: 100%;
+}
+.dock-item {
+  width: 42px;
+  height: 42px;
+  margin: 0px 5px;
+  cursor: pointer;
+  .dock-icon {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    //transition: 100ms;
+    &:hover {
+      opacity: 0.4;
+      //transform: scale(1.12);
+    }
+  }
 }
 </style>

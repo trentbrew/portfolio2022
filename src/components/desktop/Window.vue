@@ -81,7 +81,6 @@
             <button @click="triggerClose" class="close"></button>
           </div>
         </div>
-
         <div 
         class="window-body" 
         :style="`
@@ -285,7 +284,6 @@ export default {
   -webkit-user-select: none; /* Safari */
   -webkit-touch-callout: none; /* iOS Safari */
 }
-
 .window-border {
   background: $active_window;
   padding: 12px;
@@ -312,37 +310,30 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
   .immersive-active {
     filter: invert(1) !important;
     background-color: white !important;
     opacity: 1 !important;
   }
-
   .immersive {
-    background-image: url('../../assets/black_immersive.svg');
+    background-image: url('../../assets/window/black_immersive.svg');
     background-size: 50%;
   }
-
   .minimize {
-    background-image: url('../../assets/black_minimize.svg');
+    background-image: url('../../assets/window/black_minimize.svg');
     background-size: 60%;
   }
-
   .expand {
-    background-image: url('../../assets/black_expand.svg');
+    background-image: url('../../assets/window/black_expand.svg');
     background-size: 60%;
   }
-
   .close {
-    background-image: url('../../assets/black_exit.svg');
+    background-image: url('../../assets/window/black_exit.svg');
     background-size: 50%;
   }
-
   .window-controls {
     min-width: 100px; 
   }
-
   .window-controls button {
     height: 24px;
     width: 24px;
@@ -352,13 +343,11 @@ export default {
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
-
     &:hover {
       background-color: rgba(black, 0.36);
     }
   }
 }
-
 .window-body {
   display: flex;
   flex-direction: column;
@@ -368,29 +357,24 @@ export default {
   border-radius: 12px;
   box-shadow: $tight_shadow;
 }
-
 .active {
   .window-title {
     color: rgba(white, 0.8);
     font-weight: 400;
     opacity: 1;
   }
-
   .window-controls {
     filter: invert(1);
   }
 }
-
 .inactive {
   .window-title {
     color: rgba(black, 0.6);
     //font-weight: bold;
   }
-
   .window-body {
     pointer-events: none;
   }
-
   .window-border {
     background: $inactive_window;
   }
