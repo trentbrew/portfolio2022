@@ -30,7 +30,7 @@
         </template>
       </Window>
     </div>
-    <Dock :hide="fullscreen">
+    <!--Dock :hide="fullscreen">
       <div 
       v-for="(item, index) in dockItems" 
       class="dock-item flex-center"
@@ -51,7 +51,7 @@
         >
         </div>
       </div>
-    </Dock>
+    </Dock-->
   </div>
 </template>
 

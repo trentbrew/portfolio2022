@@ -32,9 +32,6 @@
             <div class="side top"></div>
             <div class="side bottom">
               <div class="screen">
-                <!--img src="https://media.giphy.com/media/Lny6Rw04nsOOc/giphy.gif" width="100%" height="100%" alt=""-->
-                <!--Desktop class="mini-desktop" /-->
-                <!-- TODO : Add screenshot of desktop -->
                 <video 
                 type="video/mp4" 
                 muted autoplay loop 
@@ -69,15 +66,18 @@
       <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
     </video>
   </div>
-  <div v-if="desktopReady" class="desktop-modal-final absolute">
-    <!--video
-    type="video/mp4" 
-    muted autoplay loop 
-    width="100%" height="100%"
-    >
-      <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
-      <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
-    </video-->
+  <div 
+  class="desktop-modal-final absolute"
+  :style="desktopReady ? `
+    opacity: 1;
+    pointer-events: all;
+    transition: 600ms cubic-bezier(0.85, 0, 0.15, 1);
+  ` : `
+    opacity: 0;
+    pointer-events: none;
+    transition: 600ms cubic-bezier(0.85, 0, 0.15, 1);
+  `"
+  >
     <Screen />
   </div>
 </div>
@@ -124,10 +124,8 @@ export default {
         this.clicked = true;
         console.log('valid click ✅');
         setTimeout(() => {
-          console.log('routing to desktop...');
-          //this.$router.push('/desktop');
           this.desktopReady = true;
-        }, 3000);
+        }, 600);
       }
     },
   },
@@ -223,7 +221,7 @@ video {
   width: 18vh;
   height: 12vh;
   pointer-events: none;
-  transition: 3s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
+  transition: 1s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
   z-index: 999999;
 }
@@ -240,7 +238,7 @@ video {
   width: 43.444vw;
   height: 43.444vh;
   pointer-events: none;
-  transition: 3s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
+  transition: 1s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
