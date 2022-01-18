@@ -88,10 +88,10 @@
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
         `">
           <slot id="slot">
-            <span>W: <b>{{ width.toFixed(0) }}</b></span><br>
-            <span>H: <b>{{ height.toFixed(0) }}</b></span><br>
-            <span>X: <b>{{ left.toFixed(0) }}</b></span><br>
-            <span>Y: <b>{{ top.toFixed(0) }}</b></span>
+            <span>W: <b>{{ width && width.toFixed(0) }}</b></span><br>
+            <span>H: <b>{{ height && height.toFixed(0) }}</b></span><br>
+            <span>X: <b>{{ left && left.toFixed(0) }}</b></span><br>
+            <span>Y: <b>{{ top && top.toFixed(0) }}</b></span>
           </slot>
         </div>
       </div>
@@ -154,8 +154,13 @@ export default {
     this.width = this.initialWidth;
     this.height = this.initialHeight;
     const index = this.index;
-    this.left = 60 + (index * 60); // TODO : set in random location
-    this.top = 60 + (index * 60);
+    if (!this.center) {
+      this.left = this.getRandomX();
+      this.top = this.getRandomY();
+    } else {
+      this.left = this.maxW / 2;
+      this.top = this.maxH / 2;
+    }
     this.$root.$on('windowSelected', id => {
       this.selectedWindow = id;
       setTimeout(() => {
@@ -237,6 +242,15 @@ export default {
     getElevation() {
       var buffer = this.$parent.zBuffer;
       return 9999 + (buffer.length - buffer.indexOf(this.id));
+    },
+    rand(min, max) {
+      return parseInt(Math.random() * (max - min) + min);
+    },
+    getRandomX() {
+      return this.rand(this.maxW / 12, this.maxW - (this.initialWidth + 120));
+    },
+    getRandomY() {
+      return this.rand(this.maxH / 12, this.maxH - (this.initialHeight + 300));
     }
   },
   filters: {
@@ -248,6 +262,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes enter {
+  to {
+    transform: scale(1);
+  }
+}
 .hide {
   .window-title {
     opacity: 0 !important;
@@ -277,6 +296,8 @@ export default {
   position: absolute !important;
   margin-top: $bezel_width;
   margin-left: $bezel_width;
+  transform: scale(0.9);
+  animation: enter 200ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -moz-user-select: none; /* Old versions of Firefox */
