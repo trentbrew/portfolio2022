@@ -78,7 +78,7 @@
     transition: 600ms cubic-bezier(0.85, 0, 0.15, 1);
   `"
   >
-    <Screen />
+    <Screen :popup="popup" />
   </div>
 </div>
 </template>
@@ -97,7 +97,8 @@ export default {
       clicked: false,
       desktopReady: false,
       hovering: false,
-      allowClick: false
+      allowClick: false,
+      popup: false
     };
   },
   mounted() {
@@ -125,6 +126,7 @@ export default {
         console.log('valid click ✅');
         setTimeout(() => {
           this.desktopReady = true;
+          this.popup = true;
         }, 600);
       }
     },

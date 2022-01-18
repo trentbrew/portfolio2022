@@ -1,6 +1,6 @@
 <template>
   <div class="ui">
-    <Desktop />
+    <Desktop :popup="popup" />
   </div>
 </template>
 
@@ -11,6 +11,9 @@ export default {
   name: "Screen",
   components: {
     Desktop,
+  },
+  props: {
+    popup: Boolean
   }
 }
 </script>
@@ -22,6 +25,5 @@ export default {
   box-sizing: border-box;
   border: solid $bezel_color;
   border-width: $bezel_width 12px $bezel_width 12px;
-  //padding-bottom: 12px;
 }
 </style>

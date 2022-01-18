@@ -30,7 +30,7 @@
         </template>
       </Window>
     </div>
-    <!--Dock :hide="fullscreen">
+    <Dock :hide="fullscreen">
       <div 
       v-for="(item, index) in dockItems" 
       class="dock-item flex-center"
@@ -51,7 +51,7 @@
         >
         </div>
       </div>
-    </Dock-->
+    </Dock>
   </div>
 </template>
 
@@ -98,6 +98,22 @@ export default {
       ]
     };
   },
+  props: {
+    popup: Boolean
+  },
+  watch: {
+    popup(val) {
+      console.log('popup', val);
+      setTimeout(() => {
+        this.pushWindow({
+          title: 'Terminal',
+          embed: 'https://hackertyper.net/',
+          width: 800,
+          height: 450
+        });
+      }, 2000);
+    }
+  },
   computed: {
     window: () => window,
     maxW: () => window.innerWidth,
@@ -112,12 +128,6 @@ export default {
     window.addEventListener('keyup', (e) => { // for debugging
       e.key == 'w' && this.pushWindow({});
     });
-    setTimeout(() => {
-      this.pushWindow({
-        title: 'Terminal',
-        embed: 'https://hackertyper.net/',
-      });
-    }, 1000);
   },
   destroyed() {
     window.removeEventListener('keyup', (e) => {});

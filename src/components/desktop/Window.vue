@@ -296,8 +296,10 @@ export default {
   position: absolute !important;
   margin-top: $bezel_width;
   margin-left: $bezel_width;
-  transform: scale(0.9);
-  animation: enter 200ms ease forwards;
+  transform: scale(0.8);
+  //border: 1px solid rgba(white, 0.12);
+  border-radius: $rad;
+  animation: enter 300ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -moz-user-select: none; /* Old versions of Firefox */
