@@ -88,10 +88,10 @@
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
         `">
           <slot id="slot">
-            <span>W: <b>{{ width && width.toFixed(0) }}</b></span><br>
-            <span>H: <b>{{ height && height.toFixed(0) }}</b></span><br>
-            <span>X: <b>{{ left && left.toFixed(0) }}</b></span><br>
-            <span>Y: <b>{{ top && top.toFixed(0) }}</b></span>
+            <span>W: {{ width && width.toFixed(0) }}</span><br>
+            <span>H: {{ height && height.toFixed(0) }}</span><br>
+            <span>X: {{ left && left.toFixed(0) }}</span><br>
+            <span>Y: {{ top && top.toFixed(0) }}</span>
           </slot>
         </div>
       </div>
@@ -371,12 +371,12 @@ export default {
 }
 .window-body {
   display: flex;
+  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
   border-radius: 12px;
-  box-shadow: $tight_shadow;
+  //box-shadow: $tight_shadow;
 }
 .active {
   .window-title {
@@ -395,6 +395,9 @@ export default {
   }
   .window-body {
     pointer-events: none;
+    span {
+      color: black;
+    }
   }
   .window-border {
     background: $inactive_window;

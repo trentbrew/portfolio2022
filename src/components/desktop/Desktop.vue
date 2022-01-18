@@ -112,6 +112,12 @@ export default {
     window.addEventListener('keyup', (e) => { // for debugging
       e.key == 'w' && this.pushWindow({});
     });
+    setTimeout(() => {
+      this.pushWindow({
+        title: 'Terminal',
+        embed: 'https://hackertyper.net/',
+      });
+    }, 1000);
   },
   destroyed() {
     window.removeEventListener('keyup', (e) => {});
