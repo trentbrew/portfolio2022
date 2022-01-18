@@ -1,8 +1,8 @@
 <template>
-  <div 
+  <div
   class="desktop-container" 
-  :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'
-  ">
+  :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
+  >
     <div class="backdrop">
       <video autoplay loop muted>
         <source src="../../assets/videos/big_sur_animated.mp4" type="video/mp4"/>

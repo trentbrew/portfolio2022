@@ -59,7 +59,7 @@
   :class="clicked ? 'desktop-modal-transition' : 'desktop-modal'"
   :style="hovering && 'animation-play-state: paused'"
   >
-    <video 
+    <video
     type="video/mp4" 
     muted autoplay loop 
     width="100%" height="100%"
@@ -68,6 +68,9 @@
       <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
     </video>
   </div>
+  <!--div class="desktop-modal-final">
+    <Desktop />
+  </div-->
 </div>
 </template>
 
@@ -83,7 +86,7 @@ export default {
     return {
       unveil: false,
       clicked: false,
-      clicked: false,
+      desktopReady: false,
       hovering: false,
       allowClick: false
     };
@@ -113,6 +116,8 @@ export default {
         console.log('valid click ✅');
         setTimeout(() => {
           console.log('routing to desktop...');
+          this.$router.push('/desktop');
+          //this.desktopReady = true;
         }, 3000);
       }
     },
@@ -188,6 +193,14 @@ video {
   object-fit: cover;
 }
 
+.desktop-modal-final {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  opacity: 1;
+  z-index: 999999;
+}
+
 .desktop-modal {
   position: absolute;
   margin: auto;
@@ -199,7 +212,7 @@ video {
   width: 18vh;
   height: 12vh;
   pointer-events: none;
-  transition: 3s cubic-bezier(0.85, 0, 0.15, 1), opacity 0s;
+  transition: 3s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
   z-index: 999999;
 }
@@ -212,15 +225,17 @@ video {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background: rgba(brown, 1);
   transform: scale(2.25);
   width: 43.444vw;
   height: 43.444vh;
-  border-radius: 12px;
   pointer-events: none;
-  transition: 3s cubic-bezier(0.85, 0, 0.15, 1), opacity 0s;
+  transition: 3s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
+
+  video {
+    border-radius: 6px;
+  }
 }
 
 .zoomable {
@@ -284,7 +299,7 @@ svg {
   font-size: 15px;
   transform: scale(2);
   cursor: pointer;
-  transition: opacity 2s !important;
+  transition: opacity 1s !important;
   animation: pulse 2s ease infinite $pulse_delay;
 }
 
