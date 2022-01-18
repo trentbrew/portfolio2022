@@ -54,6 +54,7 @@
       </div>
     </div>
   </div>
+
   <div 
   class="absolute" 
   :class="clicked ? 'desktop-modal-transition' : 'desktop-modal'"
@@ -68,19 +69,27 @@
       <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
     </video>
   </div>
-  <!--div class="desktop-modal-final">
-    <Desktop />
-  </div-->
+  <div v-if="desktopReady" class="desktop-modal-final absolute">
+    <!--video
+    type="video/mp4" 
+    muted autoplay loop 
+    width="100%" height="100%"
+    >
+      <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
+      <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
+    </video-->
+    <Screen />
+  </div>
 </div>
 </template>
 
 <script>
-import Desktop from '@/components/desktop/Desktop.vue';
+import Screen from '@/views/Screen.vue';
 
 export default {
   name: "Intro",
   components: {
-    Desktop
+    Screen
   },
   data() {
     return {
@@ -116,8 +125,8 @@ export default {
         console.log('valid click ✅');
         setTimeout(() => {
           console.log('routing to desktop...');
-          this.$router.push('/desktop');
-          //this.desktopReady = true;
+          //this.$router.push('/desktop');
+          this.desktopReady = true;
         }, 3000);
       }
     },
@@ -137,7 +146,7 @@ $lid-timing-out: 400ms;
 $lid-ease-in: ease;
 $lid-ease-out: ease;
 $lid-delay-out: 0ms;
-$lid-delay-in: 800ms;
+$lid-delay-in: 600ms;
 
 $laptop_color: #EDEDF1;
 $laptop_height: 11em; // 161px
@@ -195,8 +204,10 @@ video {
 
 .desktop-modal-final {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
   opacity: 1;
   z-index: 999999;
 }
