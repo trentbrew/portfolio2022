@@ -87,14 +87,14 @@ export default {
           embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
         },
         {
+          icon: 'folder.png',
+          label: 'Terminal',
+          component: Terminal
+        },
+        {
           icon: 't.png',
           label: 'Twitter',
           link: 'https://twitter.com/trentbrew_',
-        },
-        {
-          icon: 'folder.png',
-          label: 'Projects',
-          component: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
         },
       ]
     };
@@ -112,7 +112,7 @@ export default {
           width: 800,
           height: 450
         });
-      }, 1600);
+      }, 2000);
     }
   },
   computed: {

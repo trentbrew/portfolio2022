@@ -308,7 +308,7 @@ export default {
   transform: scale(0.9);
   //border: 1px solid rgba(white, 0.12);
   border-radius: $rad;
-  animation: enter 200ms ease forwards;
+  animation: enter 400ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -moz-user-select: none; /* Old versions of Firefox */

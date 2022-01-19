@@ -47,7 +47,7 @@ export default {
   font-size: 18px;
   &::before {
     content: '$ ';
-    color: green;
+    color: lime;
   }
 }
 .vue-typer .custom.char {
