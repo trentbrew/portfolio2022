@@ -56,18 +56,19 @@
 </template>
 
 <script>
+import { uid } from 'uid';
+import FileBrowser from "vuetify-file-browser";
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
-import FileBrowser from "vuetify-file-browser";
-import { uid } from 'uid';
+import Terminal from '@/components/content/Terminal.vue';
 
 export default {
   name: "Desktop",
   components: {
     Dock,
     Window,
-    FileBrowser // images + videos
-    // Terminal
+    FileBrowser,
+    Terminal
     // Resume
     // Settings
     // Notes
@@ -107,7 +108,7 @@ export default {
       setTimeout(() => {
         this.pushWindow({
           title: 'Terminal',
-          embed: 'https://hackertyper.net/',
+          component: Terminal,
           width: 800,
           height: 450
         });
@@ -186,10 +187,8 @@ video {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    //transition: 100ms;
     &:hover {
       opacity: 0.4;
-      //transform: scale(1.12);
     }
   }
 }

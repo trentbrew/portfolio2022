@@ -397,9 +397,7 @@ export default {
   }
   .window-body {
     pointer-events: none;
-    span {
-      color: black;
-    }
+    color: black;
   }
   .window-border {
     background: $inactive_window;
