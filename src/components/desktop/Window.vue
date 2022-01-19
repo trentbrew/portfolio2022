@@ -299,7 +299,7 @@ export default {
   transform: scale(0.8);
   //border: 1px solid rgba(white, 0.12);
   border-radius: $rad;
-  animation: enter 300ms ease forwards;
+  animation: enter 600ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -moz-user-select: none; /* Old versions of Firefox */

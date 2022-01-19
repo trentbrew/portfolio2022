@@ -1,23 +1,25 @@
 <template>
+<div class="terminal-container">
   <vue-typer
     :text="[
       `Hi!`,
       `My name's Trent`,
       `I'm a UX Developer based in Chicago`,
-      `Welcome to my website(:`,
-      `Feel free to click around & explore...`
+      `Welcome to my portfolio ^-^`,
+      `Feel free to click around & explore my work...`
     ]"
     :repeat='0'
     :shuffle='false'
     initial-action='typing'
-    :pre-type-delay='70'
-    :type-delay='70'
+    :pre-type-delay='100'
+    :type-delay='100'
     :pre-erase-delay='3000'
-    :erase-delay='250'
+    :erase-delay='600'
     erase-style='select-all'
     :erase-on-complete='false'
-    caret-animation='blink'
+    caret-animation='smooth'
   ></vue-typer>
+</div>
 </template>
 
 <script>
@@ -42,21 +44,31 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
+.terminal-container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: black;
+  border-radius: 8px;
+  padding: 24px;
+}
 .vue-typer {
   font-family: monospace;
+  font-size: 18px;
+  &::before {
+    content: '$ ';
+    color: green;
+  }
 }
-
 .vue-typer .custom.char {
-  color: #D4D4BD;
-  background-color: #1E1E1E;
+  color: white;
 }
 .vue-typer .custom.char.selected {
   background-color: #264F78;
 }
-
 .vue-typer .custom.caret {
   width: 10px;
-  background-color: #3F51B5;
+  background-color: white;
 }
 </style>

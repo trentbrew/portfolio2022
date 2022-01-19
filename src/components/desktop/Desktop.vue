@@ -112,7 +112,7 @@ export default {
           width: 800,
           height: 450
         });
-      }, 2000);
+      }, 1600);
     }
   },
   computed: {

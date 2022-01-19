@@ -127,7 +127,7 @@ export default {
         setTimeout(() => {
           this.desktopReady = true;
           this.popup = true;
-        }, 600);
+        }, 800);
       }
     },
   },
