@@ -8,7 +8,7 @@
       `Welcome to my portfolio ^-^`,
       `Feel free to click around & explore my work...`
     ]"
-    :repeat='0'
+    :repeat='Infinity'
     :shuffle='false'
     initial-action='typing'
     :pre-type-delay='100'
@@ -29,17 +29,6 @@ export default {
   name: 'Terminal',
   components: {
     VueTyper
-  },
-  data() {
-    return {
-
-    }
-  },
-  mounted() {
-
-  },
-  methods: {
-
   }
 }
 </script>

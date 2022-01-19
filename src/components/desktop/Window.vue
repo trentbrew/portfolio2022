@@ -88,10 +88,12 @@
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
         `">
           <slot id="slot">
-            <span>W: {{ width && width.toFixed(0) }}</span><br>
-            <span>H: {{ height && height.toFixed(0) }}</span><br>
-            <span>X: {{ left && left.toFixed(0) }}</span><br>
-            <span>Y: {{ top && top.toFixed(0) }}</span>
+            <div class="empty-slot-container">
+              <span>W: {{ width && width.toFixed(0) }}</span><br>
+              <span>H: {{ height && height.toFixed(0) }}</span><br>
+              <span>X: {{ left && left.toFixed(0) }}</span><br>
+              <span>Y: {{ top && top.toFixed(0) }}</span>
+            </div>
           </slot>
         </div>
       </div>
@@ -153,7 +155,7 @@ export default {
     this.exit = false;
     this.width = this.initialWidth;
     this.height = this.initialHeight;
-    const index = this.index;
+    this.selectedWindow = this.id;
     if (!this.center) {
       this.left = this.getRandomX();
       this.top = this.getRandomY();
@@ -163,9 +165,6 @@ export default {
     }
     this.$root.$on('windowSelected', id => {
       this.selectedWindow = id;
-      setTimeout(() => {
-        this.$forceUpdate();
-      }, 400);
     });
   },
   methods: {
@@ -267,6 +266,16 @@ export default {
     transform: scale(1);
   }
 }
+.empty-slot-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(white, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
 .hide {
   .window-title {
     opacity: 0 !important;
@@ -296,10 +305,10 @@ export default {
   position: absolute !important;
   margin-top: $bezel_width;
   margin-left: $bezel_width;
-  transform: scale(0.8);
+  transform: scale(0.9);
   //border: 1px solid rgba(white, 0.12);
   border-radius: $rad;
-  animation: enter 600ms ease forwards;
+  animation: enter 200ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
   -moz-user-select: none; /* Old versions of Firefox */
@@ -378,7 +387,7 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  //box-shadow: $tight_shadow;
+  box-shadow: $tight_shadow;
 }
 .active {
   .window-title {
