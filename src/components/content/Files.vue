@@ -16,13 +16,13 @@
        <circle cx="295.099" cy="327.254" r="110.96" transform="rotate(-45 295.062 327.332)" />
        <path d="M471.854 338.281V163.146H296.72v41.169a123.1 123.1 0 01121.339 122.939c0 3.717-.176 7.393-.5 11.027zM172.14 327.254a123.16 123.16 0 01100.59-120.915L195.082 73.786 40.146 338.281H172.64c-.325-3.634-.5-7.31-.5-11.027z" />
       </svg>
-      Graphic Design
+      Games
      </a>
      <a href="#">
       <svg viewBox="0 0 58 58" fill="currentColor">
        <path d="M57 6H1a1 1 0 00-1 1v44a1 1 0 001 1h56a1 1 0 001-1V7a1 1 0 00-1-1zM10 50H2v-9h8v9zm0-11H2v-9h8v9zm0-11H2v-9h8v9zm0-11H2V8h8v9zm26.537 12.844l-11 7a1.007 1.007 0 01-1.018.033A1.001 1.001 0 0124 36V22a1.001 1.001 0 011.538-.844l11 7a1.003 1.003 0 01-.001 1.688zM56 50h-8v-9h8v9zm0-11h-8v-9h8v9zm0-11h-8v-9h8v9zm0-11h-8V8h8v9z" />
       </svg>
-      Video
+      Animations
      </a>
      <a href="#">
       <svg viewBox="0 0 512 512" fill="currentColor">
@@ -35,13 +35,13 @@
        <path d="M497 151H316c-8.401 0-15 6.599-15 15v300c0 8.401 6.599 15 15 15h181c8.401 0 15-6.599 15-15V166c0-8.401-6.599-15-15-15zm-76 270h-30c-8.401 0-15-6.599-15-15s6.599-15 15-15h30c8.401 0 15 6.599 15 15s-6.599 15-15 15zm0-180h-30c-8.401 0-15-6.599-15-15s6.599-15 15-15h30c8.401 0 15 6.599 15 15s-6.599 15-15 15z" />
        <path d="M15 331h196v60h-75c-8.291 0-15 6.709-15 15s6.709 15 15 15h135v-30h-30v-60h30V166c0-24.814 20.186-45 45-45h135V46c0-8.284-6.716-15-15-15H15C6.716 31 0 37.716 0 46v270c0 8.284 6.716 15 15 15z" />
       </svg>
-      UI/UX
+      Personal Projects
      </a>
      <a href="#">
       <svg viewBox="0 0 512 512" fill="currentColor">
        <path d="M0 331v112.295a14.996 14.996 0 007.559 13.023L106 512V391L0 331zM136 391v121l105-60V331zM271 331v121l105 60V391zM406 391v121l98.441-55.682A14.995 14.995 0 00512 443.296V331l-106 60zM391 241l-115.754 57.876L391 365.026l116.754-66.15zM262.709 1.583a15.006 15.006 0 00-13.418 0L140.246 57.876 256 124.026l115.754-66.151L262.709 1.583zM136 90v124.955l105 52.5V150zM121 241L4.246 298.876 121 365.026l115.754-66.15zM271 150v117.455l105-52.5V90z" />
       </svg>
-      3D/AR
+      Client Work
      </a>
     </div>
    </div>
@@ -49,7 +49,6 @@
   <div class="main-container">
    <div class="content-wrapper">
     <div class="content-section">
-     <div class="content-section-title">Apps in your plan</div>
      <div class="apps-card">
       <div class="app-card">
        <span>
@@ -205,19 +204,14 @@ body.light-mode .video-bg:before {
 }
 
 .app {
- background-color: var(--theme-bg-color);
- max-width: 1250px;
- max-height: 860px;
- height: 90vh;
+ border-radius: 12px;
+ //background: rgba(black, 0.1);
  display: flex;
  flex-direction: column;
- overflow: hidden;
+ overflow: auto;
+ height: 100%;
  width: 100%;
- border-radius: 14px;
- backdrop-filter: blur(20px);
- -webkit-backdrop-filter: blur(20px);
- font-size: 15px;
- font-weight: 500;
+ font-size: 14px;
 }
 
 .header {
@@ -309,9 +303,9 @@ body.light-mode .video-bg:before {
 }
 
 .left-side {
- flex-basis: 240px;
+ flex-basis: 180px;
  border-right: 1px solid var(--border-color);
- padding: 12px 26px 26px 12px;
+ padding: 0px 26px 26px 0px;
  overflow: auto;
  flex-shrink: 0;
  @media screen and (max-width: 945px) {
@@ -338,7 +332,7 @@ body.light-mode .video-bg:before {
   display: flex;
   align-items: center;
   font-weight: 400;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 16px;
   font-size: 14px;
   border-radius: $rad;
   transition: 0.3s;
@@ -370,6 +364,8 @@ body.light-mode .video-bg:before {
 }
 
 .main-container {
+ background: rgba(black, 0.2);
+ border-radius: 12px;
  display: flex;
  flex-direction: column;
  flex-grow: 1;
@@ -773,7 +769,7 @@ body.light-mode .video-bg:before {
 }
 
 .app-card {
- display: flex;
+ display: none;
  flex-direction: column;
  width: calc(33.3% - 20px);
  font-size: 16px;

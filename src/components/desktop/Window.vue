@@ -387,12 +387,12 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  box-shadow: $tight_shadow;
+  //box-shadow: $tight_shadow;
 }
 .active {
   .window-title {
     color: rgba(white, 0.8);
-    font-weight: 400;
+    font-weight: bold;
     opacity: 1;
   }
   .window-controls {
