@@ -8,13 +8,13 @@
       `Welcome to my portfolio ^-^`,
       `Feel free to click around & explore my work...`
     ]"
-    :repeat='Infinity'
+    :repeat='0'
     :shuffle='false'
     initial-action='typing'
-    :pre-type-delay='100'
+    :pre-type-delay='200'
     :type-delay='100'
     :pre-erase-delay='3000'
-    :erase-delay='600'
+    :erase-delay='200'
     erase-style='select-all'
     :erase-on-complete='false'
     caret-animation='smooth'
