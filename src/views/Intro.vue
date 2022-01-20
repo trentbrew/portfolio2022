@@ -141,12 +141,12 @@ $base-timing: 1s;
 $base-ease: ease;
 $base-delay: 0s;
 
-$lid-timing-in: 1s;
+$lid-timing-in: 1.5s;
 $lid-timing-out: 400ms;
 $lid-ease-in: ease;
 $lid-ease-out: ease;
 $lid-delay-out: 0ms;
-$lid-delay-in: 600ms;
+$lid-delay-in: 150ms;
 
 $laptop_color: #EDEDF1;
 $laptop_height: 11em; // 161px

@@ -36,6 +36,8 @@
       <div 
       v-for="(item, index) in dockItems" 
       class="dock-item flex-center"
+      @mouseenter="handleItemMouseEnter(index)"
+      @mouseleave="handleItemMouseLeave(index)"
       @click="item.link ? window.open(item.link, '_blank') : pushWindow({
         title: item.label || 'Title',
         link: item.link || null,
@@ -47,6 +49,12 @@
         positionY: item.windowPositionY || getRandomY(), // Number
       })"
       >
+        <div 
+        class="tooltip-container flex-center absolute"
+        :class="item.hover ? 'tooltip-active' : 'tooltip-inactive'" 
+        >
+          {{ item.label }}
+        </div>
         <div 
         class="dock-icon"
         :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"
@@ -62,7 +70,7 @@ import { uid } from 'uid';
 import Item from '@/components/desktop/Item.vue';
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
-import FileBrowser from "vuetify-file-browser";
+import Files from "@/components/content/Files.vue";
 import Terminal from '@/components/content/Terminal.vue';
 
 export default {
@@ -71,7 +79,7 @@ export default {
     Item,
     Dock,
     Window,
-    FileBrowser,
+    Files,
     Terminal
     // Resume
     // Settings
@@ -92,8 +100,8 @@ export default {
         },
         {
           icon: 'folder.png',
-          label: 'Terminal',
-          component: Terminal
+          label: 'Files',
+          component: Files
         },
         {
           icon: 't.png',
@@ -122,6 +130,7 @@ export default {
   },
   computed: {
     window: () => window,
+    console: () => console,
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
   },
@@ -134,11 +143,24 @@ export default {
     window.addEventListener('keyup', (e) => { // for debugging
       e.key == 'w' && this.pushWindow({});
     });
+    this.dockItems.forEach(item => {
+      item = {...item, hovering: false};
+    });
   },
   destroyed() {
     window.removeEventListener('keyup', (e) => {});
   },
   methods: {
+    handleItemMouseEnter(index) {
+      this.dockItems[index].hovering = true;
+      console.log('mouseenter');
+      this.$forceUpdate();
+    },
+    handleItemMouseLeave(index) {
+      this.dockItems[index].hovering = false;
+      console.log('mouseleave');
+      this.$forceUpdate();
+    },
     pushWindow(data) {
       this.windows.push(data);
       var latest = this.windows[this.windows.length - 1];
@@ -162,6 +184,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tootip-active {
+  opacity: 1;
+  transform: translateY(-64px);
+}
+.tooltip-inactive {
+  opacity: 0;
+  transform: translateY(-120px);
+}
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: black;
+  padding: 12px;
+  border-radius: $rad;
+  color: white;
+  transition: 200ms;
+}
 .backdrop {
   position: absolute;
   height: $ui_height;
