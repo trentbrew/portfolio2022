@@ -47,6 +47,7 @@
         height: item.windowHeight || 400, // Nmuber
         positionX: item.windowPositionX || getRandomX(), // Number
         positionY: item.windowPositionY || getRandomY(), // Number
+        center: item.center
       })"
       >
         <div 
@@ -100,10 +101,11 @@ export default {
         },
         {
           icon: 'folder.png',
-          label: 'Files',
+          label: 'Work',
           component: Files,
-          windowWidth: 900,
-          windowHeight: 600
+          windowWidth: 1100,
+          windowHeight: 700,
+          center: true,
         },
         {
           icon: 't.png',
