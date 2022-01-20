@@ -101,7 +101,9 @@ export default {
         {
           icon: 'folder.png',
           label: 'Files',
-          component: Files
+          component: Files,
+          windowWidth: 900,
+          windowHeight: 600
         },
         {
           icon: 't.png',
