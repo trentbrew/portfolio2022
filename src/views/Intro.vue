@@ -223,7 +223,7 @@ video {
   width: 18vh;
   height: 12vh;
   pointer-events: none;
-  transition: 1s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
+  transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
   z-index: 999999;
 }

@@ -10,6 +10,7 @@
       </video>
     </div>
     <div ref="desktop" class="desktop">
+      <Item />
       <Window 
       v-for="(window, index) in windows" 
       :index="index"
@@ -57,14 +58,16 @@
 
 <script>
 import { uid } from 'uid';
-import FileBrowser from "vuetify-file-browser";
+import Item from '@/components/desktop/Item.vue';
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
+import FileBrowser from "vuetify-file-browser";
 import Terminal from '@/components/content/Terminal.vue';
 
 export default {
   name: "Desktop",
   components: {
+    Item,
     Dock,
     Window,
     FileBrowser,

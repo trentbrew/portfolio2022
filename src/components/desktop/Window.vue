@@ -306,7 +306,6 @@ export default {
   margin-top: $bezel_width;
   margin-left: $bezel_width;
   transform: scale(0.9);
-  //border: 1px solid rgba(white, 0.12);
   border-radius: $rad;
   animation: enter 400ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
