@@ -34,7 +34,7 @@ export default {
     height: 56px;
     width: 56px;
     margin-bottom: 12px;
-    background-image: url('../../assets/icons/folder.png');
+    background-image: url('../../assets/icons/folder.svg');
 }
 span {
     font-size: 14px;

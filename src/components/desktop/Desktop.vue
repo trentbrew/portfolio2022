@@ -100,7 +100,7 @@ export default {
           embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
         },
         {
-          icon: 'folder.png',
+          icon: 'folder.svg',
           label: 'Work',
           component: Files,
           windowWidth: 1100,
