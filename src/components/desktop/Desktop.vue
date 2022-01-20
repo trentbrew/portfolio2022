@@ -18,6 +18,7 @@
       :title="window.title"
       :initialWidth="window.width"
       :initialHeight="window.height"
+      :center="window.center"
       >
         <template v-if="window.embed">
           <iframe 
@@ -113,7 +114,8 @@ export default {
           title: 'Terminal',
           component: Terminal,
           width: 800,
-          height: 450
+          height: 450,
+          center: true
         });
       }, 2000);
     }

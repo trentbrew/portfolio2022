@@ -138,6 +138,7 @@ export default {
     index: Number,
     id: String,
     title: String,
+    center: Boolean,
     initialWidth: {
       type: Number,
       default: 400
@@ -160,8 +161,8 @@ export default {
       this.left = this.getRandomX();
       this.top = this.getRandomY();
     } else {
-      this.left = this.maxW / 2;
-      this.top = this.maxH / 2;
+      this.left = (this.maxW / 2) - (this.initialWidth / 2);
+      this.top = (this.maxH / 2.4) - (this.initialHeight / 2);
     }
     this.$root.$on('windowSelected', id => {
       this.selectedWindow = id;
