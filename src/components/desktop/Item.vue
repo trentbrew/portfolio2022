@@ -1,44 +1,33 @@
 <template>
-    <h2 class="absolute flex-column flex-center item-container" v-draggable>
+    <h2 
+    @dblclick="$parent.pushWindow({
+        title: 'Work',
+        center: true,
+        component: Files
+    })" 
+    class="absolute flex-column flex-center item-container" 
+    v-draggable
+    >
         <div class="icon"></div>
-        <span class="title">Projects</span>
+        <span class="title">Work</span>
     </h2>
 </template>
 
 <script>
 import { Draggable } from 'draggable-vue-directive';
+import Files from '@/components/content/Files.vue';
 
 export default {
     directives: {
         Draggable
+    },
+    components: {
+        Files
     }
 }
 
 </script>
 
 <style lang="scss" scoped>
-.item-container {
-    top: 36px;
-    left: 48px;
-    padding: 12px 18px;
-    border-radius: $rad;
-    cursor: pointer;
-    &:hover {
-        background: rgba(black, 0.1);
-    }
-}
-.icon {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 56px;
-    width: 56px;
-    margin-bottom: 12px;
-    background-image: url('../../assets/icons/folder.svg');
-}
-span {
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-}
+
 </style>

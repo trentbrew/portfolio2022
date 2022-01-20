@@ -10,7 +10,36 @@
       </video>
     </div>
     <div ref="desktop" class="desktop">
-      <Item />
+      <div 
+      @dblclick="pushWindow({
+          title: 'Work',
+          center: true,
+          width: 1100,
+          height: 700,
+          component: Files
+      })"
+      style="top: 36px; left: 48px;"
+      class="absolute flex-column flex-center item-container" 
+      v-draggable
+      >
+          <div class="icon" :style="'background-image: url(' + require('@/assets/icons/folder.svg') + ');'"></div>
+          <span class="title">Work</span>
+      </div>
+      <div 
+      @dblclick="pushWindow({
+          title: 'Work',
+          center: true,
+          width: 1100,
+          height: 700,
+          component: Files
+      })"
+      style="top: 160px; left: 48px;"
+      class="absolute flex-column flex-center item-container" 
+      v-draggable
+      >
+          <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
+          <span class="title">Resume</span>
+      </div>
       <Window 
       v-for="(window, index) in windows" 
       :index="index"
@@ -68,7 +97,7 @@
 
 <script>
 import { uid } from 'uid';
-import Item from '@/components/desktop/Item.vue';
+import { Draggable } from 'draggable-vue-directive';
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
 import Files from "@/components/content/Files.vue";
@@ -76,16 +105,14 @@ import Terminal from '@/components/content/Terminal.vue';
 
 export default {
   name: "Desktop",
+  directives: {
+    Draggable
+  },
   components: {
-    Item,
     Dock,
     Window,
     Files,
     Terminal
-    // Resume
-    // Settings
-    // Notes
-    // --- projects will be iframes + Notes ---
   },
   data() {
     return {
@@ -95,11 +122,6 @@ export default {
       fullscreen: false,
       dockItems: [
         {
-          icon: 'spotify.png',
-          label: 'Spotify',
-          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
-        },
-        {
           icon: 'folder.svg',
           label: 'Work',
           component: Files,
@@ -108,9 +130,29 @@ export default {
           center: true,
         },
         {
+          icon: 'spotify.png',
+          label: 'Spotify',
+          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
+        },
+        {
+          icon: 'term.svg',
+          label: 'Terminal',
+          component: Terminal
+        },
+        {
           icon: 't.png',
           label: 'Twitter',
           link: 'https://twitter.com/trentbrew_',
+        },
+        {
+          icon: 'in.png',
+          label: 'LinkedIn',
+          link: 'https://www.linkedin.com/in/trentbrew/'
+        },
+        {
+          icon: 'gh.svg',
+          label: 'GitHub',
+          link: 'https://github.com/tbrew1023'
         },
       ]
     };
@@ -137,6 +179,7 @@ export default {
     console: () => console,
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
+    Files: () => Files
   },
   mounted() {
     this.$root.$on('windowSelected', (id) => {
@@ -188,6 +231,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.item-container {
+    padding: 12px 18px;
+    border-radius: $rad;
+    cursor: pointer;
+    &:hover {
+        background: rgba(black, 0.1);
+    }
+}
+.icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 56px;
+    width: 56px;
+    margin-bottom: 12px;
+}
+span {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
 .tootip-active {
   opacity: 1;
   transform: translateY(-64px);
