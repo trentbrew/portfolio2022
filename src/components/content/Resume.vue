@@ -1,7 +1,7 @@
 <template>
 	<div class="resume-container">
 		<img src="../../assets/files/Resume - Trenton Brew.png"></img>
-        <a href="https://github.com/tbrew1023/portfolio-redesign/raw/7f939fb3ddf4491c8d9d386e1d5d765dc35238d3/src/assets/files/resume.pdf" class="download">Download PDF</a>
+        <a href="https://github.com/tbrew1023/portfolio-redesign/raw/master/src/assets/files/Resume%20-%20Trenton%20Brew%20.pdf" class="download">Download PDF</a>
 	</div>
 </template>
 
@@ -9,9 +9,9 @@
 .download {
     position: absolute;
     color: white;
-    background: rgba(black, 0.8);
+    background: black;
     backdrop-filter: blur(20px);
-    padding: 12px 24px;
+    padding: 8px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
     cursor: pointer; 
 
     &:hover {
-        transform: scale(1.05);
+        opacity: 0.9;
     }
 }
 
