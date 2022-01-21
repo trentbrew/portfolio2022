@@ -11,34 +11,36 @@
     </div>
     <div ref="desktop" class="desktop">
       <div 
-      @dblclick="pushWindow({
-          title: 'Work',
-          center: true,
-          width: 1100,
-          height: 700,
-          component: Files
-      })"
-      style="top: 36px; left: 48px;"
-      class="absolute flex-column flex-center item-container" 
+      @click="handleItemClick(0)"
+      @dblclick="() => { clicked = null; pushWindow({
+        title: 'Work',
+        center: true,
+        width: 1100,
+        height: 700,
+        component: Files
+      })}"
+      :style="`top: 36px; left: 48px; ${clicked == 0 ? 'background: rgba(0,0,0,0.2)' : ''};`"
+      class="absolute flex-column flex-center item-container"
       v-draggable
       >
-          <div class="icon" :style="'background-image: url(' + require('@/assets/icons/folder.svg') + ');'"></div>
-          <span class="title">Work</span>
+        <div class="icon" :style="'background-image: url(' + require('@/assets/icons/folder.svg') + ');'"></div>
+        <span class="title">Work</span>
       </div>
       <div 
-      @dblclick="pushWindow({
-          title: 'Resume',
-          center: true,
-          width: 600,
-          height: 772,
-          component: Resume
-      })"
-      style="top: 160px; left: 48px;"
+      @click="handleItemClick(1)"
+      @dblclick="() => { clicked = null; pushWindow({
+        title: 'Resume',
+        center: true,
+        width: 600,
+        height: 772,
+        component: Resume
+      })}"
+      :style="`top: 160px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.2)' : ''};`"
       class="absolute flex-column flex-center item-container" 
       v-draggable
       >
-          <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
-          <span class="title">Resume</span>
+        <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
+        <span class="title">Resume</span>
       </div>
       <Window 
       v-for="(window, index) in windows" 
@@ -120,6 +122,7 @@ export default {
     return {
       windows: [],
       zBuffer: [],
+      clicked: null,
       stretch: false,
       fullscreen: false,
       dockItems: [
@@ -201,6 +204,9 @@ export default {
     window.removeEventListener('keyup', (e) => {});
   },
   methods: {
+    handleItemClick(index) {
+      this.clicked = index;
+    },
     handleItemMouseEnter(index) {
       this.dockItems[index].hovering = true;
       console.log('mouseenter');
