@@ -27,11 +27,11 @@
       </div>
       <div 
       @dblclick="pushWindow({
-          title: 'Work',
+          title: 'Resume',
           center: true,
-          width: 1100,
-          height: 700,
-          component: Files
+          width: 600,
+          height: 772,
+          component: Resume
       })"
       style="top: 160px; left: 48px;"
       class="absolute flex-column flex-center item-container" 
@@ -102,6 +102,7 @@ import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
 import Files from "@/components/content/Files.vue";
 import Terminal from '@/components/content/Terminal.vue';
+import Resume from '@/components/content/Resume.vue';
 
 export default {
   name: "Desktop",
@@ -112,7 +113,8 @@ export default {
     Dock,
     Window,
     Files,
-    Terminal
+    Terminal,
+    Resume
   },
   data() {
     return {
@@ -179,7 +181,8 @@ export default {
     console: () => console,
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
-    Files: () => Files
+    Files: () => Files,
+    Resume: () => Resume
   },
   mounted() {
     this.$root.$on('windowSelected', (id) => {

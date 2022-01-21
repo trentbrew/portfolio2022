@@ -12,6 +12,7 @@
     "jquery": "^3.6.0",
     "uid": "^2.0.0",
     "vue": "^2.6.11",
+    "vue-pdf": "^4.3.0",
     "vue-resizable": "^2.0.5",
     "vue-router": "^3.2.0",
     "vue-typed-js": "^0.1.2",

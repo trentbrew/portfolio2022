@@ -386,7 +386,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 8px;
   //box-shadow: $tight_shadow;
 }
 .active {
