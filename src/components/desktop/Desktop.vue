@@ -82,10 +82,9 @@
       })"
       >
         <div 
-        class="tooltip-container flex-center absolute"
-        :class="item.hover ? 'tooltip-active' : 'tooltip-inactive'" 
+        class="tooltip flex-center absolute"
         >
-          {{ item.label }}
+          <span>{{ item.label }}</span>
         </div>
         <div 
         class="dock-icon"
@@ -232,43 +231,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.item-container {
-    padding: 12px 18px;
-    border-radius: $rad;
-    cursor: pointer;
-    &:hover {
-        background: rgba(black, 0.1);
-    }
-}
-.icon {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 56px;
-    width: 56px;
-    margin-bottom: 12px;
-}
 span {
     font-size: 14px;
     font-weight: bold;
     color: white;
-}
-.tootip-active {
-  opacity: 1;
-  transform: translateY(-64px);
-}
-.tooltip-inactive {
-  opacity: 0;
-  transform: translateY(-120px);
-}
-.tooltip {
-  position: absolute;
-  pointer-events: none;
-  background: black;
-  padding: 12px;
-  border-radius: $rad;
-  color: white;
-  transition: 200ms;
 }
 .backdrop {
   position: absolute;
@@ -295,15 +261,53 @@ video {
   width: 56px;
   height: 56px;
   margin: 12px 10px;
+  transition: 200ms;
   cursor: pointer;
+
+  .tooltip {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-64px) scale(0.9);
+    padding: 12px;
+    border-radius: $rad;
+    color: white;
+    transition: 200ms;
+  }
+
+  .item-container {
+      padding: 12px 18px;
+      border-radius: $rad;
+      cursor: pointer;
+      &:hover {
+          background: rgba(black, 0.1);
+      }
+  }
+  .icon {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 56px;
+      width: 56px;
+      margin-bottom: 12px;
+  }
+  
   .dock-icon {
     width: 100%;
     height: 100%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    &:hover {
-      opacity: 0.6;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+
+    .tooltip {
+      opacity: 1;
+      background: $active_window;
+      backdrop-filter: $blur;
+      transform: translateY(-80px) scale(1);
     }
   }
 }
