@@ -322,7 +322,7 @@ export default {
   border-radius: $rad;
   box-sizing: content-box;
   backdrop-filter: $blur;
-  box-shadow: $light_shadow;
+  //box-shadow: $light_shadow;
 }
 
 .window-header {

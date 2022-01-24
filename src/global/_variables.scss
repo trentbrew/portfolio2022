@@ -15,14 +15,20 @@ $japanese_indigo: #3b454e;
 $dark: #212225;
 $dark2: #2A2B2E;
 
+$laptop_background: #212225;
+
 $active_window: rgba(black, 0.4);
 $inactive_window: rgba(#bdbdbd, 0.4);
 
 $top_height: 24px;
 $dock_height: 64px;
+
+$ui_width: calc(100vw - 24px);
 $ui_height: calc(100vh - 24px);
+
 $rad: 18px;
-$blur: saturate(120%) blur(20px);
+
+$blur: saturate(120%) blur(42px);
 
 $bezel_color: black;
 $bezel_width: 12px;

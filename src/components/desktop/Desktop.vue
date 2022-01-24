@@ -4,10 +4,10 @@
   :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
   >
     <div class="backdrop">
-      <video autoplay loop muted>
+      <!--video autoplay loop muted>
         <source src="../../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
         <source src="../../assets/videos/big_sur_animated.webm" type="video/webm"/>
-      </video>
+      </video-->
     </div>
     <div ref="desktop" class="desktop">
       <div 
@@ -127,17 +127,9 @@ export default {
       fullscreen: false,
       dockItems: [
         {
-          icon: 'folder.svg',
-          label: 'Work',
-          component: Files,
-          windowWidth: 1100,
-          windowHeight: 700,
-          center: true,
-        },
-        {
-          icon: 'spotify.png',
-          label: 'Spotify',
-          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator',
+          icon: 'music.svg',
+          label: "Music",
+          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
         },
         {
           icon: 'term.svg',
@@ -145,15 +137,15 @@ export default {
           component: Terminal
         },
         {
-          icon: 't.png',
+          icon: 't.svg',
           label: 'Twitter',
           link: 'https://twitter.com/trentbrew_',
         },
-        {
-          icon: 'in.png',
+        /*{
+          icon: 'in.svg',
           label: 'LinkedIn',
           link: 'https://www.linkedin.com/in/trentbrew/'
-        },
+        },*/
         {
           icon: 'gh.svg',
           label: 'GitHub',
@@ -281,7 +273,9 @@ span {
 .backdrop {
   position: absolute;
   height: $ui_height;
+  width: $ui_width;
   border-radius: $rad;
+  background: $laptop_background;
 }
 .desktop-container {
   background: linear-gradient($bezel_color, $bezel_color);
@@ -300,7 +294,7 @@ video {
 .dock-item {
   width: 42px;
   height: 42px;
-  margin: 0px 5px;
+  margin: 0px 8px;
   cursor: pointer;
   .dock-icon {
     width: 32px;

@@ -32,14 +32,14 @@
             <div class="side top"></div>
             <div class="side bottom">
               <div class="screen">
-                <video 
+                <!--video 
                 type="video/mp4" 
                 muted autoplay loop 
                 width="100%" height="100%"
                 >
                   <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
                   <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
-                </video>
+                </video-->
               </div>
             </div>
             <div class="side right"></div>
@@ -57,25 +57,25 @@
   :class="clicked ? 'desktop-modal-transition' : 'desktop-modal'"
   :style="hovering && 'animation-play-state: paused'"
   >
-    <video
+    <!--video
     type="video/mp4" 
     muted autoplay loop 
     width="100%" height="100%"
     >
       <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
       <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
-    </video>
+    </video-->
   </div>
   <div 
   class="desktop-modal-final absolute"
   :style="desktopReady ? `
     opacity: 1;
     pointer-events: all;
-    transition: 600ms cubic-bezier(0.85, 0, 0.15, 1);
+    transition: 800ms cubic-bezier(0.85, 0, 0.15, 1);
   ` : `
     opacity: 0;
     pointer-events: none;
-    transition: 600ms cubic-bezier(0.85, 0, 0.15, 1);
+    transition: 800ms cubic-bezier(0.85, 0, 0.15, 1);
   `"
   >
     <Screen :popup="popup" />
@@ -222,6 +222,7 @@ video {
   left: 0px;
   width: 18vh;
   height: 12vh;
+  background: $laptop_background;
   pointer-events: none;
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
@@ -237,10 +238,11 @@ video {
   bottom: 0px;
   left: 0px;
   transform: scale(2.25);
+  background: $laptop_background;
   width: 43.444vw;
   height: 43.444vh;
   pointer-events: none;
-  transition: 1s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
+  transition: 1.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
@@ -572,7 +574,7 @@ svg {
   left: .2em; right: .2em;
   border-radius: .1em;
   //background: linear-gradient(to bottom right, #FFF152, #FFA84A);
-  background: $trackpad_color;
+  background: $laptop_background;
   overflow: hidden;
   //border-top: .3em solid rgba(0,0,0,0.2);
 }

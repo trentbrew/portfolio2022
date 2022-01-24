@@ -20,7 +20,7 @@ export default {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  padding: 0px 12px;
+  padding: 8px 18px;
   background: $active_window;
   backdrop-filter: $blur;
   max-width: fit-content;
