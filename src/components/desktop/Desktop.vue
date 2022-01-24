@@ -67,8 +67,6 @@
       <div 
       v-for="(item, index) in dockItems" 
       class="dock-item flex-center"
-      @mouseenter="handleItemMouseEnter(index)"
-      @mouseleave="handleItemMouseLeave(index)"
       @click="item.link ? window.open(item.link, '_blank') : pushWindow({
         title: item.label || 'Title',
         link: item.link || null,
@@ -131,17 +129,17 @@ export default {
           component: Terminal
         },
         {
-          icon: 'music.svg',
+          icon: 'music_color.svg',
           label: "Music",
           embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
         },
         {
-          icon: 't_dark.svg',
+          icon: 't_color.svg',
           label: 'Twitter',
           link: 'https://twitter.com/trentbrew_',
         },
         {
-          icon: 'gh_dark.svg',
+          icon: 'gh_color.svg',
           label: 'GitHub',
           link: 'https://github.com/tbrew1023'
         },
@@ -188,7 +186,7 @@ export default {
       e.key == 'w' && this.pushWindow({});
     });
     this.dockItems.forEach(item => {
-      item = {...item, hovering: false};
+      item = {...item, open: false};
     });
   },
   destroyed() {
@@ -197,16 +195,6 @@ export default {
   methods: {
     handleItemClick(index) {
       this.clicked = index;
-    },
-    handleItemMouseEnter(index) {
-      this.dockItems[index].hovering = true;
-      console.log('mouseenter');
-      this.$forceUpdate();
-    },
-    handleItemMouseLeave(index) {
-      this.dockItems[index].hovering = false;
-      console.log('mouseleave');
-      this.$forceUpdate();
     },
     pushWindow(data) {
       this.windows.push(data);
@@ -231,7 +219,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.item-container {
+.item-container { // desktop item
     padding: 12px 18px;
     border-radius: $rad;
     cursor: pointer;
@@ -284,7 +272,7 @@ video {
 .dock-item {
   width: 56px;
   height: 56px;
-  margin: 12px 10px;
+  margin: 12px 9px;
   transition: 200ms;
   cursor: pointer;
 
@@ -292,7 +280,7 @@ video {
     position: absolute;
     pointer-events: none;
     opacity: 0;
-    transform: translateY(-64px) scale(0.9);
+    transform: translateY(-64px);
     padding: 12px;
     border-radius: $rad;
     color: white;
@@ -310,11 +298,15 @@ video {
   &:hover {
     transform: translateY(-8px);
 
+    .dock-icon {
+      //opacity: 0.6;
+    }
+
     .tooltip {
       opacity: 1;
       background: $active_window;
       backdrop-filter: $blur;
-      transform: translateY(-80px) scale(1);
+      transform: translateY(-80px);
     }
   }
 }

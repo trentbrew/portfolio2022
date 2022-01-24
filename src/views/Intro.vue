@@ -102,6 +102,7 @@ export default {
     };
   },
   mounted() {
+    //console.log('window width', window.innerWidth);
     setTimeout(() => {
       this.unveil = true;
     }, 8000);
@@ -222,6 +223,10 @@ video {
   left: 0px;
   width: 18vh;
   height: 12vh;
+  /*background-image: url('../assets/laptop_screen.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;*/
   background: $laptop_background;
   pointer-events: none;
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
@@ -238,11 +243,15 @@ video {
   bottom: 0px;
   left: 0px;
   transform: scale(2.25);
+  /*background-image: url('../assets/laptop_screen.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;*/
   background: $laptop_background;
   width: 43.444vw;
   height: 43.444vh;
   pointer-events: none;
-  transition: 1.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
+  transition: 1.2s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
@@ -573,9 +582,13 @@ svg {
   top: .7em; bottom: .8em;
   left: .2em; right: .2em;
   border-radius: .1em;
-  //background: linear-gradient(to bottom right, #FFF152, #FFA84A);
-  background: $laptop_background;
+  /*background-image: url('../assets/laptop_screen.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;*/
   overflow: hidden;
+  background: $laptop_background;
+  //background: linear-gradient(to bottom right, #FFF152, #FFA84A);
   //border-top: .3em solid rgba(0,0,0,0.2);
 }
 
