@@ -19,7 +19,7 @@
         height: 700,
         component: Files
       })}"
-      :style="`top: 36px; left: 48px; ${clicked == 0 ? 'background: rgba(0,0,0,0.2)' : ''};`"
+      :style="`top: 36px; left: 48px; ${clicked == 0 ? 'background: rgba(0,0,0,0.4)' : ''};`"
       class="absolute flex-column flex-center item-container"
       v-draggable
       >
@@ -35,7 +35,7 @@
         height: 772,
         component: Resume
       })}"
-      :style="`top: 160px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.2)' : ''};`"
+      :style="`top: 160px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
       class="absolute flex-column flex-center item-container" 
       v-draggable
       >
@@ -231,11 +231,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-span {
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
+.item-container {
+    padding: 12px 18px;
+    border-radius: $rad;
+    cursor: pointer;
+
+    .icon {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 56px;
+        width: 56px;
+        margin-bottom: 12px;
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+    }
+
+    &:hover {
+        background: rgba(black, 0.2);
+    }
 }
+
 .backdrop {
   position: absolute;
   height: $ui_height;
@@ -243,20 +263,24 @@ span {
   border-radius: $rad;
   background: $laptop_background;
 }
+
 .desktop-container {
   background: linear-gradient($bezel_color, $bezel_color);
 }
+
 .desktop {
   width: 100%;
   height: 100%;
   border-radius: $rad;
 }
+
 video {
   object-fit: cover;
   border-radius: $rad;
   width: calc(100vw - $bezel_width * 2);
   height: 100%;
 }
+
 .dock-item {
   width: 56px;
   height: 56px;
@@ -273,23 +297,6 @@ video {
     border-radius: $rad;
     color: white;
     transition: 200ms;
-  }
-
-  .item-container {
-      padding: 12px 18px;
-      border-radius: $rad;
-      cursor: pointer;
-      &:hover {
-          background: rgba(black, 0.1);
-      }
-  }
-  .icon {
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 56px;
-      width: 56px;
-      margin-bottom: 12px;
   }
   
   .dock-icon {
