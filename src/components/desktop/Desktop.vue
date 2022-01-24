@@ -127,29 +127,29 @@ export default {
       fullscreen: false,
       dockItems: [
         {
-          icon: 'music.svg',
-          label: "Music",
-          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
-        },
-        {
           icon: 'term.svg',
           label: 'Terminal',
           component: Terminal
         },
         {
-          icon: 't.svg',
+          icon: 'music.svg',
+          label: "Music",
+          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
+        },
+        {
+          icon: 't_dark.svg',
           label: 'Twitter',
           link: 'https://twitter.com/trentbrew_',
         },
-        /*{
-          icon: 'in.svg',
-          label: 'LinkedIn',
-          link: 'https://www.linkedin.com/in/trentbrew/'
-        },*/
         {
-          icon: 'gh.svg',
+          icon: 'gh_dark.svg',
           label: 'GitHub',
           link: 'https://github.com/tbrew1023'
+        },
+        {
+          icon: 'mail.svg',
+          label: 'Mail',
+          link: 'mailto:hello@trentbrew.com'
         },
       ]
     };
@@ -292,18 +292,18 @@ video {
   height: 100%;
 }
 .dock-item {
-  width: 42px;
-  height: 42px;
-  margin: 0px 8px;
+  width: 56px;
+  height: 56px;
+  margin: 12px 10px;
   cursor: pointer;
   .dock-icon {
-    width: 32px;
-    height: 32px;
+    width: 100%;
+    height: 100%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     &:hover {
-      opacity: 0.4;
+      opacity: 0.6;
     }
   }
 }

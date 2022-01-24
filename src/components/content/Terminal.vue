@@ -13,7 +13,7 @@
     initial-action='typing'
     :pre-type-delay='200'
     :type-delay='100'
-    :pre-erase-delay='3000'
+    :pre-erase-delay='2000'
     :erase-delay='200'
     erase-style='select-all'
     :erase-on-complete='false'
@@ -38,7 +38,7 @@ export default {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: rgba(black, 0.6);
+  background: rgba(black, 0.4);
   border-radius: 8px;
   padding: 24px;
 }
@@ -57,6 +57,7 @@ export default {
   background-color: #264F78;
 }
 .vue-typer .custom.caret {
+  display: inline-block !important;
   width: 10px;
   background-color: white;
 }

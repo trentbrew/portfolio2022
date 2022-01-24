@@ -20,12 +20,12 @@ export default {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  padding: 8px 18px;
+  padding: 16px 10px;
   background: $active_window;
   backdrop-filter: $blur;
   max-width: fit-content;
   height: $dock_height;
-  border-radius: $rad * 2;
+  border-radius: $rad;
   transition: 600ms ease 100ms;
   z-index: 99999;
 }
