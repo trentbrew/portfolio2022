@@ -246,7 +246,7 @@ body.light-mode .video-bg:before {
    text-decoration: none;
    color: var(--inactive-color);
    border-bottom: 2px solid transparent;
-   transition: 0.3s;
+   transition: 100ms;
    @media screen and (max-width: 610px) {
     &:not(.main-header-link) {
      display: none;
@@ -349,7 +349,7 @@ body.light-mode .video-bg:before {
   padding: 10px;
   font-size: 14px;
   border-radius: $rad;
-  transition: 0.3s;
+  transition: 100ms;
   &:hover {
    background-color: rgba(black, 0.2);
   }
@@ -434,7 +434,7 @@ body.light-mode .video-bg:before {
  }
  &.overlay {
   pointer-events: none;
-  transition: 0.3s;
+  transition: 100ms;
   background-color: var(--overlay-bg);
  }
 }
@@ -449,7 +449,7 @@ body.light-mode .video-bg:before {
  background-color: rgba(36, 39, 59, 0.8);
  opacity: 0;
  visibility: hidden;
- transition: 0.3s;
+ transition: 100ms;
  &.is-active {
   visibility: visible;
   opacity: 1;
@@ -493,7 +493,7 @@ body.light-mode .video-bg:before {
  border-radius: 20px;
  margin-top: 16px;
  cursor: pointer;
- transition: 0.3s;
+ transition: 100ms;
  white-space: nowrap;
 }
 
@@ -536,7 +536,7 @@ body.light-mode .video-bg:before {
    width: 100%;
    height: 100%;
    white-space: nowrap;
-   transition: 0.3s;
+   transition: 100ms;
    &:hover {
     background-color: var(--theme-bg-color);
     &:first-child {
@@ -684,7 +684,7 @@ body.light-mode .video-bg:before {
  transform: (translate(-50%, -50%));
  overflow-y: auto;
  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
- transition: all 0.3s;
+ transition: all 100ms;
  z-index: 10;
  background-color: var(--popup-bg);
  width: 500px;
@@ -792,7 +792,7 @@ body.light-mode .video-bg:before {
  border: 1px solid var(--theme-bg-color);
  padding: 20px;
  cursor: pointer;
- transition: 0.3s ease;
+ transition: 100ms ease;
  &:hover {
   transform: scale(1.02);
   background-color: var(--theme-bg-color);
