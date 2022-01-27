@@ -17,7 +17,7 @@
         center: true,
         width: 1100,
         height: 700,
-        component: Files
+        component: Work
       })}"
       :style="`top: 36px; left: 48px; ${clicked == 0 ? 'background: rgba(0,0,0,0.4)' : ''};`"
       class="absolute flex-column flex-center item-container"
@@ -99,7 +99,7 @@ import { uid } from 'uid';
 import { Draggable } from 'draggable-vue-directive';
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
-import Files from "@/components/content/Files.vue";
+import Work from "@/components/content/Work.vue";
 import Terminal from '@/components/content/Terminal.vue';
 import Resume from '@/components/content/Resume.vue';
 
@@ -111,7 +111,7 @@ export default {
   components: {
     Dock,
     Window,
-    Files,
+    Work,
     Terminal,
     Resume
   },
@@ -173,7 +173,7 @@ export default {
     console: () => console,
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
-    Files: () => Files,
+    Work: () => Work,
     Resume: () => Resume
   },
   mounted() {
