@@ -108,7 +108,9 @@
   <div class="main-container">
    <div class="content-wrapper">
     <div class="content-section">
-     <div class="content-section-title">Apps in your plan</div>
+
+
+
     </div>
    </div>
   </div>
