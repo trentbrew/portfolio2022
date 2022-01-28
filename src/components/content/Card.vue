@@ -71,10 +71,12 @@ figure.card {
 	background-size: 100%;
 	transition: background 400ms ease;
 	overflow: hidden;
-    border-radius: 0px;
+    border-radius: 4px;
     cursor: pointer;
+	box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.03), 0 22.3px 17.9px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
 	
 	&:hover {
+
         background-position: 50% 150% !important;
 		figcaption {
 			transform: translateY(0px);
@@ -92,7 +94,8 @@ figure.card {
 		position: absolute;
 		background: rgba(#444, 0.6);
         backdrop-filter: $blur;
-		transition: transform 400ms ease;
+        border-radius: 0px 0px 4px 4px !important;
+		transition: transform 300ms ease;
 		.info {
             width: 100%;
 			color: rgba(white, 0.8);
