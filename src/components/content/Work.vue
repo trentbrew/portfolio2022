@@ -96,7 +96,7 @@ export default {
                 {
                     title: 'nihal.tv',
                     subtitle: 'Website | Film portfolio',
-                    stack: ['Vue', 'Node', 'Firebase'],
+                    stack: ['Vue', 'Firebase', 'Node'],
                     bg: require('@/content/UX/nihal/nihal.gif'),
                     category: 'UX'
                 },
@@ -110,7 +110,7 @@ export default {
                 {
                     title: 'HBRC',
                     subtitle: 'Desktop app | Knowledge management tool',
-                    stack: ['Vue', 'Node', 'Firebase', 'Azure'],
+                    stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     bg: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'UX'
                 },

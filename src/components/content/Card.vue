@@ -43,14 +43,12 @@ export default {
     padding: 2px 6px;
     margin: 0px 4px;
     border-radius: 12px;
-    color: rgba(black, 0.6) !important;
-    font-weight: bold;
 }
 
-.Vue { background: #ADF7B6; }
-.Firebase { background: #FFEE93; }
-.Node { background: #FFC09F; }
-.Azure { background: #79ADDC; }
+.Vue { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.Firebase { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
+.Node { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.Azure { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
 
 .stack-container {
     margin-top: 18px;
