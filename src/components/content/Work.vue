@@ -95,7 +95,7 @@ export default {
                 },
                 {
                     title: 'nihal.tv',
-                    subtitle: 'Website • Film portfolio',
+                    subtitle: 'Website • Film portfolio  CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
                     bg: require('@/content/UX/nihal/nihal.gif'),
                     category: 'UX'
@@ -213,7 +213,7 @@ body.light-mode .video-bg:before {
  height: 100%;
  display: flex;
  flex-direction: column;
- overflow: hidden;
+ overflow: auto;
  width: 100%;
  border-radius: 12px;
  font-size: 15px;
@@ -255,57 +255,17 @@ body.light-mode .video-bg:before {
  }
 }
 
-.notify {
- position: relative;
- &:before {
-  content: "";
-  position: absolute;
-  background-color: #3a6df0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  right: 20px;
-  top: 16px;
- }
- @media screen and (max-width: 1055px) {
-  display: none;
- }
-}
-
-.menu-circle {
- width: 15px;
- height: 15px;
- background-color: #f96057;
- border-radius: 50%;
- box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
- margin-right: 195px;
- flex-shrink: 0;
- @media screen and (max-width: 945px) {
-  display: none;
- }
-}
-
 .wide {
  .header-menu,
  .header-profile {
   display: none;
- }
- .search-bar {
-  max-width: 600px;
-  margin: auto;
-  transition: 0.4s;
-  box-shadow: 0 0 0 1px var(--border-color);
-  padding-left: 0;
- }
- .menu-circle {
-  margin-right: 0;
  }
 }
 
 .wrapper {
  display: flex;
  flex-grow: 1;
- overflow: hidden;
+ overflow: auto;
 }
 
 .left-side {
@@ -471,7 +431,7 @@ body.light-mode .video-bg:before {
  display: -webkit-box;
  -webkit-line-clamp: 4;
  -webkit-box-orient: vertical;
- overflow: hidden;
+ overflow: auto;
  text-overflow: ellipsis;
 }
 

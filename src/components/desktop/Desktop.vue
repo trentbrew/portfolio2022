@@ -124,9 +124,12 @@ export default {
       fullscreen: false,
       dockItems: [
         {
-          icon: 'term.svg',
-          label: 'Terminal',
-          component: Terminal
+          icon: 'folder_square.svg',
+          label: 'Projects',
+          component: Work,
+          windowWidth: 1100,
+          windowHeight: 660,
+          center: true,
         },
         {
           icon: 'music_color.svg',
@@ -144,7 +147,20 @@ export default {
           link: 'https://github.com/tbrew1023'
         },
         {
-          icon: 'mail.svg',
+          icon: 'term.svg',
+          label: 'Terminal',
+          component: Terminal,
+        },
+        {
+          icon: 'document_square.svg',
+          label: 'Resume',
+          component: Resume,
+          windowWidth: 600,
+          windowHeight: 600,
+          center: true,
+        },
+        {
+          icon: 'mail2.svg',
           label: 'Mail',
           link: 'mailto:hello@trentbrew.com'
         },

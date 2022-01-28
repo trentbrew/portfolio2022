@@ -68,7 +68,7 @@ figure.card {
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	background-position: 50% 50%;
-	background-size: 100%;
+	background-size: cover;
 	transition: background 400ms ease;
 	overflow: hidden;
     border-radius: 4px;
@@ -76,8 +76,6 @@ figure.card {
 	box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.03), 0 22.3px 17.9px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
 	
 	&:hover {
-
-        background-position: 50% 150% !important;
 		figcaption {
 			transform: translateY(0px);
 		}
@@ -92,7 +90,7 @@ figure.card {
 		justify-content: space-between;
 		align-items: center;
 		position: absolute;
-		background: rgba(#444, 0.6);
+		background: rgba(#111, 0.6);
         backdrop-filter: $blur;
         border-radius: 0px 0px 4px 4px !important;
 		transition: transform 300ms ease;
