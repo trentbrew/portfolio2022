@@ -88,53 +88,46 @@ export default {
             projects: [
                 {
                     title: 'podular.us',
-                    subtitle: 'Website | Modular kiosks',
+                    subtitle: 'Website • Modular kiosks',
                     stack: ['Vue'],
                     bg: require('@/content/UX/podular/podular.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'nihal.tv',
-                    subtitle: 'Website | Film portfolio',
+                    subtitle: 'Website • Film portfolio',
                     stack: ['Vue', 'Firebase', 'Node'],
                     bg: require('@/content/UX/nihal/nihal.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'ericzzli.com',
-                    subtitle: 'Website | Graphic design portfolio',
+                    subtitle: 'Website • Graphic design portfolio',
                     stack: ['Vue', 'Firebase'],
                     bg: require('@/content/UX/eric/eric.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'HBRC',
-                    subtitle: 'Desktop app | Knowledge management tool',
+                    subtitle: 'Desktop app • Knowledge management tool',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     bg: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'jiyounjun.com',
-                    subtitle: 'Website | UXD portfolio',
+                    subtitle: 'Website • UXD portfolio',
                     stack: ['Vue'],
                     bg: require('@/content/UX/jiyoun/jiyoun.gif'),
                     category: 'UX'
                 },
-                /*{
-                    title: 'Leadershipwise',
-                    subtitle: 'Mobile app | Leadership training',
-                    stack: ['Vue', 'Firebase'],
-                    bg: require('@/content/UX/lw/lw.gif'),
-                    category: 'UX'
-                },
                 {
-                    title: 'Uprise Mgmt',
-                    subtitle: 'Website | Marketing & PR',
-                    stack: ['Vue'],
-                    bg: require('@/components/UX/uprise/uprise.gif'),
+                    title: 'Decker',
+                    subtitle: 'Desktop app • Arial imaging',
+                    stack: ['Vue', 'MapboxGL', 'Django'],
+                    bg: require('@/content/UX/decker/decker.gif'),
                     category: 'UX'
-                }*/
+                }
             ]
         }
     },

@@ -46,8 +46,11 @@ export default {
 }
 
 .Vue { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.Flutter { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important }
+.MapboxGL { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
 .Firebase { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
 .Node { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.Django { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
 .Azure { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
 
 .stack-container {
@@ -65,14 +68,14 @@ figure.card {
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	background-position: 50% 50%;
-	background-size: cover;
+	background-size: 100%;
 	transition: background 400ms ease;
 	overflow: hidden;
     border-radius: 0px;
     cursor: pointer;
 	
 	&:hover {
-        background-position: 50% 100% !important;
+        background-position: 50% 150% !important;
 		figcaption {
 			transform: translateY(0px);
 		}
@@ -92,7 +95,7 @@ figure.card {
 		transition: transform 400ms ease;
 		.info {
             width: 100%;
-			color: rgba(white, 0.6);
+			color: rgba(white, 0.8);
 			h3 {
                 color: white !important;
                 margin: 0px;
