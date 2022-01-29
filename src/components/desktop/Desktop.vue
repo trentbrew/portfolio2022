@@ -10,7 +10,7 @@
       </video-->
     </div>
     <div ref="desktop" class="desktop">
-      <div 
+      <!--div 
       @click="handleItemClick(0)"
       @dblclick="() => { clicked = null; pushWindow({
         title: 'Work',
@@ -25,8 +25,8 @@
       >
         <div class="icon" :style="'background-image: url(' + require('@/assets/icons/folder.svg') + ');'"></div>
         <span class="title">Work</span>
-      </div>
-      <div 
+      </div-->
+      <!--div 
       @click="handleItemClick(1)"
       @dblclick="() => { clicked = null; pushWindow({
         title: 'Resume',
@@ -41,7 +41,7 @@
       >
         <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
         <span class="title">Resume</span>
-      </div>
+      </div-->
       <Window 
       v-for="(window, index) in windows" 
       :index="index"
@@ -83,6 +83,7 @@
         class="tooltip flex-center absolute"
         >
           <span>{{ item.label }}</span>
+          <div v-if="item.newtab" class="newtab"></div>
         </div>
         <div 
         class="dock-icon"
@@ -125,7 +126,7 @@ export default {
       dockItems: [
         {
           icon: 'folder_square.svg',
-          label: 'Projects',
+          label: 'Work',
           component: Work,
           windowWidth: 1100,
           windowHeight: 660,
@@ -140,11 +141,13 @@ export default {
           icon: 't_color.svg',
           label: 'Twitter',
           link: 'https://twitter.com/trentbrew_',
+          newtab: true,
         },
         {
           icon: 'gh_color.svg',
           label: 'GitHub',
-          link: 'https://github.com/tbrew1023'
+          link: 'https://github.com/tbrew1023',
+          newtab: true,
         },
         {
           icon: 'term.svg',
@@ -156,13 +159,14 @@ export default {
           label: 'Resume',
           component: Resume,
           windowWidth: 600,
-          windowHeight: 600,
+          windowHeight: 770,
           center: true,
         },
         {
           icon: 'mail2.svg',
           label: 'Mail',
-          link: 'mailto:hello@trentbrew.com'
+          link: 'mailto:hello@trentbrew.com',
+          newtab: true,
         },
       ]
     };
@@ -235,6 +239,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.newtab {
+  background-image: url('../../assets/icons/newtab.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 14px;
+  width:  14px;
+  margin-left: 6px;
+}
+
 .item-container { // desktop item
     padding: 12px 18px;
     border-radius: $rad;

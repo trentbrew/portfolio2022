@@ -52,6 +52,10 @@ export default {
 .Node { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
 .Django { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
 .Azure { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
+.GameMaker { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.p5 { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
+.JQuery { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.VanillaJS { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
 
 .stack-container {
     margin-top: 18px;

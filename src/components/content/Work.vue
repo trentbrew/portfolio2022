@@ -42,16 +42,16 @@
     <div class="side-title">Visual Art</div>
     <div class="side-menu">
      <a href="#">
-      <svg viewBox="0 0 512 512" fill="currentColor">
-       <path d="M499.377 46.402c-8.014-8.006-18.662-12.485-29.985-12.613a41.13 41.13 0 00-.496-.003c-11.142 0-21.698 4.229-29.771 11.945L198.872 275.458c25.716 6.555 47.683 23.057 62.044 47.196a113.544 113.544 0 0110.453 23.179L500.06 106.661C507.759 98.604 512 88.031 512 76.89c0-11.507-4.478-22.33-12.623-30.488zM176.588 302.344a86.035 86.035 0 00-3.626-.076c-20.273 0-40.381 7.05-56.784 18.851-19.772 14.225-27.656 34.656-42.174 53.27C55.8 397.728 27.795 409.14 0 416.923c16.187 42.781 76.32 60.297 115.752 61.24 1.416.034 2.839.051 4.273.051 44.646 0 97.233-16.594 118.755-60.522 23.628-48.224-5.496-112.975-62.192-115.348z" />
-      </svg>
-      Illustration
-     </a>
-     <a href="#">
       <svg viewBox="0 0 58 58" fill="currentColor">
        <path d="M57 6H1a1 1 0 00-1 1v44a1 1 0 001 1h56a1 1 0 001-1V7a1 1 0 00-1-1zM10 50H2v-9h8v9zm0-11H2v-9h8v9zm0-11H2v-9h8v9zm0-11H2V8h8v9zm26.537 12.844l-11 7a1.007 1.007 0 01-1.018.033A1.001 1.001 0 0124 36V22a1.001 1.001 0 011.538-.844l11 7a1.003 1.003 0 01-.001 1.688zM56 50h-8v-9h8v9zm0-11h-8v-9h8v9zm0-11h-8v-9h8v9zm0-11h-8V8h8v9z" />
       </svg>
       Animation
+     </a>
+     <a href="#">
+      <svg viewBox="0 0 512 512" fill="currentColor">
+       <path d="M499.377 46.402c-8.014-8.006-18.662-12.485-29.985-12.613a41.13 41.13 0 00-.496-.003c-11.142 0-21.698 4.229-29.771 11.945L198.872 275.458c25.716 6.555 47.683 23.057 62.044 47.196a113.544 113.544 0 0110.453 23.179L500.06 106.661C507.759 98.604 512 88.031 512 76.89c0-11.507-4.478-22.33-12.623-30.488zM176.588 302.344a86.035 86.035 0 00-3.626-.076c-20.273 0-40.381 7.05-56.784 18.851-19.772 14.225-27.656 34.656-42.174 53.27C55.8 397.728 27.795 409.14 0 416.923c16.187 42.781 76.32 60.297 115.752 61.24 1.416.034 2.839.051 4.273.051 44.646 0 97.233-16.594 118.755-60.522 23.628-48.224-5.496-112.975-62.192-115.348z" />
+      </svg>
+      Illustration
      </a>
     </div>
    </div>
@@ -88,46 +88,174 @@ export default {
             projects: [
                 {
                     title: 'podular.us',
-                    subtitle: 'Website • Modular kiosks',
+                    subtitle: 'Marketing website for modular kiosk concept',
                     stack: ['Vue'],
                     bg: require('@/content/UX/podular/podular.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'nihal.tv',
-                    subtitle: 'Website • Film portfolio  CMS',
+                    subtitle: 'Film portfolio with custom CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
                     bg: require('@/content/UX/nihal/nihal.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'ericzzli.com',
-                    subtitle: 'Website • Graphic design portfolio',
+                    subtitle: 'Graphic design portfolio',
                     stack: ['Vue', 'Firebase'],
                     bg: require('@/content/UX/eric/eric.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'HBRC',
-                    subtitle: 'Desktop app • Knowledge management tool',
+                    subtitle: 'Knowledge management app',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     bg: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'jiyounjun.com',
-                    subtitle: 'Website • UXD portfolio',
+                    subtitle: 'UXD portfolio',
                     stack: ['Vue'],
                     bg: require('@/content/UX/jiyoun/jiyoun.gif'),
                     category: 'UX'
                 },
                 {
                     title: 'Decker',
-                    subtitle: 'Desktop app • Arial imaging',
+                    subtitle: 'Flight planning and arial imaging app',
                     stack: ['Vue', 'MapboxGL', 'Django'],
                     bg: require('@/content/UX/decker/decker.gif'),
                     category: 'UX'
+                },
+                {
+                    title: 'Drummerboi',
+                    subtitle: 'Tap to make music',
+                    stack: ['VanillaJS'],
+                    bg: require('@/content/games/drummerboi/drummerboi.gif'),
+                    category: 'Games',
+                },
+                {
+                    title: 'Lost Things',
+                    subtitle: 'Totally not battleship',
+                    stack: ['JQuery'],
+                    bg: require('@/content/games/jpuzzle/puzzle.gif'),
+                    category: 'Games',
+                },
+                {
+                    title: 'Don\'t Touch the Walls',
+                    subtitle: 'Tilt your phone to solve the maze',
+                    stack: ['p5'],
+                    bg: require('@/content/games/walls/img1.gif'),
+                    category: 'Games',
+                },
+                {
+                    title: 'Sonic GX',
+                    subtitle: 'Platformer',
+                    stack: ['GameMaker'],
+                    bg: require('@/content/games/sonic-gx/sonicgx.gif'),
+                    category: 'Games',
+                },
+                {
+                    title: 'Sonic Velocity',
+                    subtitle: 'Infinite runner',
+                    stack: ['GameMaker'],
+                    bg: require('@/content/games/sonic-velocity/sv-skyward-terminal.gif'),
+                    category: 'Games',
+                },
+                {
+                    title: 'Solar System',
+                    subtitle: 'Explore the planets of the solar system',
+                    stack: ['JQuery'],
+                    bg: require('@/content/games/solar-system/solar-system.gif'),
+                    category: 'Games',
+
                 }
+                /*{
+                    title: 'Hidden Gems Consulting',
+                    subtitle: 'Logo design',
+                    stack: ['Figma'],
+                    bg: require(''),
+                    category: 'Logo',
+                },
+                {
+                    title: 'Podular',
+                    subtitle: 'Logo design',
+                    stack: ['Figma, CSS'],
+                    bg: require(''),
+                    category: 'Logo',
+                },
+                {
+                    title: 'Uprise Mgmt',
+                    subtitle: 'Logo re-design',
+                    stack: ['Figma'],
+                    bg: require(''),
+                    category: 'Logo',   
+                },
+                {
+                    title: 'Raise',
+                    subtitle: '',
+                    stack: [''],
+                    bg: require(),
+                    category: 'Logo'
+                },
+                {
+                    title: 'Trtl',
+                    subtitle: '',
+                    stack: ['Figma'],
+                    bg: require(''),
+                    category: 'Logo'
+                },
+                {
+                    title: 'Misc',
+                    subtitle: 'Logo design experiments',
+                    stack: ['Figma'],
+                    bg: require(''),
+                    category: 'Logo'
+                },
+                {
+                    title: 'Podular Sans',
+                    subtitle: 'Typeface for Podular brand identity',
+                    stack: ['Figma'],
+                    bg: require(''),
+                    category: 'Typeface'
+                },
+                {
+                    title: 'The Begining of a Beautiful Friendship',
+                    subtitle: '',
+                    stack: [''],
+                    bg: require(),
+                    category: 'Animation',
+                },
+                {
+                    title: 'Sonic Run Cycle',
+                    subtitle: '',
+                    stack: [''],
+                    bg: require(),
+                    category: 'Animation',
+                },
+                {
+                    title: 'Apple',
+                    subtitle: '',
+                    stack: [''],
+                    bg: require(),
+                    category: 'Animation',
+                }*/
+
+
+
+
+
+
+
+                /*{
+                    title: '',
+                    subtitle: '',
+                    stack: [''],
+                    bg: require(),
+                    category: ''
+                },*/
+
             ]
         }
     },
@@ -352,7 +480,7 @@ body.light-mode .video-bg:before {
  display: flex;
  flex-direction: column;
  color: var(--theme-color);
- padding: 20px 40px;
+ padding: 20px 40px 40px 40px;
  height: 100%;
  overflow: auto;
  background-color: var(--theme-bg-color);
