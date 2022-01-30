@@ -4,10 +4,6 @@
   :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
   >
     <div class="backdrop">
-      <!--video autoplay loop muted>
-        <source src="../../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
-        <source src="../../assets/videos/big_sur_animated.webm" type="video/webm"/>
-      </video-->
       <GradientMesh :index="3" />
     </div>
     <div ref="desktop" class="desktop">
@@ -77,12 +73,10 @@
         height: item.windowHeight || 400, // Nmuber
         positionX: item.windowPositionX || getRandomX(), // Number
         positionY: item.windowPositionY || getRandomY(), // Number
-        center: item.center
+        center: item.center,
       })"
       >
-        <div 
-        class="tooltip flex-center absolute"
-        >
+        <div class="tooltip flex-center absolute">
           <span>{{ item.label }}</span>
           <div v-if="item.newtab" class="newtab"></div>
         </div>
@@ -250,7 +244,7 @@ export default {
   height: 14px;
   width:  14px;
   margin-left: 6px;
-  opacity: 0.7;
+  opacity: 0.3;
   filter: invert(1);
 }
 
@@ -318,8 +312,9 @@ video {
     transform: translateY(-64px);
     padding: 12px;
     border-radius: $rad;
-    color: black;
     transition: 200ms;
+    color: black;
+    background: white;
   }
   
   .dock-icon {
@@ -339,7 +334,6 @@ video {
 
     .tooltip {
       opacity: 1;
-      background: $active_window;
       backdrop-filter: $blur;
       transform: translateY(-80px);
     }

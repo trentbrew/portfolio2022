@@ -31,4 +31,8 @@ export default {
 	--gradient-color-3: #eae2ff;
 	--gradient-color-4: #b9beff;
 }
+
+#gradient-canvas3 {
+    border-radius: 18px;
+}
 </style>

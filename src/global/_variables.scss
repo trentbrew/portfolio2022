@@ -1,9 +1,9 @@
 $japanese_indigo: #3b454e;
-$laptop_background: #aaa;
+$laptop_background: $japanese_indigo;
 
-$active_window: rgba(white, 0.2);
-$inactive_window: rgba(#555, 0.2);
-$active_text: rgba(black, 0.8);
+$active_window: rgba(white, 0.6);
+$inactive_window: rgba(#555, 0.5);
+$active_text: black;
 $inactive_text: rgba(white, 0.4);
 
 $top_height: 24px;
@@ -19,6 +19,7 @@ $blur: saturate(120%) blur(42px);
 $bezel_color: black;
 $bezel_width: 12px;
 
+$shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.03), 0 22.3px 17.9px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
 $light_shadow: 0px -6px 36px 12px rgba(0,0,0,0.1);
 $tight_shadow: 0px 0px 12px 6px rgba(0,0,0,0.05);
 

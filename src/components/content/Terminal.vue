@@ -38,7 +38,7 @@ export default {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: rgba(black, 0.6);
+  background: rgba(black, 1);
   border-radius: 8px;
   padding: 24px;
 }

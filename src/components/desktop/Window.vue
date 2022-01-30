@@ -376,7 +376,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     &:hover {
-      background-color: rgba(black, 0.36);
+      background-color: rgba(black, 0.1);
     }
   }
 }
@@ -386,16 +386,17 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  //box-shadow: $tight_shadow;
 }
 .active {
+  box-shadow: $shadow;
+
   .window-title {
     color: rgba($active_text, 0.8);
     font-weight: normal;
     opacity: 1;
   }
   .window-body {
-    color: black;
+    color: rbga(black, 0.6);
   }
   .window-controls {
     filter: invert(0);

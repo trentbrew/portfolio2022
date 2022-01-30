@@ -2,7 +2,7 @@
 <div class="root">
   <div 
   class="intro-container flex-center fill-screen" 
-  :style="clicked ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )"
+  :style="`${clicked ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )};`"
   >
     <div v-if="!unveil" class="veil absolute flex-center fill-screen">
       <svg height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,15 +31,7 @@
           <div class="lid">
             <div class="side top"></div>
             <div class="side bottom">
-              <div class="screen">
-                <!--video 
-                type="video/mp4" 
-                muted autoplay loop 
-                width="100%" height="100%"
-                >
-                  <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
-                  <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
-                </video-->
+              <div class="screen" :style="`${ popup && 'display: none;' }`">
                 <GradientMesh :index="1"/>
               </div>
             </div>
@@ -56,17 +48,9 @@
   <div 
   class="absolute" 
   :class="clicked ? 'desktop-modal-transition' : 'desktop-modal'"
-  :style="hovering && 'animation-play-state: paused'"
+  :style="`${hovering && 'animation-play-state: paused'};`"
   >
-    <!--video
-    type="video/mp4" 
-    muted autoplay loop 
-    width="100%" height="100%"
-    >
-      <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
-      <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
-    </video-->
-    <GradientMesh :index="2" />
+    <GradientMesh :index="2" :style="`${popup && 'display: none;'}`" />
   </div>
   <div 
   class="desktop-modal-final absolute"
@@ -130,8 +114,10 @@ export default {
         console.log('valid click ✅');
         setTimeout(() => {
           this.desktopReady = true;
-          this.popup = true;
         }, 800);
+        setTimeout(() => {
+          this.popup = true;
+        }, 1600);
       }
     },
   },
@@ -246,6 +232,7 @@ video {
   bottom: 0px;
   left: 0px;
   transform: scale(2.25);
+  border-radius: 8px;
   /*background-image: url('../assets/laptop_screen.png');
   background-size: contain;
   background-repeat: no-repeat;

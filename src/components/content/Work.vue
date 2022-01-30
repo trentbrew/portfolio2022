@@ -431,7 +431,7 @@ body.light-mode .video-bg:before {
   padding: 10px;
   font-size: 14px;
   border-radius: $rad;
-  transition: 100ms;
+  transition: 0s;
   &:hover {
    background-color: rgba(black, 0.2);
   }
@@ -460,8 +460,8 @@ body.light-mode .video-bg:before {
 }
 
 .main-container {
- background: rgba(white, 0.4);
- border-radius: $rad;
+ background: white;
+ border-radius: 8px;
  display: flex;
  flex-direction: column;
  flex-grow: 1;

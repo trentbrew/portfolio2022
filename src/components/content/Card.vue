@@ -77,7 +77,7 @@ figure.card {
 	overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
-	box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.03), 0 22.3px 17.9px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
+	box-shadow: $shadow;
 	
 	&:hover {
 		figcaption {
