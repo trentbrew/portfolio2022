@@ -8,6 +8,7 @@
         <source src="../../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
         <source src="../../assets/videos/big_sur_animated.webm" type="video/webm"/>
       </video-->
+      <GradientMesh :index="3" />
     </div>
     <div ref="desktop" class="desktop">
       <!--div 
@@ -103,18 +104,20 @@ import Window from "@/components/desktop/Window.vue";
 import Work from "@/components/content/Work.vue";
 import Terminal from '@/components/content/Terminal.vue';
 import Resume from '@/components/content/Resume.vue';
+import GradientMesh from '@/components/GradientMesh.vue';
 
 export default {
   name: "Desktop",
   directives: {
-    Draggable
+    Draggable,
   },
   components: {
     Dock,
     Window,
     Work,
     Terminal,
-    Resume
+    Resume,
+    GradientMesh,
   },
   data() {
     return {
@@ -150,11 +153,6 @@ export default {
           newtab: true,
         },
         {
-          icon: 'term.svg',
-          label: 'Terminal',
-          component: Terminal,
-        },
-        {
           icon: 'document_square.svg',
           label: 'Resume',
           component: Resume,
@@ -167,6 +165,11 @@ export default {
           label: 'Mail',
           link: 'mailto:hello@trentbrew.com',
           newtab: true,
+        },
+        {
+          icon: 'term.svg',
+          label: 'Terminal',
+          component: Terminal,
         },
       ]
     };
@@ -247,6 +250,8 @@ export default {
   height: 14px;
   width:  14px;
   margin-left: 6px;
+  opacity: 0.7;
+  filter: invert(1);
 }
 
 .item-container { // desktop item
@@ -313,7 +318,7 @@ video {
     transform: translateY(-64px);
     padding: 12px;
     border-radius: $rad;
-    color: white;
+    color: black;
     transition: 200ms;
   }
   

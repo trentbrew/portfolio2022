@@ -460,7 +460,7 @@ body.light-mode .video-bg:before {
 }
 
 .main-container {
- background: rgba(black, 0.2);
+ background: rgba(white, 0.4);
  border-radius: $rad;
  display: flex;
  flex-direction: column;

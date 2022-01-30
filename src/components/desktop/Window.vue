@@ -382,7 +382,6 @@ export default {
 }
 .window-body {
   display: flex;
-  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -391,25 +390,32 @@ export default {
 }
 .active {
   .window-title {
-    color: rgba(white, 0.8);
-    font-weight: bold;
+    color: rgba($active_text, 0.8);
+    font-weight: normal;
     opacity: 1;
   }
+  .window-body {
+    color: black;
+  }
   .window-controls {
-    filter: invert(1);
+    filter: invert(0);
   }
 }
 .inactive {
   .window-title {
-    color: rgba(black, 0.6);
+    color: rgba($inactive_text, 0.6);
     //font-weight: bold;
   }
   .window-body {
     pointer-events: none;
-    color: black;
+    color: rgba(white, 0.6);
   }
   .window-border {
     background: $inactive_window;
+  }
+  .window-controls {
+    filter: invert(1);
+    opacity: 0.6;
   }
 }
 </style>

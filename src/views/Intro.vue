@@ -40,6 +40,7 @@
                   <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
                   <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
                 </video-->
+                <GradientMesh :index="1"/>
               </div>
             </div>
             <div class="side right"></div>
@@ -65,6 +66,7 @@
       <source src="../assets/videos/big_sur_animated.mp4" type="video/mp4"/>
       <source src="../assets/videos/big_sur_animated.webm" type="video/webm"/>
     </video-->
+    <GradientMesh :index="2" />
   </div>
   <div 
   class="desktop-modal-final absolute"
@@ -85,11 +87,13 @@
 
 <script>
 import Screen from '@/views/Screen.vue';
+import GradientMesh from '@/components/GradientMesh.vue';
 
 export default {
   name: "Intro",
   components: {
-    Screen
+    Screen,
+    GradientMesh,
   },
   data() {
     return {
@@ -102,7 +106,6 @@ export default {
     };
   },
   mounted() {
-    //console.log('window width', window.innerWidth);
     setTimeout(() => {
       this.unveil = true;
     }, 8000);
