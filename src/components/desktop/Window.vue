@@ -47,22 +47,12 @@
           class="peek-trigger" 
           :class="!windowState.immersive ? 'not-peekable' : 'hide'"
           :style="`
-            ${
-              windowState.peek ? 
-              'height: 36px;' : 
-              windowState.immersive && 'height: 12px;'
-            } 
-            ${
-              this.hang ? 
-              'pointer-events: none;' : 
-              'pointer-events: all;' 
-            }
-            `"
+            ${windowState.peek ? 'height: 36px;' : windowState.immersive && 'height: 12px;'} 
+            ${this.hang ? 'pointer-events: none;' : 'pointer-events: all;'}
+          `"
           >
             <div class="window-title">
-              <span>
-                {{ title ? title : `Window ${id.substring(0,6)} (${index})` }}
-              </span>
+              <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
             </div>
             <div class="window-controls">
               <button @click="deactivateImmersive" class="immersive immersive-active"></button>
@@ -71,9 +61,7 @@
             </div>
           </div>
           <div class="window-title">
-            <span>
-              {{ title ? title : `Window ${id.substring(0,6)} (${index})`  }}
-            </span>
+            <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
           </div>
           <div class="window-controls">
             <button @click="triggerImmersive" class="immersive"></button>

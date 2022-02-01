@@ -61,6 +61,7 @@
     <div class="content-section">
 
         <Card
+        @click=""
         v-for="(project, index) in projects"
         :title="project.title" 
         :subtitle="project.subtitle" 
