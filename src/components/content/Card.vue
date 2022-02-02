@@ -1,5 +1,6 @@
 <template>
-	<figure 
+	<figure
+	@click="handleFigureClick"
     class="card" 
 	:style="`background-image: url(${bg})`"
     >
@@ -15,13 +16,6 @@
                     </div>
                 </div>
 			</span>
-			<span class="links">
-				<a href="#"><i class="fas fa-heart"></i></a>
-				<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="https://unsplash.com/photos/78A265wPiO4" target="_blank">
-					<i class="fas fa-share"></i>
-			 	</a>
-			</span>
 		</figcaption>
 	</figure>
 </template>
@@ -29,33 +23,39 @@
 <script>
 export default {
     props: {
+		index: Number,
         title: String,
         subtitle: String,
         stack: Array,
         bg: String,
         category: String,
-    } 
+    },
+	methods: {
+		handleFigureClick() {
+			console.log(`card ${this.index} clicked from Card.vue`);
+		}
+	}
 }
 </script>
 
 <style lang='scss' scoped>
+.Vue       { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.Flutter   { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important; }
+.MapboxGL  { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
+.Firebase  { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
+.Node      { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.Django    { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
+.Azure     { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
+.GameMaker { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.p5        { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
+.JQuery    { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.VanillaJS { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
+
 .pill {
     padding: 2px 6px;
     margin: 0px 4px;
     border-radius: 12px;
 }
-
-.Vue { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
-.Flutter { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important }
-.MapboxGL { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
-.Firebase { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
-.Node { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
-.Django { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
-.Azure { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
-.GameMaker { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
-.p5 { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
-.JQuery { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
-.VanillaJS { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
 
 .stack-container {
     margin-top: 18px;

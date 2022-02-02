@@ -241,7 +241,7 @@ video {
   width: 43.444vw;
   height: 43.444vh;
   pointer-events: none;
-  transition: 1.2s cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
+  transition: 1.2s ease, opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
