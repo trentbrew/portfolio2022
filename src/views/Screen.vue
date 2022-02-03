@@ -25,5 +25,6 @@ export default {
   box-sizing: border-box;
   border: solid $bezel_color;
   border-width: $bezel_width 12px $bezel_width 12px;
+  background: black;
 }
 </style>

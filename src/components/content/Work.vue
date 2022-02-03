@@ -416,7 +416,7 @@ body.light-mode .video-bg:before {
 }
 
 .side-title {
- color: var(--inactive-color);
+ color: $active_text;
  opacity: 0.3;
  font-weight: bold;
  margin-bottom: 14px;
@@ -428,7 +428,7 @@ body.light-mode .video-bg:before {
  white-space: nowrap;
  a {
   text-decoration: none;
-  color: var(--theme-color);
+  color: $active_text;
   display: flex;
   align-items: center;
   font-weight: 400;
@@ -464,7 +464,7 @@ body.light-mode .video-bg:before {
 }
 
 .main-container {
- background: white;
+ background: rgba(white, 0.1);
  border-radius: 8px;
  display: flex;
  flex-direction: column;

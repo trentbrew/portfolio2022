@@ -376,7 +376,7 @@ export default {
   border-radius: 8px;
 }
 .active {
-  box-shadow: $shadow;
+  //box-shadow: $shadow;
 
   .window-title {
     color: rgba($active_text, 0.8);
@@ -387,7 +387,7 @@ export default {
     color: rbga(black, 0.6);
   }
   .window-controls {
-    filter: invert(0);
+    filter: invert(1);
   }
 }
 .inactive {
@@ -403,7 +403,7 @@ export default {
     background: $inactive_window;
   }
   .window-controls {
-    filter: invert(1);
+    filter: invert(0);
     opacity: 0.6;
   }
 }

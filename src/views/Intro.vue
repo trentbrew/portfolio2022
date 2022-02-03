@@ -13,7 +13,7 @@
     </div>
     <div class="zoomable">
       <div 
-      :class="clicked ? 'next window flex-center' : 'window flex-center'" 
+      :class="clicked ? 'next window window-hover flex-center' : ( boot ? 'window window-hover flex-center' : 'window flex-center')" 
       @mouseenter="handleMouseEnter" 
       @mouseleave="handleMouseLeave" 
       @click="handleClick"
@@ -32,7 +32,8 @@
             <div class="side top"></div>
             <div class="side bottom">
               <div class="screen" :style="`${ popup && 'display: none;' }`">
-                <GradientMesh :index="1"/>
+                <!--GradientMesh :index="1"/-->
+                <img :src="`${boot ? require('@/assets/intro-gifs/boot.gif') : require('@/assets/intro-gifs/glitch1.gif')}`" width="100%" height="100%" />
               </div>
             </div>
             <div class="side right"></div>
@@ -50,7 +51,7 @@
   :class="clicked ? 'desktop-modal-transition' : 'desktop-modal'"
   :style="`${hovering && 'animation-play-state: paused'};`"
   >
-    <GradientMesh :index="2" :style="`${popup && 'display: none;'}`" />
+    <!--GradientMesh :index="2" :style="`${popup && 'display: none;'}`" /-->
   </div>
   <div 
   class="desktop-modal-final absolute"
@@ -83,6 +84,7 @@ export default {
     return {
       unveil: false,
       clicked: false,
+      boot: false,
       desktopReady: false,
       hovering: false,
       allowClick: false,
@@ -110,14 +112,15 @@ export default {
     handleClick() {
       console.log(this.allowClick);
       if (this.allowClick) {
-        this.clicked = true;
         console.log('valid click ✅');
+        this.boot = true;
+        setTimeout(() => {
+          this.clicked = true;
+        }, 2650);
         setTimeout(() => {
           this.desktopReady = true;
-        }, 800);
-        setTimeout(() => {
           this.popup = true;
-        }, 1600);
+        }, 5000);
       }
     },
   },
@@ -210,13 +213,13 @@ video {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  width: 18vh;
-  height: 12vh;
+  width: 18.5vh;
+  height: 12.5vh;
   /*background-image: url('../assets/laptop_screen.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;*/
-  background: $laptop_background;
+  background: black;
   pointer-events: none;
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
@@ -231,17 +234,20 @@ video {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  transform: scale(2.25);
+  transform: scale(2.36);
   border-radius: 8px;
+  box-sizing: border-box;
+  border: solid $bezel_color;
+  border-width: 6px;
   /*background-image: url('../assets/laptop_screen.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;*/
   background: $laptop_background;
-  width: 43.444vw;
-  height: 43.444vh;
+  width: 42.37288vw;
+  height: 42.37288vh;
   pointer-events: none;
-  transition: 1.2s ease, opacity 0s;
+  transition: 3s cubic-bezier(0.83, 0, 0.17, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
@@ -254,10 +260,6 @@ video {
   transition: 3s;
 }
 
-.blackout {
-  background: #00000000 !important;
-  transition: 3s ease;
-}
 
 .next {
   opacity: 0 !important;
@@ -268,7 +270,7 @@ video {
 }
 
 .intro-container {
-  transition: 1s;
+  transition: 3.3s;
   background: $background;
   overflow: hidden;
 }
@@ -340,7 +342,7 @@ svg {
   //box-shadow: $light_shadow;
 }
 
-.window:hover {
+.window:hover, .window-hover {
   animation-play-state: paused;
 }
 
@@ -350,7 +352,21 @@ svg {
   top: 9em;
 }
 
+.window-hover .laptop {
+  box-shadow: none;
+  transform: rotateZ(0deg) rotateY(0deg) rotateX(65deg);
+  top: 9em;
+}
+
 .window:hover .laptop-aura {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  animation-play-state: paused;
+  //transition-delay: 2s;
+}
+
+.window-hover .laptop-aura {
   opacity: 0;
   width: 0px;
   height: 0px;
@@ -477,6 +493,13 @@ svg {
 }
 
 .window:hover .laptop .lid { // open lid
+  transform: rotateX(115deg);
+  transition-timing-function: $lid-ease-in;
+  transition-delay: $lid-delay-in;
+  transition-duration: $lid-timing-in; 
+}
+
+.window-hover .laptop .lid { // open lid
   transform: rotateX(115deg);
   transition-timing-function: $lid-ease-in;
   transition-delay: $lid-delay-in;

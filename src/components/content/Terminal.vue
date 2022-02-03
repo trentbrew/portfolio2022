@@ -4,7 +4,7 @@
     :text="[
       `Hi!`,
       `My name's Trent`,
-      `I'm a Design Engineer based in Chicago`,
+      `I'm a Front-end Engineer based in Chicago`,
       `Welcome to my portfolio ^-^`,
       `Feel free to click around & explore my work...`
     ]"
@@ -38,7 +38,7 @@ export default {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: rgba(black, 1);
+  background: rgba(black, 0.3);
   border-radius: 8px;
   padding: 24px;
 }

@@ -4,7 +4,7 @@
   :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
   >
     <div class="backdrop">
-      <GradientMesh :index="3" />
+      <!--GradientMesh :index="3" /-->
     </div>
     <div ref="desktop" class="desktop">
       <!--div 
@@ -122,11 +122,6 @@ export default {
       fullscreen: false,
       dockItems: [
         {
-          icon: 'term.svg',
-          label: 'Terminal',
-          component: Terminal,
-        },
-        {
           icon: 'folder_square.svg',
           label: 'Work',
           component: Work,
@@ -164,6 +159,11 @@ export default {
           label: 'Mail',
           link: 'mailto:hello@trentbrew.com',
           newtab: true,
+        },
+        {
+          icon: 'term.svg',
+          label: 'Terminal',
+          component: Terminal,
         },
       ]
     };
@@ -244,8 +244,8 @@ export default {
   height: 14px;
   width:  14px;
   margin-left: 6px;
-  opacity: 0.3;
-  filter: invert(1);
+  opacity: 0.5;
+  filter: invert(0);
 }
 
 .item-container { // desktop item
@@ -313,8 +313,8 @@ video {
     padding: 12px;
     border-radius: $rad;
     transition: 200ms;
-    color: black;
-    background: white;
+    color: $active_text;
+    background: $active_window;
   }
   
   .dock-icon {

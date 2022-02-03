@@ -21,14 +21,14 @@ export default {
   right: 0px;
   bottom: 0px;
   padding: 16px 10px;
-  background: white;
+  background: $active_window;
   backdrop-filter: $blur;
   max-width: fit-content;
   height: $dock_height;
   border-radius: $rad;
   transition: 600ms ease 100ms;
   z-index: 99999;
-  box-shadow: $shadow;
+  //box-shadow: $shadow;
 }
 .hidden {
   opacity: 0;
