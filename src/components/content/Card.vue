@@ -1,5 +1,6 @@
 <template>
 	<figure
+	v-if="activeCategory == category"
 	@click="handleFigureClick"
     class="card" 
 	:style="`background-image: url(${bg})`"
@@ -28,7 +29,8 @@ export default {
         subtitle: String,
         stack: Array,
         bg: String,
-        category: String,
+		category: String,
+        activeCategory: String,
     },
 	methods: {
 		handleFigureClick() {

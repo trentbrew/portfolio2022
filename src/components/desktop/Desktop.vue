@@ -7,38 +7,22 @@
       <!--GradientMesh :index="3" /-->
     </div>
     <div ref="desktop" class="desktop">
-      <!--div 
-      @click="handleItemClick(0)"
+      <div 
+      @click="handleItemClick(1)"
       @dblclick="() => { clicked = null; pushWindow({
-        title: 'Work',
+        title: 'about.md',
         center: true,
         width: 1100,
         height: 700,
-        component: Work
-      })}"
-      :style="`top: 36px; left: 48px; ${clicked == 0 ? 'background: rgba(0,0,0,0.4)' : ''};`"
-      class="absolute flex-column flex-center item-container"
-      v-draggable
-      >
-        <div class="icon" :style="'background-image: url(' + require('@/assets/icons/folder.svg') + ');'"></div>
-        <span class="title">Work</span>
-      </div-->
-      <!--div 
-      @click="handleItemClick(1)"
-      @dblclick="() => { clicked = null; pushWindow({
-        title: 'Resume',
-        center: true,
-        width: 600,
-        height: 772,
         component: Resume
       })}"
-      :style="`top: 160px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
+      :style="`top: 48px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
       class="absolute flex-column flex-center item-container" 
       v-draggable
       >
         <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
-        <span class="title">Resume</span>
-      </div-->
+        <span class="title">about.md</span>
+      </div>
       <Window 
       v-for="(window, index) in windows" 
       :index="index"
