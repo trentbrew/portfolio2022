@@ -5,9 +5,7 @@
         :key="index" 
         :style="`background-image: url(${require(`@/content/illustration/${image}.jpg`)})`"
         class="gallery-item"
-        >
-            {{ image }}
-        </div>
+        ></div>
     </div>
 </template>
 
@@ -29,17 +27,13 @@ export default {
                 'img1',
                 'img2',
                 'img3',
-                'img4',
                 'img5',
-                'img6',
                 'img7',
                 'img8',
                 'img9',
                 'img10',
-                'img11',
                 'img12',
                 'img13',
-                'img14',
                 'img15',
                 'img16',
                 'img17',
@@ -79,7 +73,7 @@ export default {
 .gallery-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 12px;
+    grid-gap: 36px;
     overflow: auto;
     width: 100%;
     border-radius: 8px;
@@ -88,8 +82,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background: orange;
-    border-radius: 8px;
+    border-radius: 4px;
     width: 100%;
     aspect-ratio: 1 / 1;
 }

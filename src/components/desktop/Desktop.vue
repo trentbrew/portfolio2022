@@ -8,17 +8,15 @@
     </div>
     <div ref="desktop" class="desktop">
       <div 
-      @click="handleItemClick(1)"
-      @dblclick="() => { clicked = null; pushWindow({
+      @click="() => { clicked = null; pushWindow({
         title: 'about.md',
         center: true,
         width: 700,
         height: 600,
-        embed: 'https://trentovershares.web.app/'
+        embed: 'https://trentovershares.web.app/about'
       })}"
+      class="item-container absolute flex-column flex-center" 
       :style="`top: 48px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
-      class="absolute flex-column flex-center item-container" 
-      v-draggable
       >
         <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
         <span class="title">about.md</span>
@@ -238,7 +236,7 @@ export default {
 }
 
 .item-container { // desktop item
-    padding: 12px 18px;
+    padding: 24px 18px 18px 18px;
     border-radius: $rad;
     cursor: pointer;
 

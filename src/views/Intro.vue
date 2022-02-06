@@ -120,7 +120,7 @@ export default {
         setTimeout(() => {
           this.desktopReady = true;
           this.popup = true;
-        }, 5000);
+        }, 5500);
       }
     },
   },

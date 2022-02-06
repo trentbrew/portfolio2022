@@ -78,7 +78,10 @@
   </div>
   <div class="main-container">
    <div class="content-wrapper">
-    <div class="content-section">
+    <div 
+    class="content-section" 
+    :style="category == 'Illustration' && 'display: block !important'"
+    >
 
         <Card
         v-for="(project, index) in projects"
@@ -92,6 +95,8 @@
         :activeCategory="category"
         />
 
+        <Gallery v-if="category == 'Illustration'" />
+
     </div>
    </div>
   </div>
@@ -102,10 +107,12 @@
 
 <script>
 import Card from '@/components/content/Card.vue';
+import Gallery from '@/components/content/Gallery.vue';
 
 export default {
     components: {
         Card,
+        Gallery,
     },
     data() {
         return {
@@ -430,7 +437,7 @@ body.light-mode .video-bg:before {
   border-radius: $rad;
   //transition: 200ms;
   &:hover {
-   background-color: rgba(black, 0.6);
+   background-color: rgba(black, 0.3);
    transition: 0ms;
   }
  }
