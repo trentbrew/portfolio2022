@@ -12,7 +12,7 @@
                     <span>{{ subtitle }}</span><br>
                 </div>
                 <div class="stack-container flex">
-                    <div v-for="(tool, index) in stack">
+                    <div v-for="(tool, index) in stack" :key="index">
                         <span :class="`pill ${tool}`">{{ tool }}</span>
                     </div>
                 </div>
@@ -80,13 +80,14 @@ figure.card {
 	aspect-ratio: 16 / 9;
 	background-position: 50% 50%;
 	background-size: cover;
-	transition: background 400ms ease;
+	transition: 200ms ease;
 	overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
-	box-shadow: $shadow;
+	//box-shadow: $shadow;
 	
 	&:hover {
+		//transform: scale(1.04);
 		figcaption {
 			transform: translateY(0px);
 		}
@@ -95,16 +96,18 @@ figure.card {
 	figcaption {
         bottom: 0;
         transform: translateY(120px);
+		box-sizing: content-box;
         width: 100%;
         height: 80px;
         padding: 15px 20px;
 		justify-content: space-between;
 		align-items: center;
 		position: absolute;
-		background: rgba(#111, 0.6);
-        backdrop-filter: $blur;
-        border-radius: 0px 0px 4px 4px !important;
-		transition: transform 300ms ease;
+		background: $laptop_background;
+		transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+		//background: rgba(#111, 0.6);
+        //backdrop-filter: $blur;
+        //border-radius: 0px 0px 4px 4px !important;
 		.info {
             width: 100%;
 			color: rgba(white, 0.8);
@@ -113,54 +116,11 @@ figure.card {
                 margin: 0px;
 				font-size: 1.2rem;
 				letter-spacing: 1px;
+				margin-bottom: 6px;
 			}
 			span {
 				color: rgba(white, 0.4);
 				font-size: 0.85rem;
-			}
-		}
-		.links {
-			display: flex;
-			justify-content: end;
-			align-items: center;
-			a {
-				text-decoration: none;
-				position: relative;
-				width: 35px;
-				height: 35px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				color: #fff;
-				margin-left: 10px;
-				font-size: 1.2rem;
-				opacity: 0.65;
-				border-radius: 50%;
-				overflow: hidden;
-				&:hover {
-					opacity: 1;
-				}
-				&:focus {
-					outline: none;
-					&::after {
-						transform: scale(1);
-						opacity: 1;
-					}
-				}
-				&::after {
-					content: "";
-					position: absolute;
-					left: 0;
-					top: 0;
-					width: 100%;
-					height: 100%;
-					border-radius: 50%;
-					opacity: 0;
-					background: rgba(255, 255, 255, 0.05);
-					transform: scale(0.5);
-					z-index: -1;
-					transition: all 150ms ease;
-				}
 			}
 		}
 	}
