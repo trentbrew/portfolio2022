@@ -85,6 +85,8 @@ import Work from "@/components/content/Work.vue";
 import Terminal from '@/components/content/Terminal.vue';
 import Resume from '@/components/content/Resume.vue';
 import GradientMesh from '@/components/GradientMesh.vue';
+import Gallery from '@/components/content/Gallery.vue';
+import Video from '@/components/content/Video.vue';
 
 export default {
   name: "Desktop",
@@ -98,6 +100,7 @@ export default {
     Terminal,
     Resume,
     GradientMesh,
+    Gallery,
   },
   data() {
     return {
@@ -186,7 +189,7 @@ export default {
       }
     });
     window.addEventListener('keyup', (e) => { // for debugging
-      e.key == 'w' && this.pushWindow({});
+      e.key == 'w' && this.pushWindow({component: Gallery});
     });
     this.dockItems.forEach(item => {
       item = {...item, open: false};

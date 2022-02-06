@@ -58,11 +58,11 @@
   :style="desktopReady ? `
     opacity: 1;
     pointer-events: all;
-    transition: 800ms cubic-bezier(0.85, 0, 0.15, 1);
+    transition: 1600ms cubic-bezier(0.85, 0, 0.15, 1);
   ` : `
     opacity: 0;
     pointer-events: none;
-    transition: 800ms cubic-bezier(0.85, 0, 0.15, 1);
+    transition: 1600ms cubic-bezier(0.85, 0, 0.15, 1);
   `"
   >
     <Screen :popup="popup" />
@@ -215,7 +215,7 @@ video {
   left: 0px;
   width: 18.5vh;
   height: 12.5vh;
-  /*background-image: url('../assets/laptop_screen.png');
+  /*background-image: url('../assets/subtle_wallpaper2.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;*/
@@ -237,17 +237,17 @@ video {
   transform: scale(2.36);
   border-radius: 8px;
   box-sizing: border-box;
-  border: solid $bezel_color;
+  //border: solid $bezel_color;
   border-width: 6px;
-  /*background-image: url('../assets/laptop_screen.png');
-  background-size: contain;
+  /*background-image: url('../assets/subtle_wallpaper2.png');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;*/
-  background: $laptop_background;
+  background: #22272D;
   width: 42.37288vw;
   height: 42.37288vh;
   pointer-events: none;
-  transition: 3s cubic-bezier(0.83, 0, 0.17, 1), opacity 0s;
+  transition: 3.5s cubic-bezier(0.83, 0, 0.17, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
