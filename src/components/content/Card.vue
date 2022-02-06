@@ -57,6 +57,8 @@ export default {
 .Figma         { background: rgba(#DFABBF, 0.16); color: #DFABBF !important; }
 .Windows       { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
 .Webflow       { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important; }
+.AdobeAnimate  { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
+.Stop-Motion   { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
 
 .pill {
     padding: 2px 6px;
@@ -114,9 +116,9 @@ figure.card {
 			h3 {
                 color: white !important;
                 margin: 0px;
-				font-size: 1.2rem;
+				font-size: 1rem;
 				letter-spacing: 1px;
-				margin-bottom: 6px;
+				margin-bottom: 8px;
 			}
 			span {
 				color: rgba(white, 0.4);

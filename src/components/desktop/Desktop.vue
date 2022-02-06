@@ -132,14 +132,14 @@ export default {
           link: 'https://github.com/tbrew1023',
           newtab: true,
         },
-        {
+        /*{
           icon: 'document_square.svg',
           label: 'Resume',
           component: Resume,
           windowWidth: 900,
           windowHeight: 700,
           center: true,
-        },
+        },*/
         {
           icon: 'mail2.svg',
           label: 'Mail',
@@ -264,7 +264,11 @@ export default {
   height: $ui_height;
   width: $ui_width;
   border-radius: $rad;
-  background: $laptop_background;
+  background-color: $laptop_background;
+  background-image: url('../../assets/subtle_wallpaper2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .desktop-container {

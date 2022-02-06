@@ -403,8 +403,8 @@ export default {
     background: $inactive_window;
   }
   .window-controls {
-    filter: invert(0);
-    opacity: 0.6;
+    filter: invert(1);
+    opacity: 0.4;
   }
 }
 </style>
