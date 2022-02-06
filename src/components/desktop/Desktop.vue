@@ -12,9 +12,9 @@
       @dblclick="() => { clicked = null; pushWindow({
         title: 'about.md',
         center: true,
-        width: 1100,
-        height: 700,
-        component: Resume
+        width: 700,
+        height: 600,
+        embed: 'https://trentovershares.web.app/'
       })}"
       :style="`top: 48px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
       class="absolute flex-column flex-center item-container" 
@@ -24,7 +24,8 @@
         <span class="title">about.md</span>
       </div>
       <Window 
-      v-for="(window, index) in windows" 
+      v-for="(window, index) in windows"
+      :key="index"
       :index="index"
       :id="window.id"
       :title="window.title"
@@ -46,7 +47,8 @@
     </div>
     <Dock :hide="fullscreen">
       <div 
-      v-for="(item, index) in dockItems" 
+      v-for="(item, index) in dockItems"
+      :key="index"
       class="dock-item flex-center"
       @click="item.link ? window.open(item.link, '_blank') : pushWindow({
         title: item.label || 'Title',
@@ -134,8 +136,8 @@ export default {
           icon: 'document_square.svg',
           label: 'Resume',
           component: Resume,
-          windowWidth: 600,
-          windowHeight: 770,
+          windowWidth: 900,
+          windowHeight: 700,
           center: true,
         },
         {

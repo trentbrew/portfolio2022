@@ -41,17 +41,22 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.Vue       { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
-.Flutter   { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important; }
-.MapboxGL  { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
-.Firebase  { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
-.Node      { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
-.Django    { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
-.Azure     { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
-.GameMaker { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
-.p5        { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
-.JQuery    { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
-.VanillaJS { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
+.Vue           { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.Flutter       { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important; }
+.MapboxGL      { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
+.Firebase      { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
+.Node          { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.Django        { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
+.Azure         { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
+.GameMaker     { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
+.p5js          { background: rgba(#DFABBF, 0.16); color: #DFABBF !important; }
+.HTML5         { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
+.JQuery        { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
+.VanillaJS     { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
+.CSS, .SCSS    { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
+.Figma         { background: rgba(#DFABBF, 0.16); color: #DFABBF !important; }
+.Windows       { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
+.Webflow       { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important; }
 
 .pill {
     padding: 2px 6px;
