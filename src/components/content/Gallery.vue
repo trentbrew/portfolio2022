@@ -33,7 +33,7 @@ export default {
                 'img9',
                 'img10',
                 'img12',
-                'img13',
+                'maria',
                 'img15',
                 'img16',
                 'img17',
@@ -85,5 +85,11 @@ export default {
     border-radius: 4px;
     width: 100%;
     aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: 200ms ease;
+
+    &:hover {
+        transform: scale(0.96);
+    }
 }
 </style>
