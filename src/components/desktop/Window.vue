@@ -252,11 +252,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@keyframes enter {
-  to {
-    transform: scale(1);
-  }
-}
 .empty-slot-container {
   display: flex;
   flex-direction: column;
@@ -289,7 +284,7 @@ export default {
   z-index: 9999;
   opacity: 1;
 }
-.resizable {
+.resizable { // parent
   padding: 0;
   font-weight: normal;
   color: black;
@@ -298,6 +293,7 @@ export default {
   margin-left: $bezel_width;
   transform: scale(0.9);
   border-radius: $rad;
+  opacity: 0;
   animation: enter 400ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
@@ -306,6 +302,15 @@ export default {
   -webkit-user-select: none; /* Safari */
   -webkit-touch-callout: none; /* iOS Safari */
 }
+
+@keyframes enter {
+  to {
+    opacity: 1;
+    backdrop-filter: $blur;
+    transform: scale(1);
+  }
+}
+
 .window-border {
   background: $active_window;
   padding: 12px;

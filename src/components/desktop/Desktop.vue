@@ -114,6 +114,7 @@ export default {
     return {
       windows: [],
       zBuffer: [],
+      zBufferSet: [],
       clicked: null,
       stretch: false,
       fullscreen: false,
@@ -192,8 +193,11 @@ export default {
   },
   mounted() {
     this.$root.$on('closedWindow', (id) => {
-      console.log('captured window close from root', id);
-      console.log(this.zBuffer);
+      //console.log('remove window', id);
+      //console.log(this.zBuffer);
+      console.log(this.zBufferSet);
+      this.$root.$emit('windowSelected', this.zBufferSet[1]);
+      //console.log('zBuffer', [`--- ${this.zBuffer[0]} ---`, this.zBuffer[1], this.zBuffer[2]]); 
     });
     this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
@@ -242,6 +246,7 @@ export default {
     },
     zBufferUpdate(id) {
       this.zBuffer = [id, ...this.zBuffer];
+      this.zBufferSet = Array.from(new Set(this.zBuffer));
     },
     random(min, max) {
       Math.random() * (max - min) + min
