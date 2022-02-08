@@ -1,11 +1,13 @@
 <template>
     <div class="gallery-container">
-        <div 
-        v-for="(image, index) in images" 
+        <div
+        v-for="(image, index) in images"
         :key="index" 
         :style="`background-image: url(${require(`@/content/illustration/${image}.jpg`)})`"
         class="gallery-item"
-        ></div>
+        >
+            <div @click="handleImageClick(image)" class="clickable"></div>
+        </div>
     </div>
 </template>
 
@@ -63,13 +65,21 @@ export default {
         
     },
     methods: {
-        
+        handleImageClick(image) {
+            console.log('clicked image: ' + image);
+            this.$root.$emit('galleryClicked', `illustration/${image}.jpg`);
+        }
     }
     
 }
 </script>
 
 <style lang='scss' scoped>
+.clickable {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
 .gallery-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -90,6 +100,7 @@ export default {
 
     &:hover {
         transform: scale(0.96);
+        filter: brightness(0.9);
     }
 }
 </style>

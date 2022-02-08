@@ -48,7 +48,7 @@
           :class="!windowState.immersive ? 'not-peekable' : 'hide'"
           :style="`
             ${windowState.peek ? 'height: 36px;' : windowState.immersive && 'height: 12px;'} 
-            ${this.hang ? 'pointer-events: none;' : 'pointer-events: all;'}
+            ${hang ? 'pointer-events: none;' : 'pointer-events: all;'}
           `"
           >
             <div class="window-title">
@@ -72,7 +72,7 @@
         <div 
         class="window-body" 
         :style="`
-          height: ${( windowState.peek ? height - 48 : height - 24)}px; 
+          height: ${(windowState.peek ? height - 48 : height - 24)}px; 
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
         `">
           <slot id="slot">
@@ -207,6 +207,8 @@ export default {
     triggerClose() {
       this.exit = true;
       this.$parent.fullscreen = false;
+      console.log('closed window...');
+      this.$root.$emit('closedWindow', this.id);
     },
     eHandler(data) {
       this.width = data.width;

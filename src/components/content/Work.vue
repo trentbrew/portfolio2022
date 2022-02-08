@@ -123,51 +123,56 @@ export default {
                     subtitle: 'Marketing website for modular kiosk concept',
                     stack: ['Vue'],
                     bg: require('@/content/UX/podular/podular.gif'),
-                    category: 'UI/UX'
+                    category: 'UI/UX',
+                    open_embed: 'https://podular.us',
                 },
                 {
                     title: 'nihal.tv',
                     subtitle: 'Film portfolio',
                     stack: ['Vue'],
                     bg: require('@/content/UX/nihal/nihal.gif'),
-                    category: 'UI/UX'
+                    category: 'UI/UX',
+                    open_embed: 'https://nihal.tv'
                 },
-                {
+                /*{
                     title: 'Raster',
                     subtitle: 'Multi-media visual CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
                     bg: require('@/content/UX/raster/raster.gif'),
                     category: 'UI/UX',
+                    image: '',
 
-                },
+                },*/
                 {
                     title: 'ericzzli.com',
                     subtitle: 'Graphic design portfolio',
                     stack: ['Vue', 'Firebase'],
                     bg: require('@/content/UX/eric/eric.gif'),
-                    category: 'UI/UX'
+                    category: 'UI/UX',
+                    open_embed: 'https://ericzzli.com'
                 },
-                {
+                /*{
                     title: 'HBRC',
                     subtitle: 'Knowledge management and employee onboarding',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     bg: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'UI/UX'
-                },
+                },*/
                 {
                     title: 'jiyounjun.com',
                     subtitle: 'Design portfolio',
                     stack: ['Vue'],
                     bg: require('@/content/UX/jiyoun/jiyoun.gif'),
-                    category: 'UI/UX'
+                    category: 'UI/UX',
+                    open_embed: 'https://jjytwin1004.github.io/portfolio/'
                 },
-                {
+                /*{
                     title: 'Decker',
                     subtitle: 'Flight planning and arial image analysis',
                     stack: ['Vue', 'MapboxGL', 'Django'],
                     bg: require('@/content/UX/decker/decker.gif'),
-                    category: 'UI/UX'
-                },
+                    category: 'UI/UX',
+                },*/
                 /*{
                     title: 'Uprise Mgmt',
                     subtitle: 'Flight planning and arial image analysis',
@@ -192,6 +197,7 @@ export default {
                     stack: ['HTML5', 'VanillaJS'],
                     bg: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
+                    open_embed: 'https://tbrew1023.github.io/drummer-boi-v1/'
                 },
                 {
                     title: 'Lost Things',
@@ -199,6 +205,7 @@ export default {
                     stack: ['HTML5', 'JQuery'],
                     bg: require('@/content/games/jpuzzle/puzzle.gif'),
                     category: 'Games',
+                    open_embed: 'https://tbrew1023.github.io/totally-not-battleship/'
                 },
                 {
                     title: 'Don\'t Touch the Walls',
@@ -206,6 +213,7 @@ export default {
                     stack: ['HTML5', 'p5js'],
                     bg: require('@/content/games/walls/img1.gif'),
                     category: 'Games',
+                    open_image: require('@/content/games/walls/qr.png') 
                 },
                 {
                     title: 'Sonic GX',
@@ -213,6 +221,7 @@ export default {
                     stack: ['GameMaker', 'Windows'],
                     bg: require('@/content/games/sonic-gx/sonicgx.gif'),
                     category: 'Games',
+                    open_tab: 'https://gamejolt.com/games/sonicgx/689002'
                 },
                 {
                     title: 'Sonic Velocity',
@@ -220,6 +229,7 @@ export default {
                     stack: ['GameMaker', 'Windows'],
                     bg: require('@/content/games/sonic-velocity/sv-skyward-terminal.gif'),
                     category: 'Games',
+                    open_tab: 'https://gamejolt.com/games/sonic-velocity/18934'
                 },
                 /*{
                     title: 'Sonic Voyage',
@@ -242,6 +252,7 @@ export default {
                     stack: ['HTML5', 'JQuery'],
                     bg: require('@/content/games/solar-system/solar-system.gif'),
                     category: 'Games',
+                    open_embed: 'https://tbrew1023.github.io/solar-system-map/'
 
                 },
                 {
@@ -250,6 +261,7 @@ export default {
                     stack: ['Figma'],
                     bg: require('@/content/logo/podular.us/banner2.png'),
                     category: 'Logo',
+                    open_image: require('@/content/logo/podular.us/final.png')
                 },
                 {
                     title: 'Hidden Gems Consulting',
@@ -257,13 +269,15 @@ export default {
                     stack: ['Figma'],
                     bg: require('@/content/logo/HGC/banner2.png'),
                     category: 'Logo',
+                    open_image: require('@/content/logo/HGC/final.png')
                 },
                 {
                     title: 'Playground',
                     subtitle: 'Design experiments and other work',
                     stack: ['Figma'],
                     bg: require('@/content/logo/playground/banner.png'),
-                    category: 'Logo'
+                    category: 'Logo',
+                    open_image: require('@/content/logo/playground/playground.png')
                 },
                 {
                     title: 'Socially Anxious Apple',
@@ -271,6 +285,7 @@ export default {
                     stack: ['Stop-Motion'],
                     bg: require('@/content/animations/anxiousapple-thumb.gif'),
                     category: 'Animation',
+                    open_video: require('@/content/animations/anxiousapple.mp4') 
                 },
                 {
                     title: 'The Begining of a Beautiful Friendship',
@@ -278,6 +293,7 @@ export default {
                     stack: ['AdobeAnimate'],
                     bg: require('@/content/animations/friends-thumb.gif'),
                     category: 'Animation',
+                    open_video: require('@/content/animations/friends.mp4')
                 },
                 {
                     title: 'Sonic Run Cycle',
@@ -285,6 +301,7 @@ export default {
                     stack: ['AdobeAnimate'],
                     bg: require('@/content/animations/sonic-thumb.gif'),
                     category: 'Animation',
+                    open_video: require('@/content/animations/sonic.mp4')
                 },
                 {
                     title: 'Guy vs Pebble',
@@ -292,6 +309,7 @@ export default {
                     stack: ['Stop-Motion'],
                     bg: require('@/content/animations/pebble-thumb.gif'),
                     category: 'Animation',
+                    open_video: require('@/content/animations/pebble.mp4')
                 }
             ]
         }

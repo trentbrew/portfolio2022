@@ -35,6 +35,7 @@ export default {
 	methods: {
 		handleFigureClick() {
 			console.log(`card ${this.index} clicked from Card.vue`);
+			this.$root.$emit('cardClicked', this.index, );
 		}
 	}
 }

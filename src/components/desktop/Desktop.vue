@@ -41,6 +41,14 @@
         <template v-if="window.component">
           <component :is="window.component"></component>
         </template>
+        <template v-if="window.image && !window.component" style="overflow: auto">
+          <div class="image-container" style="overflow: hidden">
+            <img 
+            :src="require(`@/content/${window.image}`)" 
+            style="border-radius: 8px; width: 100%; max-height: 100%;"
+            />
+          </div>
+        </template>
       </Window>
     </div>
     <Dock :hide="fullscreen">
@@ -53,6 +61,7 @@
         link: item.link || null,
         embed: item.embed || null, // String
         component: item.component || null, // Component
+        image: item.image || null, // String 
         width: item.windowWidth || 600, // Number
         height: item.windowHeight || 400, // Nmuber
         positionX: item.windowPositionX || getRandomX(), // Number
@@ -84,7 +93,7 @@ import Terminal from '@/components/content/Terminal.vue';
 import Resume from '@/components/content/Resume.vue';
 import GradientMesh from '@/components/GradientMesh.vue';
 import Gallery from '@/components/content/Gallery.vue';
-import Video from '@/components/content/Video.vue';
+import Content from '@/components/content/Content.vue';
 
 export default {
   name: "Desktop",
@@ -99,6 +108,7 @@ export default {
     Resume,
     GradientMesh,
     Gallery,
+    Content,
   },
   data() {
     return {
@@ -181,13 +191,37 @@ export default {
     Resume: () => Resume
   },
   mounted() {
+    this.$root.$on('closedWindow', (id) => {
+      console.log('captured window close from root', id);
+      console.log(this.zBuffer);
+    });
     this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
         this.zBufferUpdate(id);
       }
     });
+    this.$root.$on('cardClicked', (index, title, context) => {
+      console.log('captured card click form root');
+      this.pushWindow({
+        title: title || 'No Title',
+        component: null,
+        embed: null,
+        link: null,
+        image: null,
+        scroll_image: null, // case studies
+      });
+    });
+    this.$root.$on('galleryClicked', (image) => {
+      console.log('captured card click from root');
+      this.pushWindow({
+        title: `${image}`,
+        image: image,
+        width: 600,
+        height: 600,
+      });
+    });
     window.addEventListener('keyup', (e) => { // for debugging
-      e.key == 'w' && this.pushWindow({component: Gallery});
+      e.key == 'w' && this.pushWindow({});
     });
     this.dockItems.forEach(item => {
       item = {...item, open: false};
