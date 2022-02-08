@@ -30,9 +30,10 @@
       :initialWidth="window.width"
       :initialHeight="window.height"
       :center="window.center"
+      :embed="window.embed"
       >
         <template v-if="window.embed">
-          <iframe :src="window.embed" frameborder="0"></iframe>
+          <iframe id="iframe" :src="window.embed" frameborder="0"></iframe>
         </template>
 
         <template v-if="window.component">
@@ -49,19 +50,19 @@
         </template>
 
         <template v-if="window.video">
-          <div style="overflow: auto; background: black; width: 100%; height: 100%">
+          <div style="overflow: auto; background: black; border-radius: 8px; width: 100%; height: 100%">
             <video 
             :src="require(`@/content/${window.video}`)" 
-            style="border-radius: 8px; width: 100%;"
+            style="width: 100%;"
             />
           </div>
         </template>
         
         <template v-if="window.casestudy">
-          <div style="overflow: auto">
+          <div style="overflow: auto; border-radius: 8px; padding-right: 12px;">
             <img 
             :src="require(`@/content/${window.casestudy}`)" 
-            style="border-radius: 8px; width: 100%;"
+            style="width: 100%;"
             />
           </div>
         </template>
@@ -220,13 +221,20 @@ export default {
       }
     });
     this.$root.$on('cardClicked', (project) => {
-      this.pushWindow({
-        title: project.title,
-        embed: project.content.embed || null,
-        link: project.content.link || null,
-        image: project.content.image || null,
-        casestudy: project.content.casestudy || null,
-      });
+      if (project.content.link) {
+        window.open(project.content.link, '_blank');
+      } else {
+        this.pushWindow({
+          title: project.title == "Don't Touch the Walls" ? "Play on your phone!" : project.title,
+          embed: project.content.embed || null,
+          link: project.content.link || null,
+          image: project.content.image || null,
+          casestudy: project.content.casestudy || null,
+          width: parseInt(project.dims.split('x')[0]),
+          height: parseInt(project.dims.split('x')[1]),
+          center: true,
+        });
+      }
     });
     this.$root.$on('galleryClicked', (image) => {
       this.pushWindow({
@@ -383,4 +391,25 @@ video {
     }
   }
 }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(white, 1);
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(white, 0.4);
+  }
 </style>

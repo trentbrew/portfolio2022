@@ -55,8 +55,9 @@
             ${hang ? 'pointer-events: none;' : 'pointer-events: all;'}
           `"
           >
-            <div class="window-title">
+            <div class="window-title flex-center">
               <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
+              <div v-if="embed" class="newtab" @click="window.open(embed, '_blank')"></div>
             </div>
             <div class="window-controls">
               <button @click="deactivateImmersive" class="immersive immersive-active"></button>
@@ -64,8 +65,9 @@
               <button @click="triggerClose" class="close"></button>
             </div>
           </div>
-          <div class="window-title">
+          <div class="window-title flex-center">
             <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
+            <div v-if="embed" class="newtab" @click="window.open(embed, '_blank')"></div>
           </div>
           <div class="window-controls">
             <button @click="triggerImmersive" class="immersive"></button>
@@ -109,8 +111,8 @@ export default {
       top: 0,
       width: 0,
       height: 0,
-      minW: 250,
-      minH: 250,
+      minW: 350,
+      minH: 350,
       fit: true,
       preExit: false,
       exit: false,
@@ -128,6 +130,7 @@ export default {
     };
   },
   props: {
+    embed: String,
     index: Number,
     id: String,
     title: String,
@@ -144,12 +147,24 @@ export default {
   computed: {
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
+    window: () => window,
   },
   mounted() {
     this.exit = false;
     this.width = this.initialWidth;
     this.height = this.initialHeight;
     this.selectedWindow = this.id;
+    if(this.embed) {
+      console.log(      document.querySelector('iframe')
+      .contentWindow
+      .document
+      .querySelector("body"));
+      document.querySelector('iframe')
+      .contentWindow
+      .document
+      .querySelector("body")
+      .style.zoom = 0.75;
+    }
     if (!this.center) {
       this.left = this.getRandomX();
       this.top = this.getRandomY();
@@ -210,6 +225,9 @@ export default {
       }, 600);
     },
     triggerClose() {
+      if(this.embed) { // kill iframe
+        document.getElementById("iframe").parentNode.removeChild(iframe);
+      }
       console.log('\npre-exit...');
       this.preExit = true;
       this.preventTransitionParent = true;
@@ -263,6 +281,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.newtab {
+  background-image: url('../../assets/icons/newtab.svg');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  padding: 6px;
+  height: 14px;
+  width:  14px;
+  margin-left: 6px;
+  opacity: 0.5;
+  cursor: pointer;
+  filter: invert(0);
+  border-radius: 100%;
+  transition: 200ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 .empty-slot-container {
   display: flex;
   flex-direction: column;
@@ -355,6 +392,7 @@ export default {
   transition: 100ms;
   .window-title {
     cursor: default;
+    display: flex;
     margin-left: 8px;
     white-space: nowrap;
     overflow: hidden;

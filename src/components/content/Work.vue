@@ -121,6 +121,8 @@ export default {
                     thumb: require('@/content/UX/podular/podular.gif'),
                     category: 'UI/UX',
                     content: { embed: 'https://podular.us' },
+                    dims: '1400x700',
+                    
                 },
                 {
                     title: 'nihal.tv',
@@ -128,7 +130,8 @@ export default {
                     stack: ['Vue'],
                     thumb: require('@/content/UX/nihal/nihal.gif'),
                     category: 'UI/UX',
-                    content: { embed: 'https://nihal.tv' }
+                    content: { embed: 'https://nihal.tv' },
+                    dims: '1400x700',
                 },
                 /*{
                     title: 'Raster',
@@ -145,7 +148,8 @@ export default {
                     stack: ['Vue', 'Firebase'],
                     thumb: require('@/content/UX/eric/eric.gif'),
                     category: 'UI/UX',
-                    content: { embed: 'https://ericzzli.com' }
+                    content: { embed: 'https://ericzzli.com' },
+                    dims: '1400x700',
                 },
                 /*{
                     title: 'HBRC',
@@ -160,7 +164,8 @@ export default {
                     stack: ['Vue'],
                     thumb: require('@/content/UX/jiyoun/jiyoun.gif'),
                     category: 'UI/UX',
-                    content: { embed: 'https://jjytwin1004.github.io/portfolio/' }
+                    content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
+                    dims: '1400x700',
                 },
                 /*{
                     title: 'Decker',
@@ -193,7 +198,8 @@ export default {
                     stack: ['HTML5', 'VanillaJS'],
                     thumb: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' }
+                    content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' },
+                    dims: '900x600',
                 },
                 {
                     title: 'Lost Things',
@@ -201,7 +207,8 @@ export default {
                     stack: ['HTML5', 'JQuery'],
                     thumb: require('@/content/games/jpuzzle/puzzle.gif'),
                     category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/totally-not-battleship/' }
+                    content: { embed: 'https://tbrew1023.github.io/totally-not-battleship/' },
+                    dims: '1400x700',
                 },
                 {
                     title: 'Don\'t Touch the Walls',
@@ -209,15 +216,25 @@ export default {
                     stack: ['HTML5', 'p5js'],
                     thumb: require('@/content/games/walls/img1.gif'),
                     category: 'Games',
-                    content: { image: 'games/walls/qr.png' }
+                    content: { image: 'games/walls/qr.png' },
+                    dims: '400x400',
+                },
+                {
+                    title: 'Solar System',
+                    subtitle: 'Explore the planets of the solar system',
+                    stack: ['HTML5', 'JQuery'],
+                    thumb: require('@/content/games/solar-system/solar-system.gif'),
+                    category: 'Games',
+                    content: { embed: 'https://tbrew1023.github.io/solar-system-map/' },
+                    dims: '1400x700',
                 },
                 {
                     title: 'Sonic GX',
                     subtitle: 'Sonic platformer',
                     stack: ['GameMaker', 'Windows'],
-                    thumb: require('@/content/games/sonic-gx/sonicgx.gif'),
+                    thumb: require('@/content/games/sonic-gx/sonicgx2.gif'),
                     category: 'Games',
-                    content: { link: 'https://gamejolt.com/games/sonicgx/689002' }
+                    content: { link: 'https://gamejolt.com/games/sonicgx/689002' },
                 },
                 {
                     title: 'Sonic Velocity',
@@ -225,7 +242,7 @@ export default {
                     stack: ['GameMaker', 'Windows'],
                     thumb: require('@/content/games/sonic-velocity/sv-skyward-terminal.gif'),
                     category: 'Games',
-                    content: { link: 'https://gamejolt.com/games/sonic-velocity/18934' }
+                    content: { link: 'https://gamejolt.com/games/sonic-velocity/18934' },
                 },
                 /*{
                     title: 'Sonic Voyage',
@@ -243,21 +260,13 @@ export default {
 
                 },*/
                 {
-                    title: 'Solar System',
-                    subtitle: 'Explore the planets of the solar system',
-                    stack: ['HTML5', 'JQuery'],
-                    thumb: require('@/content/games/solar-system/solar-system.gif'),
-                    category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/solar-system-map/' }
-
-                },
-                {
                     title: 'Podular',
                     subtitle: 'Logo, typeface and branding',
                     stack: ['Figma'],
                     thumb: require('@/content/logo/podular.us/banner2.png'),
                     category: 'Logo',
-                    content: { casestudy: 'logo/podular.us/final.png' }
+                    content: { casestudy: 'logo/podular.us/final.png' },
+                    dims: '1200x675',
                 },
                 {
                     title: 'Hidden Gems Consulting',
@@ -265,7 +274,8 @@ export default {
                     stack: ['Figma'],
                     thumb: require('@/content/logo/HGC/banner2.png'),
                     category: 'Logo',
-                    content: { casestudy: 'logo/HGC/final.png' }
+                    content: { casestudy: 'logo/HGC/final.png' },
+                    dims: '1200x660',
                 },
                 {
                     title: 'Logo Playground',
@@ -273,7 +283,8 @@ export default {
                     stack: ['Figma'],
                     thumb: require('@/content/logo/playground/banner.png'),
                     category: 'Logo',
-                    content: { casestudy: 'logo/playground/playground.png' }
+                    content: { casestudy: 'logo/playground/playground.png' },
+                    dims: '1200x675',
                 },
                 {
                     title: 'Socially Anxious Apple',
@@ -281,7 +292,8 @@ export default {
                     stack: ['Stop-Motion'],
                     thumb: require('@/content/animations/anxiousapple-thumb.gif'),
                     category: 'Animation',
-                    content: { video: 'animations/anxiousapple.mp4' }
+                    content: { video: 'animations/anxiousapple.mp4' },
+                    dims: '1000x560',
                 },
                 {
                     title: 'The Begining of a Beautiful Friendship',
@@ -289,7 +301,8 @@ export default {
                     stack: ['AdobeAnimate'],
                     thumb: require('@/content/animations/friends-thumb.gif'),
                     category: 'Animation',
-                    content: { video: 'animations/friends.mp4' }
+                    content: { video: 'animations/friends.mp4' },
+                    dims: '1000x560',
                 },
                 {
                     title: 'Sonic Run Cycle',
@@ -297,7 +310,8 @@ export default {
                     stack: ['AdobeAnimate'],
                     thumb: require('@/content/animations/sonic-thumb.gif'),
                     category: 'Animation',
-                    content: { video: 'animations/sonic.mp4' }
+                    content: { video: 'animations/sonic.mp4' },
+                    dims: '1000x560',
                 },
                 {
                     title: 'Guy vs Pebble',
@@ -305,7 +319,8 @@ export default {
                     stack: ['Stop-Motion'],
                     thumb: require('@/content/animations/pebble-thumb.gif'),
                     category: 'Animation',
-                    content: { video: 'animations/pebble.mp4' }
+                    content: { video: 'animations/pebble.mp4' },
+                    dims: '1000x560',
                 }
             ]
         }
