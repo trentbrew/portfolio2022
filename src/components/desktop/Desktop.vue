@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { uid } from 'uid';
+import { uid } from 'uid/secure';
 import { Draggable } from 'draggable-vue-directive';
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
@@ -113,6 +113,7 @@ export default {
   data() {
     return {
       windows: [],
+      activeWindows: [],
       zBuffer: [],
       zBufferSet: [],
       clicked: null,
@@ -124,7 +125,7 @@ export default {
           label: 'Work',
           component: Work,
           windowWidth: 1100,
-          windowHeight: 660,
+          windowHeight: 600,
           center: true,
         },
         {
@@ -193,19 +194,16 @@ export default {
   },
   mounted() {
     this.$root.$on('closedWindow', (id) => {
-      //console.log('remove window', id);
-      //console.log(this.zBuffer);
-      console.log(this.zBufferSet);
+      //console.log('\x1b[35m%s\x1b[0m', `CLOSE WINDOW | ${id}`);  //magenta
       this.$root.$emit('windowSelected', this.zBufferSet[1]);
-      //console.log('zBuffer', [`--- ${this.zBuffer[0]} ---`, this.zBuffer[1], this.zBuffer[2]]); 
     });
     this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
+        //console.log('\x1b[33m%s\x1b[0m', `SELECT WINDOW | ${id}`);  //yellow
         this.zBufferUpdate(id);
       }
     });
     this.$root.$on('cardClicked', (index, title, context) => {
-      console.log('captured card click form root');
       this.pushWindow({
         title: title || 'No Title',
         component: null,
@@ -216,16 +214,15 @@ export default {
       });
     });
     this.$root.$on('galleryClicked', (image) => {
-      console.log('captured card click from root');
       this.pushWindow({
-        title: `${image}`,
+        title: image.substring(image.indexOf('/') + 1),
         image: image,
         width: 600,
         height: 600,
       });
     });
     window.addEventListener('keyup', (e) => { // for debugging
-      e.key == 'w' && this.pushWindow({});
+      (e.key == 'w' || e.key == 'W') && this.pushWindow({});
     });
     this.dockItems.forEach(item => {
       item = {...item, open: false};
@@ -241,10 +238,12 @@ export default {
     pushWindow(data) {
       this.windows.push(data);
       var latest = this.windows[this.windows.length - 1];
-      latest.id = uid(16);
+      latest.id = uid(8);
+      console.log('\x1b[32m%s\x1b[0m', `CREATE WINDOW | ${latest.id}`);  //green
       this.zBufferUpdate(latest.id);
     },
     zBufferUpdate(id) {
+      // [0] is top of z-index
       this.zBuffer = [id, ...this.zBuffer];
       this.zBufferSet = Array.from(new Set(this.zBuffer));
     },
@@ -345,6 +344,7 @@ video {
     transition: 200ms;
     color: $active_text;
     background: $active_window;
+    backdrop-filter: $blur;
   }
   
   .dock-icon {

@@ -2,12 +2,15 @@
   <vue-resizable
     ref="resizableComponent"
     class="resizable"
-    :class="selectedWindow != id ? 'inactive' : 'active'"
+    :class="`
+      ${selectedWindow != id ? 'inactive' : 'active'}
+    `"
     :style="`
-      padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px; 
+      padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px;
       z-index: ${getElevation()};
       display: ${exit ? 'none' : 'block'};
       transition: ${preventTransitionParent ? '0ms' : '600ms'};
+      ${preExit && 'backdrop-filter: blur(0px) !important; z-index: 99999'};
     `"
     :dragSelector="dragSelector"
     :active="handlers"
@@ -30,6 +33,7 @@
   >
     <div
       class="window-container"
+      :class="preExit && 'window-out'"
       @mouseup.prevent="windowSelected"
     >
       <div class="window-border">
@@ -108,6 +112,7 @@ export default {
       minW: 250,
       minH: 250,
       fit: true,
+      preExit: false,
       exit: false,
       hang: false,
       preventTransition: true,
@@ -205,10 +210,16 @@ export default {
       }, 600);
     },
     triggerClose() {
-      this.exit = true;
-      this.$parent.fullscreen = false;
-      console.log('closed window...');
+      console.log('\npre-exit...');
+      this.preExit = true;
+      this.preventTransitionParent = true;
       this.$root.$emit('closedWindow', this.id);
+      this.$parent.fullscreen = false;
+      this.preventTransitionParent = false;
+      setTimeout(() => {
+        console.log('...exit\n');
+        this.exit = true;
+      }, 400);
     },
     eHandler(data) {
       this.width = data.width;
@@ -241,7 +252,7 @@ export default {
     },
     getRandomY() {
       return this.rand(this.maxH / 12, this.maxH - (this.initialHeight + 300));
-    }
+    },
   },
   filters: {
     checkEmpty(value) {
@@ -294,6 +305,7 @@ export default {
   transform: scale(0.9);
   border-radius: $rad;
   opacity: 0;
+  transition: opacity 400ms, background 400ms;
   animation: enter 400ms ease forwards;
   user-select: none; /* Non-prefixed version, currently */
   -ms-user-select: none; /* Internet Explorer/Edge */
@@ -301,6 +313,16 @@ export default {
   -khtml-user-select: none; /* Konqueror HTML */
   -webkit-user-select: none; /* Safari */
   -webkit-touch-callout: none; /* iOS Safari */
+}
+
+.window-container {
+  transition: 400ms;
+}
+
+.window-out {
+  backdrop-filter: $blur;
+  transform: scale(0.9);
+  opacity: 0;
 }
 
 @keyframes enter {
@@ -317,6 +339,7 @@ export default {
   border-radius: $rad;
   box-sizing: content-box;
   backdrop-filter: $blur;
+  transition: 200ms;
   //box-shadow: $light_shadow;
 }
 
@@ -381,6 +404,7 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  transition: 200ms;
 }
 .active {
   //box-shadow: $shadow;
@@ -408,6 +432,7 @@ export default {
   }
   .window-border {
     background: $inactive_window;
+    transition: 200ms;
   }
   .window-controls {
     filter: invert(1);
