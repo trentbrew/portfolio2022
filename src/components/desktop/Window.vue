@@ -81,6 +81,13 @@
           height: ${(windowState.peek ? height - 48 : height - 24)}px; 
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
         `">
+          <img 
+          v-if="embed"
+          src="../../assets/loading.gif" 
+          width="48" 
+          height="48" 
+          style="position: absolute; z-index: -1;" 
+          />
           <slot id="slot">
             <div class="empty-slot-container">
               <span>W: {{ width && width.toFixed(0) }}</span><br>
