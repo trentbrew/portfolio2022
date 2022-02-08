@@ -325,9 +325,6 @@ export default {
             ]
         }
     },
-    mounted() {
-        console.log(this.category);
-    },
     methods: {
         handleCategoryClick(category) {
             this.category = category;

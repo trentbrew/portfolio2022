@@ -41,7 +41,7 @@
         </template>
 
         <template v-if="window.image">
-          <div style="overflow: hidden">
+          <div style="overflow: hidden;">
             <img 
             :src="require(`@/content/${window.image}`)" 
             style="border-radius: 8px; width: 100%; max-height: 100%;"
@@ -50,10 +50,14 @@
         </template>
 
         <template v-if="window.video">
-          <div style="overflow: auto; background: black; border-radius: 8px; width: 100%; height: 100%">
-            <video 
+          <div style="overflow: hidden; width: 100%; background: black; border-radius: 8px;">
+            <video
             :src="require(`@/content/${window.video}`)" 
-            style="width: 100%;"
+            width="100%"
+            height="100%"
+            autoplay
+            controls
+            style="border-radius: 8px; height: 100%; width: 100%; object-fit: contain;"
             />
           </div>
         </template>
@@ -229,6 +233,7 @@ export default {
           embed: project.content.embed || null,
           link: project.content.link || null,
           image: project.content.image || null,
+          video: project.content.video || null,
           casestudy: project.content.casestudy || null,
           width: parseInt(project.dims.split('x')[0]),
           height: parseInt(project.dims.split('x')[1]),
@@ -238,7 +243,8 @@ export default {
     });
     this.$root.$on('galleryClicked', (image) => {
       this.pushWindow({
-        title: image.substring(image.indexOf('/') + 1),
+        //title: image.substring(image.indexOf('/') + 1),
+        title: ' ',
         image: image,
         width: 600,
         height: 600,
