@@ -31,6 +31,7 @@
       :initialHeight="window.height"
       :center="window.center"
       :embed="window.embed"
+      :video="window.video"
       >
         <template v-if="window.embed">
           <iframe id="iframe" :src="window.embed" frameborder="0"></iframe>
@@ -50,8 +51,9 @@
         </template>
 
         <template v-if="window.video">
-          <div style="overflow: hidden; width: 100%; background: black; border-radius: 8px;">
+          <div style="overflow: hidden; width: 100%; height: 100%' background: black; border-radius: 8px;">
             <video
+            id="video"
             :src="require(`@/content/${window.video}`)" 
             width="100%"
             height="100%"

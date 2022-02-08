@@ -131,6 +131,7 @@ export default {
   },
   props: {
     embed: String,
+    video: String,
     index: Number,
     id: String,
     title: String,
@@ -227,6 +228,10 @@ export default {
     triggerClose() {
       if(this.embed) { // kill iframe
         document.getElementById("iframe").parentNode.removeChild(iframe);
+      }
+      if(this.video) { // kill video
+        console.log('closing video...');
+        document.getElementById("video").parentNode.removeChild(video);
       }
       console.log('\npre-exit...');
       this.preExit = true;

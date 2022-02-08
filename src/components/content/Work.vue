@@ -199,7 +199,7 @@ export default {
                     thumb: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
                     content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' },
-                    dims: '900x600',
+                    dims: '1400x700',
                 },
                 {
                     title: 'Lost Things',
