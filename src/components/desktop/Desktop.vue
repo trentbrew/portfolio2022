@@ -32,23 +32,41 @@
       :center="window.center"
       >
         <template v-if="window.embed">
-          <iframe 
-          :src="window.embed" 
-          frameborder="0"
-          >
-          </iframe>
+          <iframe :src="window.embed" frameborder="0"></iframe>
         </template>
+
         <template v-if="window.component">
           <component :is="window.component"></component>
         </template>
-        <template v-if="window.image && !window.component" style="overflow: auto">
-          <div class="image-container" style="overflow: hidden">
+
+        <template v-if="window.image">
+          <div style="overflow: hidden">
             <img 
             :src="require(`@/content/${window.image}`)" 
             style="border-radius: 8px; width: 100%; max-height: 100%;"
             />
           </div>
         </template>
+
+        <template v-if="window.video">
+          <div style="overflow: auto; background: black; width: 100%; height: 100%">
+            <video 
+            :src="require(`@/content/${window.video}`)" 
+            style="border-radius: 8px; width: 100%;"
+            />
+          </div>
+        </template>
+        
+        <template v-if="window.casestudy">
+          <div style="overflow: auto">
+            <img 
+            :src="require(`@/content/${window.casestudy}`)" 
+            style="border-radius: 8px; width: 100%;"
+            />
+          </div>
+        </template>
+
+
       </Window>
     </div>
     <Dock :hide="fullscreen">
@@ -145,14 +163,6 @@ export default {
           link: 'https://github.com/tbrew1023',
           newtab: true,
         },
-        /*{
-          icon: 'document_square.svg',
-          label: 'Resume',
-          component: Resume,
-          windowWidth: 900,
-          windowHeight: 700,
-          center: true,
-        },*/
         {
           icon: 'mail2.svg',
           label: 'Mail',
@@ -164,6 +174,14 @@ export default {
           label: 'Terminal',
           component: Terminal,
         },
+        /*{
+          icon: 'document_square.svg',
+          label: 'Resume',
+          component: Resume,
+          windowWidth: 900,
+          windowHeight: 700,
+          center: true,
+        },*/
       ]
     };
   },
@@ -194,23 +212,20 @@ export default {
   },
   mounted() {
     this.$root.$on('closedWindow', (id) => {
-      //console.log('\x1b[35m%s\x1b[0m', `CLOSE WINDOW | ${id}`);  //magenta
       this.$root.$emit('windowSelected', this.zBufferSet[1]);
     });
     this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
-        //console.log('\x1b[33m%s\x1b[0m', `SELECT WINDOW | ${id}`);  //yellow
         this.zBufferUpdate(id);
       }
     });
-    this.$root.$on('cardClicked', (index, title, context) => {
+    this.$root.$on('cardClicked', (project) => {
       this.pushWindow({
-        title: title || 'No Title',
-        component: null,
-        embed: null,
-        link: null,
-        image: null,
-        scroll_image: null, // case studies
+        title: project.title,
+        embed: project.content.embed || null,
+        link: project.content.link || null,
+        image: project.content.image || null,
+        casestudy: project.content.casestudy || null,
       });
     });
     this.$root.$on('galleryClicked', (image) => {
@@ -239,7 +254,6 @@ export default {
       this.windows.push(data);
       var latest = this.windows[this.windows.length - 1];
       latest.id = uid(8);
-      console.log('\x1b[32m%s\x1b[0m', `CREATE WINDOW | ${latest.id}`);  //green
       this.zBufferUpdate(latest.id);
     },
     zBufferUpdate(id) {

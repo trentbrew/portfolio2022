@@ -1,18 +1,18 @@
 <template>
 	<figure
-	v-if="activeCategory == category"
+	v-if="activeCategory == project.category"
 	@click="handleFigureClick"
     class="card" 
-	:style="`background-image: url(${bg})`"
+	:style="`background-image: url(${project.thumb})`"
     >
 		<figcaption>
 			<span class="info">
 				<div class="title">
-                    <h3>{{ title }}</h3>
-                    <span>{{ subtitle }}</span><br>
+                    <h3>{{ project.title }}</h3>
+                    <span>{{ project.subtitle }}</span><br>
                 </div>
                 <div class="stack-container flex">
-                    <div v-for="(tool, index) in stack" :key="index">
+                    <div v-for="(tool, index) in project.stack" :key="index">
                         <span :class="`pill ${tool}`">{{ tool }}</span>
                     </div>
                 </div>
@@ -25,17 +25,12 @@
 export default {
     props: {
 		index: Number,
-        title: String,
-        subtitle: String,
-        stack: Array,
-        bg: String,
-		category: String,
         activeCategory: String,
+		project: Object,
     },
 	methods: {
 		handleFigureClick() {
-			console.log(`card ${this.index} clicked from Card.vue`);
-			this.$root.$emit('cardClicked', this.index, );
+			this.$root.$emit('cardClicked', this.project);
 		}
 	}
 }

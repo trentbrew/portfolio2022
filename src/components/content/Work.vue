@@ -87,12 +87,8 @@
         v-for="(project, index) in projects"
         :key="index"
         :index="index"
-        :title="project.title" 
-        :subtitle="project.subtitle" 
-        :stack="project.stack" 
-        :bg="project.bg"
-        :category="project.category"
         :activeCategory="category"
+        :project="project"
         />
 
         <Gallery v-if="category == 'Illustration'" />
@@ -122,23 +118,23 @@ export default {
                     title: 'podular.us',
                     subtitle: 'Marketing website for modular kiosk concept',
                     stack: ['Vue'],
-                    bg: require('@/content/UX/podular/podular.gif'),
+                    thumb: require('@/content/UX/podular/podular.gif'),
                     category: 'UI/UX',
-                    open_embed: 'https://podular.us',
+                    content: { embed: 'https://podular.us' },
                 },
                 {
                     title: 'nihal.tv',
                     subtitle: 'Film portfolio',
                     stack: ['Vue'],
-                    bg: require('@/content/UX/nihal/nihal.gif'),
+                    thumb: require('@/content/UX/nihal/nihal.gif'),
                     category: 'UI/UX',
-                    open_embed: 'https://nihal.tv'
+                    content: { embed: 'https://nihal.tv' }
                 },
                 /*{
                     title: 'Raster',
                     subtitle: 'Multi-media visual CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
-                    bg: require('@/content/UX/raster/raster.gif'),
+                    thumb: require('@/content/UX/raster/raster.gif'),
                     category: 'UI/UX',
                     image: '',
 
@@ -147,44 +143,44 @@ export default {
                     title: 'ericzzli.com',
                     subtitle: 'Graphic design portfolio',
                     stack: ['Vue', 'Firebase'],
-                    bg: require('@/content/UX/eric/eric.gif'),
+                    thumb: require('@/content/UX/eric/eric.gif'),
                     category: 'UI/UX',
-                    open_embed: 'https://ericzzli.com'
+                    content: { embed: 'https://ericzzli.com' }
                 },
                 /*{
                     title: 'HBRC',
                     subtitle: 'Knowledge management and employee onboarding',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
-                    bg: require('@/content/UX/hbrc/hbrc.gif'),
+                    thumb: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'UI/UX'
                 },*/
                 {
                     title: 'jiyounjun.com',
                     subtitle: 'Design portfolio',
                     stack: ['Vue'],
-                    bg: require('@/content/UX/jiyoun/jiyoun.gif'),
+                    thumb: require('@/content/UX/jiyoun/jiyoun.gif'),
                     category: 'UI/UX',
-                    open_embed: 'https://jjytwin1004.github.io/portfolio/'
+                    content: { embed: 'https://jjytwin1004.github.io/portfolio/' }
                 },
                 /*{
                     title: 'Decker',
                     subtitle: 'Flight planning and arial image analysis',
                     stack: ['Vue', 'MapboxGL', 'Django'],
-                    bg: require('@/content/UX/decker/decker.gif'),
+                    thumb: require('@/content/UX/decker/decker.gif'),
                     category: 'UI/UX',
                 },*/
                 /*{
                     title: 'Uprise Mgmt',
                     subtitle: 'Flight planning and arial image analysis',
                     stack: ['Vue', 'MapboxGL', 'Django'],
-                    bg: require('@/content/UX/decker/decker.gif'),
+                    thumb: require('@/content/UX/decker/decker.gif'),
                     category: 'UI/UX'
                 },
                 {
                     title: 'Leadershipwise',
                     subtitle: 'Flight planning and arial image analysis',
                     stack: ['Vue', 'MapboxGL', 'Django'],
-                    bg: require('@/content/UX/decker/decker.gif'),
+                    thumb: require('@/content/UX/decker/decker.gif'),
                     category: 'UI/UX'
                 },
                 {
@@ -195,54 +191,54 @@ export default {
                     title: 'Drummerboi',
                     subtitle: 'Tap to make music',
                     stack: ['HTML5', 'VanillaJS'],
-                    bg: require('@/content/games/drummerboi/drummerboi.gif'),
+                    thumb: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
-                    open_embed: 'https://tbrew1023.github.io/drummer-boi-v1/'
+                    content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' }
                 },
                 {
                     title: 'Lost Things',
                     subtitle: 'Totally not battleship',
                     stack: ['HTML5', 'JQuery'],
-                    bg: require('@/content/games/jpuzzle/puzzle.gif'),
+                    thumb: require('@/content/games/jpuzzle/puzzle.gif'),
                     category: 'Games',
-                    open_embed: 'https://tbrew1023.github.io/totally-not-battleship/'
+                    content: { embed: 'https://tbrew1023.github.io/totally-not-battleship/' }
                 },
                 {
                     title: 'Don\'t Touch the Walls',
                     subtitle: 'Tilt your phone to solve the maze',
                     stack: ['HTML5', 'p5js'],
-                    bg: require('@/content/games/walls/img1.gif'),
+                    thumb: require('@/content/games/walls/img1.gif'),
                     category: 'Games',
-                    open_image: require('@/content/games/walls/qr.png') 
+                    content: { image: 'games/walls/qr.png' }
                 },
                 {
                     title: 'Sonic GX',
-                    subtitle: 'Sonic the Hedgehog Platformer',
+                    subtitle: 'Sonic platformer',
                     stack: ['GameMaker', 'Windows'],
-                    bg: require('@/content/games/sonic-gx/sonicgx.gif'),
+                    thumb: require('@/content/games/sonic-gx/sonicgx.gif'),
                     category: 'Games',
-                    open_tab: 'https://gamejolt.com/games/sonicgx/689002'
+                    content: { link: 'https://gamejolt.com/games/sonicgx/689002' }
                 },
                 {
                     title: 'Sonic Velocity',
-                    subtitle: 'Infinite runner',
+                    subtitle: 'Sonic infinite runner',
                     stack: ['GameMaker', 'Windows'],
-                    bg: require('@/content/games/sonic-velocity/sv-skyward-terminal.gif'),
+                    thumb: require('@/content/games/sonic-velocity/sv-skyward-terminal.gif'),
                     category: 'Games',
-                    open_tab: 'https://gamejolt.com/games/sonic-velocity/18934'
+                    content: { link: 'https://gamejolt.com/games/sonic-velocity/18934' }
                 },
                 /*{
                     title: 'Sonic Voyage',
                     subtitle: '',
                     stack: ['VanillaJS'],
-                    bg: require(),
+                    thumb: require(),
                     category: 'Games',
                 },
                 {
                     title: '3D Tic Tac Toe',
                     subtitle: '',
                     stack: [''],
-                    bg: require(),
+                    thumb: require(),
                     category: 'Games'
 
                 },*/
@@ -250,69 +246,72 @@ export default {
                     title: 'Solar System',
                     subtitle: 'Explore the planets of the solar system',
                     stack: ['HTML5', 'JQuery'],
-                    bg: require('@/content/games/solar-system/solar-system.gif'),
+                    thumb: require('@/content/games/solar-system/solar-system.gif'),
                     category: 'Games',
-                    open_embed: 'https://tbrew1023.github.io/solar-system-map/'
+                    content: { embed: 'https://tbrew1023.github.io/solar-system-map/' }
 
                 },
                 {
                     title: 'Podular',
                     subtitle: 'Logo, typeface and branding',
                     stack: ['Figma'],
-                    bg: require('@/content/logo/podular.us/banner2.png'),
+                    thumb: require('@/content/logo/podular.us/banner2.png'),
                     category: 'Logo',
-                    open_image: require('@/content/logo/podular.us/final.png')
+                    content: { casestudy: 'logo/podular.us/final.png' }
                 },
                 {
                     title: 'Hidden Gems Consulting',
                     subtitle: 'Logo and branding',
                     stack: ['Figma'],
-                    bg: require('@/content/logo/HGC/banner2.png'),
+                    thumb: require('@/content/logo/HGC/banner2.png'),
                     category: 'Logo',
-                    open_image: require('@/content/logo/HGC/final.png')
+                    content: { casestudy: 'logo/HGC/final.png' }
                 },
                 {
-                    title: 'Playground',
+                    title: 'Logo Playground',
                     subtitle: 'Design experiments and other work',
                     stack: ['Figma'],
-                    bg: require('@/content/logo/playground/banner.png'),
+                    thumb: require('@/content/logo/playground/banner.png'),
                     category: 'Logo',
-                    open_image: require('@/content/logo/playground/playground.png')
+                    content: { casestudy: 'logo/playground/playground.png' }
                 },
                 {
                     title: 'Socially Anxious Apple',
                     subtitle: '0:19',
                     stack: ['Stop-Motion'],
-                    bg: require('@/content/animations/anxiousapple-thumb.gif'),
+                    thumb: require('@/content/animations/anxiousapple-thumb.gif'),
                     category: 'Animation',
-                    open_video: require('@/content/animations/anxiousapple.mp4') 
+                    content: { video: 'animations/anxiousapple.mp4' }
                 },
                 {
                     title: 'The Begining of a Beautiful Friendship',
                     subtitle: '0:41',
                     stack: ['AdobeAnimate'],
-                    bg: require('@/content/animations/friends-thumb.gif'),
+                    thumb: require('@/content/animations/friends-thumb.gif'),
                     category: 'Animation',
-                    open_video: require('@/content/animations/friends.mp4')
+                    content: { video: 'animations/friends.mp4' }
                 },
                 {
                     title: 'Sonic Run Cycle',
                     subtitle: '0:06',
                     stack: ['AdobeAnimate'],
-                    bg: require('@/content/animations/sonic-thumb.gif'),
+                    thumb: require('@/content/animations/sonic-thumb.gif'),
                     category: 'Animation',
-                    open_video: require('@/content/animations/sonic.mp4')
+                    content: { video: 'animations/sonic.mp4' }
                 },
                 {
                     title: 'Guy vs Pebble',
                     subtitle: '0:20',
                     stack: ['Stop-Motion'],
-                    bg: require('@/content/animations/pebble-thumb.gif'),
+                    thumb: require('@/content/animations/pebble-thumb.gif'),
                     category: 'Animation',
-                    open_video: require('@/content/animations/pebble.mp4')
+                    content: { video: 'animations/pebble.mp4' }
                 }
             ]
         }
+    },
+    mounted() {
+        console.log(this.category);
     },
     methods: {
         handleCategoryClick(category) {
@@ -329,16 +328,16 @@ export default {
  --theme-color: #f9fafb;
  --inactive-color: rgb(113 119 144 / 78%);
  --body-font: "Poppins", sans-serif;
- --hover-menu-bg: rgba(12 15 25 / 30%);
+ --hover-menu-thumb: rgba(12 15 25 / 30%);
  --content-title-color: #999ba5;
- --content-bg: rgb(146 151 179 / 13%);
+ --content-thumb: rgb(146 151 179 / 13%);
  --button-inactive: rgb(249 250 251 / 55%);
- --dropdown-bg: #21242d;
+ --dropdown-thumb: #21242d;
  --dropdown-hover: rgb(42 46 60);
- --popup-bg: rgb(22 25 37);
- --search-bg:  #14162b;
- --overlay-bg: rgba(36, 39, 59, 0.3);
- --scrollbar-bg: rgb(1 2 3 / 40%);
+ --popup-thumb: rgb(22 25 37);
+ --search-thumb:  #14162b;
+ --overlay-thumb: rgba(36, 39, 59, 0.3);
+ --scrollbar-thumb: rgb(1 2 3 / 40%);
 }
 
 .dark-light {
