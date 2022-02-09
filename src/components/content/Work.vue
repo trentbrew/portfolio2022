@@ -5,13 +5,22 @@
    <div class="side-wrapper">
     <div class="side-title">Development</div>
     <div class="side-menu">
-     <a :class="category == 'UI/UX' && 'category-active'" @click="handleCategoryClick('UI/UX')" href="#">
+     <a :class="category == 'Websites' && 'category-active'" @click="handleCategoryClick('Websites')" href="#">
       <div class="item-left">
         <svg viewBox="0 0 512 512" fill="currentColor">
         <path d="M497 151H316c-8.401 0-15 6.599-15 15v300c0 8.401 6.599 15 15 15h181c8.401 0 15-6.599 15-15V166c0-8.401-6.599-15-15-15zm-76 270h-30c-8.401 0-15-6.599-15-15s6.599-15 15-15h30c8.401 0 15 6.599 15 15s-6.599 15-15 15zm0-180h-30c-8.401 0-15-6.599-15-15s6.599-15 15-15h30c8.401 0 15 6.599 15 15s-6.599 15-15 15z" />
         <path d="M15 331h196v60h-75c-8.291 0-15 6.709-15 15s6.709 15 15 15h135v-30h-30v-60h30V166c0-24.814 20.186-45 45-45h135V46c0-8.284-6.716-15-15-15H15C6.716 31 0 37.716 0 46v270c0 8.284 6.716 15 15 15z" />
         </svg>
-        UI/UX
+        Websites
+      </div>
+     </a>
+     <a :class="category == 'Apps' && 'category-active'" @click="handleCategoryClick('Apps')" href="#">
+      <div class="item-left">
+        <svg viewBox="0 0 512 512" fill="currentColor">
+        <path d="M497 151H316c-8.401 0-15 6.599-15 15v300c0 8.401 6.599 15 15 15h181c8.401 0 15-6.599 15-15V166c0-8.401-6.599-15-15-15zm-76 270h-30c-8.401 0-15-6.599-15-15s6.599-15 15-15h30c8.401 0 15 6.599 15 15s-6.599 15-15 15zm0-180h-30c-8.401 0-15-6.599-15-15s6.599-15 15-15h30c8.401 0 15 6.599 15 15s-6.599 15-15 15z" />
+        <path d="M15 331h196v60h-75c-8.291 0-15 6.709-15 15s6.709 15 15 15h135v-30h-30v-60h30V166c0-24.814 20.186-45 45-45h135V46c0-8.284-6.716-15-15-15H15C6.716 31 0 37.716 0 46v270c0 8.284 6.716 15 15 15z" />
+        </svg>
+        Apps
       </div>
      </a>
      <a :class="category == 'Games' && 'category-active'" @click="handleCategoryClick('Games')" href="#">
@@ -41,7 +50,7 @@
         <circle cx="295.099" cy="327.254" r="110.96" transform="rotate(-45 295.062 327.332)" />
         <path d="M471.854 338.281V163.146H296.72v41.169a123.1 123.1 0 01121.339 122.939c0 3.717-.176 7.393-.5 11.027zM172.14 327.254a123.16 123.16 0 01100.59-120.915L195.082 73.786 40.146 338.281H172.64c-.325-3.634-.5-7.31-.5-11.027z" />
         </svg>
-        Logo
+        Logos
       </div>
      </a>
      <!--a :class="category == 'Typography' && 'category-active'" @click="handleCategoryClick('Typography')" href="#">
@@ -112,14 +121,14 @@ export default {
     },
     data() {
         return {
-            category: 'UI/UX',
+            category: 'Websites',
             projects: [
                 {
                     title: 'podular.us',
                     subtitle: 'Marketing website for modular kiosk concept',
                     stack: ['Vue'],
                     thumb: require('@/content/UX/podular/podular.gif'),
-                    category: 'UI/UX',
+                    category: 'Websites',
                     content: { embed: 'https://podular.us' },
                     dims: '1400x700',
                     
@@ -129,8 +138,26 @@ export default {
                     subtitle: 'Film portfolio',
                     stack: ['Vue'],
                     thumb: require('@/content/UX/nihal/nihal.gif'),
-                    category: 'UI/UX',
+                    category: 'Websites',
                     content: { embed: 'https://nihal.tv' },
+                    dims: '1400x700',
+                },
+                {
+                    title: 'ericzzli.com',
+                    subtitle: 'Graphic design portfolio',
+                    stack: ['Vue', 'Firebase'],
+                    thumb: require('@/content/UX/eric/eric.gif'),
+                    category: 'Websites',
+                    content: { embed: 'https://ericzzli.com' },
+                    dims: '1400x700',
+                },
+                {
+                    title: 'jiyounjun.com',
+                    subtitle: 'Design portfolio',
+                    stack: ['Vue'],
+                    thumb: require('@/content/UX/jiyoun/jiyoun.gif'),
+                    category: 'Websites',
+                    content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
                     dims: '1400x700',
                 },
                 {
@@ -138,42 +165,23 @@ export default {
                     subtitle: 'Multi-media visual CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
                     thumb: require('@/content/UX/raster/raster.gif'),
-                    category: 'UI/UX',
+                    category: 'Apps',
                     image: '',
-
-                },
-                {
-                    title: 'ericzzli.com',
-                    subtitle: 'Graphic design portfolio',
-                    stack: ['Vue', 'Firebase'],
-                    thumb: require('@/content/UX/eric/eric.gif'),
-                    category: 'UI/UX',
-                    content: { embed: 'https://ericzzli.com' },
-                    dims: '1400x700',
                 },
                 {
                     title: 'HBRC',
                     subtitle: 'Knowledge management and employee onboarding',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     thumb: require('@/content/UX/hbrc/hbrc.gif'),
-                    category: 'UI/UX',
+                    category: 'Apps',
                     dims: '1200x675',
-                },
-                {
-                    title: 'jiyounjun.com',
-                    subtitle: 'Design portfolio',
-                    stack: ['Vue'],
-                    thumb: require('@/content/UX/jiyoun/jiyoun.gif'),
-                    category: 'UI/UX',
-                    content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
-                    dims: '1400x700',
                 },
                 {
                     title: 'Mapper',
                     subtitle: 'Flight planning and arial image analysis',
                     stack: ['Vue', 'MapboxGL', 'Django'],
                     thumb: require('@/content/UX/decker/decker.gif'),
-                    category: 'UI/UX',
+                    category: 'Apps',
                     dims: '1200x675',
                 },
                 {
@@ -181,7 +189,7 @@ export default {
                     subtitle: 'Leadership training and development',
                     stack: ['Flutter', 'Firebase', 'Node'],
                     thumb: require('@/content/UX/lw/thumb.png'),
-                    category: 'UI/UX',
+                    category: 'Apps',
                     dims: '1200x675',
                 },
                 {
@@ -261,7 +269,7 @@ export default {
                 },*/
                 {
                     title: 'Podular',
-                    subtitle: 'Logo, typeface and branding',
+                    subtitle: 'Logo and typeface design',
                     stack: ['Figma'],
                     thumb: require('@/content/logo/podular.us/banner2.png'),
                     category: 'Logo',
@@ -270,7 +278,7 @@ export default {
                 },
                 {
                     title: 'Hidden Gems Consulting',
-                    subtitle: 'Logo and branding',
+                    subtitle: 'Logo design',
                     stack: ['Figma'],
                     thumb: require('@/content/logo/HGC/thumb.png'),
                     category: 'Logo',

@@ -233,11 +233,11 @@ export default {
       }, 600);
     },
     triggerClose() {
+      console.clear();
       if(this.embed) { // kill iframe
         document.getElementById("iframe").parentNode.removeChild(iframe);
       }
       if(this.video) { // kill video
-        console.log('closing video...');
         document.getElementById("video").parentNode.removeChild(video);
       }
       this.preExit = true;

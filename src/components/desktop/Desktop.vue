@@ -150,7 +150,7 @@ export default {
           label: 'Projects',
           component: Work,
           windowWidth: 1100,
-          windowHeight: 600,
+          windowHeight: 560,
           center: true,
         },
         {
