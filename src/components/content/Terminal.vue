@@ -4,7 +4,7 @@
     :text="[
       `Hi!`,
       `My name's Trent`,
-      `I'm a Front-end Engineer based in Chicago`,
+      `I'm a UX Engineer based in Chicago`,
       `Welcome to my portfolio ^-^`,
       `Feel free to click around & explore my work...`
     ]"
