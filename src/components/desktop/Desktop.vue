@@ -304,7 +304,7 @@ export default {
   background-image: url('../../assets/icons/newtab.svg');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: bottom;
   height: 14px;
   width:  14px;
   margin-left: 6px;
