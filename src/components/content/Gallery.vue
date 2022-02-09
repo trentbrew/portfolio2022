@@ -1,12 +1,23 @@
 <template>
-    <div class="gallery-container">
-        <div
-        v-for="(image, index) in images"
-        :key="index" 
-        :style="`background-image: url(${require(`@/content/illustration/${image}.jpg`)})`"
-        class="gallery-item"
+    <div class="gallery">
+        <div 
+        v-if="loading"
+        class="loader-veil flex-center absolute"
         >
-            <div @click="handleImageClick(image)" class="clickable"></div>
+            <img src="../../assets/loading.gif" width="48" height="48" alt="loading..." />
+        </div>
+        <div class="gallery-container">
+            <div
+            v-for="(image, index) in images"
+            :key="index" 
+            :style="`
+                background-image: url(${require(`@/content/illustration/${image}.jpg`)});
+                ${loading ? 'opacity: 0' : 'opacity: 1'};
+            `"
+            class="gallery-item"
+            >
+                <div @click="handleImageClick(image)" class="clickable"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -15,6 +26,7 @@
 export default {
     data() {
         return {
+            loading: true,
             images: [
                 'acceptance',
                 'alien',
@@ -56,13 +68,9 @@ export default {
         }
     },
     mounted() {
-
-    },
-    props: {
-        
-    },
-    computed: {
-        
+        setTimeout(() => {
+            this.loading = false;
+        }, 1500);
     },
     methods: {
         handleImageClick(image) {
@@ -75,6 +83,16 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.loader-veil {
+    position: absolute;
+    margin-top: -36px;
+    margin-left: -36px;
+    width: 844px;
+    height: 536px;
+    pointer-events: none;
+    z-index: 99999;
+    transition: 400ms;
+}
 .clickable {
     height: 100%;
     width: 100%;
