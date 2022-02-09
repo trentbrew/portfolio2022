@@ -27,7 +27,7 @@
         <svg viewBox="0 0 512 512" fill="currentColor">
         <path d="M0 331v112.295a14.996 14.996 0 007.559 13.023L106 512V391L0 331zM136 391v121l105-60V331zM271 331v121l105 60V391zM406 391v121l98.441-55.682A14.995 14.995 0 00512 443.296V331l-106 60zM391 241l-115.754 57.876L391 365.026l116.754-66.15zM262.709 1.583a15.006 15.006 0 00-13.418 0L140.246 57.876 256 124.026l115.754-66.151L262.709 1.583zM136 90v124.955l105 52.5V150zM121 241L4.246 298.876 121 365.026l115.754-66.15zM271 150v117.455l105-52.5V90z" />
         </svg>
-        Chrome Extensions
+        Experiments
       </div>
      </a-->
     </div>
@@ -133,7 +133,7 @@ export default {
                     content: { embed: 'https://nihal.tv' },
                     dims: '1400x700',
                 },
-                /*{
+                {
                     title: 'Raster',
                     subtitle: 'Multi-media visual CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
@@ -141,7 +141,7 @@ export default {
                     category: 'UI/UX',
                     image: '',
 
-                },*/
+                },
                 {
                     title: 'ericzzli.com',
                     subtitle: 'Graphic design portfolio',
@@ -151,13 +151,14 @@ export default {
                     content: { embed: 'https://ericzzli.com' },
                     dims: '1400x700',
                 },
-                /*{
+                {
                     title: 'HBRC',
                     subtitle: 'Knowledge management and employee onboarding',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     thumb: require('@/content/UX/hbrc/hbrc.gif'),
-                    category: 'UI/UX'
-                },*/
+                    category: 'UI/UX',
+                    dims: '1200x675',
+                },
                 {
                     title: 'jiyounjun.com',
                     subtitle: 'Design portfolio',
@@ -167,31 +168,22 @@ export default {
                     content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
                     dims: '1400x700',
                 },
-                /*{
-                    title: 'Decker',
+                {
+                    title: 'Mapper',
                     subtitle: 'Flight planning and arial image analysis',
                     stack: ['Vue', 'MapboxGL', 'Django'],
                     thumb: require('@/content/UX/decker/decker.gif'),
                     category: 'UI/UX',
-                },*/
-                /*{
-                    title: 'Uprise Mgmt',
-                    subtitle: 'Flight planning and arial image analysis',
-                    stack: ['Vue', 'MapboxGL', 'Django'],
-                    thumb: require('@/content/UX/decker/decker.gif'),
-                    category: 'UI/UX'
+                    dims: '1200x675',
                 },
                 {
                     title: 'Leadershipwise',
-                    subtitle: 'Flight planning and arial image analysis',
-                    stack: ['Vue', 'MapboxGL', 'Django'],
-                    thumb: require('@/content/UX/decker/decker.gif'),
-                    category: 'UI/UX'
+                    subtitle: 'Leadership training and development',
+                    stack: ['Flutter', 'Firebase', 'Node'],
+                    thumb: require('@/content/UX/lw/thumb.png'),
+                    category: 'UI/UX',
+                    dims: '1200x675',
                 },
-                {
-                    title: 'hiddengemsconsulting.com',
-                    subtitle: 'Marketing website for '  
-                },*/
                 {
                     title: 'Drummerboi',
                     subtitle: 'Tap to make music',
@@ -245,6 +237,14 @@ export default {
                     content: { link: 'https://gamejolt.com/games/sonic-velocity/18934' },
                 },
                 /*{
+                    title: 'Avatar Builder',
+                    subtitle: 'Create your virtual look-alike',
+                    stack: ['Vue'],
+                    thumb: '',
+                    category: 'Games',
+                    content: { embed: 'https://avatarbuilder.web.app' },
+                },*/
+                /*{
                     title: 'Sonic Voyage',
                     subtitle: '',
                     stack: ['VanillaJS'],
@@ -272,7 +272,7 @@ export default {
                     title: 'Hidden Gems Consulting',
                     subtitle: 'Logo and branding',
                     stack: ['Figma'],
-                    thumb: require('@/content/logo/HGC/banner2.png'),
+                    thumb: require('@/content/logo/HGC/thumb.png'),
                     category: 'Logo',
                     content: { casestudy: 'logo/HGC/final.png' },
                     dims: '1200x660',
@@ -314,7 +314,7 @@ export default {
                     dims: '1000x560',
                 },
                 {
-                    title: 'Guy vs Pebble',
+                    title: 'Pebble',
                     subtitle: '0:20',
                     stack: ['Stop-Motion'],
                     thumb: require('@/content/animations/pebble-thumb.gif'),

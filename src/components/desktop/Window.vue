@@ -240,14 +240,12 @@ export default {
         console.log('closing video...');
         document.getElementById("video").parentNode.removeChild(video);
       }
-      console.log('\npre-exit...');
       this.preExit = true;
       this.preventTransitionParent = true;
       this.$root.$emit('closedWindow', this.id);
       this.$parent.fullscreen = false;
       this.preventTransitionParent = false;
       setTimeout(() => {
-        console.log('...exit\n');
         this.exit = true;
       }, 400);
     },

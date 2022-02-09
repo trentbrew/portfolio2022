@@ -147,7 +147,7 @@ export default {
       dockItems: [
         {
           icon: 'folder_square.svg',
-          label: 'Work',
+          label: 'Projects',
           component: Work,
           windowWidth: 1100,
           windowHeight: 600,
@@ -161,7 +161,7 @@ export default {
         {
           icon: 't_color.svg',
           label: 'Twitter',
-          link: 'https://twitter.com/trentbrew_',
+          link: 'https://twitter.com/trent_brew',
           newtab: true,
         },
         {
@@ -177,18 +177,18 @@ export default {
           newtab: true,
         },
         {
-          icon: 'term.svg',
-          label: 'Terminal',
-          component: Terminal,
-        },
-        /*{
           icon: 'document_square.svg',
           label: 'Resume',
           component: Resume,
           windowWidth: 900,
           windowHeight: 700,
           center: true,
-        },*/
+        },
+        {
+          icon: 'term.svg',
+          label: 'Terminal',
+          component: Terminal,
+        },
       ]
     };
   },
@@ -253,7 +253,9 @@ export default {
       });
     });
     window.addEventListener('keyup', (e) => { // for debugging
-      (e.key == 'w' || e.key == 'W') && this.pushWindow({});
+      (e.key == 'w' || e.key == 'W') && this.pushWindow({
+        embed: 'https://avatar-builder.web.app'
+      });
     });
     this.dockItems.forEach(item => {
       item = {...item, open: false};
