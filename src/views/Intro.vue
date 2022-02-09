@@ -243,7 +243,7 @@ video {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;*/
-  background: #22272D;
+  background: #222527;
   width: 42.37288vw;
   height: 42.37288vh;
   pointer-events: none;

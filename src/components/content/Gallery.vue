@@ -34,6 +34,8 @@ export default {
                 'coal',
                 'dehydrated',
                 'digest',
+                'weight',
+                'winter',
                 'friends',
                 'happynight',
                 'holiday',
@@ -62,8 +64,6 @@ export default {
                 'strand',
                 'sundays',
                 'therealone',
-                'weight',
-                'winter',
             ]
         }
     },

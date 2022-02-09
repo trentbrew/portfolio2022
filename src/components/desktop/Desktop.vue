@@ -7,7 +7,7 @@
       <!--GradientMesh :index="3" /-->
     </div>
     <div ref="desktop" class="desktop">
-      <div 
+      <!--div 
       @click="() => { clicked = null; pushWindow({
         title: 'about.md',
         center: true,
@@ -20,7 +20,7 @@
       >
         <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
         <span class="title">about.md</span>
-      </div>
+      </div-->
       <Window 
       v-for="(window, index) in windows"
       :key="index"
@@ -159,6 +159,13 @@ export default {
           embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
         },
         {
+          icon: 'writing.svg',
+          label: 'About',
+          embed: 'https://trentovershares.web.app/about',
+          windowWidth: 800,
+          windowHeight: 500,
+        },
+        {
           icon: 't_color.svg',
           label: 'Twitter',
           link: 'https://twitter.com/trent_brew',
@@ -171,18 +178,18 @@ export default {
           newtab: true,
         },
         {
-          icon: 'mail2.svg',
-          label: 'Mail',
-          link: 'mailto:hello@trentbrew.com',
-          newtab: true,
-        },
-        {
           icon: 'document_square.svg',
           label: 'Resume',
           component: Resume,
           windowWidth: 900,
           windowHeight: 700,
           center: true,
+        },
+        {
+          icon: 'mail2.svg',
+          label: 'Mail',
+          link: 'mailto:hello@trentbrew.com',
+          newtab: true,
         },
         {
           icon: 'term.svg',
@@ -336,7 +343,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/subtle_wallpaper2.png');
+  background-image: url('../../assets/peekaboo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
