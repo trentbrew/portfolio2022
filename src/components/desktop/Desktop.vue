@@ -304,7 +304,7 @@ export default {
   background-image: url('../../assets/icons/newtab.svg');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: bottom;
+  background-position: center;
   height: 14px;
   width:  14px;
   margin-left: 6px;
@@ -345,7 +345,7 @@ export default {
   background-color: $laptop_background;
   background-image: url('../../assets/peekaboo.png');
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
 }
 
