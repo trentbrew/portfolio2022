@@ -119,6 +119,7 @@ import Resume from '@/components/content/Resume.vue';
 import GradientMesh from '@/components/GradientMesh.vue';
 import Gallery from '@/components/content/Gallery.vue';
 import Content from '@/components/content/Content.vue';
+import About from '@/components/content/About.vue';
 
 export default {
   name: "Desktop",
@@ -134,6 +135,7 @@ export default {
     GradientMesh,
     Gallery,
     Content,
+    About,
   },
   data() {
     return {
@@ -161,9 +163,10 @@ export default {
         {
           icon: 'writing.svg',
           label: 'About',
-          embed: 'https://trentovershares.web.app/about',
+          component: About,
           windowWidth: 800,
-          windowHeight: 500,
+          windowHeight: 450,
+          center: true,
         },
         {
           icon: 't_color.svg',
