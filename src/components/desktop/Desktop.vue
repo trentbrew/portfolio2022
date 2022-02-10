@@ -237,7 +237,16 @@ export default {
       }
     });
     this.$root.$on('cardClicked', (project) => {
-      if (project.content.link) {
+      console.log(project);
+      if (project.wip) {
+        this.pushWindow({
+          title: 'Case study coming soon...',
+          image: 'animations/comingsoon.gif',
+          width: 360,
+          height: 275,
+          center: true,
+        });
+      } else if (project.content.link) {
         window.open(project.content.link, '_blank');
       } else {
         this.pushWindow({
@@ -264,7 +273,7 @@ export default {
     });
     window.addEventListener('keyup', (e) => { // for debugging
       (e.key == 'w' || e.key == 'W') && this.pushWindow({
-        embed: 'https://avatar-builder.web.app'
+      
       });
     });
     this.dockItems.forEach(item => {

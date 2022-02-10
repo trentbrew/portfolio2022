@@ -155,7 +155,8 @@ export default {
                     stack: ['Vue', 'Firebase', 'Node'],
                     thumb: require('@/content/UX/raster/raster.gif'),
                     category: 'Apps',
-                    image: '',
+                    //dims: '500x375',
+                    wip: true,
                 },
                 {
                     title: 'HBRC',
@@ -163,7 +164,8 @@ export default {
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     thumb: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'Apps',
-                    dims: '1200x675',
+                    //dims: '1200x675',
+                    wip: true,
                 },
                 {
                     title: 'Decker',
@@ -171,7 +173,8 @@ export default {
                     stack: ['Vue', 'MapboxGL', 'Django'],
                     thumb: require('@/content/UX/decker/decker.gif'),
                     category: 'Apps',
-                    dims: '1200x675',
+                    //dims: '1200x675',
+                    wip: true,
                 },
                 {
                     title: 'Leadershipwise',
@@ -179,7 +182,8 @@ export default {
                     stack: ['Flutter', 'Firebase', 'Node'],
                     thumb: require('@/content/UX/lw/thumb.png'),
                     category: 'Apps',
-                    dims: '1200x675',
+                    //dims: '1200x675',
+                    wip: true,
                 },
                 {
                     title: 'Drummerboi',
