@@ -8,15 +8,9 @@
         <br>
         <br>
         <b>A bit about me</b>
-        <ul>
-            <li>My hometown is St. Louis, MO</li>
-            <li>I love to skate</li>
-            <li>A dream of mine is to make a feature length animated film</li>
-            <li>I play Pac-Man in Super Smash Bros</li>
-            <li>I have a slight addiction to Tetris</li>
-            <li>I love snowboarding</li>
-            <li>Tea > coffee</li>
-        </ul><br>
+        <p>I'm a designer who loves to code, with 3 years of professional experience building mobile and desktop applications. I specialize in crafting intuitive and beautiful user interfaces, and enjoy working on projects that involve a lot of user interaction. I have a deep understanding of both front-end and back-end development, and am comfortable working in a variety of programming languages. </p> 
+        <p>When I'm not designing or coding, I can be found snowboarding, running, or painting.</p>
+        <br>
         <b>What I'm reading</b>
         <ul>
             <a href="https://algorithmstoliveby.com/"><li>Algorithms to Live By: The Computer Science of Human Decisions</li></a>
