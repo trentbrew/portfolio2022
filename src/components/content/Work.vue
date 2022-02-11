@@ -186,15 +186,6 @@ export default {
                     wip: true,
                 },
                 {
-                    title: 'Drummerboi',
-                    subtitle: 'Tap to make music',
-                    stack: ['HTML5', 'VanillaJS'],
-                    thumb: require('@/content/games/drummerboi/drummerboi.gif'),
-                    category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' },
-                    dims: '1400x700',
-                },
-                {
                     title: 'Lost Things',
                     subtitle: 'Totally not battleship',
                     stack: ['HTML5', 'JQuery'],
@@ -211,6 +202,15 @@ export default {
                     category: 'Games',
                     content: { image: 'games/walls/qr.png' },
                     dims: '400x400',
+                },
+                {
+                    title: 'Drummerboi',
+                    subtitle: 'Tap to make music',
+                    stack: ['HTML5', 'VanillaJS'],
+                    thumb: require('@/content/games/drummerboi/drummerboi.gif'),
+                    category: 'Games',
+                    content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' },
+                    dims: '1400x700',
                 },
                 {
                     title: 'Solar System',

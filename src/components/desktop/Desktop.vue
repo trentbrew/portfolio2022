@@ -166,7 +166,6 @@ export default {
           component: About,
           windowWidth: 800,
           windowHeight: 450,
-          center: true,
         },
         {
           icon: 't_color.svg',
@@ -225,9 +224,18 @@ export default {
     maxW: () => window.innerWidth,
     maxH: () => window.innerHeight,
     Work: () => Work,
-    Resume: () => Resume
+    Resume: () => Resume,
   },
   mounted() {
+    if (window.location.pathname == '/desktop') {
+      this.pushWindow({
+        title: 'Projects',
+        component: Work,
+        width: 1100,
+        height: 560,
+        center: true,
+      });
+    }
     this.$root.$on('closedWindow', (id) => {
       this.$root.$emit('windowSelected', this.zBufferSet[1]);
     });

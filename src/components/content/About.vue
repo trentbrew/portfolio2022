@@ -1,14 +1,14 @@
 <template>
     <div class="about">
         <img id="ohai" src="../../content/animations/ohai2.gif" width="120" height="120" alt="hello">
-        <h1>Hello</h1>
+        <h1>Hi there 👋🏿</h1>
         <p>Thank you for visiting my site</p>
         <p>This concept started out as a smol sketch, and I really had no idea what it would morph into.</p>
         <p>It's a work in progress but buliding things out while improvising through the design has really been the most fun and playful experience I've had in a long time...</p>
         <br>
         <br>
         <b>A bit about me</b>
-        <p>I'm a designer who loves to code, with 3 years of professional experience building mobile and desktop applications. I specialize in crafting intuitive and beautiful user interfaces, and enjoy working on projects that involve a lot of user interaction. I have a deep understanding of both front-end and back-end development, and am comfortable working in a variety of programming languages. </p> 
+        <p>I'm a designer who loves to code, with 3 years of professional experience building mobile and desktop applications. I specialize in crafting intuitive and beautiful user interfaces, and enjoy working on projects that involve a lot of user interaction. I have a deep understanding of both front-end and back-end development, and am comfortable working in a variety of programming languages.</p> 
         <p>When I'm not designing or coding, I can be found snowboarding, running, or painting.</p>
         <br>
         <b>What I'm reading</b>
@@ -36,7 +36,6 @@
         <img id="barko" src="../../assets/barko_full.jpeg" width="200" alt="barko" />
     </div>
 </template>
-
 
 <style lang='scss' scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');

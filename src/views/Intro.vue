@@ -1,5 +1,8 @@
 <template>
 <div class="root">
+  <div class="absolute skip" @click="window.open('https://trentbrew.com/desktop', '_self')">
+    Skip ahead to my work
+  </div>
   <div 
   class="intro-container flex-center fill-screen" 
   :style="`${clicked ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )};`"
@@ -91,10 +94,19 @@ export default {
       popup: false
     };
   },
+  computed: {
+    window: () => window,
+  },
   mounted() {
+    window.addEventListener('keyup', (e) => {
+      (e.key == 's' || e.key == 'S') && window.open('https://trentbrew.com/desktop', '_self');
+    });
     setTimeout(() => {
       this.unveil = true;
     }, 8000);
+  },
+  destroyed() {
+    window.removeEventListener('keyup', (e) => {});
   },
   methods: {
     handleMouseEnter() {
@@ -191,6 +203,30 @@ $background: $trackpad_color;
   }
 }
 
+.skip {
+  color: $japanese_indigo;
+  bottom: 64px; 
+  left: 64px; 
+  opacity: 0.4;
+  z-index: 99999;
+  font-size: 16px;
+  transition: 200ms;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  span {
+    background: $japanese_indigo;
+    padding: 2px 8px 4px 8px;
+    line-height: 0px;
+    border-radius: 6px;
+    color: white;
+  }
+
+}
+
 video {
   object-fit: cover;
 }
@@ -235,9 +271,9 @@ video {
   bottom: 0px;
   left: 0px;
   transform: scale(2.36);
-  border-radius: 8px;
+  border-radius: 12px;
   box-sizing: border-box;
-  //border: solid $bezel_color;
+  border: solid $bezel_color;
   border-width: 6px;
   /*background-image: url('../assets/subtle_wallpaper2.png');
   background-size: cover;
