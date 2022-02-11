@@ -191,7 +191,7 @@ export default {
                     stack: ['HTML5', 'JQuery'],
                     thumb: require('@/content/games/jpuzzle/puzzle.gif'),
                     category: 'Games',
-                    content: { embed: 'https://trentbrew.github.io/totally-not-battleship/' },
+                    content: { embed: 'https://trentbrew.github.io/lost-things/' },
                     dims: '1400x700',
                 },
                 {

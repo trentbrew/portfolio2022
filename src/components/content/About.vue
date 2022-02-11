@@ -23,7 +23,7 @@
         </ul>
         <br>
         <br>
-        <b>This is my sister and I on a mountain</b>
+        <b>This is my sister and I on a snowboarding trip</b>
         <br>
         <img id="snowboard" src="../../assets/snowboarding.jpg" width="200" alt="snowboarding" />
         <br>
