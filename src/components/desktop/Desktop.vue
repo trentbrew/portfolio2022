@@ -180,6 +180,12 @@ export default {
           newtab: true,
         },
         {
+          icon: 'in.svg',
+          label: 'LinkedIn',
+          link: 'https://linkedin.com/in/trentbrew',
+          newtab: true,
+        },
+        {
           icon: 'document_square.svg',
           label: 'Resume',
           component: Resume,
