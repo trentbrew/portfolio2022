@@ -254,7 +254,7 @@ export default {
       console.log(project);
       if (project.wip) {
         this.pushWindow({
-          title: 'Case study coming soon...',
+          title: 'Coming soon...',
           image: 'animations/comingsoon.gif',
           width: 360,
           height: 275,
