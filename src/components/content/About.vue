@@ -20,6 +20,15 @@
         <b>What I'm watching</b>
         <ul>
             <li>Hajime no Ippo 🥊</li>
+        </ul><br>
+        <b>My favorite stuff on the web</b>
+        <ul>
+            <a href="https://same.energy"><li>Same Energy | Visual Search Engine</li></a>
+            <a href="https://toolhunt.dev"><li>Toolhunt | Quality Devtools</li></a>
+            <a href="https://minimalissimo.com"><li>Minimalissimo | Minimalism in Design</li></a>
+            <a href="https://youworkforthem.com"><li>YouWorkForThem | Creative fonts and stock art</li></a>
+            <a href="https://manuelmoreale.com"><li>Manu | A luvly blog</li></a>
+
         </ul>
         <br>
         <br>
@@ -63,7 +72,7 @@ img {
     color: black;
     background: white;
     border-radius: 8px;
-    padding: 36px 240px 32px 120px;
+    padding: 36px 240px 32px 64px;
     box-sizing: border-box;
 }
 
