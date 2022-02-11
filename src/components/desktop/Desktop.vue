@@ -176,7 +176,7 @@ export default {
         {
           icon: 'gh_color.svg',
           label: 'GitHub',
-          link: 'https://github.com/tbrew1023',
+          link: 'https://github.com/trentbrew',
           newtab: true,
         },
         {
