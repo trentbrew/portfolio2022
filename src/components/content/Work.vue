@@ -191,7 +191,7 @@ export default {
                     stack: ['HTML5', 'JQuery'],
                     thumb: require('@/content/games/jpuzzle/puzzle.gif'),
                     category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/totally-not-battleship/' },
+                    content: { embed: 'https://trentbrew.github.io/totally-not-battleship/' },
                     dims: '1400x700',
                 },
                 {
@@ -209,7 +209,7 @@ export default {
                     stack: ['HTML5', 'VanillaJS'],
                     thumb: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/drummer-boi-v1/' },
+                    content: { embed: 'https://trentbrew.github.io/drummer-boi-v1/' },
                     dims: '1400x700',
                 },
                 {
@@ -218,7 +218,7 @@ export default {
                     stack: ['HTML5', 'JQuery'],
                     thumb: require('@/content/games/solar-system/solar-system.gif'),
                     category: 'Games',
-                    content: { embed: 'https://tbrew1023.github.io/solar-system-map/' },
+                    content: { embed: 'https://trentbrew.github.io/solar-system-map/' },
                     dims: '1400x700',
                 },
                 {

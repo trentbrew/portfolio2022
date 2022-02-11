@@ -1,7 +1,7 @@
 <template>
 	<div class="resume-container">
 		<img src="../../assets/files/Resume - Trenton Brew.png" />
-        <a href="https://github.com/tbrew1023/portfolio-redesign/raw/master/src/assets/files/Resume%20-%20Trenton%20Brew%20.pdf" class="download">Download PDF</a>
+        <a href="https://github.com/trentbrew/portfolio-redesign/raw/master/src/assets/files/Resume%20-%20Trenton%20Brew%20.pdf" class="download">Download PDF</a>
 	</div>
 </template>
 
