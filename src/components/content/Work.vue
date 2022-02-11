@@ -111,7 +111,7 @@ export default {
     },
     data() {
         return {
-            category: 'Websites',
+            category: 'Apps',
             projects: [
                 {
                     title: 'ericzzli.com',
@@ -165,6 +165,7 @@ export default {
                     thumb: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'Apps',
                     content: { link: 'https://github.com/trentbrew/HBRC' },
+                    newtab: true,
                 },
                 {
                     title: 'Decker',
@@ -173,6 +174,7 @@ export default {
                     thumb: require('@/content/UX/decker/decker.gif'),
                     category: 'Apps',
                     content: { link: 'https://decker-fp.com' },
+                    newtab: true,
                 },
                 {
                     title: 'Raster',
@@ -225,6 +227,7 @@ export default {
                     thumb: require('@/content/games/sonic-gx/sonicgx2.gif'),
                     category: 'Games',
                     content: { link: 'https://gamejolt.com/games/sonicgx/689002' },
+                    newtab: true,
                 },
                 {
                     title: 'Sonic Velocity',
@@ -233,6 +236,7 @@ export default {
                     thumb: require('@/content/games/sonic-velocity/sv-skyward-terminal.gif'),
                     category: 'Games',
                     content: { link: 'https://gamejolt.com/games/sonic-velocity/18934' },
+                    newtab: true,
                 },
                 /*{
                     title: 'Avatar Builder',

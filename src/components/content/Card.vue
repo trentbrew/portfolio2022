@@ -7,10 +7,10 @@
     >
 		<figcaption>
 			<span class="info">
-				<div class="title">
-                    <h3>{{ project.title }}</h3>
-                    <span>{{ project.subtitle }}</span><br>
+				<div class="title flex">
+                    <h3>{{ project.title }}</h3><div v-if="project.newtab" class="newtab"></div>
                 </div>
+                <span>{{ project.subtitle }}</span><br>
                 <div class="stack-container flex">
                     <div v-for="(tool, index) in project.stack" :key="index">
                         <span :class="`pill ${tool}`">{{ tool }}</span>
@@ -55,6 +55,18 @@ export default {
 .Webflow       { background: rgba(#6E9DC8, 0.16); color: #6E9DC8 !important; }
 .AdobeAnimate  { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
 .Stop-Motion   { background: rgba(#BCB7BE, 0.16); color: #BCB7BE !important; }
+
+.newtab {
+  background-image: url('../../assets/icons/newtab.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 14px;
+  width:  14px;
+  margin-left: 8px;
+  opacity: 0.4;
+  filter: invert(0);
+}
 
 .pill {
     padding: 2px 6px;
