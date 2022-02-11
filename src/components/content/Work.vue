@@ -5,20 +5,20 @@
    <div class="side-wrapper">
     <div class="side-title">Development</div>
     <div class="side-menu">
-     <a :class="category == 'Websites' && 'category-active'" @click="handleCategoryClick('Websites')" href="#">
-      <div class="item-left">
-      <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 300H211V360H136H133C124.716 360 118 366.716 118 375C118 383.284 124.716 390 133 390H136H271H318C326.284 390 333 383.284 333 375C333 366.716 326.284 360 318 360H271H241V300H256H271H436C444.284 300 451 293.284 451 285V90V15C451 10.858 449.321 7.108 446.607 4.3935C443.933 1.7197 440.254 0.0505867 436.186 0.00113106C436.124 0.000377655 436.062 0 436 0H256H15C6.716 0 0 6.716 0 15V285C0 293.284 6.716 300 15 300ZM25 32C25 28.6863 27.6863 26 31 26H420C423.314 26 426 28.6863 426 32V266C426 269.314 423.314 272 420 272H31C27.6863 272 25 269.314 25 266V32ZM403 47H49V252H403V47Z" />
-      </svg>
-        Websites
-      </div>
-     </a>
      <a :class="category == 'Apps' && 'category-active'" @click="handleCategoryClick('Apps')" href="#">
       <div class="item-left">
         <svg viewBox="0 0 512 512" fill="currentColor">
         <path d="M0 331v112.295a14.996 14.996 0 007.559 13.023L106 512V391L0 331zM136 391v121l105-60V331zM271 331v121l105 60V391zM406 391v121l98.441-55.682A14.995 14.995 0 00512 443.296V331l-106 60zM391 241l-115.754 57.876L391 365.026l116.754-66.15zM262.709 1.583a15.006 15.006 0 00-13.418 0L140.246 57.876 256 124.026l115.754-66.151L262.709 1.583zM136 90v124.955l105 52.5V150zM121 241L4.246 298.876 121 365.026l115.754-66.15zM271 150v117.455l105-52.5V90z" />
         </svg>
         Apps
+      </div>
+     </a>
+     <a :class="category == 'Websites' && 'category-active'" @click="handleCategoryClick('Websites')" href="#">
+      <div class="item-left">
+      <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 300H211V360H136H133C124.716 360 118 366.716 118 375C118 383.284 124.716 390 133 390H136H271H318C326.284 390 333 383.284 333 375C333 366.716 326.284 360 318 360H271H241V300H256H271H436C444.284 300 451 293.284 451 285V90V15C451 10.858 449.321 7.108 446.607 4.3935C443.933 1.7197 440.254 0.0505867 436.186 0.00113106C436.124 0.000377655 436.062 0 436 0H256H15C6.716 0 0 6.716 0 15V285C0 293.284 6.716 300 15 300ZM25 32C25 28.6863 27.6863 26 31 26H420C423.314 26 426 28.6863 426 32V266C426 269.314 423.314 272 420 272H31C27.6863 272 25 269.314 25 266V32ZM403 47H49V252H403V47Z" />
+      </svg>
+        Websites
       </div>
      </a>
      <a :class="category == 'Games' && 'category-active'" @click="handleCategoryClick('Games')" href="#">
@@ -150,21 +150,21 @@ export default {
                     dims: '1400x700',
                 },
                 {
+                    title: 'Leadershipwise',
+                    subtitle: 'Leadership training and development',
+                    stack: ['Flutter', 'Firebase', 'Node'],
+                    thumb: require('@/content/UX/lw/thumb2.png'),
+                    category: 'Apps',
+                    content: { casestudy: 'UX/lw/study.jpg' },
+                    dims: '1200x675',
+                },
+                {
                     title: 'HBRC',
                     subtitle: 'Knowledge management and employee onboarding',
                     stack: ['Vue', 'Firebase', 'Node', 'Azure'],
                     thumb: require('@/content/UX/hbrc/hbrc.gif'),
                     category: 'Apps',
                     content: { link: 'https://github.com/trentbrew/HBRC' },
-                },
-                {
-                    title: 'Raster',
-                    subtitle: 'Multi-media visual CMS',
-                    stack: ['Vue', 'Firebase', 'Node'],
-                    thumb: require('@/content/UX/raster/raster.gif'),
-                    category: 'Apps',
-                    //dims: '500x375',
-                    wip: true,
                 },
                 {
                     title: 'Decker',
@@ -175,12 +175,11 @@ export default {
                     content: { link: 'https://decker-fp.com' },
                 },
                 {
-                    title: 'Leadershipwise',
-                    subtitle: 'Leadership training and development',
-                    stack: ['Flutter', 'Firebase', 'Node'],
-                    thumb: require('@/content/UX/lw/thumb.png'),
+                    title: 'Raster',
+                    subtitle: 'Multi-media visual CMS',
+                    stack: ['Vue', 'Firebase', 'Node'],
+                    thumb: require('@/content/UX/raster/raster.gif'),
                     category: 'Apps',
-                    //dims: '1200x675',
                     wip: true,
                 },
                 {

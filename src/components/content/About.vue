@@ -4,7 +4,7 @@
         <h1>Hello</h1>
         <p>Thank you for visiting my site</p>
         <p>This concept started out as a smol sketch, and I really had no idea what it would morph into.</p>
-        <p>It's a work in progress but buliding things out while improvising through the design has really been the most fun and playful experience I've had in a long time...</p>
+        <p>It's a work in progress but buliding things out while improvising through the design has really been the most fun and playful experience I've had in a long time... Your feedback is welcome!</p>
         <br>
         <br>
         <b>A bit about me</b>

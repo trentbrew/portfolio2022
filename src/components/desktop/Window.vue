@@ -235,10 +235,12 @@ export default {
     triggerClose() {
       console.clear();
       if(this.embed) { // kill iframe
-        document.getElementById("iframe").parentNode.removeChild(iframe);
+        let iframe = document.getElementById(this.id);
+        iframe.parentNode.removeChild(iframe);
       }
       if(this.video) { // kill video
-        document.getElementById("video").parentNode.removeChild(video);
+        let video = document.getElementById(this.id);
+        video.parentNode.removeChild(video);
       }
       this.preExit = true;
       this.preventTransitionParent = true;

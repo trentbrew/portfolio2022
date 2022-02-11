@@ -34,7 +34,7 @@
       :video="window.video"
       >
         <template v-if="window.embed">
-          <iframe id="iframe" :src="window.embed" frameborder="0"></iframe>
+          <iframe :id="window.id" :src="window.embed" frameborder="0"></iframe>
         </template>
 
         <template v-if="window.component">
@@ -53,7 +53,7 @@
         <template v-if="window.video">
           <div style="overflow: hidden; width: 100%; height: 100%' background: black; border-radius: 8px;">
             <video
-            id="video"
+            :id="window.id"
             :src="require(`@/content/${window.video}`)" 
             width="100%"
             height="100%"
@@ -165,7 +165,7 @@ export default {
           label: 'About',
           component: About,
           windowWidth: 800,
-          windowHeight: 450,
+          windowHeight: 445,
         },
         {
           icon: 'document_square.svg',
