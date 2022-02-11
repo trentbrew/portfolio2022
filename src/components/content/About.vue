@@ -25,10 +25,10 @@
         <ul>
             <a href="https://same.energy"><li>Same Energy | Visual Search Engine</li></a>
             <a href="https://toolhunt.dev"><li>Toolhunt | Quality Devtools</li></a>
+            <a href="https://flow.rest"><li>Flow | Clear your mind through expressive writing</li></a>
             <a href="https://minimalissimo.com"><li>Minimalissimo | Minimalism in Design</li></a>
             <a href="https://youworkforthem.com"><li>YouWorkForThem | Creative fonts and stock art</li></a>
             <a href="https://manuelmoreale.com"><li>Manu | A luvly blog</li></a>
-
         </ul>
         <br>
         <br>
