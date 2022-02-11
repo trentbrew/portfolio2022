@@ -1,7 +1,7 @@
 <template>
     <div class="about">
         <img id="ohai" src="../../content/animations/ohai2.gif" width="120" height="120" alt="hello">
-        <h1>Hi there 👋🏿</h1>
+        <h1>Hello</h1>
         <p>Thank you for visiting my site</p>
         <p>This concept started out as a smol sketch, and I really had no idea what it would morph into.</p>
         <p>It's a work in progress but buliding things out while improvising through the design has really been the most fun and playful experience I've had in a long time...</p>

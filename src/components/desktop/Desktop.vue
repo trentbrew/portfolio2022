@@ -168,15 +168,23 @@ export default {
           windowHeight: 450,
         },
         {
-          icon: 't_color.svg',
-          label: 'Twitter',
-          link: 'https://twitter.com/trent_brew',
-          newtab: true,
+          icon: 'document_square.svg',
+          label: 'Resume',
+          component: Resume,
+          windowWidth: 900,
+          windowHeight: 700,
+          center: true,
         },
         {
           icon: 'gh_color.svg',
           label: 'GitHub',
           link: 'https://github.com/trentbrew',
+          newtab: true,
+        },
+        {
+          icon: 't_color.svg',
+          label: 'Twitter',
+          link: 'https://twitter.com/trent_brew',
           newtab: true,
         },
         {
@@ -186,24 +194,16 @@ export default {
           newtab: true,
         },
         {
-          icon: 'document_square.svg',
-          label: 'Resume',
-          component: Resume,
-          windowWidth: 900,
-          windowHeight: 700,
-          center: true,
-        },
-        {
           icon: 'mail2.svg',
           label: 'Mail',
           link: 'mailto:hello@trentbrew.com',
           newtab: true,
         },
-        {
+        /*{
           icon: 'term.svg',
           label: 'Terminal',
           component: Terminal,
-        },
+        },*/
       ]
     };
   },
@@ -285,13 +285,16 @@ export default {
         height: 600,
       });
     });
-    window.addEventListener('keyup', (e) => { // for debugging
-      (e.key == 'w' || e.key == 'W') && this.pushWindow({
-      
-      });
-    });
     this.dockItems.forEach(item => {
       item = {...item, open: false};
+    });
+    window.addEventListener('keyup', (e) => { // for debugging
+      (e.key == 't' || e.key == 'T') && this.pushWindow({
+        title: 'Terminal',
+        component: Terminal,
+        width: 600,
+        height: 400,
+      });
     });
   },
   destroyed() {
