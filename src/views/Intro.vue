@@ -1,7 +1,9 @@
 <template>
 <div class="root">
-  <div class="absolute skip" @click="window.open('https://trentbrew.com/desktop', '_self')">
-    Skip ahead to my work
+  <div
+  class="absolute skip" @click="window.open('https://trentbrew.com/desktop', '_self')"
+  >
+    ➔ Click here to skip ahead to my work
   </div>
   <div 
   class="intro-container flex-center fill-screen" 

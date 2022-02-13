@@ -13,9 +13,9 @@
         <br>
         <b>What I'm reading</b>
         <ul>
-            <a href="https://algorithmstoliveby.com/"><li>Algorithms to Live By: The Computer Science of Human Decisions</li></a>
-            <a href="https://en.wikipedia.org/wiki/Talking_to_Strangers"><li>Talking to Strangers: What We Should Know About People We Don't Know</li></a>
-            <a href="http://www.theannotatedturing.com/"><li>The Annotated Turing</li></a>
+            <a href="https://algorithmstoliveby.com/"><li><span>Algorithms to Live By</span>: The Computer Science of Human Decisions</li></a>
+            <a href="https://en.wikipedia.org/wiki/Talking_to_Strangers"><li><span>Talking to Strangers</span>: What We Should Know About People We Don't Know</li></a>
+            <a href="http://www.theannotatedturing.com/"><li><span>The Annotated Turing</span></li></a>
         </ul><br>
         <b>What I'm watching</b>
         <ul>
@@ -23,12 +23,12 @@
         </ul><br>
         <b>My favorite stuff on the web</b>
         <ul>
-            <a href="https://same.energy"><li>Same Energy | Visual Search Engine</li></a>
-            <a href="https://toolhunt.dev"><li>Toolhunt | Quality Devtools</li></a>
-            <a href="https://flow.rest"><li>Flow | Clear your mind through expressive writing</li></a>
-            <a href="https://minimalissimo.com"><li>Minimalissimo | Minimalism in Design</li></a>
-            <a href="https://youworkforthem.com"><li>YouWorkForThem | Creative fonts and stock art</li></a>
-            <a href="https://manuelmoreale.com"><li>Manu | A luvly blog</li></a>
+            <a href="https://same.energy"><li><span>Same Energy</span> | Visual Search Engine</li></a>
+            <a href="https://toolhunt.dev"><li><span>Toolhunt</span> | Quality Devtools</li></a>
+            <a href="https://flow.rest"><li><span>Flow</span> | Clear your mind through expressive writing</li></a>
+            <a href="https://minimalissimo.com"><li><span>Minimalissimo</span> | Minimalism in Design</li></a>
+            <a href="https://youworkforthem.com"><li><span>YouWorkForThem</span> | Creative fonts and stock art</li></a>
+            <a href="https://manuelmoreale.com"><li><span>Manu</span> | A luvly blog</li></a>
         </ul>
         <br>
         <br>
