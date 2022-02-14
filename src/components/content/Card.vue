@@ -140,7 +140,7 @@ figure.card {
 			h3 {
                 color: white !important;
                 margin: 0px;
-				font-size: 1rem;
+				font-size: 15px;
 				letter-spacing: 1px;
 				margin-bottom: 8px;
 			}

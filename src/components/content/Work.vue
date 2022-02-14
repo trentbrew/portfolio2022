@@ -266,7 +266,7 @@ export default {
 
                 },*/
                 {
-                    title: 'Podular',
+                    title: 'Podular Sans',
                     subtitle: 'Typeface and logo design',
                     stack: ['Figma'],
                     thumb: require('@/content/logo/podular.us/banner2.png'),
