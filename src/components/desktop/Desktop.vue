@@ -149,6 +149,11 @@ export default {
       fullscreen: false,
       dockItems: [
         {
+          icon: 'term.svg',
+          label: 'Terminal',
+          component: Terminal,
+        },
+        {
           icon: 'folder_square.svg',
           label: 'Projects',
           component: Work,
@@ -201,11 +206,6 @@ export default {
           link: 'mailto:hello@trentbrew.com',
           newtab: true,
         },
-        /*{
-          icon: 'term.svg',
-          label: 'Terminal',
-          component: Terminal,
-        },*/
       ]
     };
   },
