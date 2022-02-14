@@ -5,6 +5,7 @@
     class="card" 
 	:style="`background-image: url(${project.thumb})`"
     >
+		<div style="background: black; width: 100%; height: 100%;" class="shade"></div>
 		<figcaption>
 			<span class="info">
 				<div class="title flex">
@@ -82,45 +83,60 @@ b span {
     padding-top: 12px;
 }
 
+.shade {
+	opacity: 0;
+	transition: 300ms;
+}
+
 figure.card {
     margin: 0px !important;
     padding: 0px !important;
 	position: relative;
 	width: 100%;
 	aspect-ratio: 16 / 9;
-	background-position: 50% 50%;
+	background-position: 50% 0px;
 	background-size: cover;
-	transition: 200ms ease;
+	background-repeat: no-repeat;
+	transition: 300ms ease;
 	overflow: hidden;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
 	//box-shadow: $shadow;
 	
 	&:hover {
+		//filter: brightness(0.8);
 		//transform: scale(1.04);
+		background-position: 50% -48px;
 		figcaption {
+			//opacity: 1;
 			transform: translateY(0px);
+		}
+		.shade {
+			opacity: 0.4;
 		}
 	}
 
+
 	figcaption {
         bottom: 0;
+		//opacity: 0;
+		position: absolute;
         transform: translateY(120px);
 		box-sizing: content-box;
-        width: 100%;
+        width: calc(100% - 40px);
         height: 80px;
         padding: 15px 20px;
 		justify-content: space-between;
 		align-items: center;
-		position: absolute;
 		background: $laptop_background;
-		transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+		//transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+		transition: 300ms ease;
+        border-radius: 0px;
 		//background: rgba(#111, 0.6);
         //backdrop-filter: $blur;
-        //border-radius: 0px 0px 4px 4px !important;
 		.info {
             width: 100%;
-			color: rgba(white, 0.8);
+			color: rgba(white, 0.6);
 			h3 {
                 color: white !important;
                 margin: 0px;

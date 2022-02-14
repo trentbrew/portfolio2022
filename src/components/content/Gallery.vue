@@ -109,7 +109,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 4px;
+    border-radius: 6px;
     width: 100%;
     aspect-ratio: 1 / 1;
     cursor: pointer;
@@ -117,7 +117,7 @@ export default {
 
     &:hover {
         transform: scale(0.96);
-        filter: brightness(0.9);
+        //filter: brightness(0.9);
     }
 }
 </style>
