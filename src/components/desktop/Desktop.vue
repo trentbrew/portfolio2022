@@ -373,7 +373,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/peekaboo3.png');
+  background-image: url('../../assets/peekaboo2.png');
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;
