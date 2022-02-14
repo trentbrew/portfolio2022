@@ -59,7 +59,8 @@
             height="100%"
             autoplay
             controls
-            style="border-radius: 8px; height: 100%; width: 100%; object-fit: contain;"
+            muted
+            style="border-radius: 8px; height: 100%; width: 100%; object-fit: contain; background: black;"
             />
           </div>
         </template>
@@ -373,7 +374,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/peekaboo2.png');
+  background-image: url('../../assets/peekaboo3.png');
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;

@@ -1,18 +1,17 @@
 <template>
     <div class="gallery">
-        <div 
+        <!--div 
         v-if="loading"
         class="loader-veil flex-center absolute"
         >
             <img src="../../assets/loading.gif" width="48" height="48" alt="loading..." />
-        </div>
+        </div-->
         <div class="gallery-container">
             <div
             v-for="(image, index) in images"
             :key="index" 
             :style="`
                 background-image: url(${require(`@/content/illustration/${image}.jpg`)});
-                ${loading ? 'opacity: 0' : 'opacity: 1'};
             `"
             class="gallery-item"
             >
@@ -29,19 +28,19 @@ export default {
             loading: true,
             images: [
                 'acceptance',
-                'angel',
                 'strand',
-                'dehydrated',
+                'img2',
+                'spill',
                 'digest',
                 'weight',
                 'winter',
                 'alien',
-                'friends',
-                'happynight',
-                'holiday',
+                'dehydrated',
+                'tree',
                 'img0',
+                'angel',
+                'skateboard',
                 'img1',
-                'img2',
                 'tails',
                 'coal',
                 'img5',
@@ -50,18 +49,18 @@ export default {
                 'img9',
                 'img10',
                 'img12',
-                'maria',
                 'img15',
                 'img16',
+                'body',
                 'img17',
                 'img18',
+                'friends',
                 'isabella',
                 'naruto',
                 'ocean',
                 'over-stimulation',
-                'skateboard',
+                'happynight',
                 'sleepy',
-                'spill',
                 'sundays',
                 'therealone',
             ]
