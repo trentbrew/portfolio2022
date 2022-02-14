@@ -17,10 +17,6 @@
             <a href="https://en.wikipedia.org/wiki/Talking_to_Strangers"><li><span>Talking to Strangers</span>: What We Should Know About People We Don't Know</li></a>
             <a href="http://www.theannotatedturing.com/"><li><span>The Annotated Turing</span></li></a>
         </ul><br>
-        <b>What I'm watching</b>
-        <ul>
-            <li>Hajime no Ippo 🥊</li>
-        </ul><br>
         <b>My favorite stuff on the web</b>
         <ul>
             <a href="https://same.energy"><li><span>Same Energy</span> | Visual Search Engine</li></a>
@@ -30,19 +26,6 @@
             <a href="https://youworkforthem.com"><li><span>YouWorkForThem</span> | Creative fonts and stock art</li></a>
             <a href="https://manuelmoreale.com"><li><span>Manu</span> | A luvly blog</li></a>
         </ul>
-        <br>
-        <br>
-        <b>This is my sister and I on a snowboarding trip</b>
-        <br>
-        <img id="snowboard" src="../../assets/snowboarding.jpg" width="200" alt="snowboarding" />
-        <br>
-        <br>
-        <br>
-        <b>This is a picture my friend drew of me ~ go follow her on instagram(: @barko_dogspotting</b>
-        <br>
-        <br>
-        <br>
-        <img id="barko" src="../../assets/barko_full.jpeg" width="200" alt="barko" />
     </div>
 </template>
 

@@ -166,6 +166,7 @@ export default {
           component: About,
           windowWidth: 800,
           windowHeight: 445,
+          center: true,
         },
         {
           icon: 'document_square.svg',
@@ -372,9 +373,9 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/peekaboo.png');
+  background-image: url('../../assets/peekaboo3.png');
   background-size: cover;
-  background-position: bottom;
+  background-position: bottom right;
   background-repeat: no-repeat;
 }
 

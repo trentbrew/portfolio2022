@@ -1,10 +1,10 @@
 <template>
 <div class="root">
-  <div
-  v-if="unveil" class="absolute skip" @click="window.open('https://trentbrew.com/desktop', '_self')"
+  <router-link to="/desktop"
+  class="absolute skip"
   >
-    <b>➔ Skip ahead to my work</b>
-  </div>
+    <span class="arrow">➔</span> Skip ahead to my work
+  </router-link>
   <div 
   class="intro-container flex-center fill-screen" 
   :style="`${clicked ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )};`"
@@ -96,13 +96,10 @@ export default {
       popup: false
     };
   },
-  computed: {
-    window: () => window,
-  },
   mounted() {
-    window.addEventListener('keyup', (e) => {
-      (e.key == 's' || e.key == 'S') && window.open('https://trentbrew.com/desktop', '_self');
-    });
+    console.clear();
+    console.log(window.location);
+    console.log(this.$route);
     setTimeout(() => {
       this.unveil = true;
     }, 8000);
@@ -205,36 +202,32 @@ $background: $trackpad_color;
   }
 }
 
-@keyframes enter {
-  to {
-    opacity: 0.4;
-    transform: translateX(0px);
-  }
-}
-
 .skip {
   color: $japanese_indigo;
   bottom: 64px; 
-  left: 64px; 
-  opacity: 0;
-  z-index: 99999;
+  left: 120px; 
+  opacity: 0.3;
   font-size: 16px;
   cursor: pointer;
   transform: translateX(-32px);
-  animation: enter 1s ease forwards 400ms;
+  transition: opacity 200ms !important;
+  font-weight: bold;
+  text-decoration: none;
+
+  .arrow {
+    position: absolute;
+    transform: translateX(-36px);
+    transition: 200ms !important;
+    font-weight: normal;
+  }
 
   &:hover {
-    opacity: 0.8 !important;
-  }
+    opacity: 0.6 !important;
 
-  span {
-    background: $japanese_indigo;
-    padding: 2px 8px 4px 8px;
-    line-height: 0px;
-    border-radius: 6px;
-    color: white;
+    .arrow {
+      transform: translateX(-24px);
+    }
   }
-
 }
 
 video {
