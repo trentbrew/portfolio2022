@@ -1,9 +1,9 @@
 <template>
 <div class="root">
   <div
-  class="absolute skip" @click="window.open('https://trentbrew.com/desktop', '_self')"
+  v-if="unveil" class="absolute skip" @click="window.open('https://trentbrew.com/desktop', '_self')"
   >
-    ➔ Click here to skip ahead to my work
+    <b>➔ Skip ahead to my work</b>
   </div>
   <div 
   class="intro-container flex-center fill-screen" 
@@ -205,18 +205,26 @@ $background: $trackpad_color;
   }
 }
 
+@keyframes enter {
+  to {
+    opacity: 0.4;
+    transform: translateX(0px);
+  }
+}
+
 .skip {
   color: $japanese_indigo;
   bottom: 64px; 
   left: 64px; 
-  opacity: 0.4;
+  opacity: 0;
   z-index: 99999;
   font-size: 16px;
-  transition: 200ms;
   cursor: pointer;
+  transform: translateX(-32px);
+  animation: enter 1s ease forwards 400ms;
 
   &:hover {
-    opacity: 1;
+    opacity: 0.8 !important;
   }
 
   span {
