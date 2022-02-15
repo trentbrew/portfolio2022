@@ -129,7 +129,7 @@ export default {
                 {
                     title: 'nihal.tv',
                     subtitle: 'Film portfolio',
-                    stack: ['Vue'],
+                    stack: ['Vue', 'Firebase'],
                     thumb: require('@/content/UX/nihal/nihal.gif'),
                     category: 'Websites',
                     content: { embed: 'https://nihal.tv' },
