@@ -144,7 +144,7 @@ export default {
                     content: { embed: 'https://podular.us' },
                     dims: '1400x700',
                 },
-                {
+                /*{
                     title: 'jiyounjun.com',
                     subtitle: 'Design portfolio',
                     stack: ['Vue'],
@@ -161,7 +161,7 @@ export default {
                     category: 'Websites',
                     content: { embed: 'https://uprise-be108.web.app/' },
                     dims: '1600x800',
-                },
+                },*/
                 {
                     title: 'Leadershipwise',
                     subtitle: 'Leadership training and development',
