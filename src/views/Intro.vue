@@ -38,7 +38,15 @@
             <div class="side bottom">
               <div class="screen" :style="`${ popup && 'display: none;' }`">
                 <!--GradientMesh :index="1"/-->
-                <img :src="`${boot ? require('@/assets/intro-gifs/boot.gif') : require('@/assets/intro-gifs/glitch1.gif')}`" width="100%" height="100%" />
+                <img :src="`${
+                  boot ? 
+                  require('@/assets/intro-gifs/boot.gif') : 
+                  ( 
+                    preboot ? 
+                    require('@/assets/intro-gifs/static1.gif') : 
+                    require('@/assets/intro-gifs/glitch1.gif')
+                  )
+                }`" width="100%" height="100%" />
               </div>
             </div>
             <div class="side right"></div>
@@ -88,18 +96,20 @@ export default {
   data() {
     return {
       unveil: false,
+      allowClick: false,
       clicked: false,
+      preboot: false,
       boot: false,
       desktopReady: false,
       hovering: false,
-      allowClick: false,
       popup: false
     };
   },
   mounted() {
     console.clear();
-    console.log(window.location);
-    console.log(this.$route);
+
+    console.log(`┼┼┼┼┼┼┼┼┼┼┼┼▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄┼┼┼┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼┼┼┼█▒▒░░░░░░░░░▒▒█┼┼┼┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼┼┼┼┼█░░█░░░░░█░░█┼┼┼┼┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼─▄▄──█░░░▀█▀░░░█──▄▄─┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼█░░█─▀▄░░░░░░░▄▀─█░░█┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼██░██░████░██░░░██░░░█████┼┼┼┼┼┼\n┼┼┼┼┼┼██▄██░██▄▄░██░░░██░░░██░██┼┼┼┼┼┼\n┼┼┼┼┼┼██▀██░██▀▀░██░░░██░░░██░██┼┼┼┼┼┼\n┼┼┼┼┼┼██░██░████░████░████░█████┼┼┼┼┼┼\n`);
+
     setTimeout(() => {
       this.unveil = true;
     }, 8000);
@@ -113,25 +123,26 @@ export default {
       setTimeout(() => {
         this.allowClick = true;
       }, 1200);
-      console.log('mouseenter');
     },
     handleMouseLeave() {
       this.hovering = false;
       this.allowClick = false;
-      console.log('mouseleave');
     },
     handleClick() {
       console.log(this.allowClick);
       if (this.allowClick) {
         console.log('valid click ✅');
-        this.boot = true;
+        this.preboot = true;
+        setTimeout(() => {
+          this.boot = true;
+        }, 500);
         setTimeout(() => {
           this.clicked = true;
-        }, 2650);
+        }, 3250);
         setTimeout(() => {
           this.desktopReady = true;
           this.popup = true;
-        }, 5500);
+        }, 6100);
       }
     },
   },
@@ -254,11 +265,11 @@ video {
   left: 0px;
   width: 18.5vh;
   height: 12.5vh;
-  /*background-image: url('../assets/subtle_wallpaper2.png');
-  background-size: contain;
+  background-image: url('../assets/gradient-smol.png');
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;*/
-  background: black;
+  background-position: center;
+  //background: black;
   pointer-events: none;
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
@@ -278,15 +289,16 @@ video {
   box-sizing: border-box;
   border: solid $bezel_color;
   border-width: 6px;
-  /*background-image: url('../assets/subtle_wallpaper2.png');
+  background-image: url('../assets/gradient-smol.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;*/
-  background: #222527;
+  background-position: center;
+  //background: black;
   width: 42.37288vw;
   height: 42.37288vh;
   pointer-events: none;
-  transition: 3.5s cubic-bezier(0.83, 0, 0.17, 1), opacity 0s;
+  //transition: 3.5s cubic-bezier(0.83, 0, 0.17, 1), opacity 0s;
+  transition: 3.5s ease, opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
