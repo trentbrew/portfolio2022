@@ -154,6 +154,15 @@ export default {
                     dims: '1400x700',
                 },
                 {
+                    title: 'uprisemgmt.com',
+                    subtitle: 'Marketing website',
+                    stack: ['Vue'],
+                    thumb: require('@/content/UX/uprise/thumb.gif'),
+                    category: 'Websites',
+                    content: { embed: 'https://uprise-be108.web.app/' },
+                    dims: '1600x800',
+                },
+                {
                     title: 'Leadershipwise',
                     subtitle: 'Leadership training and development',
                     stack: ['Flutter', 'Firebase', 'Node'],
@@ -222,7 +231,7 @@ export default {
                     thumb: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
                     content: { embed: 'https://trentbrew.github.io/drummer-boi-v1/' },
-                    dims: '1400x700',
+                    dims: '1200x800',
                 },
                 {
                     title: 'Solar System',
@@ -336,6 +345,7 @@ export default {
     },
     methods: {
         updateCategory(category) {
+            this.scroll = 0;
             this.category = category;
             if (category == 'Apps') {
                 this.categoryCaption = "I work across the stack to ensure usability, accessibility, performance, and cohesion from ideation to deployment.";
