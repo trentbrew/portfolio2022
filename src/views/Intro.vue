@@ -265,11 +265,11 @@ video {
   left: 0px;
   width: 18.5vh;
   height: 12.5vh;
-  background-image: url('../assets/gradient-smol.png');
+  /*background-image: url('../assets/gradient-smol.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  //background: black;
+  background-position: center;*/
+  background: black;
   pointer-events: none;
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
@@ -289,11 +289,11 @@ video {
   box-sizing: border-box;
   border: solid $bezel_color;
   border-width: 6px;
-  background-image: url('../assets/gradient-smol.png');
+  /*background-image: url('../assets/gradient-smol.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  //background: black;
+  background-position: center;*/
+  background: $laptop_background;
   width: 42.37288vw;
   height: 42.37288vh;
   pointer-events: none;
