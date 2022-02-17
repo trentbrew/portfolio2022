@@ -135,7 +135,7 @@ export default {
         this.preboot = true;
         setTimeout(() => {
           this.boot = true;
-        }, 500);
+        }, 600);
         setTimeout(() => {
           this.clicked = true;
         }, 3250);

@@ -77,7 +77,7 @@
   </div>
   <div class="main-container">
    <div class="content-wrapper">
-    <h1 style="color: white; font-family: 'Josefin Sans', sans-serif;">{{ category }}</h1>
+    <h1 style="color: white; font-family: 'Ubuntu', sans-serif;">{{ category }}</h1>
     <p style="opacity: 0.5" class="content-caption">{{ categoryCaption }}</p>
     <div 
     class="content-section" 
@@ -369,7 +369,7 @@ export default {
 
 <style lang='scss' scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 /* always present */
 .expand-transition {

@@ -233,7 +233,6 @@ export default {
       }, 600);
     },
     triggerClose() {
-      console.clear();
       if(this.embed) { // kill iframe
         let iframe = document.getElementById(this.id);
         iframe.parentNode.removeChild(iframe);
