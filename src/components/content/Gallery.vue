@@ -1,26 +1,3 @@
-<template>
-    <div class="gallery">
-        <!--div 
-        v-if="loading"
-        class="loader-veil flex-center absolute"
-        >
-            <img src="../../assets/loading.gif" width="48" height="48" alt="loading..." />
-        </div-->
-        <div class="gallery-container">
-            <div
-            v-for="(image, index) in images"
-            :key="index" 
-            :style="`
-                background-image: url(${require(`@/content/illustration/${image}.jpg`)});
-            `"
-            class="gallery-item"
-            >
-                <div @click="handleImageClick(image)" class="clickable"></div>
-            </div>
-        </div>
-    </div>
-</template>
-
 <script>
 export default {
     data() {
@@ -83,6 +60,29 @@ export default {
     
 }
 </script>
+
+<template>
+    <div class="gallery">
+        <!--div 
+        v-if="loading"
+        class="loader-veil flex-center absolute"
+        >
+            <img src="../../assets/loading.gif" width="48" height="48" alt="loading..." />
+        </div-->
+        <div class="gallery-container">
+            <div
+            v-for="(image, index) in images"
+            :key="index" 
+            :style="`
+                background-image: url(${require(`@/content/illustration/${image}.jpg`)});
+            `"
+            class="gallery-item"
+            >
+                <div @click="handleImageClick(image)" class="clickable"></div>
+            </div>
+        </div>
+    </div>
+</template>
 
 <style lang='scss' scoped>
 .loader-veil {

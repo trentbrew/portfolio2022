@@ -1,114 +1,3 @@
-<template>
-  <div
-  class="desktop-container" 
-  :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
-  >
-    <div class="backdrop">
-      <!--GradientMesh :index="3" /-->
-    </div>
-    <div ref="desktop" class="desktop">
-      <!--div 
-      @click="() => { clicked = null; pushWindow({
-        title: 'about.md',
-        center: true,
-        width: 700,
-        height: 600,
-        embed: 'https://trentovershares.web.app/about'
-      })}"
-      class="item-container absolute flex-column flex-center" 
-      :style="`top: 48px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
-      >
-        <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
-        <span class="title">about.md</span>
-      </div-->
-      <Window 
-      v-for="(window, index) in windows"
-      :key="index"
-      :index="index"
-      :id="window.id"
-      :title="window.title"
-      :initialWidth="window.width"
-      :initialHeight="window.height"
-      :center="window.center"
-      :embed="window.embed"
-      :video="window.video"
-      >
-        <template v-if="window.embed">
-          <iframe :id="window.id" :src="window.embed" frameborder="0"></iframe>
-        </template>
-
-        <template v-if="window.component">
-          <component :is="window.component"></component>
-        </template>
-
-        <template v-if="window.image">
-          <div style="overflow: hidden;">
-            <img 
-            :src="require(`@/content/${window.image}`)" 
-            style="border-radius: 8px; width: 100%; max-height: 100%;"
-            />
-          </div>
-        </template>
-
-        <template v-if="window.video">
-          <div style="overflow: hidden; width: 100%; height: 100%' background: black; border-radius: 8px;">
-            <video
-            :id="window.id"
-            :src="require(`@/content/${window.video}`)" 
-            width="100%"
-            height="100%"
-            autoplay
-            controls
-            muted
-            style="border-radius: 8px; height: 100%; width: 100%; object-fit: contain; background: black;"
-            />
-          </div>
-        </template>
-        
-        <template v-if="window.casestudy">
-          <div style="overflow: auto; border-radius: 8px; padding-right: 12px;">
-            <img 
-            :src="require(`@/content/${window.casestudy}`)" 
-            style="width: 100%;"
-            />
-          </div>
-        </template>
-
-
-      </Window>
-    </div>
-    <Dock :hide="fullscreen">
-      <div 
-      v-for="(item, index) in dockItems"
-      :key="index"
-      class="dock-item flex-center"
-      @click="item.link ? window.open(item.link, '_blank') : pushWindow({
-        title: item.label || 'Title',
-        link: item.link || null,
-        embed: item.embed || null, // String
-        component: item.component || null, // Component
-        image: item.image || null, // String 
-        width: item.windowWidth || 600, // Number
-        height: item.windowHeight || 400, // Nmuber
-        positionX: item.windowPositionX || getRandomX(), // Number
-        positionY: item.windowPositionY || getRandomY(), // Number
-        center: item.center,
-      })"
-      >
-        <div class="tooltip flex-center absolute">
-          <span>{{ item.label }}</span>
-          <div v-if="item.newtab" class="newtab"></div>
-        </div>
-        <div 
-        class="dock-icon"
-        :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"
-        >
-        </div>
-      </div>
-    </Dock>
-  </div>
-</template>
-
 <script>
 import { uid } from 'uid/secure';
 import { Draggable } from 'draggable-vue-directive';
@@ -119,7 +8,6 @@ import Terminal from '@/components/content/Terminal.vue';
 import Resume from '@/components/content/Resume.vue';
 import GradientMesh from '@/components/GradientMesh.vue';
 import Gallery from '@/components/content/Gallery.vue';
-import Content from '@/components/content/Content.vue';
 import About from '@/components/content/About.vue';
 
 export default {
@@ -135,7 +23,6 @@ export default {
     Resume,
     GradientMesh,
     Gallery,
-    Content,
     About,
   },
   data() {
@@ -212,20 +99,6 @@ export default {
   props: {
     popup: Boolean
   },
-  watch: {
-    popup(val) {
-      console.log('popup', val);
-      setTimeout(() => {
-        this.pushWindow({
-          title: 'Terminal',
-          component: Terminal,
-          width: 800,
-          height: 450,
-          center: true
-        });
-      }, 2000);
-    }
-  },
   computed: {
     window: () => window,
     console: () => console,
@@ -243,6 +116,18 @@ export default {
         height: 560,
         center: true,
       });
+    } else {
+      this.$watch('popup', () => {
+        setTimeout(() => {
+          this.pushWindow({
+            title: 'Terminal',
+            component: Terminal,
+            width: 600,
+            height: 400,
+            center: true,
+          });
+        }, 2000);
+      });
     }
     this.$root.$on('closedWindow', (id) => {
       this.$root.$emit('windowSelected', this.zBufferSet[1]);
@@ -253,10 +138,9 @@ export default {
       }
     });
     this.$root.$on('cardClicked', (project) => {
-      console.log(project);
       if (project.wip) {
         this.pushWindow({
-          title: 'Coming soon...',
+          title: 'Case study coming soon...',
           image: 'animations/comingsoon.gif',
           width: 360,
           height: 275,
@@ -330,6 +214,109 @@ export default {
 };
 </script>
 
+<template>
+  <div
+  class="desktop-container" 
+  :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
+  >
+    <div class="backdrop bg-image">
+      <!--GradientMesh :index="3" /-->
+    </div>
+    <div ref="desktop" class="desktop">
+      <!--div 
+      @click="() => { clicked = null; pushWindow({
+        title: 'about.md',
+        center: true,
+        width: 700,
+        height: 600,
+        embed: 'https://trentovershares.web.app/about'
+      })}"
+      class="item-container absolute flex-column flex-center" 
+      :style="`top: 48px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
+      >
+        <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
+        <span class="title">about.md</span>
+      </div-->
+      <Window 
+      v-for="(window, index) in windows"
+      :key="index"
+      :index="index"
+      :id="window.id"
+      :title="window.title"
+      :initialWidth="window.width"
+      :initialHeight="window.height"
+      :center="window.center"
+      :embed="window.embed"
+      :video="window.video"
+      >
+        <template v-if="window.embed">
+          <iframe :id="window.id" :src="window.embed" frameborder="0"></iframe>
+        </template>
+
+        <template v-if="window.component">
+          <component :is="window.component"></component>
+        </template>
+
+        <template v-if="window.image">
+          <div style="overflow: hidden;">
+            <img 
+            :src="require(`@/content/${window.image}`)" 
+            style="border-radius: 8px; width: 100%; max-height: 100%;"
+            />
+          </div>
+        </template>
+
+        <template v-if="window.video">
+          <div style="overflow: hidden; width: 100%; height: 100%' background: black; border-radius: 8px;">
+            <video
+            :id="window.id"
+            :src="require(`@/content/${window.video}`)" 
+            class="video"
+            width="100%"
+            height="100%"
+            autoplay
+            controls
+            muted
+            />
+          </div>
+        </template>
+        
+        <template v-if="window.casestudy">
+          <div style="overflow: auto; border-radius: 8px; padding-right: 12px;">
+            <img :src="require(`@/content/${window.casestudy}`)" style="width: 100%;" />
+          </div>
+        </template>
+
+      </Window>
+    </div>
+    <Dock :hide="fullscreen">
+      <div 
+      class="dock-item flex-center"
+      v-for="(item, index) in dockItems"
+      :key="index"
+      @click="item.link ? window.open(item.link, '_blank') : pushWindow({
+        title: item.label || 'Title',
+        link: item.link || null,
+        embed: item.embed || null, // String
+        component: item.component || null, // Component
+        image: item.image || null, // String 
+        width: item.windowWidth || 600, // Number
+        height: item.windowHeight || 400, // Nmuber
+        positionX: item.windowPositionX || getRandomX(), // Number
+        positionY: item.windowPositionY || getRandomY(), // Number
+        center: item.center,
+      })"
+      >
+        <div class="tooltip flex-center absolute">
+          <span>{{ item.label }}</span>
+          <div v-if="item.newtab" class="newtab"></div>
+        </div>
+        <div class="dock-icon" :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"></div>
+      </div>
+    </Dock>
+  </div>
+</template>
+
 <style lang="scss" scoped>
 .newtab {
   background-image: url('../../assets/icons/newtab.svg');
@@ -374,10 +361,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  /*background-image: url('../../assets/gradient.png');
-  background-size: cover;
-  background-position: bottom right;
-  background-repeat: no-repeat;*/
+  //background-image: url('../../assets/wallpapers/tb2.png');
 }
 
 .desktop-container {

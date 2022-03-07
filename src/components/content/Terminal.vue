@@ -1,27 +1,3 @@
-<template>
-<div class="terminal-container">
-  <vue-typer
-    :text="[
-      `Hi!`,
-      `My name's Trent`,
-      `I'm a UX Engineer based in Chicago`,
-      `Welcome to my portfolio ^-^`,
-      `Feel free to click around & explore my work...`
-    ]"
-    :repeat='0'
-    :shuffle='false'
-    initial-action='typing'
-    :pre-type-delay='200'
-    :type-delay='100'
-    :pre-erase-delay='2000'
-    :erase-delay='200'
-    erase-style='select-all'
-    :erase-on-complete='false'
-    caret-animation='smooth'
-  ></vue-typer>
-</div>
-</template>
-
 <script>
 import { VueTyper } from 'vue-typer';
 
@@ -32,6 +8,30 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div class="terminal-container">
+    <vue-typer
+      :text="[
+        `Hi!`,
+        `My name's Trent`,
+        `I'm a UX Engineer based in Chicago`,
+        `Welcome to my portfolio ^-^`,
+        `Feel free to click around & explore my work...`
+      ]"
+      :repeat='0'
+      :shuffle='false'
+      initial-action='typing'
+      :pre-type-delay='200'
+      :type-delay='100'
+      :pre-erase-delay='2000'
+      :erase-delay='200'
+      erase-style='select-all'
+      :erase-on-complete='false'
+      caret-animation='smooth'
+    ></vue-typer>
+  </div>
+</template>
 
 <style lang='scss'>
 .terminal-container {

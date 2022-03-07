@@ -1,9 +1,3 @@
 <template>
-    <img src="../../assets/comingsoon.gif" height="100%" alt="under construction">
+    <img src="../../assets/comingsoon.gif" height="100%" style="border-radius: 8px" alt="under construction" />
 </template>
-
-<style lang='scss' scoped>
-    img {
-        border-radius: 8px;
-    }
-</style>

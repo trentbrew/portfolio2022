@@ -1,13 +1,3 @@
-<template>
-  <div class="topbar">
-    <div class="topbar-section topbar-left"></div>
-    <div class="topbar-section topbar-time">
-      <span class="time">5:34pm</span>
-    </div>
-    <div class="topbar-section topbar-right"></div>
-  </div>
-</template>
-
 <script>
 export default {
   name: "Topbar",
@@ -20,6 +10,16 @@ export default {
   methods: {},
 };
 </script>
+
+<template>
+  <div class="topbar">
+    <div class="topbar-section topbar-left"></div>
+    <div class="topbar-section topbar-time">
+      <span class="time">5:34pm</span>
+    </div>
+    <div class="topbar-section topbar-right"></div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .topbar {

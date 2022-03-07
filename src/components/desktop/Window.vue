@@ -1,107 +1,3 @@
-<template>
-  <vue-resizable
-    ref="resizableComponent"
-    class="resizable"
-    :class="`
-      ${selectedWindow != id ? 'inactive' : 'active'}
-    `"
-    :style="`
-      padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px;
-      z-index: ${getElevation()};
-      display: ${exit ? 'none' : 'block'};
-      transition: ${preventTransitionParent ? '0ms' : '600ms'};
-      ${preExit && 'backdrop-filter: blur(0px) !important; z-index: 99999'};
-    `"
-    :dragSelector="dragSelector"
-    :active="handlers"
-    :fit-parent="fit"
-    :max-width="maxW | checkEmpty"
-    :max-height="maxH | checkEmpty"
-    :min-width="minW | checkEmpty"
-    :min-height="minH | checkEmpty"
-    :width="width"
-    :height="height"
-    :left="left"
-    :top="top"
-    @mount="eHandler"
-    @resize:move="eHandler"
-    @resize:start="eHandler"
-    @resize:end="eHandler"
-    @drag:move="eHandler"
-    @drag:start="eHandler"
-    @drag:end="eHandler"
-  >
-    <div
-      class="window-container"
-      :class="preExit && 'window-out'"
-      @mouseup.prevent="windowSelected"
-    >
-      <div class="window-border">
-        <div 
-        @dblclick="toggleExpand"
-        class="window-header"
-        :style="
-          !windowState.immersive || windowState.peek ? 
-          'height: 24px; opacity: 1;' : 
-          'height: 0px; opacity: 0;'
-        ">
-          <div 
-          @mouseenter="togglePeek"
-          @mouseleave="togglePeek"
-          class="peek-trigger" 
-          :class="!windowState.immersive ? 'not-peekable' : 'hide'"
-          :style="`
-            ${windowState.peek ? 'height: 36px;' : windowState.immersive && 'height: 12px;'} 
-            ${hang ? 'pointer-events: none;' : 'pointer-events: all;'}
-          `"
-          >
-            <div class="window-title flex-center">
-              <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
-              <div v-if="embed" class="newtab" @click="window.open(embed, '_blank')"></div>
-            </div>
-            <div class="window-controls">
-              <button @click="deactivateImmersive" class="immersive immersive-active"></button>
-              <button @click="toggleExpand" :class="windowState.expanded ? 'minimize' : 'expand'"></button>
-              <button @click="triggerClose" class="close"></button>
-            </div>
-          </div>
-          <div class="window-title flex-center">
-            <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
-            <div v-if="embed" class="newtab" @click="window.open(embed, '_blank')"></div>
-          </div>
-          <div class="window-controls">
-            <button @click="triggerImmersive" class="immersive"></button>
-            <button @click="toggleExpand" :class="windowState.expanded ? 'minimize' : 'expand'"></button>
-            <button @click="triggerClose" class="close"></button>
-          </div>
-        </div>
-        <div 
-        class="window-body" 
-        :style="`
-          height: ${(windowState.peek ? height - 48 : height - 24)}px; 
-          transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
-        `">
-          <img 
-          v-if="embed"
-          src="../../assets/loading.gif" 
-          width="48" 
-          height="48" 
-          style="position: absolute; z-index: -1;" 
-          />
-          <slot id="slot">
-            <div class="empty-slot-container">
-              <span>W: {{ width && width.toFixed(0) }}</span><br>
-              <span>H: {{ height && height.toFixed(0) }}</span><br>
-              <span>X: {{ left && left.toFixed(0) }}</span><br>
-              <span>Y: {{ top && top.toFixed(0) }}</span>
-            </div>
-          </slot>
-        </div>
-      </div>
-    </div>
-  </vue-resizable>
-</template>
-
 <script>
 import VueResizable from "vue-resizable";
 
@@ -163,15 +59,7 @@ export default {
     this.height = this.initialHeight;
     this.selectedWindow = this.id;
     if(this.embed) {
-      console.log(      document.querySelector('iframe')
-      .contentWindow
-      .document
-      .querySelector("body"));
-      document.querySelector('iframe')
-      .contentWindow
-      .document
-      .querySelector("body")
-      .style.zoom = 0.75;
+      document.querySelector('iframe').contentWindow.document.querySelector("body").style.zoom = 0.75;
     }
     if (!this.center) {
       this.left = this.getRandomX();
@@ -290,6 +178,110 @@ export default {
   },
 };
 </script>
+
+<template>
+  <vue-resizable
+    ref="resizableComponent"
+    class="resizable"
+    :class="`
+      ${selectedWindow != id ? 'inactive' : 'active'}
+    `"
+    :style="`
+      padding: 0px 0px ${!windowState.immersive ? '24px' : '0px'} 0px;
+      z-index: ${getElevation()};
+      display: ${exit ? 'none' : 'block'};
+      transition: ${preventTransitionParent ? '0ms' : '600ms'};
+      ${preExit && 'backdrop-filter: blur(0px) !important; z-index: 99999'};
+    `"
+    :dragSelector="dragSelector"
+    :active="handlers"
+    :fit-parent="fit"
+    :max-width="maxW | checkEmpty"
+    :max-height="maxH | checkEmpty"
+    :min-width="minW | checkEmpty"
+    :min-height="minH | checkEmpty"
+    :width="width"
+    :height="height"
+    :left="left"
+    :top="top"
+    @mount="eHandler"
+    @resize:move="eHandler"
+    @resize:start="eHandler"
+    @resize:end="eHandler"
+    @drag:move="eHandler"
+    @drag:start="eHandler"
+    @drag:end="eHandler"
+  >
+    <div
+      class="window-container"
+      :class="preExit && 'window-out'"
+      @mouseup.prevent="windowSelected"
+    >
+      <div class="window-border">
+        <div 
+        @dblclick="toggleExpand"
+        class="window-header"
+        :style="
+          !windowState.immersive || windowState.peek ? 
+          'height: 24px; opacity: 1;' : 
+          'height: 0px; opacity: 0;'
+        ">
+          <div 
+          @mouseenter="togglePeek"
+          @mouseleave="togglePeek"
+          class="peek-trigger" 
+          :class="!windowState.immersive ? 'not-peekable' : 'hide'"
+          :style="`
+            ${windowState.peek ? 'height: 36px;' : windowState.immersive && 'height: 12px;'} 
+            ${hang ? 'pointer-events: none;' : 'pointer-events: all;'}
+          `"
+          >
+            <div class="window-title flex-center">
+              <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
+              <div v-if="embed" class="newtab" @click="window.open(embed, '_blank')"></div>
+            </div>
+            <div class="window-controls">
+              <button @click="deactivateImmersive" class="immersive immersive-active"></button>
+              <button @click="toggleExpand" :class="windowState.expanded ? 'minimize' : 'expand'"></button>
+              <button @click="triggerClose" class="close"></button>
+            </div>
+          </div>
+          <div class="window-title flex-center">
+            <span>{{ title ? title : `Window ${id.substring(0,6)} (${index})` }}</span>
+            <div v-if="embed" class="newtab" @click="window.open(embed, '_blank')"></div>
+          </div>
+          <div class="window-controls">
+            <button @click="triggerImmersive" class="immersive"></button>
+            <button @click="toggleExpand" :class="windowState.expanded ? 'minimize' : 'expand'"></button>
+            <button @click="triggerClose" class="close"></button>
+          </div>
+        </div>
+        <div 
+        class="window-body" 
+        :style="`
+          height: ${(windowState.peek ? height - 48 : height - 24)}px; 
+          transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
+        `">
+          <img 
+          v-if="embed"
+          src="../../assets/loading.gif" 
+          width="48" 
+          height="48" 
+          style="position: absolute; z-index: -1;" 
+          />
+          <slot id="slot">
+            <div class="empty-slot-container">
+              <span>W: {{ width && width.toFixed(0) }}</span><br>
+              <span>H: {{ height && height.toFixed(0) }}</span><br>
+              <span>X: {{ left && left.toFixed(0) }}</span><br>
+              <span>Y: {{ top && top.toFixed(0) }}</span>
+            </div>
+          </slot>
+        </div>
+      </div>
+    </div>
+  </vue-resizable>
+</template>
 
 <style lang="scss" scoped>
 .newtab {

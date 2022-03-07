@@ -1,7 +1,7 @@
 $japanese_indigo: #3b454e;
-$laptop_background: #222527;
+$laptop_background: #24292E;
 
-$active_window: rgba(black, 0.3);
+$active_window: rgba(black, 0.4);
 $inactive_window: rgba(white, 0.1);
 $active_text: white;
 $inactive_text: rgba(white, 0.4);
@@ -75,6 +75,20 @@ $quick: 200ms;
 
 .absolute {
     position: absolute;
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.video {
+    height: 100%; 
+    width: 100%; 
+    object-fit: contain; 
+    background: black;
+    border-radius: 8px; 
 }
 
 iframe, embed {

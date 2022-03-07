@@ -1,9 +1,3 @@
-<template>
-  <div class="dock-container flex-center" :class="hide && 'hidden'">
-    <slot></slot>
-  </div>
-</template>
-
 <script>
 export default {
   props: {
@@ -36,3 +30,9 @@ export default {
   transition: 300ms;
 }
 </style>
+
+<template>
+  <div class="dock-container flex-center" :class="hide && 'hidden'">
+    <slot></slot>
+  </div>
+</template>

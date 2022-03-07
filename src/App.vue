@@ -5,10 +5,11 @@
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 body {
   background: $bezel_color;
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 </style>

@@ -1,3 +1,18 @@
+<script>
+export default {
+    props: {
+		index: Number,
+        activeCategory: String,
+		project: Object,
+    },
+	methods: {
+		handleFigureClick() {
+			this.$root.$emit('cardClicked', this.project);
+		}
+	}
+}
+</script>
+
 <template>
 	<figure
 	v-if="activeCategory == project.category"
@@ -21,21 +36,6 @@
 		</figcaption>
 	</figure>
 </template>
-
-<script>
-export default {
-    props: {
-		index: Number,
-        activeCategory: String,
-		project: Object,
-    },
-	methods: {
-		handleFigureClick() {
-			this.$root.$emit('cardClicked', this.project);
-		}
-	}
-}
-</script>
 
 <style lang='scss' scoped>
 .Vue           { background: rgba(#ADF7B6, 0.16); color: #ADF7B6 !important; }
@@ -121,10 +121,10 @@ figure.card {
         bottom: 0;
 		//opacity: 0;
 		position: absolute;
-        transform: translateY(120px);
+        transform: translateY(148px);
 		box-sizing: content-box;
         width: calc(100% - 40px);
-        height: 80px;
+        height: 108px;
         padding: 15px 20px;
 		justify-content: space-between;
 		align-items: center;

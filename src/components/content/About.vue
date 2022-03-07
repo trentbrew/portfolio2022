@@ -18,13 +18,13 @@
             <a href="http://www.theannotatedturing.com/"><li><span>The Annotated Turing</span></li></a>
         </ul><br>
         <b>My favorite stuff on the web</b>
-        <ul>
+        <ul class="faves">
             <a href="https://same.energy"><li><span>Same Energy</span> | Visual Search Engine</li></a>
             <a href="https://toolhunt.dev"><li><span>Toolhunt</span> | Quality Devtools</li></a>
-            <a href="https://flow.rest"><li><span>Flow</span> | Clear your mind through expressive writing</li></a>
-            <a href="https://minimalissimo.com"><li><span>Minimalissimo</span> | Minimalism in Design</li></a>
             <a href="https://youworkforthem.com"><li><span>YouWorkForThem</span> | Creative fonts and stock art</li></a>
-            <a href="https://manuelmoreale.com"><li><span>Manu</span> | A luvly blog</li></a>
+            <a href="https://flow.rest"><li><span>Flow</span> | Clear your mind through expressive writing</li></a>
+            <a href="https://manuelmoreale.com"><li><span>Manu</span> | A lovely blog</li></a>
+            <a href="https://minimalissimo.com"><li><span>Minimalissimo</span> | Minimalism in Design</li></a>
         </ul>
     </div>
 </template>
@@ -34,6 +34,12 @@
 
 h1, h2, h3, b {
     color: $japanese_indigo;
+}
+
+.faves {
+    span {
+        font-weight: bold !important;
+    }
 }
 
 img {

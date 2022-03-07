@@ -1,21 +1,16 @@
-<template>
-	<div class="image-container">
-		<img :src="src" />
-	</div>
-</template>
-
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    },
     props: {
         src: String
     }
 }
 </script>
+
+<template>
+	<div class="image-container">
+		<img :src="src" />
+	</div>
+</template>
 
 <style lang="scss" scoped>
 .download {

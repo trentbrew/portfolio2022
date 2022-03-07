@@ -1,24 +1,114 @@
+<script>
+import Screen from '@/views/Screen.vue';
+import GradientMesh from '@/components/GradientMesh.vue';
+
+export default {
+  name: "Intro",
+  components: {
+    Screen,
+    GradientMesh,
+  },
+  data() {
+    return {
+      unveil: false,
+      unveilMobile: false,
+      allowClick: false,
+      clicked: false,
+      preboot: false,
+      boot: false,
+      desktopReady: false,
+      hovering: false,
+      popup: false
+    };
+  },
+  computed: {
+    isMobile: () => window.innerWidth <= 600,
+  },
+  mounted() {
+    console.log(`
+      ┼┼┼┼┼┼┼┼┼┼┼┼▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄┼┼┼┼┼┼┼┼┼┼┼
+      ┼┼┼┼┼┼┼┼┼┼┼┼█▒▒░░░░░░░░░▒▒█┼┼┼┼┼┼┼┼┼┼┼
+      ┼┼┼┼┼┼┼┼┼┼┼┼┼█░░█░░░░░█░░█┼┼┼┼┼┼┼┼┼┼┼┼
+      ┼┼┼┼┼┼┼┼┼─▄▄──█░░░▀█▀░░░█──▄▄─┼┼┼┼┼┼┼┼
+      ┼┼┼┼┼┼┼┼┼█░░█─▀▄░░░░░░░▄▀─█░░█┼┼┼┼┼┼┼┼
+      ┼┼┼┼┼┼██░██░████░██░░░██░░░█████┼┼┼┼┼┼
+      ┼┼┼┼┼┼██▄██░██▄▄░██░░░██░░░██░██┼┼┼┼┼┼
+      ┼┼┼┼┼┼██▀██░██▀▀░██░░░██░░░██░██┼┼┼┼┼┼
+      ┼┼┼┼┼┼██░██░████░████░████░█████┼┼┼┼┼┼
+    `);
+    setTimeout(() => {
+      this.unveilMobile = true;
+    }, 6000);
+    setTimeout(() => {
+      if (!this.isMobile) this.unveil = true;
+    }, 8000);
+  },
+  methods: {
+    handleMouseEnter() {
+      this.hovering = true;
+      setTimeout(() => {
+        this.allowClick = true;
+      }, 1200);
+    },
+    handleMouseLeave() {
+      this.hovering = false;
+      this.allowClick = false;
+    },
+    handleClick() {
+      if (this.allowClick) {
+        this.preboot = true;
+        setTimeout(() => {
+          this.boot = true;
+        }, 600);
+        setTimeout(() => {
+          this.clicked = true;
+        }, 3250);
+        setTimeout(() => {
+          this.desktopReady = true;
+          this.popup = true;
+        }, 6100);
+      }
+    },
+  },
+};
+</script>
+
 <template>
 <div class="root">
-  <router-link to="/desktop"
-  class="absolute skip"
+  <div 
+  v-if="isMobile" 
+  class="mobile-veil absolute flex justify-center align-end fill-screen" 
+  style="z-index: 9999; width: 100%; text-align: center; bottom: 36px; transition: 2s;"
+  :style="unveilMobile ? 'opacity: 1' : 'opacity: 0'"
   >
+    <div style="max-width: 75vw; letter-spacing: 1px; color: #9999aa;">
+      <p style="margin-top: 24px">Hi! 👋🏾 Thanks for visiting my portfolio.</p>
+      <p style="margin-top: 24px">Unfortunately this website is not optimized for mobile devices...</p>
+      <p style="margin-top: 24px">Apologies for the inconvenience</p>
+    </div>
+  </div>
+  <router-link v-if="!isMobile" to="/desktop" class="absolute skip">
     <span class="arrow">➔</span> Skip ahead to my work
   </router-link>
   <div 
   class="intro-container flex-center fill-screen" 
-  :style="`${clicked ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )};`"
+  :style="`${ clicked ? 'background: black' : ( hovering ? 'background: #BCC3C9' : 'background: #CFD5DB' )};`"
   >
-    <div v-if="!unveil" class="veil absolute flex-center fill-screen">
-      <svg height="400" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200"/>
-        <path class="path2" d="M560 300H193.5" stroke="#3B454E" stroke-width="200"/>
-        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#3B454E" stroke-width="200"/>
+    <div 
+    v-if="(!isMobile && !unveil) || isMobile"
+    class="veil absolute flex-center fill-screen"
+    :style="isMobile && 'transform: scale(0.75); animation: none !important;'"
+    >
+      <svg height="400" viewBox="0 0 1400 1000" fill="none">
+        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200" />
+        <path class="path2" d="M560 300H193.5" stroke="#3B454E" stroke-width="200" />
+        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#3B454E" stroke-width="200" />
       </svg>
     </div>
-    <div class="zoomable">
+    <div v-if="!isMobile" class="zoomable">
       <div 
-      :class="clicked ? 'next window window-hover flex-center' : ( boot ? 'window window-hover flex-center' : 'window flex-center')" 
+      class="flex-center window"
+      :class="clicked ? 'next window-hover' : ( boot || preboot ? 'window-hover' : 'window flex-center')" 
       @mouseenter="handleMouseEnter" 
       @mouseleave="handleMouseLeave" 
       @click="handleClick"
@@ -60,14 +150,14 @@
   </div>
 
   <div 
-  class="absolute" 
+  class="absolute bg-image" 
   :class="clicked ? 'desktop-modal-transition' : 'desktop-modal'"
   :style="`${hovering && 'animation-play-state: paused'};`"
   >
     <!--GradientMesh :index="2" :style="`${popup && 'display: none;'}`" /-->
   </div>
   <div 
-  class="desktop-modal-final absolute"
+  class="desktop-modal-final absolute bg-image"
   :style="desktopReady ? `
     opacity: 1;
     pointer-events: all;
@@ -82,72 +172,6 @@
   </div>
 </div>
 </template>
-
-<script>
-import Screen from '@/views/Screen.vue';
-import GradientMesh from '@/components/GradientMesh.vue';
-
-export default {
-  name: "Intro",
-  components: {
-    Screen,
-    GradientMesh,
-  },
-  data() {
-    return {
-      unveil: false,
-      allowClick: false,
-      clicked: false,
-      preboot: false,
-      boot: false,
-      desktopReady: false,
-      hovering: false,
-      popup: false
-    };
-  },
-  mounted() {
-    console.clear();
-
-    console.log(`┼┼┼┼┼┼┼┼┼┼┼┼▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄┼┼┼┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼┼┼┼█▒▒░░░░░░░░░▒▒█┼┼┼┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼┼┼┼┼█░░█░░░░░█░░█┼┼┼┼┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼─▄▄──█░░░▀█▀░░░█──▄▄─┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼┼┼┼█░░█─▀▄░░░░░░░▄▀─█░░█┼┼┼┼┼┼┼┼\n┼┼┼┼┼┼██░██░████░██░░░██░░░█████┼┼┼┼┼┼\n┼┼┼┼┼┼██▄██░██▄▄░██░░░██░░░██░██┼┼┼┼┼┼\n┼┼┼┼┼┼██▀██░██▀▀░██░░░██░░░██░██┼┼┼┼┼┼\n┼┼┼┼┼┼██░██░████░████░████░█████┼┼┼┼┼┼\n`);
-
-    setTimeout(() => {
-      this.unveil = true;
-    }, 8000);
-  },
-  destroyed() {
-    window.removeEventListener('keyup', (e) => {});
-  },
-  methods: {
-    handleMouseEnter() {
-      this.hovering = true;
-      setTimeout(() => {
-        this.allowClick = true;
-      }, 1200);
-    },
-    handleMouseLeave() {
-      this.hovering = false;
-      this.allowClick = false;
-    },
-    handleClick() {
-      console.log(this.allowClick);
-      if (this.allowClick) {
-        console.log('valid click ✅');
-        this.preboot = true;
-        setTimeout(() => {
-          this.boot = true;
-        }, 600);
-        setTimeout(() => {
-          this.clicked = true;
-        }, 3250);
-        setTimeout(() => {
-          this.desktopReady = true;
-          this.popup = true;
-        }, 6100);
-      }
-    },
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 $hover-transition: 1s;
@@ -265,14 +289,11 @@ video {
   left: 0px;
   width: 18.5vh;
   height: 12.5vh;
-  /*background-image: url('../assets/gradient-smol.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;*/
-  background: black;
-  pointer-events: none;
+  background-color: black;
+  //background-image: url('../assets/wallpapers/gradient-smol.png');
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
   animation: pulse 2s ease infinite $pulse_delay;
+  pointer-events: none;
   z-index: 999999;
 }
 
@@ -287,13 +308,10 @@ video {
   transform: scale(2.36);
   border-radius: 12px;
   box-sizing: border-box;
-  border: solid $bezel_color;
+  border: solid black;
   border-width: 6px;
-  /*background-image: url('../assets/gradient-smol.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;*/
-  background: $laptop_background;
+  //background-image: url('../assets/wallpapers/gradient-smol.png');
+  background-color: $laptop_background;
   width: 42.37288vw;
   height: 42.37288vh;
   pointer-events: none;
