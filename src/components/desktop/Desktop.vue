@@ -291,9 +291,10 @@ export default {
     </div>
     <Dock :hide="fullscreen">
       <div 
-      class="dock-item flex-center"
       v-for="(item, index) in dockItems"
       :key="index"
+      class="dock-item flex-center"
+      :style="index === 5 && 'margin-left: 28px;'"
       @click="item.link ? window.open(item.link, '_blank') : pushWindow({
         title: item.label || 'Title',
         link: item.link || null,
@@ -307,6 +308,7 @@ export default {
         center: item.center,
       })"
       >
+        <div v-if="index === 5" class="divider"></div>
         <div class="tooltip flex-center absolute">
           <span>{{ item.label }}</span>
           <div v-if="item.newtab" class="newtab"></div>
@@ -318,6 +320,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.divider {
+  position: fixed;
+  width: 1px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-46px);
+  transition: 200ms;
+  pointer-events: none;
+}
 .newtab {
   background-image: url('../../assets/icons/newtab.svg');
   background-repeat: no-repeat;
@@ -411,6 +422,10 @@ video {
 
   &:hover {
     transform: translateY(-8px);
+
+    .divider {
+      transform: translate(-46px, 8px);
+    }
 
     .dock-icon {
       //opacity: 0.6;
