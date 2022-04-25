@@ -78,7 +78,7 @@ export default {
   <div 
   v-if="isMobile" 
   class="mobile-veil absolute flex justify-center align-end fill-screen" 
-  style="z-index: 9999; width: 100%; text-align: center; bottom: 36px; transition: 2s;"
+  style="z-index: 9999; width: 100%; text-align: center; bottom: 64px; transition: 2s;"
   :style="unveilMobile ? 'opacity: 1' : 'opacity: 0'"
   >
     <div style="max-width: 75vw; letter-spacing: 1px; color: #9999aa;">
@@ -97,7 +97,7 @@ export default {
     <div 
     v-if="(!isMobile && !unveil) || isMobile"
     class="veil absolute flex-center fill-screen"
-    :style="isMobile && 'transform: scale(0.75); animation: none !important;'"
+    :style="isMobile && 'transform: scale(0.75); animation: mobile-shrink !important;'"
     >
       <svg height="400" viewBox="0 0 1400 1000" fill="none">
         <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200" />
@@ -130,11 +130,11 @@ export default {
                 <!--GradientMesh :index="1"/-->
                 <img :src="`${
                   boot ? 
-                  require('@/assets/intro-gifs/boot.gif') : 
+                  require('@/assets/intro/boot.gif') : 
                   ( 
                     preboot ? 
-                    require('@/assets/intro-gifs/static1.gif') : 
-                    require('@/assets/intro-gifs/glitch1.gif')
+                    require('@/assets/intro/static1.gif') : 
+                    require('@/assets/intro/glitch1.gif')
                   )
                 }`" width="100%" height="100%" />
               </div>

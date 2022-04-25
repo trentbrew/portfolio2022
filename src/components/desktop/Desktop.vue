@@ -361,7 +361,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  //background-image: url('../../assets/wallpapers/tb2.png');
+  background-image: url('../../assets/wallpapers/logo_wallpaper.png');
 }
 
 .desktop-container {
