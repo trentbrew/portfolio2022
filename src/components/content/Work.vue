@@ -341,7 +341,7 @@ export default {
   <div class="main-container">
    <div class="content-wrapper">
     <h1 style="color: white; font-family: 'Ubuntu', sans-serif;">{{ category }}</h1>
-    <p style="opacity: 0.5" class="content-caption">{{ categoryCaption }}</p>
+    <!--p style="opacity: 0.5" class="content-caption">{{ categoryCaption }}</p-->
     <div 
     class="content-section" 
     :style="category == 'Illustration' && 'display: block !important'"
