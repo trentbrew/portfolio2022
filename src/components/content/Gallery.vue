@@ -129,7 +129,10 @@ export default {
 
     &:hover {
         transform: scale(0.96);
-        //filter: brightness(0.9);
+    }
+
+    &:active {
+        transform: scale(0.92);
     }
 }
 </style>
