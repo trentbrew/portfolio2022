@@ -4,34 +4,44 @@ export default {
         return {
             loading: true,
             images: [
-                'acceptance',
+                'music',
+                'enso',
                 'strand',
                 'spill',
+                'ma',
+                'progress',
                 'digest',
                 'her',
                 'weight',
                 'winter',
                 'alien',
                 'padding',
+                'girls',
                 'dehydrated',
                 'noise',
                 'tree',
+                'think',
                 'img0',
                 'angel',
                 'skateboard',
                 'img1',
                 'tails',
                 'coal',
+                'scholar',
                 'img5',
                 'img7',
                 'bleed',
+                'void',
+                'acceptance',
                 'img9',
                 'img10',
                 'img12',
                 'img15',
+                'fakejoy',
                 'img16',
                 'body',
                 'img17',
+                //'locks',
                 'img18',
                 'friends',
                 'isabella',
@@ -53,7 +63,6 @@ export default {
     },
     methods: {
         handleImageClick(image) {
-            console.log('clicked image: ' + image);
             this.$root.$emit('galleryClicked', `illustration/${image}.jpg`);
         }
     }
