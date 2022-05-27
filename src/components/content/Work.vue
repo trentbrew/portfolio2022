@@ -250,9 +250,9 @@ export default {
             } else if (category == 'Logo') {
                 this.categoryCaption = "Logos are the foundation of any branding system. They are the first thing people see and must capture a company’s identity, values, and goals while remaining simple, distinctive, and timeless.";
             } else if (category == 'Typography') {
-                this.categoryCaption = "Designing typography is all about creating beautiful and functional letterforms. It's a challenging and rewarding process that allows me to express my creativity while also improving the usability and readability of text. I love the way type can be used to create unique and memorable designs, and I enjoy exploring new ways to use type to communicate effectively and expressively.";
+                this.categoryCaption = "Designing typography is all about creating beautiful and functional letterforms. It's a challenging and rewarding process that helps to visually convey a company's voice, while remaining distinctive and readable.";
             } else if (category == 'Illustration') {
-                this.categoryCaption = "Art is my therapy, and has helped me to heal through the loss of my brother in 2020. This work explores themes of mental health, navigating anxiety, and understanding the relationship between play and permanence.";
+                this.categoryCaption = "Art is my therapy. It allows me to explore themes of loss, mental health, navigating anxiety, and understanding the relationship between play and permanence.";
             } else { // Animation
                 this.categoryCaption = "Sometimes I make derpy animations for fun";
             }
@@ -341,7 +341,7 @@ export default {
   <div class="main-container">
    <div class="content-wrapper">
     <h1 style="color: white; font-family: 'Ubuntu', sans-serif;">{{ category }}</h1>
-    <!--p style="opacity: 0.5" class="content-caption">{{ categoryCaption }}</p-->
+    <p style="opacity: 0.3" class="content-caption">{{ categoryCaption }}</p>
     <div 
     class="content-section" 
     :style="category == 'Illustration' && 'display: block !important'"
@@ -502,7 +502,7 @@ body.light-mode .video-bg:before {
 
 .side-title {
  color: $active_text;
- opacity: 0.3;
+ opacity: 0.25;
  font-weight: bold;
  margin-bottom: 14px;
 }

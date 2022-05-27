@@ -324,7 +324,7 @@ export default {
   position: fixed;
   width: 1px;
   height: 56px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateX(-46px);
   transition: 200ms;
   pointer-events: none;
