@@ -293,7 +293,7 @@ export default {
       <div 
       v-for="(item, index) in dockItems"
       :key="index"
-      class="dock-item flex-center"
+      class="dock-item"
       :style="index === 5 && 'margin-left: 28px;'"
       @click="item.link ? window.open(item.link, '_blank') : pushWindow({
         title: item.label || 'Title',
@@ -314,6 +314,7 @@ export default {
           <div v-if="item.newtab" class="newtab"></div>
         </div>
         <div class="dock-icon" :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"></div>
+        <div class="active-indicator"></div>
       </div>
     </Dock>
   </div>
@@ -334,8 +335,8 @@ export default {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 14px;
   width:  14px;
+  height: 14px;
   margin-left: 6px;
   opacity: 0.5;
   filter: invert(0);
@@ -393,11 +394,22 @@ video {
 }
 
 .dock-item {
+  display: flex;
+  justify-content: center;
   width: 56px;
   height: 56px;
   margin: 12px 9px;
   transition: 200ms;
   cursor: pointer;
+
+  .active-indicator {
+    position: absolute;
+    bottom: 0px;
+    width: 12px;
+    height: 6px;
+    background: white;
+    border-radius: 12px 12px 0px 0px;
+  }
 
   .tooltip {
     position: absolute;
@@ -406,7 +418,7 @@ video {
     transform: translateY(-64px);
     padding: 12px;
     border-radius: $rad;
-    transition: 200ms;
+    transition: 150ms;
     color: $active_text;
     background: $active_window;
     backdrop-filter: $blur;
@@ -418,23 +430,23 @@ video {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    transition: 150ms;
   }
 
   &:hover {
-    transform: translateY(-8px);
-
-    .divider {
-      transform: translate(-46px, 8px);
-    }
-
     .dock-icon {
-      //opacity: 0.6;
+      transform: translateY(-8px);
     }
 
     .tooltip {
       opacity: 1;
-      backdrop-filter: $blur;
       transform: translateY(-80px);
+    }
+  }
+
+  &:active {
+    .dock-icon {
+      transform: translateY(-8px) scale(0.9);
     }
   }
 }

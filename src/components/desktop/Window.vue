@@ -380,6 +380,7 @@ export default {
   box-sizing: content-box;
   backdrop-filter: $blur;
   transition: 200ms;
+  border: $bordered;
   //box-shadow: $light_shadow;
 }
 
