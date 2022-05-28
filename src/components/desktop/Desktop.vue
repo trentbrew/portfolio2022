@@ -320,7 +320,7 @@ export default {
           <div v-if="item.newtab" class="newtab"></div>
         </div>
         <div class="dock-icon" :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"></div>
-        <div v-if="activeWindows.includes(item.label)" class="active-indicator"></div>
+        <div class="active-indicator" :style="activeWindows.includes(item.label) ? 'height: 6px; opacity: 1;' : 'height: 0px; opacity: 0;'"></div>
       </div>
     </Dock>
   </div>
@@ -412,9 +412,9 @@ video {
     position: absolute;
     bottom: 0px;
     width: 12px;
-    height: 6px;
     background: white;
     border-radius: 12px 12px 0px 0px;
+    transition: 200ms;
   }
 
   .tooltip {
