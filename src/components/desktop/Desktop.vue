@@ -129,8 +129,10 @@ export default {
         }, 2000);
       });
     }
-    this.$root.$on('closedWindow', (id) => {
+    this.$root.$on('closedWindow', (window) => {
       this.$root.$emit('windowSelected', this.zBufferSet[1]);
+      this.activeWindows.splice(this.activeWindows.indexOf(window.title), 1);
+      console.log('activeWindows: ', this.activeWindows);
     });
     this.$root.$on('windowSelected', (id) => {
       if (id != this.zBuffer[0]) {
@@ -195,6 +197,10 @@ export default {
       var latest = this.windows[this.windows.length - 1];
       latest.id = uid(8);
       this.zBufferUpdate(latest.id);
+      if (!this.activeWindows.includes(latest.id)) {
+        this.activeWindows.push(latest.title);
+      }
+      console.log('activeWindows: ', this.activeWindows);
     },
     zBufferUpdate(id) {
       // [0] is top of z-index

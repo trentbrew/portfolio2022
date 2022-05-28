@@ -131,7 +131,7 @@ export default {
       }
       this.preExit = true;
       this.preventTransitionParent = true;
-      this.$root.$emit('closedWindow', this.id);
+      this.$root.$emit('closedWindow', {id: this.id, title: this.title});
       this.$parent.fullscreen = false;
       this.preventTransitionParent = false;
       setTimeout(() => {
