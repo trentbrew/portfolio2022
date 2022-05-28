@@ -320,7 +320,7 @@ export default {
           <div v-if="item.newtab" class="newtab"></div>
         </div>
         <div class="dock-icon" :style="`background-image: url('${require(`@/assets/icons/${item.icon}`)}')`"></div>
-        <div class="active-indicator"></div>
+        <div v-if="activeWindows.includes(item.label)" class="active-indicator"></div>
       </div>
     </Dock>
   </div>
