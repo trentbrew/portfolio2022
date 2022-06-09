@@ -42,7 +42,7 @@ export default {
         },
         {
           icon: 'folder_square.svg',
-          label: 'Projects',
+          label: 'Work',
           component: Work,
           windowWidth: 1100,
           windowHeight: 560,
@@ -110,7 +110,7 @@ export default {
   mounted() {
     if (window.location.pathname == '/desktop') {
       this.pushWindow({
-        title: 'Projects',
+        title: 'Work',
         component: Work,
         width: 1100,
         height: 560,
