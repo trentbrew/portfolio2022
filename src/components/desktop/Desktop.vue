@@ -42,7 +42,7 @@ export default {
         },
         {
           icon: 'folder_square.svg',
-          label: 'Work',
+          label: 'Portfolio',
           component: Work,
           windowWidth: 1100,
           windowHeight: 560,
@@ -50,12 +50,12 @@ export default {
         },
         {
           icon: 'music_color.svg',
-          label: "Music",
+          label: "What I'm Listening To",
           embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
         },
         {
           icon: 'writing.svg',
-          label: 'About',
+          label: 'Writing',
           component: About,
           windowWidth: 800,
           windowHeight: 445,
@@ -63,9 +63,9 @@ export default {
         },
         {
           icon: 'document_square.svg',
-          label: 'Resume',
+          label: 'Shop',
           component: Resume,
-          windowWidth: 900,
+          windowWidth: 1100,
           windowHeight: 700,
           center: true,
         },
@@ -110,7 +110,7 @@ export default {
   mounted() {
     if (window.location.pathname == '/desktop') {
       this.pushWindow({
-        title: 'Work',
+        title: 'Portfolio',
         component: Work,
         width: 1100,
         height: 560,
@@ -225,24 +225,26 @@ export default {
   class="desktop-container" 
   :style="stretch ? 'height: calc(100vh - 24px);' : 'height: calc(100vh - 48px);'"
   >
-    <div class="backdrop bg-image">
+    <div class="backdrop">
       <!--GradientMesh :index="3" /-->
     </div>
     <div ref="desktop" class="desktop">
-      <!--div 
+
+      <div 
       @click="() => { clicked = null; pushWindow({
-        title: 'about.md',
+        title: 'About',
         center: true,
         width: 700,
         height: 600,
-        embed: 'https://trentovershares.web.app/about'
+        component: About
       })}"
       class="item-container absolute flex-column flex-center" 
-      :style="`top: 48px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
+      :style="`top: 50px; left: 48px; ${clicked == 1 ? 'background: rgba(0,0,0,0.4)' : ''};`"
       >
         <div class="icon" :style="'background-image: url(' + require('@/assets/icons/document.svg') + ');'"></div>
-        <span class="title">about.md</span>
-      </div-->
+        <span class="title">about.me</span>
+      </div>
+
       <Window 
       v-for="(window, index) in windows"
       :key="index"
@@ -294,6 +296,7 @@ export default {
         </template>
 
       </Window>
+
     </div>
     <Dock :hide="fullscreen">
       <div 
@@ -379,7 +382,10 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/wallpapers/logo_wallpaper.png');
+  background-image: url('../../assets/wallpapers/peekaboo_wallpaper_light.png');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .desktop-container {

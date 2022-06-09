@@ -257,7 +257,7 @@ export default {
           </div>
         </div>
         <div 
-        class="window-body" 
+        class="window-body bordered" 
         :style="`
           height: ${(windowState.peek ? height - 48 : height - 24)}px; 
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
