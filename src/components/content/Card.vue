@@ -44,6 +44,7 @@ export default {
 .Firebase      { background: rgba(#FFEE93, 0.16); color: #FFEE93 !important; }
 .Node          { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
 .Django        { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
+.Laravel        { background: rgba(#DEBCAF, 0.16); color: #DEBCAF !important; }
 .Azure         { background: rgba(#79ADDC, 0.16); color: #79ADDC !important; }
 .GameMaker     { background: rgba(#FFC09F, 0.16); color: #FFC09F !important; }
 .p5js          { background: rgba(#DFABBF, 0.16); color: #DFABBF !important; }
@@ -100,6 +101,7 @@ figure.card {
 	transition: 300ms ease;
 	overflow: hidden;
     border-radius: 6px;
+
     cursor: pointer;
 	//box-shadow: $shadow;
 	
@@ -128,12 +130,12 @@ figure.card {
         padding: 15px 20px;
 		justify-content: space-between;
 		align-items: center;
-		background: $laptop_background;
+		background: #162837;
+        //backdrop-filter: $blur;
+		border-top: 1px solid #ffffff21;
 		//transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 		transition: 300ms ease;
         border-radius: 0px;
-		//background: rgba(#111, 0.6);
-        //backdrop-filter: $blur;
 		.info {
             width: 100%;
 			color: rgba(white, 0.6);

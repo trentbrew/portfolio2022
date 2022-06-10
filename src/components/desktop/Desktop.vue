@@ -49,11 +49,6 @@ export default {
           center: true,
         },
         {
-          icon: 'music_color.svg',
-          label: "What I'm Listening To",
-          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
-        },
-        {
           icon: 'writing.svg',
           label: 'Doodles',
           component: About,
@@ -68,6 +63,11 @@ export default {
           windowWidth: 1100,
           windowHeight: 700,
           center: true,
+        },
+        {
+          icon: 'music_color.svg',
+          label: "What I'm Listening To",
+          embed: 'https://open.spotify.com/embed/playlist/7uUkcVP0SpSzyt9UUS9AJT?utm_source=generator&theme=0',
         },
         {
           icon: 'gh_color.svg',

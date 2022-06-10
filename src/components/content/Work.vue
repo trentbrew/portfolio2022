@@ -41,7 +41,7 @@ export default {
                     content: { embed: 'https://podular.us' },
                     dims: '1400x700',
                 },
-                {
+                /*{
                     title: 'jiyounjun.com',
                     subtitle: 'Design portfolio',
                     stack: ['Vue'],
@@ -49,15 +49,15 @@ export default {
                     category: 'Websites',
                     content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
                     dims: '1400x700',
-                },
+                },*/
                 {
-                    title: 'uprisemgmt.com',
-                    subtitle: 'Marketing website',
+                    title: 'Uprise Management',
+                    subtitle: 'Marketing website design',
                     stack: ['Vue'],
                     thumb: require('@/content/UX/uprise/thumb.gif'),
                     category: 'Websites',
-                    content: { embed: 'https://uprise-be108.web.app/' },
-                    dims: '1600x800',
+                    content: { link: 'https://uprise-be108.web.app/' },
+                    newtab: true,
                 },
                 {
                     title: 'Leadershipwise',
@@ -96,7 +96,7 @@ export default {
                 {
                     title: 'GMTV',
                     subtitle: 'Vehicle auctioning and inventory management',
-                    stack: ['Vue', 'Firebase', 'Node'],
+                    stack: ['Vue', 'Laravel'],
                     thumb: require('@/content/UX/raster/raster.gif'),
                     category: 'Apps',
                     wip: true,
@@ -366,7 +366,7 @@ export default {
   <div class="main-container">
    <div class="content-wrapper">
     <h1 style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1>
-    <p style="opacity: 0.3" class="content-caption">{{ categoryCaption }}</p>
+    <!--p style="opacity: 0.3" class="content-caption">{{ categoryCaption }}</p-->
     <div 
     class="content-section" 
     :style="category == 'Illustration' && 'display: block !important'"
