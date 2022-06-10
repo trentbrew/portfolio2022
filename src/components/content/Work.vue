@@ -332,7 +332,7 @@ export default {
     </div>
    </div>
 
-   <div class="side-wrapper">
+   <!--div class="side-wrapper">
     <div class="side-title">Visual Art</div>
     <div class="side-menu">
      <a :class="category == 'Illustration' && 'category-active'" @click="updateCategory('Illustration')" href="#illustration">
@@ -352,7 +352,7 @@ export default {
       </div>
      </a>
     </div>
-   </div>
+   </div-->
 
    <div class="side-wrapper">
     <div class="side-title"><hr style="opacity: 0.3" /></div>
@@ -369,7 +369,7 @@ export default {
   </div>
   <div class="main-container">
    <div class="content-wrapper">
-    <h1 v-if="category != 'Resume'" style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1>
+    <!--h1 v-if="category != 'Resume'" style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1-->
     <!--p style="opacity: 0.3" class="content-caption">{{ categoryCaption }}</p-->
     <div 
     class="content-section" 

@@ -83,13 +83,14 @@ export default {
  <div class="wrapper">
   <div class="left-side">
    <div class="side-wrapper">
+    <!--div class="side-title">Doodles</div-->
     <div class="side-menu">
-     <a :class="category == 'Illustration' && 'category-active'" @click="updateCategory('Illustration')" href="#">
+     <a :class="category == 'Illustration' && 'category-active'" @click="updateCategory('Illustration')" href="#drawings">
       <div class="item-left">
         <svg viewBox="0 0 512 512" fill="currentColor">
         <path d="M499.377 46.402c-8.014-8.006-18.662-12.485-29.985-12.613a41.13 41.13 0 00-.496-.003c-11.142 0-21.698 4.229-29.771 11.945L198.872 275.458c25.716 6.555 47.683 23.057 62.044 47.196a113.544 113.544 0 0110.453 23.179L500.06 106.661C507.759 98.604 512 88.031 512 76.89c0-11.507-4.478-22.33-12.623-30.488zM176.588 302.344a86.035 86.035 0 00-3.626-.076c-20.273 0-40.381 7.05-56.784 18.851-19.772 14.225-27.656 34.656-42.174 53.27C55.8 397.728 27.795 409.14 0 416.923c16.187 42.781 76.32 60.297 115.752 61.24 1.416.034 2.839.051 4.273.051 44.646 0 97.233-16.594 118.755-60.522 23.628-48.224-5.496-112.975-62.192-115.348z" />
         </svg>
-        Illustration
+        Drawing
       </div>
      </a>
      <a :class="category == 'Animation' && 'category-active'" @click="updateCategory('Animation')" href="#">
@@ -105,7 +106,7 @@ export default {
   </div>
   <div class="main-container">
    <div class="content-wrapper">
-    <h1 style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1>
+    <!--h1 style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1-->
     <!--p style="opacity: 0.3" class="content-caption">{{ categoryCaption }}</p-->
     <div 
     class="content-section" 
@@ -322,7 +323,7 @@ body.light-mode .video-bg:before {
  height: 58px;
  flex-shrink: 0;
  .header-menu {
-  margin-left: 150px;
+  margin-left: 0px;
   @media screen and (max-width: 1055px) {
    margin: auto;
   }

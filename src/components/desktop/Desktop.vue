@@ -4,11 +4,13 @@ import { Draggable } from 'draggable-vue-directive';
 import Dock from '@/components/desktop/Dock.vue';
 import Window from "@/components/desktop/Window.vue";
 import Work from "@/components/content/Work.vue";
+import Art from '@/components/content/Art.vue';
 import Terminal from '@/components/content/Terminal.vue';
 import Resume from '@/components/content/Resume.vue';
 import GradientMesh from '@/components/GradientMesh.vue';
 import Gallery from '@/components/content/Gallery.vue';
 import About from '@/components/content/About.vue';
+import Shop from '@/components/content/Shop.vue';
 
 export default {
   name: "Desktop",
@@ -24,6 +26,7 @@ export default {
     GradientMesh,
     Gallery,
     About,
+    Shop,
   },
   data() {
     return {
@@ -42,26 +45,25 @@ export default {
         },
         {
           icon: 'folder_square.svg',
-          label: 'Portfolio',
+          label: 'Design & Development',
           component: Work,
           windowWidth: 1100,
-          windowHeight: 560,
+          windowHeight: 580,
           center: true,
         },
         {
-          icon: 'writing.svg',
+          icon: 'doodles2.svg',
           label: 'Doodles',
-          component: About,
-          windowWidth: 800,
-          windowHeight: 445,
-          center: true,
+          component: Art,
+          windowWidth: 1200,
+          windowHeight: 500,
         },
         {
-          icon: 'document_square.svg',
-          label: 'Shop',
-          component: Resume,
-          windowWidth: 1100,
-          windowHeight: 700,
+          icon: 'shop.svg',
+          label: 'Shop Coming Soon ⏳',
+          component: Shop,
+          windowWidth: 600,
+          windowHeight: 450,
           center: true,
         },
         {
@@ -111,7 +113,7 @@ export default {
   mounted() {
     if (window.location.pathname == '/desktop') {
       this.pushWindow({
-        title: 'Portfolio',
+        title: 'Design & Development',
         component: Work,
         width: 1100,
         height: 560,

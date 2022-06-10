@@ -8,8 +8,8 @@
         <br>
         <br>
         <b>A bit about me</b>
-        <p>I'm a designer who loves to code, with 3 years of professional experience building mobile and desktop applications. I specialize in crafting intuitive and beautiful user interfaces, and enjoy working on projects that involve a lot of user interaction. I have a deep understanding of both front-end and back-end development, and am comfortable working in a variety of programming languages.</p> 
-        <p>When I'm not designing or coding, I can be found snowboarding, running, or painting.</p>
+        <p>I'm a software engineer with a background in UX and game development.</p>
+        <p>When I'm not designing or coding, I can be found drawing, writing, snowboarding, or running.</p>
         <br>
         <b>What I'm reading</b>
         <ul>
