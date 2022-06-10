@@ -7,7 +7,7 @@
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 body {
-  background: $bezel_color;
+  background: #BCC3C9;
   margin: 0px;
   padding: 0px;
   font-family: 'Inter', sans-serif;

@@ -14,7 +14,9 @@ export default {
       unveilMobile: false,
       allowClick: false,
       clicked: false,
+      clickActive: false,
       preboot: false,
+      beginBoot: false,
       boot: false,
       desktopReady: false,
       hovering: false,
@@ -56,9 +58,15 @@ export default {
     },
     handleClick() {
       if (this.allowClick) {
+        this.beginBoot = true;
         this.preboot = true;
+        this.clickActive = true;
+        setTimeout(() => {
+          this.clickActive = false;
+        }, 200);
         setTimeout(() => {
           this.boot = true;
+          this.preboot = false;
         }, 600);
         setTimeout(() => {
           this.clicked = true;
@@ -66,7 +74,7 @@ export default {
         setTimeout(() => {
           this.desktopReady = true;
           this.popup = true;
-        }, 6100);
+        }, 5000);
       }
     },
   },
@@ -74,7 +82,7 @@ export default {
 </script>
 
 <template>
-<div class="root">
+<div class="root" :style="clickActive && 'transform: scale(0.95)'">
   <div 
   v-if="isMobile" 
   class="mobile-veil absolute flex justify-center align-end fill-screen" 
@@ -87,8 +95,8 @@ export default {
       <p style="margin-top: 24px">Apologies for the inconvenience</p>
     </div>
   </div>
-  <router-link v-if="!isMobile" to="/desktop" class="absolute skip">
-    <span class="arrow">➔</span> Skip ahead to my work
+  <router-link v-if="!isMobile" to="/desktop" class="absolute skip" :style="(beginBoot || hovering) && 'transform: translateX(-60px); opacity: 0'">
+    <span class="arrow">➔</span> Skip
   </router-link>
   <div 
   class="intro-container flex-center fill-screen" 
@@ -180,7 +188,7 @@ $base-timing: 1s;
 $base-ease: ease;
 $base-delay: 0s;
 
-$lid-timing-in: 1.5s;
+$lid-timing-in: 1.2s;
 $lid-timing-out: 400ms;
 $lid-ease-in: ease;
 $lid-ease-out: ease;
@@ -237,6 +245,10 @@ $background: $trackpad_color;
   }
 }
 
+.root {
+  transition: 300ms;
+}
+
 .skip {
   color: $japanese_indigo;
   bottom: 64px; 
@@ -245,7 +257,7 @@ $background: $trackpad_color;
   font-size: 16px;
   cursor: pointer;
   transform: translateX(-32px);
-  transition: opacity 200ms !important;
+  transition: 600ms !important;
   font-weight: bold;
   text-decoration: none;
 
@@ -287,8 +299,8 @@ video {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  width: 18.5vh;
-  height: 12.5vh;
+  width: 18.6vh;
+  height: 12.6vh;
   background-color: black;
   //background-image: url('../assets/wallpapers/gradient-smol.png');
   transition: 1500ms cubic-bezier(0.33, 1, 0.68, 1), opacity 0s;
@@ -311,12 +323,12 @@ video {
   border: solid black;
   border-width: 6px;
   //background-image: url('../assets/wallpapers/gradient-smol.png');
-  background-color: $laptop_background;
+  background-color: black;
   width: 42.37288vw;
   height: 42.37288vh;
   pointer-events: none;
   //transition: 3.5s cubic-bezier(0.83, 0, 0.17, 1), opacity 0s;
-  transition: 3.5s ease, opacity 0s;
+  transition: 2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0s;
   animation-play-state: paused !important;
   z-index: 999999;
 
