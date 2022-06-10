@@ -385,7 +385,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/wallpapers/peekaboo_wallpaper_blue.png');
+  background-image: url('../../assets/wallpapers/peekaboo.png');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;

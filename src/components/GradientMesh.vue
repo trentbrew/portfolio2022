@@ -26,10 +26,10 @@ export default {
 	height: 100%;
 	/* Adjust the colors below to get a different gradient */
 	/* You can use https://whatamesh.vercel.app/ to generate them */
-	--gradient-color-1: #A7A5C6;
-	--gradient-color-2: #8797B2;
-	--gradient-color-3: #6D8A96;
-	--gradient-color-4: #5D707F;
+	--gradient-color-1: #386B8F;
+	--gradient-color-2: #2B4E68;
+	--gradient-color-3: #1D2F3C;
+	--gradient-color-4: #121417;
 }
 
 #gradient-canvas3 {
