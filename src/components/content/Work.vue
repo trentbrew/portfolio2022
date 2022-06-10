@@ -253,6 +253,7 @@ export default {
         updateCategory(category) {
             this.scroll = 0;
             this.category = category;
+            console.log('updated category: ', this.category);
             if (category == 'Apps') {
                 this.categoryCaption = "I work across the stack to ensure usability, accessibility, performance, and cohesion from ideation to deployment.";
             } else if (category == 'Websites') {
@@ -356,7 +357,7 @@ export default {
    <div class="side-wrapper">
     <div class="side-title"><hr style="opacity: 0.3" /></div>
     <div class="side-menu">
-     <a :class="category == 'Illustration' && 'category-active'" @click="updateCategory('Resume')" href="#resume">
+     <a :class="category == 'Resume' && 'category-active'" @click="updateCategory('Resume')" href="#resume">
       <div class="item-left">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M428 224H288a48 48 0 0 1-48-48V36a4 4 0 0 0-4-4h-92a64 64 0 0 0-64 64v320a64 64 0 0 0 64 64h224a64 64 0 0 0 64-64V228a4 4 0 0 0-4-4z" fill="currentColor"></path><path d="M419.22 188.59L275.41 44.78a2 2 0 0 0-3.41 1.41V176a16 16 0 0 0 16 16h129.81a2 2 0 0 0 1.41-3.41z" fill="currentColor"></path></svg>
         Resume
@@ -364,14 +365,15 @@ export default {
      </a>
     </div>
    </div>
+
   </div>
   <div class="main-container">
    <div class="content-wrapper">
-    <h1 style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1>
+    <h1 v-if="category != 'Resume'" style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1>
     <!--p style="opacity: 0.3" class="content-caption">{{ categoryCaption }}</p-->
     <div 
     class="content-section" 
-    :style="category == 'Illustration' && 'display: block !important'"
+    :style="(category == 'Illustration' || category == 'Resume') && 'display: block !important'"
     >
 
         <Card
@@ -382,9 +384,7 @@ export default {
         :project="project"
         transition="expand"
         />
-
         <Gallery v-if="category == 'Illustration'" transition="expand" />
-
         <Resume v-if="category == 'Resume'" />
 
     </div>
