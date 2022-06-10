@@ -55,7 +55,7 @@ export default {
         },
         {
           icon: 'writing.svg',
-          label: 'Writing',
+          label: 'Doodles',
           component: About,
           windowWidth: 800,
           windowHeight: 445,
@@ -106,6 +106,7 @@ export default {
     maxH: () => window.innerHeight,
     Work: () => Work,
     Resume: () => Resume,
+    About: () => About,
   },
   mounted() {
     if (window.location.pathname == '/desktop') {
@@ -232,10 +233,10 @@ export default {
 
       <div 
       @click="() => { clicked = null; pushWindow({
-        title: 'About',
+        title: 'about.me',
         center: true,
-        width: 700,
-        height: 600,
+        width: 800,
+        height: 445,
         component: About
       })}"
       class="item-container absolute flex-column flex-center" 
@@ -382,7 +383,7 @@ export default {
   width: $ui_width;
   border-radius: $rad;
   background-color: $laptop_background;
-  background-image: url('../../assets/wallpapers/peekaboo_wallpaper_light.png');
+  background-image: url('../../assets/wallpapers/peekaboo_wallpaper_blue.png');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;

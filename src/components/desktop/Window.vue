@@ -257,7 +257,7 @@ export default {
           </div>
         </div>
         <div 
-        class="window-body bordered" 
+        class="window-body" 
         :style="`
           height: ${(windowState.peek ? height - 48 : height - 24)}px; 
           transition: ${preventTransitionParent ? (preventTransition ? 0 : 100 ) : 600}ms !important;
@@ -445,6 +445,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  //border: $bordered_light;
   border-radius: 8px;
   transition: 200ms;
 }

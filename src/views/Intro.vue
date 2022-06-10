@@ -67,14 +67,14 @@ export default {
         setTimeout(() => {
           this.boot = true;
           this.preboot = false;
-        }, 600);
+        }, 1000);
         setTimeout(() => {
           this.clicked = true;
-        }, 3250);
+        }, 3550);
         setTimeout(() => {
           this.desktopReady = true;
           this.popup = true;
-        }, 5000);
+        }, 5500);
       }
     },
   },
@@ -108,9 +108,9 @@ export default {
     :style="isMobile && 'transform: scale(0.75); animation: mobile-shrink !important;'"
     >
       <svg height="400" viewBox="0 0 1400 1000" fill="none">
-        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3B454E" stroke-width="200" />
-        <path class="path2" d="M560 300H193.5" stroke="#3B454E" stroke-width="200" />
-        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#3B454E" stroke-width="200" />
+        <path class="path1" d="M100 0V600C100 700 160 900 400 900" stroke="#3b454e" stroke-width="200" />
+        <path class="path2" d="M560 300H193.5" stroke="#3b454e" stroke-width="200" />
+        <path class="path3" d="M700 0V600C700 700 760 900 1000 900C1240 900 1300 700 1300 600C1300 500 1240 300 1000 300H840" stroke="#3b454e" stroke-width="200" />
       </svg>
     </div>
     <div v-if="!isMobile" class="zoomable">
@@ -200,7 +200,7 @@ $laptop_height: 11em; // 161px
 $laptop_width: 15em; // 225px
 
 $trackpad_color: #CFD5DB;
-$keyboard_color: #3B454E;
+$keyboard_color: #3b454e;
 $keyboard_frame_color: $trackpad_color;
 
 $pulse_delay: 7.6s;
