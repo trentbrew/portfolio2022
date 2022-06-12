@@ -7,28 +7,28 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.22.8",
     "draggable-vue-directive": "^2.1.0",
     "jquery": "^3.6.0",
     "uid": "^2.0.0",
-    "vue": "^2.6.11",
+    "vue": "^3.2.37",
     "vue-pdf": "^4.3.0",
-    "vue-resizable": "^2.0.5",
-    "vue-router": "^3.2.0",
+    "vue-resizable": "^2.1.5",
+    "vue-router": "^4.0.16",
     "vue-typed-js": "^0.1.2",
     "vue-typer": "^1.2.0",
     "vuetify-file-browser": "^1.0.2",
-    "vuex": "^3.4.0",
+    "vuex": "^4.0.2",
     "whatamesh": "^0.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "sass": "^1.45.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/cli-plugin-babel": "~5.0.4",
+    "@vue/cli-plugin-router": "~5.0.4",
+    "@vue/cli-plugin-vuex": "~5.0.4",
+    "@vue/cli-service": "~5.0.4",
+    "sass": "^1.52.3",
+    "sass-loader": "^13.0.0",
+    "vue-template-compiler": "^2.6.14"
   },
   "browserslist": [
     "> 1%",
