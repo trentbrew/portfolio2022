@@ -13,18 +13,20 @@
         <br>
         <b>What I'm reading</b>
         <ul>
-            <a href="https://algorithmstoliveby.com/"><li><span>Algorithms to Live By</span>: The Computer Science of Human Decisions</li></a>
+            <a href="https://algorithmstoliveby.com/"><li><span>Peak Mind</span>: Find Your Focus, Own Your Attention</li></a>
             <a href="https://en.wikipedia.org/wiki/Talking_to_Strangers"><li><span>Talking to Strangers</span>: What We Should Know About People We Don't Know</li></a>
             <a href="http://www.theannotatedturing.com/"><li><span>The Annotated Turing</span></li></a>
         </ul><br>
         <b>My favorite stuff on the web</b>
         <ul class="faves">
             <a href="https://same.energy"><li><span>Same Energy</span> | Visual Search Engine</li></a>
+            <a href="https://coolors.co"><li><span>Coolors</span> | The super fast color palettes generator</li></a>
             <a href="https://toolhunt.dev"><li><span>Toolhunt</span> | Quality Devtools</li></a>
             <a href="https://youworkforthem.com"><li><span>YouWorkForThem</span> | Creative fonts and stock art</li></a>
-            <a href="https://flow.rest"><li><span>Flow</span> | Clear your mind through expressive writing</li></a>
             <a href="https://manuelmoreale.com"><li><span>Manu</span> | A lovely blog</li></a>
             <a href="https://minimalissimo.com"><li><span>Minimalissimo</span> | Minimalism in Design</li></a>
+            <a href="https://mnmll.ist"><li><span>Mnmllist</span> | Listing all things minimal</li></a>
+            <a href="https://flow.rest"><li><span>Flow</span> | Clear your mind through expressive writing</li></a>
         </ul>
     </div>
 </template>
