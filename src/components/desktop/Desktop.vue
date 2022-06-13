@@ -55,12 +55,12 @@ export default {
           icon: 'doodles2.svg',
           label: 'Doodles',
           component: Art,
-          windowWidth: 1000,
-          windowHeight: 450,
+          windowWidth: 800,
+          windowHeight: 500,
         },
         {
           icon: 'shop.svg',
-          label: 'Shop Coming Soon ⏳',
+          label: '⏳ Shop Coming Soon',
           component: Shop,
           windowWidth: 600,
           windowHeight: 450,
@@ -145,7 +145,7 @@ export default {
     this.$root.$on('cardClicked', (project) => {
       if (project.wip) {
         this.pushWindow({
-          title: 'Case study coming soon...',
+          title: '⏳ In development',
           image: 'animations/comingsoon.gif',
           width: 360,
           height: 275,
@@ -237,8 +237,8 @@ export default {
       @click="() => { clicked = null; pushWindow({
         title: 'about.me',
         center: true,
-        width: 900,
-        height: 440,
+        width: 700,
+        height: 420,
         component: About
       })}"
       class="item-container absolute flex-column flex-center" 
@@ -388,6 +388,7 @@ export default {
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
+  filter: brightness(0.8);
 }
 
 .desktop-container {

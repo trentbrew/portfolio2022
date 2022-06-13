@@ -14,7 +14,7 @@
     height: 42px;
     color: white;
     font-weight: bold;
-    background: #8EA58F;
+    background: #95D098;
     backdrop-filter: blur(20px);
     display: flex;
     justify-content: center;

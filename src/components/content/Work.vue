@@ -15,15 +15,6 @@ export default {
             categoryCaption: '',
             projects: [
                 {
-                    title: 'ericzzli.com',
-                    subtitle: 'Graphic design portfolio',
-                    stack: ['Vue', 'Firebase'],
-                    thumb: require('@/content/UX/eric/eric.gif'),
-                    category: 'Websites',
-                    content: { link: 'https://ericzzli.com' },
-                    newtab: true
-                },
-                {
                     title: 'nihal.tv',
                     subtitle: 'Film portfolio',
                     stack: ['Vue', 'Firebase'],
@@ -40,6 +31,16 @@ export default {
                     category: 'Websites',
                     content: { link: 'https://podular.us' },
                     newtab: true
+                },
+                {
+                    title: 'ericzzli.com',
+                    subtitle: 'Graphic design portfolio',
+                    stack: ['Vue', 'Firebase'],
+                    thumb: require('@/content/UX/eric/eric.gif'),
+                    category: 'Websites',
+                    //content: { link: 'https://ericzzli.com' },
+                    //newtab: true
+                    wip: true
                 },
                 /*{
                     title: 'hiddengemsconsulting.com',
@@ -58,15 +59,16 @@ export default {
                     content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
                     dims: '1400x700',
                 },*/
-                /*{
+                {
                     title: 'Uprise Management',
                     subtitle: 'Prototype marketing website design',
                     stack: ['Vue'],
                     thumb: require('@/content/UX/uprise/thumb.gif'),
                     category: 'Websites',
-                    content: { link: 'https://uprise-be108.web.app/' },
-                    newtab: true,
-                },*/
+                    /*content: { link: 'https://uprise-be108.web.app/' },
+                    newtab: true,*/
+                    wip: true
+                },
                 {
                     title: 'Leadershipwise',
                     subtitle: 'Leadership training and development',
@@ -74,7 +76,7 @@ export default {
                     thumb: require('@/content/UX/lw/thumb2.png'),
                     category: 'Apps',
                     content: { casestudy: 'UX/lw/study.jpg' },
-                    dims: '1200x675',
+                    dims: '1000x550',
                 },
                 {
                     title: 'Decker',
@@ -136,7 +138,7 @@ export default {
                     thumb: require('@/content/games/drummerboi/drummerboi.gif'),
                     category: 'Games',
                     content: { embed: 'https://trentbrew.github.io/drummer-boi-v1/' },
-                    dims: '1200x800',
+                    dims: '1100x550',
                 },
                 {
                     title: 'Solar System',
@@ -145,7 +147,7 @@ export default {
                     thumb: require('@/content/games/solar-system/solar-system.gif'),
                     category: 'Games',
                     content: { embed: 'https://trentbrew.github.io/solar-system-map/' },
-                    dims: '1400x700',
+                    dims: '1100x500',
                 },
                 {
                     title: 'Sonic GX',
@@ -195,7 +197,7 @@ export default {
                     thumb: require('@/content/logo/podular.us/banner2.png'),
                     category: 'Typography',
                     content: { casestudy: 'logo/podular.us/final.png' },
-                    dims: '1200x675',
+                    dims: '1000x500',
                 },
                 {
                     title: 'Hidden Gems Consulting',
@@ -204,7 +206,7 @@ export default {
                     thumb: require('@/content/logo/HGC/thumb.png'),
                     category: 'Logo',
                     content: { casestudy: 'logo/HGC/final.png' },
-                    dims: '1200x660',
+                    dims: '1000x500',
                 },
                 {
                     title: 'Logo Playground',
@@ -213,7 +215,7 @@ export default {
                     thumb: require('@/content/logo/playground/banner.png'),
                     category: 'Logo',
                     content: { casestudy: 'logo/playground/playground.png' },
-                    dims: '1200x675',
+                    dims: '1000x500',
                 },
                 {
                     title: 'Socially Anxious Apple',
@@ -222,7 +224,7 @@ export default {
                     thumb: require('@/content/animations/anxiousapple-thumb.gif'),
                     category: 'Animation',
                     content: { video: 'animations/anxiousapple.mp4' },
-                    dims: '1000x560',
+                    dims: '1000x450',
                 },
                 {
                     title: 'The Begining of a Beautiful Friendship',
@@ -231,7 +233,7 @@ export default {
                     thumb: require('@/content/animations/friends-thumb.gif'),
                     category: 'Animation',
                     content: { video: 'animations/friends.mp4' },
-                    dims: '1000x560',
+                    dims: '1000x450',
                 },
                 {
                     title: 'Sonic Run Cycle',
@@ -240,7 +242,7 @@ export default {
                     thumb: require('@/content/animations/sonic-thumb.gif'),
                     category: 'Animation',
                     content: { video: 'animations/sonic.mp4' },
-                    dims: '1000x560',
+                    dims: '1000x450',
                 },
                 {
                     title: 'Pebble',
@@ -249,7 +251,7 @@ export default {
                     thumb: require('@/content/animations/pebble-thumb.gif'),
                     category: 'Animation',
                     content: { video: 'animations/pebble.mp4' },
-                    dims: '1000x560',
+                    dims: '1000x450',
                 }
             ]
         }
@@ -288,7 +290,7 @@ export default {
   <div class="left-side">
 
    <div class="side-wrapper">
-    <div class="side-title">Development</div>
+    <div class="side-title">Dev</div>
     <div class="side-menu">
      <a :class="category == 'Apps' && 'category-active'" @click="updateCategory('Apps')" href="#">
       <div class="item-left">
@@ -539,7 +541,7 @@ body.light-mode .video-bg:before {
 
 .side-title {
  color: $active_text;
- opacity: 0.25;
+ opacity: 0.2;
  font-weight: bold;
  margin-bottom: 14px;
 }

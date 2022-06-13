@@ -81,9 +81,9 @@ export default {
 <template>
 <div class="app">
  <div class="wrapper">
-  <div class="left-side">
+  <!--div class="left-side">
    <div class="side-wrapper">
-    <!--div class="side-title">Doodles</div-->
+    <div class="side-title">Doodles</div>
     <div class="side-menu">
      <a :class="category == 'Illustration' && 'category-active'" @click="updateCategory('Illustration')" href="#drawings">
       <div class="item-left">
@@ -103,7 +103,7 @@ export default {
      </a>
     </div>
    </div>
-  </div>
+  </div-->
   <div class="main-container">
    <div class="content-wrapper">
     <!--h1 style="color: white; font-family: 'DM Mono', monospace; font-weight: 400">{{ category }}</h1-->

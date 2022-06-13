@@ -4,7 +4,7 @@
         <h1>Hello</h1>
         <p>Thank you for visiting my site</p>
         <p>This concept started out as a smol sketch, and I had no idea what it would morph into, but it is a work in progress and has been a lot of fun to build 🌱 Your feedback is welcome!</p>
-        <br><br><br><br><br>
+        <br><br><br>
         <b>A bit about me</b>
         <ul>
             <li><span>I grew up in St. Louis, Missouri, and moved to Chicago in 2017 where I currently reside. I've been freelancing since 2018, and most recently have been re-discovering the joys of game development.</span></li>

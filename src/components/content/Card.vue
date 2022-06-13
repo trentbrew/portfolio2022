@@ -130,7 +130,7 @@ figure.card {
         padding: 15px 20px;
 		justify-content: space-between;
 		align-items: center;
-		background: black;
+		background: #1D242D;
         //backdrop-filter: $blur;
 		border-top: 1px solid #ffffff21;
 		//transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);

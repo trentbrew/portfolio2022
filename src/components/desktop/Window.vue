@@ -381,7 +381,6 @@ export default {
   backdrop-filter: $blur;
   transition: 200ms;
   border: $bordered;
-  //box-shadow: $light_shadow;
 }
 
 .window-header {
@@ -450,7 +449,7 @@ export default {
   transition: 200ms;
 }
 .active {
-  //box-shadow: $shadow;
+  box-shadow: $light_shadow;
 
   .window-title {
     color: rgba($active_text, 0.8);
@@ -472,6 +471,7 @@ export default {
   .window-body {
     pointer-events: none;
     color: rgba(white, 0.6);
+    filter: brightness(0.7);
   }
   .window-border {
     background: $inactive_window;

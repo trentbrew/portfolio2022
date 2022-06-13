@@ -1,10 +1,10 @@
 $japanese_indigo: #3b454e;
 $laptop_background: #24292E;
 
-$active_window: rgba(black, 0.4);
-$inactive_window: rgba(white, 0.1);
+$inactive_window: rgba(black, 0.25);
+$active_window: rgba(white, 0.1);
 $active_text: white;
-$inactive_text: rgba(white, 0.4);
+$inactive_text: rgba(white, 0.2);
 
 $top_height: 24px;
 $dock_height: 64px;
@@ -12,7 +12,7 @@ $dock_height: 64px;
 $ui_width: calc(100vw - 24px);
 $ui_height: calc(100vh - 24px);
 
-$bordered: solid 1px #ffffff0a;
+$bordered: solid 1px #0000000a;
 $bordered_light: solid 1px #ffffff11;
 $rad: 18px;
 
@@ -22,7 +22,7 @@ $bezel_color: black;
 $bezel_width: 12px;
 
 $shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.03), 0 22.3px 17.9px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
-$light_shadow: 0px -6px 36px 12px rgba(0,0,0,0.1);
+$light_shadow: 0px -6px 36px 12px rgba(0,0,0,0.05);
 $tight_shadow: 0px 0px 12px 6px rgba(0,0,0,0.05);
 
 $quick: 200ms;
