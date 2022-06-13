@@ -3,19 +3,21 @@
         <img id="ohai" src="../../content/animations/ohai2.gif" width="120" height="120" alt="hello">
         <h1>Hello</h1>
         <p>Thank you for visiting my site</p>
-        <p>This concept started out as a smol sketch, and I really had no idea what it would morph into.</p>
-        <p>It's a work in progress but buliding things out while improvising through the design has really been the most fun and playful experience I've had in a long time... Your feedback is welcome!</p>
-        <br>
-        <br>
+        <p>This concept started out as a smol sketch, and I had no idea what it would morph into, but it is a work in progress and has been a lot of fun to build 🌱 Your feedback is welcome!</p>
+        <br><br><br><br><br>
         <b>A bit about me</b>
-        <p>I'm a software engineer with a background in UX and game development.</p>
-        <p>When I'm not designing or coding, I can be found drawing, writing, snowboarding, or running.</p>
+        <ul>
+            <li><span>I grew up in St. Louis, Missouri, and moved to Chicago in 2017 where I currently reside. I've been freelancing since 2018, and most recently have been re-discovering the joys of game development.</span></li>
+            <li><span>When I was 11 I discovered GameMaker on our old Dell PC, and became hooked on making Sonic the Hedgehog fan games, and sharing them on what was then <i>yoyogames.com</i>. GameMaker is still around and isn't much different from how it was in 2007, but I'm having a lot of fun discovering new tools like Unity and JS game dev frameworks.</span></li>
+            <li><span>When I'm not coding I'm most likely doodling. I doodle a lot and it's become kind of a therapy for me.</span></li>
+            <li><span>I'm an INTP personality type, so it's easiest for me to find flow when I'm by myself buliding things that I'm excited about. However, I'm working towards spending more time outside my shell 🐢</span></li>
+        </ul>
         <br>
         <b>What I'm reading</b>
         <ul>
-            <a href="https://algorithmstoliveby.com/"><li><span>Peak Mind</span>: Find Your Focus, Own Your Attention</li></a>
+            <a href="https://amishi.com/books/peak-mind"><li><span>Peak Mind</span>: Find Your Focus, Own Your Attention</li></a>
             <a href="https://en.wikipedia.org/wiki/Talking_to_Strangers"><li><span>Talking to Strangers</span>: What We Should Know About People We Don't Know</li></a>
-            <a href="http://www.theannotatedturing.com/"><li><span>The Annotated Turing</span></li></a>
+            <a href="http://www.theannotatedturing.com"><li><span>The Annotated Turing</span></li></a>
         </ul><br>
         <b>My favorite stuff on the web</b>
         <ul class="faves">
@@ -23,9 +25,9 @@
             <a href="https://coolors.co"><li><span>Coolors</span> | The super fast color palettes generator</li></a>
             <a href="https://toolhunt.dev"><li><span>Toolhunt</span> | Quality Devtools</li></a>
             <a href="https://youworkforthem.com"><li><span>YouWorkForThem</span> | Creative fonts and stock art</li></a>
+            <a href="https://mnmll.ist"><li><span>Mnmllist</span> | Listing all things minimal</li></a>
             <a href="https://manuelmoreale.com"><li><span>Manu</span> | A lovely blog</li></a>
             <a href="https://minimalissimo.com"><li><span>Minimalissimo</span> | Minimalism in Design</li></a>
-            <a href="https://mnmll.ist"><li><span>Mnmllist</span> | Listing all things minimal</li></a>
             <a href="https://flow.rest"><li><span>Flow</span> | Clear your mind through expressive writing</li></a>
         </ul>
     </div>
@@ -35,12 +37,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 h1, h2, h3, b {
-    color: $japanese_indigo;
+    //color: $japanese_indigo;
+    color: black;
 }
 
 .faves {
     span {
-        font-weight: bold !important;
+        margin: 0px !important;
     }
 }
 
@@ -68,16 +71,11 @@ img {
 }
 
 p, li {
-    opacity: 0.6;
-    max-width: 500px;
+    color: #999999;
+    max-width: 550px;
 }
 
 a {
     color: black;
-}
-
-#snowboard {
-    margin-top: 32px;
-    //box-shadow: $light-shadow;
 }
 </style>

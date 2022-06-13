@@ -20,8 +20,8 @@ export default {
                     stack: ['Vue', 'Firebase'],
                     thumb: require('@/content/UX/eric/eric.gif'),
                     category: 'Websites',
-                    content: { embed: 'https://ericzzli.com' },
-                    dims: '1400x700',
+                    content: { link: 'https://ericzzli.com' },
+                    newtab: true
                 },
                 {
                     title: 'nihal.tv',
@@ -29,8 +29,8 @@ export default {
                     stack: ['Vue', 'Firebase'],
                     thumb: require('@/content/UX/nihal/nihal.gif'),
                     category: 'Websites',
-                    content: { embed: 'https://nihal.tv' },
-                    dims: '1400x700',
+                    content: { link: 'https://nihal.tv' },
+                    newtab: true
                 },
                 {
                     title: 'podular.us',
@@ -38,9 +38,17 @@ export default {
                     stack: ['Vue'],
                     thumb: require('@/content/UX/podular/podular.gif'),
                     category: 'Websites',
-                    content: { embed: 'https://podular.us' },
-                    dims: '1400x700',
+                    content: { link: 'https://podular.us' },
+                    newtab: true
                 },
+                /*{
+                    title: 'hiddengemsconsulting.com',
+                    subtitle: 'Manufacturing & Operations consultancy',
+                    stack: ['Webflow'],
+                    thumb: require('@/content/UX/hgc/hgc.gif'),
+                    category: 'Websites',
+                    wip: true
+                },*/
                 /*{
                     title: 'jiyounjun.com',
                     subtitle: 'Design portfolio',
@@ -50,15 +58,15 @@ export default {
                     content: { embed: 'https://jjytwin1004.github.io/portfolio/' },
                     dims: '1400x700',
                 },*/
-                {
+                /*{
                     title: 'Uprise Management',
-                    subtitle: 'Marketing website design prototype',
+                    subtitle: 'Prototype marketing website design',
                     stack: ['Vue'],
                     thumb: require('@/content/UX/uprise/thumb.gif'),
                     category: 'Websites',
                     content: { link: 'https://uprise-be108.web.app/' },
                     newtab: true,
-                },
+                },*/
                 {
                     title: 'Leadershipwise',
                     subtitle: 'Leadership training and development',
@@ -86,7 +94,7 @@ export default {
                     content: { link: "https://hbrc.hbrconsulting.com" },
                     newtab: true,
                 },
-                {
+                /*{
                     title: 'Raster',
                     subtitle: 'Open-source multimedia CMS',
                     stack: ['Vue', 'Firebase', 'Node'],
@@ -94,7 +102,7 @@ export default {
                     category: 'Apps',
                     content: { link: "https://github.com/trentbrew/raster" },
                     newtab: true,
-                },
+                },*/
                 {
                     title: 'GMTV',
                     subtitle: 'Vehicle auctioning and inventory management',
@@ -104,22 +112,13 @@ export default {
                     wip: true,
                 },
                 {
-                    title: 'Sonic GX',
-                    subtitle: 'Sonic platformer',
-                    stack: ['GameMaker', 'Windows'],
-                    thumb: require('@/content/games/sonic-gx/sonicgx2.gif'),
-                    category: 'Games',
-                    content: { link: 'https://gamejolt.com/games/sonicgx/689002' },
-                    newtab: true,
-                },
-                {
                     title: 'Lost Things',
                     subtitle: 'Totally not battleship',
                     stack: ['HTML5', 'JQuery'],
                     thumb: require('@/content/games/jpuzzle/puzzle.gif'),
                     category: 'Games',
-                    content: { embed: 'https://trentbrew.github.io/lost-things/' },
-                    dims: '1400x700',
+                    content: { link: 'https://trentbrew.github.io/lost-things/' },
+                    newtab: true,
                 },
                 {
                     title: 'Don\'t Touch the Walls',
@@ -147,6 +146,15 @@ export default {
                     category: 'Games',
                     content: { embed: 'https://trentbrew.github.io/solar-system-map/' },
                     dims: '1400x700',
+                },
+                {
+                    title: 'Sonic GX',
+                    subtitle: 'Sonic platformer',
+                    stack: ['GameMaker', 'Windows'],
+                    thumb: require('@/content/games/sonic-gx/sonicgx2.gif'),
+                    category: 'Games',
+                    content: { link: 'https://gamejolt.com/games/sonicgx/689002' },
+                    newtab: true,
                 },
                 {
                     title: 'Sonic Velocity',
@@ -282,7 +290,7 @@ export default {
    <div class="side-wrapper">
     <div class="side-title">Development</div>
     <div class="side-menu">
-     <a :class="category == 'Apps' && 'category-active'" @click="updateCategory('Apps')" href="#apps">
+     <a :class="category == 'Apps' && 'category-active'" @click="updateCategory('Apps')" href="#">
       <div class="item-left">
         <svg viewBox="0 0 512 512" fill="currentColor">
         <path d="M0 331v112.295a14.996 14.996 0 007.559 13.023L106 512V391L0 331zM136 391v121l105-60V331zM271 331v121l105 60V391zM406 391v121l98.441-55.682A14.995 14.995 0 00512 443.296V331l-106 60zM391 241l-115.754 57.876L391 365.026l116.754-66.15zM262.709 1.583a15.006 15.006 0 00-13.418 0L140.246 57.876 256 124.026l115.754-66.151L262.709 1.583zM136 90v124.955l105 52.5V150zM121 241L4.246 298.876 121 365.026l115.754-66.15zM271 150v117.455l105-52.5V90z" />
@@ -298,7 +306,7 @@ export default {
         Websites
       </div>
      </a>
-     <a :class="category == 'Games' && 'category-active'" @click="updateCategory('Games')" href="#games">
+     <a :class="category == 'Games' && 'category-active'" @click="updateCategory('Games')" href="#">
       <div class="item-left">
         <svg viewBox="0 0 399 396" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M125 74C125 33.1309 158.131 0 199 0C239.869 0 273 33.1309 273 74C273 106.095 252.567 133.418 224 143.671V253H327.803C367.124 253 399 284.876 399 324.197C399 363.519 367.124 395.395 327.803 395.395H71.1974C31.8762 395.395 0 363.519 0 324.197C0 284.876 31.8761 253 71.1974 253H175V144.021C145.911 134.053 125 106.469 125 74Z" />
@@ -312,7 +320,7 @@ export default {
    <div class="side-wrapper">
     <div class="side-title">Design</div>
     <div class="side-menu">
-     <a :class="category == 'Logo' && 'category-active'" @click="updateCategory('Logo')" href="#logos">
+     <a :class="category == 'Logo' && 'category-active'" @click="updateCategory('Logo')" href="#">
       <div class="item-left">
         <svg viewBox="0 0 512 512" fill="currentColor">
         <circle cx="295.099" cy="327.254" r="110.96" transform="rotate(-45 295.062 327.332)" />
@@ -357,7 +365,7 @@ export default {
    <div class="side-wrapper">
     <div class="side-title"><hr style="opacity: 0.3" /></div>
     <div class="side-menu">
-     <a :class="category == 'Resume' && 'category-active'" @click="updateCategory('Resume')" href="#resume">
+     <a :class="category == 'Resume' && 'category-active'" @click="updateCategory('Resume')" href="#">
       <div class="item-left">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M428 224H288a48 48 0 0 1-48-48V36a4 4 0 0 0-4-4h-92a64 64 0 0 0-64 64v320a64 64 0 0 0 64 64h224a64 64 0 0 0 64-64V228a4 4 0 0 0-4-4z" fill="currentColor"></path><path d="M419.22 188.59L275.41 44.78a2 2 0 0 0-3.41 1.41V176a16 16 0 0 0 16 16h129.81a2 2 0 0 0 1.41-3.41z" fill="currentColor"></path></svg>
         Resume

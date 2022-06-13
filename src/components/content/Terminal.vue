@@ -16,7 +16,7 @@ export default {
         `Hi!`,
         `My name's Trent`,
         `I'm a Software Engineer based in Chicago`,
-        `Welcome to my portfolio ^-^`,
+        `Welcome to my website ^-^`,
         `Feel free to click around & explore my work...`
       ]"
       :repeat='0'

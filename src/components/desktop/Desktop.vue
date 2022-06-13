@@ -47,16 +47,16 @@ export default {
           icon: 'folder_square.svg',
           label: 'Design & Development',
           component: Work,
-          windowWidth: 1100,
-          windowHeight: 580,
+          windowWidth: 1000,
+          windowHeight: 450,
           center: true,
         },
         {
           icon: 'doodles2.svg',
           label: 'Doodles',
           component: Art,
-          windowWidth: 1200,
-          windowHeight: 500,
+          windowWidth: 1000,
+          windowHeight: 450,
         },
         {
           icon: 'shop.svg',
@@ -115,8 +115,8 @@ export default {
       this.pushWindow({
         title: 'Design & Development',
         component: Work,
-        width: 1100,
-        height: 560,
+        width: 1000,
+        height: 450,
         center: true,
       });
     } else {
@@ -172,8 +172,8 @@ export default {
         //title: image.substring(image.indexOf('/') + 1),
         title: ' ',
         image: image,
-        width: 600,
-        height: 600,
+        width: 400,
+        height: 400,
       });
     });
     this.dockItems.forEach(item => {
@@ -237,8 +237,8 @@ export default {
       @click="() => { clicked = null; pushWindow({
         title: 'about.me',
         center: true,
-        width: 800,
-        height: 445,
+        width: 900,
+        height: 440,
         component: About
       })}"
       class="item-container absolute flex-column flex-center" 
@@ -384,10 +384,9 @@ export default {
   height: $ui_height;
   width: $ui_width;
   border-radius: $rad;
-  background-color: $laptop_background;
-  background-image: url('../../assets/wallpapers/peekaboo.png');
+  background-image: url('../../assets/wallpapers/4k_waves.png');
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat;
 }
 

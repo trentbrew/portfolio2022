@@ -6,6 +6,9 @@
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+html {
+  //filter: invert(1);
+}
 body {
   background: #BCC3C9;
   margin: 0px;
