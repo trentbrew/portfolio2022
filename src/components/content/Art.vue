@@ -334,7 +334,7 @@ body.light-mode .video-bg:before {
 }
 
 .main-container {
- background: rgba(white, 0.1);
+ background: rgba(black, 0.2);
  border-radius: 8px;
  display: flex;
  flex-direction: column;

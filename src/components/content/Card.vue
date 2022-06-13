@@ -132,7 +132,7 @@ figure.card {
 		align-items: center;
 		background: #1D242D;
         //backdrop-filter: $blur;
-		border-top: 1px solid #ffffff21;
+		border-top: 1px solid #ffffff0a;
 		//transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 		transition: 300ms ease;
         border-radius: 0px;

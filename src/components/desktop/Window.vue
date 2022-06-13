@@ -444,9 +444,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //border: $bordered_light;
   border-radius: 8px;
   transition: 200ms;
+  //border: $bordered_light;
 }
 .active {
   box-shadow: $light_shadow;
