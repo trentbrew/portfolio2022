@@ -66,7 +66,7 @@ export default {
       this.top = this.getRandomY();
     } else {
       this.left = (this.maxW / 2) - (this.initialWidth / 2);
-      this.top = (this.maxH / 2.4) - (this.initialHeight / 2);
+      this.top = (this.maxH / 2.6) - (this.initialHeight / 2);
     }
     this.$root.$on('windowSelected', id => {
       this.selectedWindow = id;
