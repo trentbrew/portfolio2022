@@ -60,7 +60,7 @@ export default {
         },
         {
           icon: 'shop.svg',
-          label: '⏳ Shop Coming Soon',
+          label: 'Shop',
           component: Shop,
           windowWidth: 600,
           windowHeight: 450,
